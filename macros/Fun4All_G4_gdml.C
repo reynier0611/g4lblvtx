@@ -65,7 +65,7 @@ R__LOAD_LIBRARY(libg4lblvtx.so)
   gun->set_mom(0, 1, 0);
   //se->registerSubsystem(gun);
   PHG4Reco* g4Reco = new PHG4Reco();
-  g4Reco->set_field(0);
+  g4Reco->set_field(1.5);
   g4Reco->save_DST_geometry(false);
   //g4Reco->SetPhysicsList("FTFP_BERT_HP");
 
