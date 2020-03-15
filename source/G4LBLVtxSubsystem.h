@@ -20,10 +20,8 @@ class PHG4SteppingAction;
 class G4LBLVtxSubsystem : public PHG4DetectorSubsystem
 {
  public:
-
-  G4LBLVtxSubsystem(const std::string &name);
+  G4LBLVtxSubsystem(const std::string& name);
   virtual ~G4LBLVtxSubsystem();
-
 
   /*!
   creates the m_Detector object and place it on the node tree, under "DETECTORS" node (or whatever)

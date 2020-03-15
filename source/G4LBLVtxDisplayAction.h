@@ -21,7 +21,7 @@ class G4LBLVtxDisplayAction : public PHG4DisplayAction
   virtual ~G4LBLVtxDisplayAction();
 
   void ApplyDisplayAction(G4VPhysicalVolume *physvol);
-  void AddLogVolume(G4LogicalVolume *vol) { m_LogVolSet.insert(vol);}
+  void AddLogVolume(G4LogicalVolume *vol) { m_LogVolSet.insert(vol); }
 
  private:
   std::vector<G4VisAttributes *> m_VisAttVec;

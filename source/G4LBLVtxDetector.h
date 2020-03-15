@@ -31,22 +31,22 @@ class G4LBLVtxDetector : public PHG4Detector
   //! construct
   void ConstructMe(G4LogicalVolume* world);
 
-  int IsInDetector(G4VPhysicalVolume *) const;
+  int IsInDetector(G4VPhysicalVolume*) const;
 
-  void SuperDetector(const std::string &name) { m_SuperDetector = name; }
+  void SuperDetector(const std::string& name) { m_SuperDetector = name; }
   const std::string SuperDetector() const { return m_SuperDetector; }
 
   void Print(const std::string& what = "ALL") const;
 
  private:
-  void SetActiveVolumes(G4VPhysicalVolume *physvol);
+  void SetActiveVolumes(G4VPhysicalVolume* physvol);
 
-  G4LBLVtxDisplayAction *m_DisplayAction;
+  G4LBLVtxDisplayAction* m_DisplayAction;
 
   std::string m_GDMPath;
   std::string m_TopVolName;
-  std::set<G4VPhysicalVolume *> m_ActivePhysVolumeMap;
-  std::set<G4VPhysicalVolume *> m_PassivePhysVolumeMap;
+  std::set<G4VPhysicalVolume*> m_ActivePhysVolumeMap;
+  std::set<G4VPhysicalVolume*> m_PassivePhysVolumeMap;
   std::set<std::string> m_ActiveVolName;
   double m_placeX;
   double m_placeY;
@@ -60,7 +60,6 @@ class G4LBLVtxDetector : public PHG4Detector
   int m_AbsorberActive;
 
   std::string m_SuperDetector;
-
 };
 
 #endif /* G4DETECTORS_G4LBLVTXDETECTOR_H */

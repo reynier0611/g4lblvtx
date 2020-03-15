@@ -3,8 +3,8 @@
 #include "G4LBLVtxDisplayAction.h"
 
 #include <g4main/PHG4Detector.h>  // for PHG4Detector
-#include "g4main/PHG4DisplayAction.h"     // for PHG4DisplayAction
 #include <g4main/PHG4Subsystem.h>
+#include "g4main/PHG4DisplayAction.h"  // for PHG4DisplayAction
 
 #include <phparameter/PHParameters.h>
 
@@ -27,7 +27,7 @@ using namespace std;
 
 G4LBLVtxDetector::G4LBLVtxDetector(PHG4Subsystem* subsys, PHCompositeNode* Node, const std::string& dnam, PHParameters* parameters)
   : PHG4Detector(subsys, Node, dnam)
-  , m_DisplayAction(dynamic_cast<G4LBLVtxDisplayAction *>(subsys->GetDisplayAction()))
+  , m_DisplayAction(dynamic_cast<G4LBLVtxDisplayAction*>(subsys->GetDisplayAction()))
   , m_GDMPath(parameters->get_string_param("GDMPath"))
   , m_TopVolName(parameters->get_string_param("TopVolName"))
   , m_placeX(parameters->get_double_param("place_x") * cm)
@@ -47,8 +47,7 @@ G4LBLVtxDetector::~G4LBLVtxDetector()
 {
 }
 
-void
-G4LBLVtxDetector::Print(const std::string& what) const
+void G4LBLVtxDetector::Print(const std::string& what) const
 {
   cout << "G4LBLVtxDetector::" << GetName() << " - import " << m_TopVolName << " from " << m_GDMPath << " with shift "
        << m_placeX << ","
@@ -85,7 +84,7 @@ void G4LBLVtxDetector::ConstructMe(G4LogicalVolume* logicWorld)
     Print();
     gSystem->Exit(1);
   }
-  PHG4Subsystem *mysys = GetMySubsystem();
+  PHG4Subsystem* mysys = GetMySubsystem();
   mysys->SetLogicalVolume(vol);
 
   G4RotationMatrix* rotm = new G4RotationMatrix();
@@ -94,50 +93,50 @@ void G4LBLVtxDetector::ConstructMe(G4LogicalVolume* logicWorld)
   rotm->rotateZ(m_rotationZ);
   G4ThreeVector placeVec(m_placeX, m_placeY, m_placeZ);
 
-   G4VPhysicalVolume *phys = new G4PVPlacement(rotm, placeVec,
-                    vol,
-                    G4String(GetName().c_str()),
-                    logicWorld, false, 0, OverlapCheck());
-   SetActiveVolumes(phys);
+  G4VPhysicalVolume* phys = new G4PVPlacement(rotm, placeVec,
+                                              vol,
+                                              G4String(GetName().c_str()),
+                                              logicWorld, false, 0, OverlapCheck());
+  SetActiveVolumes(phys);
 }
 
-void G4LBLVtxDetector::SetActiveVolumes(G4VPhysicalVolume *physvol)
+void G4LBLVtxDetector::SetActiveVolumes(G4VPhysicalVolume* physvol)
 {
-  G4LogicalVolume *logvol = physvol->GetLogicalVolume();
-  if (logvol->GetNoDaughters() == 0) // add only if no other volumes inside
+  G4LogicalVolume* logvol = physvol->GetLogicalVolume();
+  if (logvol->GetNoDaughters() == 0)  // add only if no other volumes inside
   {
     m_DisplayAction->AddLogVolume(logvol);
     string test(physvol->GetName());
     int added_to_active = 0;
-    for (set<std::string>::const_iterator iter = m_ActiveVolName.begin(); 
+    for (set<std::string>::const_iterator iter = m_ActiveVolName.begin();
          iter != m_ActiveVolName.end(); ++iter)
     {
-//      cout << "checking " << test << " for " << *iter << endl;
+      //      cout << "checking " << test << " for " << *iter << endl;
       if (test.find(*iter) != string::npos)
       {
-//	cout << "Adding " << physvol->GetName() << endl;
-	m_ActivePhysVolumeMap.insert(physvol);
-	added_to_active = 1;
+        //	cout << "Adding " << physvol->GetName() << endl;
+        m_ActivePhysVolumeMap.insert(physvol);
+        added_to_active = 1;
       }
     }
-    if (! added_to_active)
+    if (!added_to_active)
     {
       m_PassivePhysVolumeMap.insert(physvol);
     }
   }
   else
   {
-  for (int i = 0; i < logvol->GetNoDaughters(); ++i)
-  {
-    G4VPhysicalVolume *physvol = logvol->GetDaughter(i);
-// here we decide which volumes are active
-    SetActiveVolumes(physvol);
-  }
+    for (int i = 0; i < logvol->GetNoDaughters(); ++i)
+    {
+      G4VPhysicalVolume* physvol = logvol->GetDaughter(i);
+      // here we decide which volumes are active
+      SetActiveVolumes(physvol);
+    }
   }
   return;
 }
 
-int G4LBLVtxDetector::IsInDetector(G4VPhysicalVolume *physvol) const
+int G4LBLVtxDetector::IsInDetector(G4VPhysicalVolume* physvol) const
 {
   if (m_Active)
   {

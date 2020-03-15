@@ -4,7 +4,7 @@
 #include <g4main/PHG4HitContainer.h>
 
 #include <fun4all/Fun4AllHistoManager.h>
-#include <fun4all/SubsysReco.h>           // for SubsysReco
+#include <fun4all/SubsysReco.h>  // for SubsysReco
 
 #include <phool/getClass.h>
 
@@ -13,7 +13,7 @@
 #include <TNtuple.h>
 
 #include <sstream>
-#include <utility>                        // for pair
+#include <utility>  // for pair
 
 using namespace std;
 
@@ -64,15 +64,15 @@ int SimpleNtuple::process_event(PHCompositeNode *topNode)
       {
         esum += hit_iter->second->get_edep();
         m_Ntup->Fill(detid,
-                   hit_iter->second->get_layer(),
-                   hit_iter->second->get_row(),
-                   hit_iter->second->get_x(0),
-                   hit_iter->second->get_y(0),
-                   hit_iter->second->get_z(0),
-                   hit_iter->second->get_x(1),
-                   hit_iter->second->get_y(1),
-                   hit_iter->second->get_z(1),
-                   hit_iter->second->get_edep());
+                     hit_iter->second->get_layer(),
+                     hit_iter->second->get_row(),
+                     hit_iter->second->get_x(0),
+                     hit_iter->second->get_y(0),
+                     hit_iter->second->get_z(0),
+                     hit_iter->second->get_x(1),
+                     hit_iter->second->get_y(1),
+                     hit_iter->second->get_z(1),
+                     hit_iter->second->get_edep());
       }
       for (eiter = m_ElossVec.begin(); eiter != m_ElossVec.end(); ++eiter)
       {

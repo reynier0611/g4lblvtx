@@ -73,7 +73,7 @@ G4LBLVtxSteppingAction::~G4LBLVtxSteppingAction()
 
 //____________________________________________________________________________..
 bool G4LBLVtxSteppingAction::UserSteppingAction(const G4Step *aStep,
-                                                   bool was_used)
+                                                bool was_used)
 {
   G4TouchableHandle touch = aStep->GetPreStepPoint()->GetTouchableHandle();
   G4TouchableHandle touchpost = aStep->GetPostStepPoint()->GetTouchableHandle();
@@ -173,7 +173,7 @@ bool G4LBLVtxSteppingAction::UserSteppingAction(const G4Step *aStep,
     }
     else
     {
-// for the absorber we want only the energy deposition
+      // for the absorber we want only the energy deposition
       m_SaveHitContainer = m_AbsorberHitContainer;
     }
     // this is for the tracking of the truth info
@@ -327,8 +327,8 @@ void G4LBLVtxSteppingAction::SetInterfacePointers(PHCompositeNode *topNode)
   {
     cout << "G4LBLVtxSteppingAction::SetTopNode - unable to find " << hitnodename << endl;
   }
-// if absorber hits are turned off we will not find this node
-// so only print out if verbosity is enabled.
+  // if absorber hits are turned off we will not find this node
+  // so only print out if verbosity is enabled.
   if (!m_AbsorberHitContainer)
   {
     if (Verbosity() > 1)

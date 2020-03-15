@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
 #ifndef G4LBLVTXSTEPPINGACTION_H
-#define  G4LBLVTXSTEPPINGACTION_H
+#define G4LBLVTXSTEPPINGACTION_H
 
 #include <g4main/PHG4SteppingAction.h>
 
@@ -32,11 +32,10 @@ class G4LBLVtxSteppingAction : public PHG4SteppingAction
   //! pointer to the detector
   G4LBLVtxDetector* m_Detector;
 
-
   const PHParameters* m_Params;
   //! pointer to hit container
   PHG4HitContainer* m_HitContainer;
-  PHG4HitContainer *m_AbsorberHitContainer;
+  PHG4HitContainer* m_AbsorberHitContainer;
   PHG4Hit* m_Hit;
   PHG4HitContainer* m_SaveHitContainer;
 
