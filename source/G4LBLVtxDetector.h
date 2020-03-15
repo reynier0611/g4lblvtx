@@ -9,12 +9,11 @@
 #include <set>
 #include <string>
 
-class G4AssemblyVolume;
+class G4LBLVtxDisplayAction;
+
 class G4LogicalVolume;
 class G4VPhysicalVolume;
-class G4UserSteppingAction;
 
-class G4LBLVtxDisplayAction;
 class PHCompositeNode;
 class PHG4Subsystem;
 class PHParameters;

@@ -11,6 +11,7 @@
 class PHCompositeNode;
 class G4LBLVtxDetector;
 class PHG4Detector;
+class PHG4DisplayAction;
 class PHG4SteppingAction;
 
 /*!

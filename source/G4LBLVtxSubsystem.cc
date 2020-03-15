@@ -6,7 +6,11 @@
 
 #include <phparameter/PHParameters.h>
 
+#include <g4detectors/PHG4DetectorSubsystem.h>  // for PHG4DetectorSubsystem
+
+#include <g4main/PHG4DisplayAction.h>           // for PHG4DisplayAction
 #include <g4main/PHG4HitContainer.h>
+#include <g4main/PHG4SteppingAction.h>          // for PHG4SteppingAction
 
 #include <phool/PHCompositeNode.h>
 #include <phool/PHIODataNode.h>           // for PHIODataNode
@@ -18,6 +22,7 @@
 #include <boost/foreach.hpp>
 
 #include <iostream>  // for operator<<, basic_ostream, endl
+#include <set>                                  // for set
 
 using namespace std;
 

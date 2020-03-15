@@ -9,11 +9,9 @@
 #include <string>  // for string
 #include <vector>
 
-class G4Colour;
 class G4VisAttributes;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
-class PHParameters;
 
 class G4LBLVtxDisplayAction : public PHG4DisplayAction
 {
