@@ -21,17 +21,15 @@ libg4lblvtx_la_LIBADD = \
   -lg4detectors
 
 pkginclude_HEADERS = \
+  AllSiliconTrackerSubsystem.h \
   G4LBLVtxSubsystem.h \
   SimpleNtuple.h
 
-if MAKEROOT6
-else
-  ROOT5_DICTS = \
-    G4LBLVtxSubsystem_Dict.cc
-endif
-
 libg4lblvtx_la_SOURCES = \
-  $(ROOT5_DICTS) \
+  AllSiliconTrackerDetector.cc \
+  AllSiliconTrackerDisplayAction.cc \
+  AllSiliconTrackerSteppingAction.cc \
+  AllSiliconTrackerSubsystem.cc \
   G4LBLVtxDetector.cc \
   G4LBLVtxDisplayAction.cc \
   G4LBLVtxSteppingAction.cc \
@@ -55,6 +53,7 @@ noinst_PROGRAMS = \
 
 testexternals_SOURCES = \
   testexternals.cc
+
 testexternals_LDADD = \
   libg4lblvtx.la
 
