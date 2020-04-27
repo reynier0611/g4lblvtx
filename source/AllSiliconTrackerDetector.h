@@ -43,7 +43,6 @@ class AllSiliconTrackerDetector : public PHG4Detector
   PHParameters *m_Params;
 
   std::string m_GDMPath;
-  std::string m_TopVolName;
 
   // active volumes
   std::set<G4VPhysicalVolume *> m_PhysicalVolumesSet;

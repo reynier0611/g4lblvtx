@@ -5,6 +5,9 @@
 
 #include <g4detectors/PHG4DetectorSubsystem.h>
 
+#include <set>
+#include <string>
+
 class AllSiliconTrackerDetector;
 class PHCompositeNode;
 class PHG4Detector;
@@ -50,8 +53,13 @@ class AllSiliconTrackerSubsystem : public PHG4DetectorSubsystem
 
   //! Print info (from SubsysReco)
   void Print(const std::string& what = "ALL") const override;
+  void AddAssemblyVolume(const std::string &avol);
+  std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> assembly_iters() {return std::make_pair( m_AssemblyVolumeSet.begin(),  m_AssemblyVolumeSet.end());}
 
- protected:
+  void UseLogicalVolume(const std::string &name);
+  std::string UseLogicalVolume() const {return m_LogVolName;}
+
+  protected:
   // \brief Set default parameter values
   void SetDefaultParameters() override;
 
@@ -67,6 +75,9 @@ class AllSiliconTrackerSubsystem : public PHG4DetectorSubsystem
   //! display attribute setting
   /*! derives from PHG4DisplayAction */
   PHG4DisplayAction* m_DisplayAction;
+
+  std::set<std::string> m_AssemblyVolumeSet;
+  std::string m_LogVolName;
 };
 
 #endif  // ALLSILICONTRACKERSUBSYSTEM_H

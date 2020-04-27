@@ -26,6 +26,8 @@
 #include <phool/PHObject.h>
 #include <phool/getClass.h>
 
+#include <TSystem.h>
+
 using namespace std;
 
 //_______________________________________________________________________
@@ -109,6 +111,40 @@ PHG4Detector *AllSiliconTrackerSubsystem::GetDetector(void) const
 }
 
 //_______________________________________________________________________
+void AllSiliconTrackerSubsystem::AddAssemblyVolume(const std::string &avol)
+{
+  if (m_LogVolName.empty())
+  {
+    m_AssemblyVolumeSet.insert(avol);
+  }
+  else
+  {
+    cout << "Assembly Volumes and Logical Volumes cannot coexist" << endl;
+    cout << "Existing Logical Volume: " << m_LogVolName << endl;
+    gSystem->Exit(1);
+  }
+}
+
+//_______________________________________________________________________
+void AllSiliconTrackerSubsystem::UseLogicalVolume(const string &name)
+{
+  if (m_AssemblyVolumeSet.empty())
+  {
+    m_LogVolName = name;
+  }
+  else
+  {
+    cout << "Assembly Volumes and Logical Volumes cannot coexist" << endl;
+    cout << "Assembly Volumes: " << endl;
+    for (auto it = m_AssemblyVolumeSet.begin(); it != m_AssemblyVolumeSet.end(); ++it)
+    {
+      cout << *it << endl;
+    }
+    gSystem->Exit(1);
+  }
+}
+
+//_______________________________________________________________________
 void AllSiliconTrackerSubsystem::SetDefaultParameters()
 {
   // sizes are in cm
@@ -121,10 +157,6 @@ void AllSiliconTrackerSubsystem::SetDefaultParameters()
   set_default_double_param("rot_x", 0.);
   set_default_double_param("rot_y", 0.);
   set_default_double_param("rot_z", 0.);
-  set_default_double_param("size_x", 20.);
-  set_default_double_param("size_y", 20.);
-  set_default_double_param("size_z", 20.);
 
   set_default_string_param("GDMPath", "DefaultParameters-InvalidPath");
-  set_default_string_param("TopVolName", "DefaultParameters-InvalidVol");
 }

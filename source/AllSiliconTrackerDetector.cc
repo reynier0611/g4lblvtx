@@ -1,6 +1,7 @@
 #include "AllSiliconTrackerDetector.h"
 
 #include "AllSiliconTrackerDisplayAction.h"
+#include "AllSiliconTrackerSubsystem.h"
 
 #include <phparameter/PHParameters.h>
 
@@ -31,14 +32,13 @@ using namespace std;
 
 //____________________________________________________________________________..
 AllSiliconTrackerDetector::AllSiliconTrackerDetector(PHG4Subsystem *subsys,
-                                         PHCompositeNode *Node,
-                                         PHParameters *parameters,
-                                         const std::string &dnam)
+						     PHCompositeNode *Node,
+						     PHParameters *parameters,
+						     const std::string &dnam)
   : PHG4Detector(subsys, Node, dnam)
   , m_DisplayAction(dynamic_cast<AllSiliconTrackerDisplayAction *>(subsys->GetDisplayAction()))
   , m_Params(parameters)
   , m_GDMPath(parameters->get_string_param("GDMPath"))
-  , m_TopVolName(parameters->get_string_param("TopVolName"))
   , m_AbsorberActive(parameters->get_int_param("absorberactive"))
 {
 }
@@ -66,42 +66,50 @@ void AllSiliconTrackerDetector::ConstructMe(G4LogicalVolume *logicWorld)
   // print the show out, first solids:
   // for (auto i=G4SolidStore::GetInstance()->begin(); i!=G4SolidStore::GetInstance()->end(); ++i)
   //  cout << "solid vol name: " << (*i)->GetName() << endl;
-   for (auto i=G4LogicalVolumeStore::GetInstance()->begin(); i!=G4LogicalVolumeStore::GetInstance()->end(); i++)
-     cout << "logvol name " << (*i)->GetName() << endl;
+  // for (auto i=G4LogicalVolumeStore::GetInstance()->begin(); i!=G4LogicalVolumeStore::GetInstance()->end(); i++)
+  //   cout << "logvol name " << (*i)->GetName() << endl;
 
-   string assvols[] = {"VST", "FST", "BST", "BEAMPIPE"};
-   for (int ivol=0; ivol < 4; ++ivol)
-   {
-  G4AssemblyVolume *avol = reader->GetAssembly(assvols[ivol]);
-  if (!avol)
+  AllSiliconTrackerSubsystem *mysubsys = dynamic_cast<AllSiliconTrackerSubsystem *> (GetMySubsystem());
+  for (set<string>::const_iterator its=mysubsys->assembly_iters().first; its != mysubsys->assembly_iters().second;++its)
   {
-    cout << "not found" << endl;
+    G4AssemblyVolume *avol = reader->GetAssembly(*its);
+    if (!avol)
+    {
+      cout << "not found" << endl;
+      continue;
+    }
+    G4RotationMatrix *rotm = new G4RotationMatrix();
+    rotm->rotateX(m_Params->get_double_param("rot_x"));
+    rotm->rotateX(m_Params->get_double_param("rot_y"));
+    rotm->rotateX(m_Params->get_double_param("rot_z"));
+    G4ThreeVector g4vec(m_Params->get_double_param("place_x"),
+                        m_Params->get_double_param("place_y"),
+			m_Params->get_double_param("place_z")) ;
+    avol->MakeImprint(logicWorld, g4vec, rotm, 0, OverlapCheck());
+    vector<G4VPhysicalVolume *>::iterator it = avol->GetVolumesIterator();
+    for (unsigned int i = 0; i < avol->TotalImprintedVolumes(); i++)
+    {
+      InsertVolumes(*it);
+      ++it;
+    }
   }
+  if (! mysubsys->UseLogicalVolume().empty())
+  {
 
-  G4RotationMatrix *Rot = new G4RotationMatrix();
-  G4ThreeVector g4vec;
-  avol->MakeImprint(logicWorld, g4vec, Rot, 0, OverlapCheck());
-  vector<G4VPhysicalVolume *>::iterator it = avol->GetVolumesIterator();
-  for (unsigned int i = 0; i < avol->TotalImprintedVolumes(); i++)
-  {
-    InsertVolumes(*it);
-    ++it;
-  }
-   }
-/*
-  G4LogicalVolume* vol = reader->GetVolume(m_TopVolName);
+  G4LogicalVolume* vol = reader->GetVolume(mysubsys->UseLogicalVolume());
   G4RotationMatrix* rotm = new G4RotationMatrix();
-  // rotm->rotateX(m_rotationX);
-  // rotm->rotateY(m_rotationY);
-  // rotm->rotateZ(m_rotationZ);
-  // G4ThreeVector placeVec(m_placeX, m_placeY, m_placeZ);
-
-  G4VPhysicalVolume* phys = new G4PVPlacement(rotm, G4ThreeVector(0,0,0),
+    rotm->rotateX(m_Params->get_double_param("rot_x"));
+    rotm->rotateX(m_Params->get_double_param("rot_y"));
+    rotm->rotateX(m_Params->get_double_param("rot_z"));
+    G4ThreeVector g4vec(m_Params->get_double_param("place_x"),
+                        m_Params->get_double_param("place_y"),
+			m_Params->get_double_param("place_z")) ;
+  G4VPhysicalVolume* phys = new G4PVPlacement(rotm, g4vec,
                                               vol,
                                               G4String(GetName().c_str()),
                                               logicWorld, false, 0, OverlapCheck());
   InsertVolumes(phys);
-*/  
+  }
   return;
 }
 
