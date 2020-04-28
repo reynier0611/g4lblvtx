@@ -41,8 +41,6 @@ void AllSiliconTrackerDisplayAction::ApplyDisplayAction(G4VPhysicalVolume *physv
     //    cout << "mat: " << it->GetMaterial()->GetName() << endl;
     G4VisAttributes *VisAtt = new G4VisAttributes();
     m_VisAttVec.push_back(VisAtt);
-    VisAtt->SetVisibility(false);
-    VisAtt->SetForceSolid(false);
     VisAtt->SetVisibility(true);
     VisAtt->SetForceSolid(true);
     if (it->GetMaterial()->GetName().find("air") != string::npos)
@@ -64,8 +62,6 @@ void AllSiliconTrackerDisplayAction::ApplyDisplayAction(G4VPhysicalVolume *physv
     }
     else if (it->GetMaterial()->GetName().find("silicon") != string::npos)
     {
-      VisAtt->SetVisibility(true);
-      VisAtt->SetForceSolid(true);
       VisAtt->SetColour(G4Colour::Cyan());
     }
     else if (it->GetMaterial()->GetName().find("aluminum") != string::npos)
@@ -74,23 +70,7 @@ void AllSiliconTrackerDisplayAction::ApplyDisplayAction(G4VPhysicalVolume *physv
     }
     else if (it->GetMaterial()->GetName().find("beryllium") != string::npos)
     {
-      VisAtt->SetColour(G4Colour::Blue());
-    }
-    else if (it->GetName().find("Beampipe") != string::npos)
-    {
-      VisAtt->SetColour(G4Colour::Blue());
-    }
-    else if (it->GetName().find("Bst") != string::npos)
-    {
-      VisAtt->SetColour(G4Colour::Green());
-    }
-    else if (it->GetName().find("Vst") != string::npos)
-    {
-      VisAtt->SetColour(G4Colour::Cyan());
-    }
-    else if (it->GetName().find("Fst") != string::npos)
-    {
-      VisAtt->SetColour(G4Colour::Cyan());
+      VisAtt->SetColour(G4Colour::Red());
     }
     else
     {
