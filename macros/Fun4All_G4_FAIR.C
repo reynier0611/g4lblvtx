@@ -1,4 +1,4 @@
-#if ROOT_VERSION_CODE >= ROOT_VERSION(6,00,0)
+#pragma once
 #include <fun4all/SubsysReco.h>
 #include <fun4all/Fun4AllServer.h>
 #include <fun4all/Fun4AllInputManager.h>
@@ -24,18 +24,12 @@ R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
 R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libeicdetectors.so)
-#endif
 
 
-  void Fun4All_G4_FAIR(
-    int nEvents = -1
-    )
+void Fun4All_G4_FAIR(
+  int nEvents = -1
+  )
 {
-
-  gSystem->Load("libfun4all");
-  gSystem->Load("libg4detectors");
-  gSystem->Load("libg4testbench");
-  gSystem->Load("libg4histos");
 
   ///////////////////////////////////////////
   // Make the Server
@@ -48,7 +42,7 @@ R__LOAD_LIBRARY(libeicdetectors.so)
   recoConsts *rc = recoConsts::instance();
   rc->set_IntFlag("RANDOMSEED",12345);
   PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
-  gen->set_name("e-");
+  gen->set_name("geantino");
   gen->set_vtx(0, 0, 0);
   //  gen->set_eta_range(0.297, 0.303);
   gen->set_mom_range(1.0, 1.0);
@@ -69,14 +63,14 @@ R__LOAD_LIBRARY(libeicdetectors.so)
   g4Reco->save_DST_geometry(false);
   //g4Reco->SetPhysicsList("FTFP_BERT_HP");
 
-    AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
-    allsili->set_string_param("GDMPath","FAIRGeom.gdml");
+  AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
+  allsili->set_string_param("GDMPath","FAIRGeom.gdml");
 
 
-     allsili->AddAssemblyVolume("VST");
-     allsili->AddAssemblyVolume("FST");
-     allsili->AddAssemblyVolume("BST");
-     allsili->AddAssemblyVolume("BEAMPIPE");
+  allsili->AddAssemblyVolume("VST");
+  allsili->AddAssemblyVolume("FST");
+  allsili->AddAssemblyVolume("BST");
+  allsili->AddAssemblyVolume("BEAMPIPE");
 
 
 // this is for plotting single logical volumes for debugging
@@ -87,11 +81,11 @@ R__LOAD_LIBRARY(libeicdetectors.so)
 //allsili->AddLogicalVolume("FstContainerVolume00");
 //    allsili->AddLogicalVolume("FstChipAssembly37");
 //allsili->AddLogicalVolume("VstStave00");
-    allsili->SuperDetector("LBLVTX");
+  allsili->SuperDetector("LBLVTX");
 
-    allsili->SetActive(); // this saves hits in the MimosaCore volumes
-    allsili->SetAbsorberActive(); // this saves hits in all volumes (in the absorber node)
-    g4Reco->registerSubsystem(allsili);
+  allsili->SetActive(); // this saves hits in the MimosaCore volumes
+  allsili->SetAbsorberActive(); // this saves hits in all volumes (in the absorber node)
+  g4Reco->registerSubsystem(allsili);
 
   // PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
   // g4Reco->registerSubsystem(truth);
@@ -130,4 +124,3 @@ R__LOAD_LIBRARY(libeicdetectors.so)
   gSystem->Exit(0);
 
 }
-
