@@ -23,7 +23,7 @@
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
 R__LOAD_LIBRARY(libg4lblvtx.so)
-R__LOAD_LIBRARY(libeicdetectors.so)
+//R__LOAD_LIBRARY(libeicdetectors.so)
 
 
 void Fun4All_G4_FAIR(
