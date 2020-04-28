@@ -56,8 +56,8 @@ class AllSiliconTrackerSubsystem : public PHG4DetectorSubsystem
   void AddAssemblyVolume(const std::string &avol);
   std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> assembly_iters() {return std::make_pair( m_AssemblyVolumeSet.begin(),  m_AssemblyVolumeSet.end());}
 
-  void UseLogicalVolume(const std::string &name);
-  std::string UseLogicalVolume() const {return m_LogVolName;}
+    void AddLogicalVolume(const std::string &name);
+    std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> logvol_iters() {return std::make_pair(  m_LogVolumeSet.begin(),   m_LogVolumeSet.end());}
 
   protected:
   // \brief Set default parameter values
@@ -77,7 +77,7 @@ class AllSiliconTrackerSubsystem : public PHG4DetectorSubsystem
   PHG4DisplayAction* m_DisplayAction;
 
   std::set<std::string> m_AssemblyVolumeSet;
-  std::string m_LogVolName;
+  std::set<std::string> m_LogVolumeSet;
 };
 
 #endif  // ALLSILICONTRACKERSUBSYSTEM_H

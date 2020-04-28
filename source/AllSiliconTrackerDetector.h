@@ -5,6 +5,7 @@
 
 #include <g4main/PHG4Detector.h>
 
+#include <map>
 #include <set>
 #include <string>  // for string
 
@@ -38,17 +39,20 @@ class AllSiliconTrackerDetector : public PHG4Detector
   const std::string SuperDetector() const { return m_SuperDetector; }
 
  private:
-  void InsertVolumes(G4VPhysicalVolume *physvol);
+  enum {insertassemblies = 1, insertlogicalvolumes = 2};
+  void InsertVolumes(G4VPhysicalVolume *physvol, const int flag);
   AllSiliconTrackerDisplayAction *m_DisplayAction;
   PHParameters *m_Params;
 
   std::string m_GDMPath;
 
-  // active volumes
-  std::set<G4VPhysicalVolume *> m_PhysicalVolumesSet;
-
   std::string m_SuperDetector;
+  int m_Active;
   int m_AbsorberActive;
+
+  // active volumes
+  std::map<G4VPhysicalVolume *, int> m_ActivePhysicalVolumesSet;
+  std::map<G4VPhysicalVolume *, int> m_PassivePhysicalVolumesSet;
 };
 
 #endif  // ALLSILICONTRACKERDETECTOR_H

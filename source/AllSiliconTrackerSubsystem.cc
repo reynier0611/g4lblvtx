@@ -59,22 +59,42 @@ int AllSiliconTrackerSubsystem::InitRunSubsystem(PHCompositeNode *topNode)
   PHNodeIterator dstIter(dstNode);
   if (GetParams()->get_int_param("active"))
   {
-    PHCompositeNode *DetNode = dynamic_cast<PHCompositeNode *>(dstIter.findFirst("PHCompositeNode", Name()));
+    set<string> nodes;
+    string myname;
+    if (SuperDetector() != "NONE")
+    {
+      myname = SuperDetector();
+    }
+    else
+    {
+      myname = Name();
+    }
+    PHCompositeNode *DetNode = dynamic_cast<PHCompositeNode *>(dstIter.findFirst("PHCompositeNode", myname));
     if (!DetNode)
     {
-      DetNode = new PHCompositeNode(Name());
+      DetNode = new PHCompositeNode(myname);
       dstNode->addNode(DetNode);
     }
-    string g4hitnodename = "G4HIT_" + Name();
-    PHG4HitContainer *g4_hits = findNode::getClass<PHG4HitContainer>(DetNode, g4hitnodename);
-    if (!g4_hits)
+    string g4hitnodename = "G4HIT_" + myname;
+    nodes.insert(g4hitnodename);
+    if (GetParams()->get_int_param("absorberactive"))
     {
-      g4_hits = new PHG4HitContainer(g4hitnodename);
-      DetNode->addNode(new PHIODataNode<PHObject>(g4_hits, g4hitnodename, "PHObject"));
+      g4hitnodename = "G4HIT_ABSORBER_" + myname;
+      nodes.insert(g4hitnodename);
+    }
+    for (auto nodename : nodes)
+    {
+      PHG4HitContainer *g4_hits = findNode::getClass<PHG4HitContainer>(DetNode, nodename);
+      if (!g4_hits)
+      {
+	g4_hits = new PHG4HitContainer(nodename);
+	DetNode->addNode(new PHIODataNode<PHObject>(g4_hits, nodename, "PHObject"));
+      }
     }
   }
   // create detector
   m_Detector = new AllSiliconTrackerDetector(this, topNode, GetParams(), Name());
+  m_Detector->SuperDetector(SuperDetector());
   m_Detector->OverlapCheck(CheckOverlap());
   // create stepping action if detector is active
   if (GetParams()->get_int_param("active"))
@@ -113,24 +133,28 @@ PHG4Detector *AllSiliconTrackerSubsystem::GetDetector(void) const
 //_______________________________________________________________________
 void AllSiliconTrackerSubsystem::AddAssemblyVolume(const std::string &avol)
 {
-  if (m_LogVolName.empty())
+  if (m_LogVolumeSet.empty())
   {
     m_AssemblyVolumeSet.insert(avol);
   }
   else
   {
     cout << "Assembly Volumes and Logical Volumes cannot coexist" << endl;
-    cout << "Existing Logical Volume: " << m_LogVolName << endl;
+    cout << "Existing Logical Volumes: " << endl;
+    for (auto it = m_LogVolumeSet.begin(); it != m_LogVolumeSet.end(); ++it)
+    {
+      cout << *it << endl;
+    }
     gSystem->Exit(1);
   }
 }
 
 //_______________________________________________________________________
-void AllSiliconTrackerSubsystem::UseLogicalVolume(const string &name)
+void AllSiliconTrackerSubsystem::AddLogicalVolume(const string &name)
 {
   if (m_AssemblyVolumeSet.empty())
   {
-    m_LogVolName = name;
+    m_LogVolumeSet.insert(name);
   }
   else
   {

@@ -47,6 +47,7 @@ AllSiliconTrackerSteppingAction::AllSiliconTrackerSteppingAction(AllSiliconTrack
   , m_Detector(detector)
   , m_Params(parameters)
   , m_HitContainer(nullptr)
+  , m_AbsorberHitContainer(nullptr)
   , m_Hit(nullptr)
   , m_SaveHitContainer(nullptr)
   , m_SaveVolPre(nullptr)
@@ -54,7 +55,6 @@ AllSiliconTrackerSteppingAction::AllSiliconTrackerSteppingAction(AllSiliconTrack
   , m_SaveTrackId(-1)
   , m_SavePreStepStatus(-1)
   , m_SavePostStepStatus(-1)
-  , m_ActiveFlag(m_Params->get_int_param("active"))
   , m_BlackHoleFlag(m_Params->get_int_param("blackhole"))
   , m_EdepSum(0)
 {
@@ -97,38 +97,9 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
     G4Track *killtrack = const_cast<G4Track *>(aTrack);
     killtrack->SetTrackStatus(fStopAndKill);
   }
-  // we use here only one detector in this simple example
-  // if you deal with multiple detectors in this stepping action
-  // the detector id can be used to distinguish between them
-  // hits can easily be analyzed later according to their detector id
-  int detector_id = -1;  // we use here only one detector in this simple example
-  if (volume->GetName().find("Coil") != string::npos)
-  {
-    for (int i = 0; i <= 4; i++)
-    {
-      if (volume->GetName().find(to_string(i)) != string::npos)
-      {
-        detector_id = i;
-        break;
-      }
-    }
-  }
-  else if (volume->GetName().find("CryostatHe") != string::npos)
-  {
-    detector_id = 5;
-  }
-  else if (volume->GetName().find("CryostatAl") != string::npos)
-  {
-    detector_id = 6;
-  }
-  else if (volume->GetName().find("Yoke") != string::npos)
-  {
-    detector_id = 7;
-  }
-  else
-  {
-    cout << "cannot extract detector id from " << volume->GetName() << endl;
-  }
+  int detector_id = whichactive;  // the detector id is coded into the IsInDetector return
+    cout << "Name: " << volume->GetName() << endl;
+    cout << "det id: " << whichactive << endl;
   bool geantino = false;
   // the check for the pdg code speeds things up, I do not want to make
   // an expensive string compare for every track when we know
@@ -213,8 +184,7 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
     }
     else
     {
-      cout << "implement stuff for whichactive < 0 (inactive volumes)" << endl;
-      gSystem->Exit(1);
+      m_SaveHitContainer = m_AbsorberHitContainer;
     }
     // this is for the tracking of the truth info
     if (G4VUserTrackInformation *p = aTrack->GetUserInformation())
@@ -336,7 +306,12 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
 //____________________________________________________________________________..
 void AllSiliconTrackerSteppingAction::SetInterfacePointers(PHCompositeNode *topNode)
 {
-  string hitnodename = "G4HIT_" + m_Detector->GetName();
+  string myname = m_Detector->SuperDetector();
+  if (myname == "NONE")
+  {
+    myname = m_Detector->GetName();
+  }
+  string hitnodename = "G4HIT_" + myname;
   // now look for the map and grab a pointer to it.
   m_HitContainer = findNode::getClass<PHG4HitContainer>(topNode, hitnodename);
   // if we do not find the node we need to make it.
@@ -345,4 +320,14 @@ void AllSiliconTrackerSteppingAction::SetInterfacePointers(PHCompositeNode *topN
     std::cout << "AllSiliconTrackerSteppingAction::SetTopNode - unable to find "
               << hitnodename << std::endl;
   }
+  hitnodename = "G4HIT_ABSORBER_" + myname;
+ m_AbsorberHitContainer = findNode::getClass<PHG4HitContainer>(topNode, hitnodename);
+ if (! m_AbsorberHitContainer)
+ {
+    if (Verbosity() > 1)
+    {
+      cout << "AllSiliconTrackerSteppingAction::SetTopNode - unable to find " << hitnodename << endl;
+    }
+  }
+
 }
