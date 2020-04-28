@@ -38,7 +38,7 @@ void AllSiliconTrackerDisplayAction::ApplyDisplayAction(G4VPhysicalVolume *physv
       continue;
     }
 
-//    cout << "mat: " << it->GetMaterial()->GetName() << endl;
+    //    cout << "mat: " << it->GetMaterial()->GetName() << endl;
     G4VisAttributes *VisAtt = new G4VisAttributes();
     m_VisAttVec.push_back(VisAtt);
     VisAtt->SetVisibility(false);
@@ -47,8 +47,8 @@ void AllSiliconTrackerDisplayAction::ApplyDisplayAction(G4VPhysicalVolume *physv
     VisAtt->SetForceSolid(true);
     if (it->GetMaterial()->GetName().find("air") != string::npos)
     {
-    VisAtt->SetVisibility(false);
-    VisAtt->SetForceSolid(false);
+      VisAtt->SetVisibility(false);
+      VisAtt->SetForceSolid(false);
     }
     else if (it->GetMaterial()->GetName().find("CarbonFiber") != string::npos)
     {
@@ -64,8 +64,8 @@ void AllSiliconTrackerDisplayAction::ApplyDisplayAction(G4VPhysicalVolume *physv
     }
     else if (it->GetMaterial()->GetName().find("silicon") != string::npos)
     {
-    VisAtt->SetVisibility(true);
-    VisAtt->SetForceSolid(true);
+      VisAtt->SetVisibility(true);
+      VisAtt->SetForceSolid(true);
       VisAtt->SetColour(G4Colour::Cyan());
     }
     else if (it->GetMaterial()->GetName().find("aluminum") != string::npos)

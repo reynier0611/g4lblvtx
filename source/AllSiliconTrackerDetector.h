@@ -39,7 +39,11 @@ class AllSiliconTrackerDetector : public PHG4Detector
   const std::string SuperDetector() const { return m_SuperDetector; }
 
  private:
-  enum {insertassemblies = 1, insertlogicalvolumes = 2};
+  enum
+  {
+    insertassemblies = 1,
+    insertlogicalvolumes = 2
+  };
   void InsertVolumes(G4VPhysicalVolume *physvol, const int flag);
   AllSiliconTrackerDisplayAction *m_DisplayAction;
   PHParameters *m_Params;

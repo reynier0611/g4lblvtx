@@ -98,8 +98,8 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
     killtrack->SetTrackStatus(fStopAndKill);
   }
   int detector_id = whichactive;  // the detector id is coded into the IsInDetector return
-    cout << "Name: " << volume->GetName() << endl;
-    cout << "det id: " << whichactive << endl;
+  cout << "Name: " << volume->GetName() << endl;
+  cout << "det id: " << whichactive << endl;
   bool geantino = false;
   // the check for the pdg code speeds things up, I do not want to make
   // an expensive string compare for every track when we know
@@ -321,13 +321,12 @@ void AllSiliconTrackerSteppingAction::SetInterfacePointers(PHCompositeNode *topN
               << hitnodename << std::endl;
   }
   hitnodename = "G4HIT_ABSORBER_" + myname;
- m_AbsorberHitContainer = findNode::getClass<PHG4HitContainer>(topNode, hitnodename);
- if (! m_AbsorberHitContainer)
- {
+  m_AbsorberHitContainer = findNode::getClass<PHG4HitContainer>(topNode, hitnodename);
+  if (!m_AbsorberHitContainer)
+  {
     if (Verbosity() > 1)
     {
       cout << "AllSiliconTrackerSteppingAction::SetTopNode - unable to find " << hitnodename << endl;
     }
   }
-
 }

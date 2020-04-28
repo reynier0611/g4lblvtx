@@ -53,13 +53,13 @@ class AllSiliconTrackerSubsystem : public PHG4DetectorSubsystem
 
   //! Print info (from SubsysReco)
   void Print(const std::string& what = "ALL") const override;
-  void AddAssemblyVolume(const std::string &avol);
-  std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> assembly_iters() {return std::make_pair( m_AssemblyVolumeSet.begin(),  m_AssemblyVolumeSet.end());}
+  void AddAssemblyVolume(const std::string& avol);
+  std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> assembly_iters() { return std::make_pair(m_AssemblyVolumeSet.begin(), m_AssemblyVolumeSet.end()); }
 
-    void AddLogicalVolume(const std::string &name);
-    std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> logvol_iters() {return std::make_pair(  m_LogVolumeSet.begin(),   m_LogVolumeSet.end());}
+  void AddLogicalVolume(const std::string& name);
+  std::pair<std::set<std::string>::const_iterator, std::set<std::string>::const_iterator> logvol_iters() { return std::make_pair(m_LogVolumeSet.begin(), m_LogVolumeSet.end()); }
 
-  protected:
+ protected:
   // \brief Set default parameter values
   void SetDefaultParameters() override;
 

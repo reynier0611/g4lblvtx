@@ -87,8 +87,8 @@ int AllSiliconTrackerSubsystem::InitRunSubsystem(PHCompositeNode *topNode)
       PHG4HitContainer *g4_hits = findNode::getClass<PHG4HitContainer>(DetNode, nodename);
       if (!g4_hits)
       {
-	g4_hits = new PHG4HitContainer(nodename);
-	DetNode->addNode(new PHIODataNode<PHObject>(g4_hits, nodename, "PHObject"));
+        g4_hits = new PHG4HitContainer(nodename);
+        DetNode->addNode(new PHIODataNode<PHObject>(g4_hits, nodename, "PHObject"));
       }
     }
   }
