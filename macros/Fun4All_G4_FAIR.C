@@ -49,14 +49,12 @@ R__LOAD_LIBRARY(libeicdetectors.so)
   rc->set_IntFlag("RANDOMSEED",12345);
   PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
   gen->set_name("e-");
-  gen->set_vtx(0, -1, 0);
+  gen->set_vtx(0, 0, 0);
   //  gen->set_eta_range(0.297, 0.303);
-  gen->set_mom_range(1.0, 10.0);
+  gen->set_mom_range(1.0, 1.0);
   gen->set_z_range(0.,0.);
-// this eta/phi range roughly covers the stave 
-// the corners are still outside this guarantees that the stave gets hit every time)
-  gen->set_eta_range(-3.3, 3.3);
-  gen->set_phi_range(60./180.*TMath::Pi(),120./180.*TMath::Pi());
+  gen->set_eta_range(-3.3, 3.3); // not sure about the eta range
+  gen->set_phi_range(0./180.*TMath::Pi(),360./180.*TMath::Pi());
   se->registerSubsystem(gen);
 
   PHG4ParticleGun *gun = new PHG4ParticleGun();
@@ -71,19 +69,29 @@ R__LOAD_LIBRARY(libeicdetectors.so)
   g4Reco->save_DST_geometry(false);
   //g4Reco->SetPhysicsList("FTFP_BERT_HP");
 
-    AllSiliconTrackerSubsystem *beast = new AllSiliconTrackerSubsystem();
-    beast->set_string_param("GDMPath","FAIRGeom.gdml");
-    beast->set_string_param("TopVolName","cave");
-//    beast->SetActive(magnet_active);
-    beast->SuperDetector("LBLVTX");
-    g4Reco->registerSubsystem(beast);
-  // gdml->set_string_param("GDMPath","BeastSolenoid2.gdml");
-  // gdml->set_string_param("TopVolName","SOLENOID");
-  // gdml->set_string_param("TopVolName","Yoke_0");
-  // gdml->SetActive();
-  // gdml->SetAbsorberActive();
-  // gdml->SuperDetector("LBLVTX");
-//  g4Reco->registerSubsystem(beast);
+    AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
+    allsili->set_string_param("GDMPath","FAIRGeom.gdml");
+
+
+     allsili->AddAssemblyVolume("VST");
+     allsili->AddAssemblyVolume("FST");
+     allsili->AddAssemblyVolume("BST");
+     allsili->AddAssemblyVolume("BEAMPIPE");
+
+
+// this is for plotting single logical volumes for debugging
+// and geantino scanning they end up at the center, you can plot multiple 
+// but they end up on top of each other. They cannot coexist with the
+// assembly volumes, the code will quit if you try to use both
+//    allsili->AddLogicalVolume("BstContainerVolume04");
+//allsili->AddLogicalVolume("FstContainerVolume00");
+//    allsili->AddLogicalVolume("FstChipAssembly37");
+//allsili->AddLogicalVolume("VstStave00");
+    allsili->SuperDetector("LBLVTX");
+
+    allsili->SetActive(); // this saves hits in the MimosaCore volumes
+    allsili->SetAbsorberActive(); // this saves hits in all volumes (in the absorber node)
+    g4Reco->registerSubsystem(allsili);
 
   // PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
   // g4Reco->registerSubsystem(truth);
@@ -91,8 +99,8 @@ R__LOAD_LIBRARY(libeicdetectors.so)
   se->registerSubsystem( g4Reco );
 
   SimpleNtuple *hits = new SimpleNtuple("Hits");
-  hits->AddNode("LBLVTX",0);
-  hits->AddNode("ABSORBER_LBLVTX",1);
+  hits->AddNode("LBLVTX",0); // hits in the  MimosaCore volumes
+  hits->AddNode("ABSORBER_LBLVTX",1); // hits in the passive volumes
   se->registerSubsystem(hits);
 
 
