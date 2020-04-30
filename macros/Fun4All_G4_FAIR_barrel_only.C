@@ -31,7 +31,10 @@ R__LOAD_LIBRARY(libg4lblvtx.so)
 //R__LOAD_LIBRARY(libeicdetectors.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
 
-void Fun4All_G4_FAIR_barrel_only(int nEvents = -1){
+void Fun4All_G4_FAIR_barrel_only(
+	int nEvents = -1,
+	const char *outputFile = "barrel_only"
+){
 
 	bool use_particle_gen = true;
 	bool use_particle_gun = false;
@@ -129,7 +132,7 @@ void Fun4All_G4_FAIR_barrel_only(int nEvents = -1){
 
 	// ======================================================================================================
 	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
-        fast_sim_eval->set_filename("FastTrackingEval.root");
+        fast_sim_eval->set_filename(TString(outputFile)+"_FastTrackingEval.root");
         se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
