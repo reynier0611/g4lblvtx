@@ -47,10 +47,7 @@ void Fun4All_G4_FAIR_barrel_only(
 	Fun4AllServer *se = Fun4AllServer::instance();
 
 	recoConsts *rc = recoConsts::instance();
-	rc->set_IntFlag("RANDOMSEED",12345);
-	cout << "********************************" << endl;
-	cout << "WARNING: RANDOMSEED SET TO 12345" << endl; // <=============================================================================
-	cout << "********************************" << endl;
+	//rc->set_IntFlag("RANDOMSEED",12345);
 	
 	// ======================================================================================================
 	// Particle Generator Setup
@@ -88,7 +85,7 @@ void Fun4All_G4_FAIR_barrel_only(
 	// The two lines below are commented out until we have the necessary code to get the forward and backward regions working
 	// allsili->AddAssemblyVolume("FST");
 	// allsili->AddAssemblyVolume("BST");
-	// allsili->AddAssemblyVolume("BEAMPIPE");
+	allsili->AddAssemblyVolume("BEAMPIPE");
 
 	// this is for plotting single logical volumes for debugging
 	// and geantino scanning they end up at the center, you can plot multiple 
