@@ -1,3 +1,10 @@
-# g4lblvtx
+This code corresponds to an implementation of the tapered All-Silicon Tracker design described [here](https://indico.bnl.gov/event/7892/contributions/36938/attachments/27856/42740/20200430-EICUG_Tracking_WG_-_eRD16.pdf) into the Fun4All framework.
 
-Some example how to read a gdml file into Fun4All with marking some volumes active, the rest as absorbers
+# Getting Started
+1. The code was originally ran inside a Singularity container, which can be found here:
+https://github.com/sPHENIX-Collaboration/Singularity
+One needs to run ./updatebuild.sh and follow the steps in the README of that repo.
+
+2. The code needs to built and installed with Fun4All, as outlined here: https://wiki.bnl.gov/sPHENIX/index.php/Example_of_using_DST_nodes. References to <sourcedir> for this repository mean `g4lblvtx/src/ `, where one should see the autogen.sh file. Create a `build` and `install` directory (I suggest in the same directory that holds this repo) and follow the instructions under the "Building a package" section from the link.
+
+# Running a batch job on Cori
