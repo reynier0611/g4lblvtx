@@ -5,6 +5,15 @@ This code corresponds to an implementation of the tapered All-Silicon Tracker de
 https://github.com/sPHENIX-Collaboration/Singularity
 One needs to run ./updatebuild.sh and follow the steps in the README of that repo.
 
-2. The code needs to built and installed with Fun4All, as outlined here: https://wiki.bnl.gov/sPHENIX/index.php/Example_of_using_DST_nodes. References to <sourcedir> for this repository mean `g4lblvtx/src/ `, where one should see the autogen.sh file. Create a `build` and `install` directory (I suggest in the same directory that holds this repo) and follow the instructions under the "Building a package" section from the link.
+2. The code needs to built and installed with Fun4All, as outlined here: https://wiki.bnl.gov/sPHENIX/index.php/Example_of_using_DST_nodes. References to <sourcedir> for this repository mean `g4lblvtx/src/`, where one should see the autogen.sh file. Create a `build` and `install` directory (I suggest in the same directory that holds this repo) and follow the instructions under the "Building a package" section from the link.
 
 # Running a batch job on Cori
+From outside the container:
+1. `cd cori_batch`.
+2. Edit the `run_shared.sh` script.
+3. Run `sbatch run_shared.sh`
+
+To check the status of your job:
+1. On your internet browser, go to: [https://my.nersc.gov/](https://my.nersc.gov/).
+2. Login using your Nersc credentials.
+3. Go to the tab `Cori Queues`.
