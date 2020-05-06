@@ -51,15 +51,15 @@ AllSiliconTrackerSubsystem::~AllSiliconTrackerSubsystem()
 //_______________________________________________________________________
 int AllSiliconTrackerSubsystem::InitRunSubsystem(PHCompositeNode *topNode)
 {
-//  PHNodeIterator iter(topNode);
-//  PHCompositeNode *dstNode = dynamic_cast<PHCompositeNode *>(iter.findFirst("PHCompositeNode", "DST"));
+  //  PHNodeIterator iter(topNode);
+  //  PHCompositeNode *dstNode = dynamic_cast<PHCompositeNode *>(iter.findFirst("PHCompositeNode", "DST"));
   // create display settings before detector
   m_DisplayAction = new AllSiliconTrackerDisplayAction(Name());
   // create detector
   m_Detector = new AllSiliconTrackerDetector(this, topNode, GetParams(), Name());
   m_Detector->SuperDetector(SuperDetector());
   m_Detector->OverlapCheck(CheckOverlap());
-/*
+  /*
   PHNodeIterator dstIter(dstNode);
   if (GetParams()->get_int_param("active"))
   {

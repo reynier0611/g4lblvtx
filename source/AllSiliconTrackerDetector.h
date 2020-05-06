@@ -39,7 +39,6 @@ class AllSiliconTrackerDetector : public PHG4Detector
   void SuperDetector(const std::string &name) { m_SuperDetector = name; }
   const std::string SuperDetector() const { return m_SuperDetector; }
 
-
   int get_detid(const G4VPhysicalVolume *physvol, const int whichactive);
   PHG4HitContainer *get_hitcontainer(const int i);
 
@@ -63,7 +62,7 @@ class AllSiliconTrackerDetector : public PHG4Detector
   // active volumes
   std::map<const G4VPhysicalVolume *, int> m_ActivePhysicalVolumesSet;
   std::map<const G4VPhysicalVolume *, int> m_PassivePhysicalVolumesSet;
-  
+
   std::map<int, PHG4HitContainer *> m_HitContainerMap;
 };
 
