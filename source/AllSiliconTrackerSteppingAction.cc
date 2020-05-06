@@ -97,9 +97,9 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
     G4Track *killtrack = const_cast<G4Track *>(aTrack);
     killtrack->SetTrackStatus(fStopAndKill);
   }
-  int detector_id = whichactive;  // the detector id is coded into the IsInDetector return
-  cout << "Name: " << volume->GetName() << endl;
-  cout << "det id: " << whichactive << endl;
+  int detector_id =  m_Detector->get_detid(volume,whichactive);  // the detector id is coded into the IsInDetector return
+  // cout << "Name: " << volume->GetName() << endl;
+  // cout << "det id: " << whichactive << endl;
   bool geantino = false;
   // the check for the pdg code speeds things up, I do not want to make
   // an expensive string compare for every track when we know
@@ -180,11 +180,12 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
     // value at the last step in this volume later one
     if (whichactive > 0)
     {
-      m_SaveHitContainer = m_HitContainer;
+      m_SaveHitContainer =  m_Detector->get_hitcontainer(detector_id);
     }
     else
     {
-      m_SaveHitContainer = m_AbsorberHitContainer;
+     // all absorber hits go into one node
+      m_SaveHitContainer =  m_Detector->get_hitcontainer(-1);
     }
     // this is for the tracking of the truth info
     if (G4VUserTrackInformation *p = aTrack->GetUserInformation())
@@ -306,6 +307,7 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
 //____________________________________________________________________________..
 void AllSiliconTrackerSteppingAction::SetInterfacePointers(PHCompositeNode *topNode)
 {
+/*
   string myname = m_Detector->SuperDetector();
   if (myname == "NONE")
   {
@@ -329,4 +331,5 @@ void AllSiliconTrackerSteppingAction::SetInterfacePointers(PHCompositeNode *topN
       cout << "AllSiliconTrackerSteppingAction::SetTopNode - unable to find " << hitnodename << endl;
     }
   }
+*/
 }

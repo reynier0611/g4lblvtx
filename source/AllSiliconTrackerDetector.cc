@@ -6,7 +6,15 @@
 #include <phparameter/PHParameters.h>
 
 #include <g4main/PHG4Detector.h>
+#include <g4main/PHG4HitContainer.h>
 #include <g4main/PHG4Subsystem.h>
+
+#include <phool/PHCompositeNode.h>
+#include <phool/PHIODataNode.h>
+#include <phool/PHNode.h>
+#include <phool/PHNodeIterator.h>
+#include <phool/PHObject.h>
+#include <phool/getClass.h>
 
 #include <TSystem.h>
 
@@ -102,6 +110,7 @@ void AllSiliconTrackerDetector::ConstructMe(G4LogicalVolume *logicWorld)
                         m_Params->get_double_param("place_y"),
                         m_Params->get_double_param("place_z"));
     avol->MakeImprint(logicWorld, g4vec, rotm, 0, OverlapCheck());
+    delete rotm;
     vector<G4VPhysicalVolume *>::iterator it = avol->GetVolumesIterator();
     for (unsigned int i = 0; i < avol->TotalImprintedVolumes(); i++)
     {
@@ -131,6 +140,7 @@ void AllSiliconTrackerDetector::ConstructMe(G4LogicalVolume *logicWorld)
                                                 logicWorld, false, 0, OverlapCheck());
     InsertVolumes(phys, insertlogicalvolumes);
   }
+  AddHitNodes(topNode());
   return;
 }
 
@@ -162,6 +172,10 @@ void AllSiliconTrackerDetector::InsertVolumes(G4VPhysicalVolume *physvol, const 
       else
       {
         string detprefix[] = {"VstStave", "FstContainerVolume", "BstContainerVolume", "Beampipe"};
+//start layer count at 10 for VstStave
+// at 20 for Fst
+// at 30 for Bst
+// at 40 for beampipe
         int increase = 10;
         for (auto toerase : detprefix)
         {
@@ -177,7 +191,7 @@ void AllSiliconTrackerDetector::InsertVolumes(G4VPhysicalVolume *physvol, const 
     }
     if (detid < 0)
     {
-      cout << "detid is " << detid << " vol name " << physvol->GetName() << endl;
+      cout << "AllSiliconTrackerDetector::InsertVolumes detid is " << detid << " vol name " << physvol->GetName() << endl;
       gSystem->Exit(1);
     }
   }
@@ -222,4 +236,101 @@ void AllSiliconTrackerDetector::Print(const std::string &what) const
     m_Params->Print();
   }
   return;
+}
+
+int AllSiliconTrackerDetector::get_detid(const G4VPhysicalVolume *physvol, const int whichactive)
+{
+  if (whichactive>0)
+  {
+    return m_ActivePhysicalVolumesSet.find(physvol)->second;
+  }
+  else if (whichactive<0)
+  {
+    return m_PassivePhysicalVolumesSet.find(physvol)->second;
+  }
+  else
+  {
+    cout << "AllSiliconTrackerDetector::get_detid invalid whichactive flag = 0" << endl;
+      gSystem->Exit(1);
+  }
+  return 0;
+}
+
+void AllSiliconTrackerDetector::AddHitNodes(PHCompositeNode *topNode)
+{
+  PHNodeIterator iter(topNode);
+  PHCompositeNode *dstNode = dynamic_cast<PHCompositeNode *>(iter.findFirst("PHCompositeNode", "DST"));
+  PHNodeIterator dstIter(dstNode);
+  if (m_Params->get_int_param("active"))
+  {
+    map<string,int> nodes;
+    string myname;
+    if (SuperDetector() != "NONE")
+    {
+      myname = SuperDetector();
+    }
+    else
+    {
+      myname = GetName();
+    }
+    PHCompositeNode *DetNode = dynamic_cast<PHCompositeNode *>(dstIter.findFirst("PHCompositeNode", myname));
+    if (!DetNode)
+    {
+      DetNode = new PHCompositeNode(myname);
+      dstNode->addNode(DetNode);
+    }
+    set<int> DetidSet;
+    for (auto iter = m_ActivePhysicalVolumesSet.begin(); iter != m_ActivePhysicalVolumesSet.end(); ++iter)
+    {
+      DetidSet.insert(iter->second);
+    }
+    ostringstream g4hitnodeactive;
+    for (auto iter = DetidSet.begin(); iter != DetidSet.end(); ++iter)
+    {
+      g4hitnodeactive.str("");
+      string region;
+      if (*iter<20)
+      {
+	region = "_CENTRAL_";
+      }
+      else if (*iter<30)
+      {
+	region = "_FORWARD_";
+      }
+      else
+      {
+	region = "_BACKWARD_";
+      }
+      g4hitnodeactive << "G4HIT_" << myname << region << *iter;
+      nodes.insert(make_pair(g4hitnodeactive.str(),*iter));
+    }
+    if (m_Params->get_int_param("absorberactive"))
+    {
+      string g4hitnodename = "G4HIT_ABSORBER_" + myname;
+      nodes.insert(make_pair(g4hitnodename,-1));
+    }
+    for (auto nodename : nodes)
+    {
+      PHG4HitContainer *g4_hits = findNode::getClass<PHG4HitContainer>(DetNode, nodename.first);
+      if (!g4_hits)
+      {
+        g4_hits = new PHG4HitContainer(nodename.first);
+        DetNode->addNode(new PHIODataNode<PHObject>(g4_hits, nodename.first, "PHObject"));
+      }
+      m_HitContainerMap.insert(make_pair(nodename.second,g4_hits));
+    }
+  }
+  return;
+}
+
+PHG4HitContainer *AllSiliconTrackerDetector::get_hitcontainer(const int i)
+{
+  map<int, PHG4HitContainer *>::const_iterator iter =  m_HitContainerMap.find(i);
+  if (iter != m_HitContainerMap.end())
+  {
+    return iter->second;
+  }
+  cout << "bad index: " << i << endl;
+  gSystem->Exit(1);
+  exit(1);
 }

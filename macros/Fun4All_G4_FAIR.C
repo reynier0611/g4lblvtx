@@ -93,8 +93,23 @@ void Fun4All_G4_FAIR(
   se->registerSubsystem( g4Reco );
 
   SimpleNtuple *hits = new SimpleNtuple("Hits");
-  hits->AddNode("LBLVTX",0); // hits in the  MimosaCore volumes
-  hits->AddNode("ABSORBER_LBLVTX",1); // hits in the passive volumes
+//  hits->AddNode("ABSORBER_LBLVTX",0); // hits in the passive volumes
+  char nodename[100];
+  for (int i = 10; i<16; i++)
+  {
+    sprintf(nodename,"LBLVTX_CENTRAL_%d",i);
+    hits->AddNode(nodename,i); // hits in the  MimosaCore volumes
+  }
+  for (int i = 20; i<25; i++)
+  {
+    sprintf(nodename,"LBLVTX_FORWARD_%d",i);
+    hits->AddNode(nodename,i); // hits in the  MimosaCore volumes
+  }
+  for (int i = 30; i<35; i++)
+  {
+    sprintf(nodename,"LBLVTX_BACKWARD_%d",i);
+    hits->AddNode(nodename,i); // hits in the  MimosaCore volumes
+  }
   se->registerSubsystem(hits);
 
 
