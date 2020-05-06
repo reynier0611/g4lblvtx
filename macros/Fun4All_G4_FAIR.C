@@ -58,7 +58,7 @@ void Fun4All_G4_FAIR(
   //g4Reco->SetPhysicsList("FTFP_BERT_HP");
 
   AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
-  allsili->set_string_param("GDMPath", "FAIRGeom.gdml");
+  allsili->set_string_param("GDMPath", string(getenv("CALIBRATIONROOT")) + "/AllSiliconTracker/FAIRGeom.gdml");
 
   allsili->AddAssemblyVolume("VST");
   allsili->AddAssemblyVolume("FST");
