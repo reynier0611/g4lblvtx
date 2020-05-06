@@ -13,6 +13,12 @@ From outside the container:
 2. Edit the `run_shared.sh` script.
 3. Run `sbatch run_shared.sh`
 
+## Editing the run_shared.sh script
+
+`#SBATCH --time=1:00:00`
+`#SBATCH --array=0-999`
+`shifter ./AllSi_shifter.sh $SLURM_ARRAY_TASK_ID 100`
+
 To check the status of your job:
 1. On your internet browser, go to: [https://my.nersc.gov/](https://my.nersc.gov/).
 2. Login using your Nersc credentials.
