@@ -10,7 +10,7 @@ One needs to run ./updatebuild.sh and follow the steps in the README of that rep
 # Running a batch job on Cori
 From outside the container:
 1. `cd cori_batch`.
-2. Edit the `run_shared.sh` script.
+2. Edit the `run_shared.sh` script (see instructions below).
 3. Run `sbatch run_shared.sh`
 
 ### Editing the run_shared.sh script
