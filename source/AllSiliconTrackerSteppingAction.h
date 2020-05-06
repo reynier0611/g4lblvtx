@@ -26,9 +26,6 @@ class AllSiliconTrackerSteppingAction : public PHG4SteppingAction
   //! stepping action
   virtual bool UserSteppingAction(const G4Step*, bool);
 
-  //! reimplemented from base class
-  virtual void SetInterfacePointers(PHCompositeNode*);
-
  private:
   //! pointer to the detector
   AllSiliconTrackerDetector* m_Detector;

@@ -303,33 +303,3 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
   // return true to indicate the hit was used
   return true;
 }
-
-//____________________________________________________________________________..
-void AllSiliconTrackerSteppingAction::SetInterfacePointers(PHCompositeNode *topNode)
-{
-  /*
-  string myname = m_Detector->SuperDetector();
-  if (myname == "NONE")
-  {
-    myname = m_Detector->GetName();
-  }
-  string hitnodename = "G4HIT_" + myname;
-  // now look for the map and grab a pointer to it.
-  m_HitContainer = findNode::getClass<PHG4HitContainer>(topNode, hitnodename);
-  // if we do not find the node we need to make it.
-  if (!m_HitContainer)
-  {
-    std::cout << "AllSiliconTrackerSteppingAction::SetTopNode - unable to find "
-              << hitnodename << std::endl;
-  }
-  hitnodename = "G4HIT_ABSORBER_" + myname;
-  m_AbsorberHitContainer = findNode::getClass<PHG4HitContainer>(topNode, hitnodename);
-  if (!m_AbsorberHitContainer)
-  {
-    if (Verbosity() > 1)
-    {
-      cout << "AllSiliconTrackerSteppingAction::SetTopNode - unable to find " << hitnodename << endl;
-    }
-  }
-*/
-}
