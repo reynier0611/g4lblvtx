@@ -15,9 +15,10 @@ From outside the container:
 
 ## Editing the run_shared.sh script
 
-`#SBATCH --time=1:00:00`
-`#SBATCH --array=0-999`
-`shifter ./AllSi_shifter.sh $SLURM_ARRAY_TASK_ID 100`
+Edit the following lines:
+1. `#SBATCH --time=1:00:00` -> Approximate time that running a job will take. A higher value ensures that your job is not stopped because it is taking too long. A lower value ensures that your job starts running sooner.
+2. `#SBATCH --array=0-999` -> This means the output will be split into 1000 output root files.
+3. `shifter ./AllSi_shifter.sh $SLURM_ARRAY_TASK_ID 100` -> The important parameter to keep in mind here is the number at the end of the line. This is the number of events per root split. 
 
 To check the status of your job:
 1. On your internet browser, go to: [https://my.nersc.gov/](https://my.nersc.gov/).
