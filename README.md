@@ -9,21 +9,16 @@ One needs to run ./updatebuild.sh and follow the steps in the README of that rep
 
 The main steps are:
 
-`mkdir build`
-
-`cd build`
-
-`/global/path/to/g4lblvtx/source/autogen.sh --prefix=$MYINSTALL`
-
-`make -j 4`
-
-`make install`
-
-`source /global/path/to/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n`
-
-`export MYINSTALL=/global/path/to/Singularity/install`
-
-`source /global/path/to/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/setup_local.sh $MYINSTALL`
+```
+mkdir build
+cd build
+/global/path/to/g4lblvtx/source/autogen.sh --prefix=$MYINSTALL
+make -j 4
+make install
+source /global/path/to/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n
+export MYINSTALL=/global/path/to/Singularity/install
+source /global/path/to/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/setup_local.sh $MYINSTALL
+```
 
 # Running a batch job on Cori
 From outside the container:
