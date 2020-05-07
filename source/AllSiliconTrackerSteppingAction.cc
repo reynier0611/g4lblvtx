@@ -97,15 +97,9 @@ bool AllSiliconTrackerSteppingAction::UserSteppingAction(const G4Step *aStep, bo
     G4Track *killtrack = const_cast<G4Track *>(aTrack);
     killtrack->SetTrackStatus(fStopAndKill);
   }
-<<<<<<< HEAD
-  int detector_id = whichactive;  // the detector id is coded into the IsInDetector return
-  //cout << "Name: " << volume->GetName() << endl;
-  //cout << "det id: " << whichactive << endl;
-=======
   int detector_id = m_Detector->get_detid(volume, whichactive);  // the detector id is coded into the IsInDetector return
   // cout << "Name: " << volume->GetName() << endl;
   // cout << "det id: " << whichactive << endl;
->>>>>>> upstream/master
   bool geantino = false;
   // the check for the pdg code speeds things up, I do not want to make
   // an expensive string compare for every track when we know
