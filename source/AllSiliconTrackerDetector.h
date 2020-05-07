@@ -13,6 +13,7 @@ class AllSiliconTrackerDisplayAction;
 class G4LogicalVolume;
 class G4VPhysicalVolume;
 class PHCompositeNode;
+class PHG4HitContainer;
 class PHG4Subsystem;
 class PHParameters;
 
@@ -38,6 +39,9 @@ class AllSiliconTrackerDetector : public PHG4Detector
   void SuperDetector(const std::string &name) { m_SuperDetector = name; }
   const std::string SuperDetector() const { return m_SuperDetector; }
 
+  int get_detid(const G4VPhysicalVolume *physvol, const int whichactive);
+  PHG4HitContainer *get_hitcontainer(const int i);
+
  private:
   enum
   {
@@ -45,6 +49,7 @@ class AllSiliconTrackerDetector : public PHG4Detector
     insertlogicalvolumes = 2
   };
   void InsertVolumes(G4VPhysicalVolume *physvol, const int flag);
+  void AddHitNodes(PHCompositeNode *topNode);
   AllSiliconTrackerDisplayAction *m_DisplayAction;
   PHParameters *m_Params;
 
@@ -55,8 +60,10 @@ class AllSiliconTrackerDetector : public PHG4Detector
   int m_AbsorberActive;
 
   // active volumes
-  std::map<G4VPhysicalVolume *, int> m_ActivePhysicalVolumesSet;
-  std::map<G4VPhysicalVolume *, int> m_PassivePhysicalVolumesSet;
+  std::map<const G4VPhysicalVolume *, int> m_ActivePhysicalVolumesSet;
+  std::map<const G4VPhysicalVolume *, int> m_PassivePhysicalVolumesSet;
+
+  std::map<int, PHG4HitContainer *> m_HitContainerMap;
 };
 
 #endif  // ALLSILICONTRACKERDETECTOR_H

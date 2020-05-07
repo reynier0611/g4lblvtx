@@ -51,11 +51,15 @@ AllSiliconTrackerSubsystem::~AllSiliconTrackerSubsystem()
 //_______________________________________________________________________
 int AllSiliconTrackerSubsystem::InitRunSubsystem(PHCompositeNode *topNode)
 {
-  PHNodeIterator iter(topNode);
-  PHCompositeNode *dstNode = dynamic_cast<PHCompositeNode *>(iter.findFirst("PHCompositeNode", "DST"));
+  //  PHNodeIterator iter(topNode);
+  //  PHCompositeNode *dstNode = dynamic_cast<PHCompositeNode *>(iter.findFirst("PHCompositeNode", "DST"));
   // create display settings before detector
   m_DisplayAction = new AllSiliconTrackerDisplayAction(Name());
-
+  // create detector
+  m_Detector = new AllSiliconTrackerDetector(this, topNode, GetParams(), Name());
+  m_Detector->SuperDetector(SuperDetector());
+  m_Detector->OverlapCheck(CheckOverlap());
+  /*
   PHNodeIterator dstIter(dstNode);
   if (GetParams()->get_int_param("active"))
   {
@@ -75,11 +79,31 @@ int AllSiliconTrackerSubsystem::InitRunSubsystem(PHCompositeNode *topNode)
       DetNode = new PHCompositeNode(myname);
       dstNode->addNode(DetNode);
     }
-    string g4hitnodename = "G4HIT_" + myname;
-    nodes.insert(g4hitnodename);
+// This hardcoded stuff is plain ugly. The problem is that the detector
+// ids are known in the detector::constructme method which gets called
+// after the node tree is set up
+    ostringstream g4hitnodeactive;
+    for (int i=10; i<16;i++)
+    {
+      g4hitnodeactive.str("");
+      g4hitnodeactive << "G4HIT_" << myname << "_CENTRAL_" << i;
+      nodes.insert(g4hitnodeactive.str());
+    }
+    for (int i=20; i<25;i++)
+    {
+      g4hitnodeactive.str("");
+      g4hitnodeactive << "G4HIT_" << myname << "_FORWARD_" << i;
+      nodes.insert(g4hitnodeactive.str());
+    }
+    for (int i=30; i<35;i++)
+    {
+      g4hitnodeactive.str("");
+      g4hitnodeactive << "G4HIT_" << myname << "_BACKWARD_" << i;
+      nodes.insert(g4hitnodeactive.str());
+    }
     if (GetParams()->get_int_param("absorberactive"))
     {
-      g4hitnodename = "G4HIT_ABSORBER_" + myname;
+      string g4hitnodename = "G4HIT_ABSORBER_" + myname;
       nodes.insert(g4hitnodename);
     }
     for (auto nodename : nodes)
@@ -92,10 +116,7 @@ int AllSiliconTrackerSubsystem::InitRunSubsystem(PHCompositeNode *topNode)
       }
     }
   }
-  // create detector
-  m_Detector = new AllSiliconTrackerDetector(this, topNode, GetParams(), Name());
-  m_Detector->SuperDetector(SuperDetector());
-  m_Detector->OverlapCheck(CheckOverlap());
+*/
   // create stepping action if detector is active
   if (GetParams()->get_int_param("active"))
   {
