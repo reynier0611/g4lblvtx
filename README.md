@@ -8,10 +8,22 @@ One needs to run ./updatebuild.sh and follow the steps in the README of that rep
 2. The code needs to built and installed with Fun4All, as outlined here: https://wiki.bnl.gov/sPHENIX/index.php/Example_of_using_DST_nodes. References to <sourcedir> for this repository mean `g4lblvtx/src/`, where one should see the autogen.sh file. Create a `build` and `install` directory (I suggest in the same directory that holds this repo) and follow the instructions under the "Building a package" section from the link.
 
 The main steps are:
+
 `mkdir build`
+
 `cd build`
+
 `/global/path/to/g4lblvtx/source/autogen.sh --prefix=$MYINSTALL`
+
 `make -j 4`
+
+`make install`
+
+`source /global/path/to/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/sphenix_setup.sh -n`
+
+`export MYINSTALL=/global/path/to/Singularity/install`
+
+`source /global/path/to/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/setup_local.sh $MYINSTALL`
 
 # Running a batch job on Cori
 From outside the container:
