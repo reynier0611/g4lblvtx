@@ -1,6 +1,5 @@
 This code corresponds to an implementation of the tapered All-Silicon Tracker design described [here](https://indico.bnl.gov/event/7892/contributions/36938/attachments/27856/42740/20200430-EICUG_Tracking_WG_-_eRD16.pdf) into the Fun4All framework.
 
-<<<<<<< HEAD
 # Getting Started
 1. The code was originally ran inside a Singularity container, which can be found here:
 https://github.com/sPHENIX-Collaboration/Singularity
@@ -26,6 +25,3 @@ Edit the following lines:
 1. On your internet browser, go to: [https://my.nersc.gov/](https://my.nersc.gov/).
 2. Login using your Nersc credentials.
 3. Go to the tab `Cori Queues`.
-=======
-Implementation of the All Silicon Tracker from LBL
->>>>>>> upstream/master
