@@ -152,7 +152,7 @@ void Fun4All_G4_FastMom(
 
 	// ======================================================================================================
 	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
-	fast_sim_eval->set_filename(TString(outputFile)+"_"+TString(genpar)+"_FastTrackingEval.root");
+	fast_sim_eval->set_filename(TString(outputFile)+"_FastTrackingEval.root");
 	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
