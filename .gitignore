@@ -11,7 +11,8 @@ cori_batch/sPHENIX_shifter.sh~
 macros/FastTrackingEval.root
 cori_batch/#run_shared.sh#
 cori_batch/#slurm-29717230_1.out#
-
+macros/out_allSi_pi-_FastTrackingEval.root
+*.out
 source/Makefile.in
 source/aclocal.m4
 source/autom4te.cache/

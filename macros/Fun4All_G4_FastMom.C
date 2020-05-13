@@ -69,7 +69,8 @@ void Fun4All_G4_FastMom(
 	PHG4Reco *g4Reco = new PHG4Reco();
 	//g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
 	//g4Reco->set_field_rescale(-1.4/1.5);
-	g4Reco->set_field(1.5); // [T] Magnetic field
+	float B_T = 1.5; // Magnetic Field [T]
+	g4Reco->set_field(B_T);
 	//g4Reco->SetPhysicsList("FTFP_BERT_HP");
 	// ======================================================================================================
 	// Loading All-Si Tracker from dgml file
@@ -148,11 +149,11 @@ void Fun4All_G4_FastMom(
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
-	// 20e-4/sqrt(12) cm = 5.8e-4 cm, to simulate 20x20 µ
+	// 20e-4/sqrt(12) cm = 5.8e-4 cm, to simulate 20x20 um
 
 	// ======================================================================================================
 	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
-	fast_sim_eval->set_filename(TString(outputFile)+"_FastTrackingEval.root");
+	fast_sim_eval->set_filename(TString(outputFile)+Form("_B_%.1fT",B_T)+"_FastTrackingEval.root");
 	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
@@ -166,8 +167,9 @@ void Fun4All_G4_FastMom(
 	///////////////////////////////////////////
 	// IOManagers...
 	///////////////////////////////////////////
-
-	Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT", "G4LBLVtx.root");
+	const std::string dst_name = std::string(outputFile)+"_G4LBLVtx.root";
+	//Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT",TString(outputFile)+"_G4LBLVtx.root");
+	Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT",dst_name);
 	out->Verbosity(10);
 	se->registerOutputManager(out);
 
