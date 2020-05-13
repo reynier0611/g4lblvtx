@@ -146,6 +146,10 @@ void Fun4All_G4_FastMom(
 				0                                  	// hit noise
 				);
 	}
+// projection on cylinder with 80cm radius
+	kalman->add_cylinder_state("MYCYLINDER", 80.);
+// projection on vertical plane at z=40cm
+	kalman->add_zplane_state("MYZPLANE", 40.);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
