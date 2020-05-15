@@ -18,12 +18,14 @@ AM_LDFLAGS = \
 libg4lblvtx_la_LIBADD = \
   -lfun4all \
   -lphg4hit \
-  -lg4detectors
+  -lg4detectors \
+  -ltrackbase_historic_io
 
 pkginclude_HEADERS = \
   AllSiliconTrackerSubsystem.h \
   G4LBLVtxSubsystem.h \
-  SimpleNtuple.h
+  SimpleNtuple.h \
+  TrackFastSimEval.h
 
 libg4lblvtx_la_SOURCES = \
   AllSiliconTrackerDetector.cc \
@@ -34,7 +36,8 @@ libg4lblvtx_la_SOURCES = \
   G4LBLVtxDisplayAction.cc \
   G4LBLVtxSteppingAction.cc \
   G4LBLVtxSubsystem.cc \
-  SimpleNtuple.cc
+  SimpleNtuple.cc \
+  TrackFastSimEval.cc
 
 # Rule for generating table CINT dictionaries.
 %_Dict.cc: %.h %LinkDef.h
