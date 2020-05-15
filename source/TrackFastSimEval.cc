@@ -20,6 +20,7 @@
 #include <phool/phool.h>
 
 #include <TH2.h>
+#include <TSystem.h>
 #include <TTree.h>
 #include <TVector3.h>
 
@@ -86,18 +87,36 @@ int TrackFastSimEval::Init(PHCompositeNode *topNode)
   _eval_tree_tracks->Branch("pcay", &pcay, "pcay/F");
   _eval_tree_tracks->Branch("pcaz", &pcaz, "pcaz/F");
   _eval_tree_tracks->Branch("dca2d", &dca2d, "dca2d/F");
-  _eval_tree_tracks->Branch("ref_x", &ref_x[0], "ref_x/F");
-  _eval_tree_tracks->Branch("ref_y", &ref_y[0], "ref_y/F");
-  _eval_tree_tracks->Branch("ref_z", &ref_z[0], "ref_z/F");
-  _eval_tree_tracks->Branch("ref_px", &ref_px[0], "ref_px/F");
-  _eval_tree_tracks->Branch("ref_py", &ref_py[0], "ref_py/F");
-  _eval_tree_tracks->Branch("ref_pz", &ref_pz[0], "ref_pz/F");
-  _eval_tree_tracks->Branch("proj_x", &proj_x[0], "proj_x/F");
-  _eval_tree_tracks->Branch("proj_y", &proj_y[0], "proj_y/F");
-  _eval_tree_tracks->Branch("proj_z", &proj_z[0], "proj_z/F");
-  _eval_tree_tracks->Branch("proj_px", &proj_px[0], "proj_px/F");
-  _eval_tree_tracks->Branch("proj_py", &proj_py[0], "proj_py/F");
-  _eval_tree_tracks->Branch("proj_pz", &proj_pz[0], "proj_pz/F");
+  const string xyz[3] = {"x", "y", "z"};
+  for (map<string, int>::const_iterator iter = m_ProjectionNameMap.begin(); iter != m_ProjectionNameMap.end(); ++iter)
+  {
+    char bname[100];
+    char bdef[100];
+    for (int i = 0; i<3; i++)
+    {
+      sprintf(bname,"%s_%s",iter->first.c_str(),xyz[i].c_str());
+      sprintf(bdef,"%s/F",bname);
+      _eval_tree_tracks->Branch(bname, &ref[i][iter->second], bdef);
+    }
+    for (int i = 0; i<3; i++)
+    {
+      sprintf(bname,"%s_p%s",iter->first.c_str(),xyz[i].c_str());
+      sprintf(bdef,"%s/F",bname);
+      _eval_tree_tracks->Branch(bname, &ref_p[i][iter->second], bdef);
+    }
+    for (int i = 0; i<3; i++)
+    {
+      sprintf(bname,"%s_proj_%s",iter->first.c_str(),xyz[i].c_str());
+      sprintf(bdef,"%s/F",bname);
+      _eval_tree_tracks->Branch(bname, &proj[i][iter->second], bdef);
+    }
+    for (int i = 0; i<3; i++)
+    {
+      sprintf(bname,"%s_proj_p%s",iter->first.c_str(),xyz[i].c_str());
+      sprintf(bdef,"%s/F",bname);
+      _eval_tree_tracks->Branch(bname, &proj_p[i][iter->second], bdef);
+    }
+  }
   _h2d_Delta_mom_vs_truth_eta = new TH2D("_h2d_Delta_mom_vs_truth_eta",
                                          "#frac{#Delta p}{truth p} vs. truth #eta", 54, -4.5, +4.5, 1000, -1,
                                          1);
@@ -270,30 +289,32 @@ void TrackFastSimEval::fill_track_tree(PHCompositeNode *topNode)
       _h2d_Delta_mom_vs_truth_mom->Fill(truth_mom.Mag(), (reco_mom.Mag() - truth_mom.Mag()) / truth_mom.Mag());
       _h2d_Delta_mom_vs_truth_eta->Fill(truth_mom.Eta(), (reco_mom.Mag() - truth_mom.Mag()) / truth_mom.Mag());
 // find projections
-      for (int i=0; i<2; i++)
+      for (int k=0; k<3; k++)
       {
-	proj_x[i] = -9999;
-	proj_y[i] = -9999;
-	proj_z[i] = -9999;
-	proj_px[i] = -9999;
-	proj_py[i] = -9999;
-	proj_pz[i] = -9999;
+      for (int j=0; j<nproj; j++)
+      {
+	proj[k][j] = -9999;
+	proj_p[k][j] = -9999;
+	ref[k][j] = -9999;
+	ref_p[k][j] = -9999;
+      }
       }
       for (SvtxTrack::ConstStateIter trkstates = track->begin_states();
            trkstates != track->end_states();
            ++trkstates)
       {
 //	cout << "checking " << trkstates->second->get_name() << endl;
-	if (m_ProjectionNameSet.find(trkstates->second->get_name()) != m_ProjectionNameSet.end())
+        map<string, int>::const_iterator iter = m_ProjectionNameMap.find(trkstates->second->get_name());
+	if (iter != m_ProjectionNameMap.end())
 	{
 //	  cout << "found " << trkstates->second->get_name() << endl;
 // setting the projection (xyz and pxpypz)
-	  proj_x[0] = trkstates->second->get_x();
-	  proj_y[0] = trkstates->second->get_y();
-	  proj_z[0] = trkstates->second->get_z();
-	  proj_px[0] = trkstates->second->get_px();
-	  proj_py[0] = trkstates->second->get_py();
-	  proj_pz[0] = trkstates->second->get_pz();
+	  proj[0][iter->second] = trkstates->second->get_x();
+	  proj[1][iter->second] = trkstates->second->get_y();
+	  proj[2][iter->second] = trkstates->second->get_z();
+	  proj_p[0][iter->second] = trkstates->second->get_px();
+	  proj_p[1][iter->second] = trkstates->second->get_py();
+	  proj_p[2][iter->second] = trkstates->second->get_pz();
 
 	  string nodename = "G4HIT_" + trkstates->second->get_name();
           PHG4HitContainer *hits = findNode::getClass<PHG4HitContainer>(topNode, nodename);
@@ -310,12 +331,17 @@ void TrackFastSimEval::fill_track_tree(PHCompositeNode *topNode)
 	    if (hit_iter->second->get_trkid() - track->get_truth_track_id() == 0)
 	    {
 //	      cout << "found hit with id " << hit_iter->second->get_trkid() << endl;
-	      ref_x[0] = hit_iter->second->get_x(0);
-	      ref_y[0] = hit_iter->second->get_y(0);
-	      ref_z[0] = hit_iter->second->get_z(0);
-	      ref_px[0] = hit_iter->second->get_px(0);
-	      ref_py[0] = hit_iter->second->get_py(0);
-	      ref_pz[0] = hit_iter->second->get_pz(0);
+	      if (iter->second >= nproj)
+	      {
+		cout << "bad index: " << iter->second << endl;
+		gSystem->Exit(1);
+	      }
+	      ref[0][iter->second] = hit_iter->second->get_x(0);
+	      ref[1][iter->second] = hit_iter->second->get_y(0);
+	      ref[2][iter->second] = hit_iter->second->get_z(0);
+	      ref_p[0][iter->second] = hit_iter->second->get_px(0);
+	      ref_p[1][iter->second] = hit_iter->second->get_py(0);
+	      ref_p[2][iter->second] = hit_iter->second->get_pz(0);
 	    }
 	  }
 	}
@@ -510,6 +536,6 @@ int TrackFastSimEval::GetNodes(PHCompositeNode *topNode)
 
 void TrackFastSimEval::AddProjection(const string &name)
 {
-  m_ProjectionNameSet.insert(name);
+  m_ProjectionNameMap.insert(make_pair(name,m_ProjectionNameMap.size()));
   return;
 }

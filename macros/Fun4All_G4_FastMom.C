@@ -41,8 +41,15 @@ void Fun4All_G4_FastMom(
         bool use_particle_gun = false;
 
 // projections
-	string projname = "DIRC";
-        double projradius = 85.;
+	string projname1 = "DIRC";
+        double projradius1 = 85.; // taken from ePHENIX dirc
+        double length1 = 400.; // taken from ePHENIX dirc
+	string projname2 = "FOR"; 
+        double projzpos2 = 150;
+        double projradius2 = 80.; // do not collide with barrel
+	string projname3 = "BACK"; 
+        double projzpos3 = -150;
+        double projradius3 = 80.;
 
         if( (use_particle_gen&&use_particle_gun) && (!use_particle_gen&&!use_particle_gun) ){ cout << "Set one and only one variable above to true" << endl; exit(0);}
 	
@@ -106,16 +113,40 @@ void Fun4All_G4_FastMom(
 
 	// ======================================================================================================
 
-	PHG4CylinderSubsystem *cyl = new PHG4CylinderSubsystem(projname,0);
-	cyl->set_double_param("length", 400);
-	cyl->set_double_param("radius", projradius); // dirc radius
+	PHG4CylinderSubsystem *cyl;
+        cyl = new PHG4CylinderSubsystem(projname1,0);
+	cyl->set_double_param("length", length1);
+	cyl->set_double_param("radius", projradius1); // dirc radius
 	cyl->set_double_param("thickness", 0.1); // needs some thickness
 	cyl->set_string_param("material", "G4_AIR");
 	cyl->SetActive(1);
-	cyl->SuperDetector(projname);
+	cyl->SuperDetector(projname1);
 	cyl->BlackHole();
         cyl->set_color(1,0,0,0.7); //reddish
+	g4Reco->registerSubsystem(cyl);
 
+        cyl = new PHG4CylinderSubsystem(projname2,0);
+	cyl->set_double_param("length", 0.1);
+	cyl->set_double_param("radius", 2); // beampipe needs to fit here
+	cyl->set_double_param("thickness", projradius2); // 
+	cyl->set_string_param("material", "G4_AIR");
+	cyl->set_double_param("place_z", projzpos2);
+	cyl->SetActive(1);
+	cyl->SuperDetector(projname2);
+	cyl->BlackHole();
+        cyl->set_color(0,1,1,0.3); //reddish
+	g4Reco->registerSubsystem(cyl);
+
+        cyl = new PHG4CylinderSubsystem(projname3,0);
+	cyl->set_double_param("length", 0.1);
+	cyl->set_double_param("radius", 2); // beampipe needs to fit here
+	cyl->set_double_param("thickness", projradius3); // 
+	cyl->set_string_param("material", "G4_AIR");
+	cyl->set_double_param("place_z", projzpos3);
+	cyl->SetActive(1);
+	cyl->SuperDetector(projname3);
+	cyl->BlackHole();
+        cyl->set_color(0,1,1,0.3); //reddish
 	g4Reco->registerSubsystem(cyl);
 	// ======================================================================================================
 
@@ -169,10 +200,12 @@ void Fun4All_G4_FastMom(
 				0                                  	// hit noise
 				);
 	}
-// projection on cylinder with 80cm radius
-	kalman->add_cylinder_state(projname, projradius);
-// projection on vertical plane at z=40cm
-	kalman->add_zplane_state("MYZPLANE", 40.);
+// projection on cylinder (DIRC)
+	kalman->add_cylinder_state(projname1, projradius1);
+// projection on vertical planes
+	kalman->add_zplane_state(projname2, projzpos2);
+	se->registerSubsystem(kalman);
+	kalman->add_zplane_state(projname3, projzpos3);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -181,8 +214,10 @@ void Fun4All_G4_FastMom(
 	// ======================================================================================================
 	TrackFastSimEval *fast_sim_eval = new TrackFastSimEval("FastTrackingEval");
 	fast_sim_eval->set_filename(TString(outputFile)+Form("_B_%.1fT",B_T)+"_FastTrackingEval.root");
-	fast_sim_eval->AddProjection(projname);
-	se->registerSubsystem(fast_sim_eval);
+	fast_sim_eval->AddProjection(projname1);
+	fast_sim_eval->AddProjection(projname2);
+	fast_sim_eval->AddProjection(projname3);
+//	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
 	SimpleNtuple *hits = new SimpleNtuple("Hits");

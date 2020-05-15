@@ -5,6 +5,7 @@
 
 #include <fun4all/SubsysReco.h>
 
+#include <map>
 #include <set>
 #include <string>
 
@@ -107,20 +108,13 @@ class TrackFastSimEval : public SubsysReco
   float pcaz;
   float dca2d;
 
-// projections
-  float proj_x[2];
-  float proj_y[2];
-  float proj_z[2];
-  float proj_px[2];
-  float proj_py[2];
-  float proj_pz[2];
-// hits at reference
-  float ref_x[2];
-  float ref_y[2];
-  float ref_z[2];
-  float ref_px[2];
-  float ref_py[2];
-  float ref_pz[2];
+  static const int nproj = 3;
+// projections hits/mom
+  float proj[3][nproj];
+  float proj_p[3][nproj];
+// hits/mom at reference
+  float ref[3][nproj];
+  float ref_p[3][nproj];
 
   //vertex
   float vx;
@@ -141,7 +135,7 @@ class TrackFastSimEval : public SubsysReco
   SvtxTrackMap* _trackmap;
   SvtxVertexMap* _vertexmap;
 
-  std::set<std::string> m_ProjectionNameSet;
+  std::map<std::string, int> m_ProjectionNameMap;
 };
 
 #endif  //* TRACKFASTSIMEVAL_H *//
