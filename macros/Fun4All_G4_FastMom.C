@@ -44,11 +44,12 @@ void Fun4All_G4_FastMom(
 	string projname1 = "DIRC";
         double projradius1 = 85.; // taken from ePHENIX dirc
         double length1 = 400.; // taken from ePHENIX dirc
+	double thinness = 0.1; // black hole thickness, needs to be taken into account for the z positions
 	string projname2 = "FOR"; 
-        double projzpos2 = 150;
+        double projzpos2 = 150+thinness/2.;
         double projradius2 = 80.; // do not collide with barrel
 	string projname3 = "BACK"; 
-        double projzpos3 = -150;
+        double projzpos3 = -(150+thinness/2.);
         double projradius3 = 80.;
 
         if( (use_particle_gen&&use_particle_gun) && (!use_particle_gen&&!use_particle_gun) ){ cout << "Set one and only one variable above to true" << endl; exit(0);}
@@ -69,7 +70,7 @@ void Fun4All_G4_FastMom(
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(1,10.);	// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(-1,1);		// Detector coverage corresponds to |η|< 4
+	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle Gun Setup
@@ -126,7 +127,7 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(cyl);
 
         cyl = new PHG4CylinderSubsystem(projname2,0);
-	cyl->set_double_param("length", 0.1);
+	cyl->set_double_param("length", thinness);
 	cyl->set_double_param("radius", 2); // beampipe needs to fit here
 	cyl->set_double_param("thickness", projradius2); // 
 	cyl->set_string_param("material", "G4_AIR");
@@ -138,7 +139,7 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(cyl);
 
         cyl = new PHG4CylinderSubsystem(projname3,0);
-	cyl->set_double_param("length", 0.1);
+	cyl->set_double_param("length", thinness);
 	cyl->set_double_param("radius", 2); // beampipe needs to fit here
 	cyl->set_double_param("thickness", projradius3); // 
 	cyl->set_string_param("material", "G4_AIR");
