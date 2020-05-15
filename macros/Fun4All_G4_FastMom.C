@@ -204,7 +204,6 @@ void Fun4All_G4_FastMom(
 	kalman->add_cylinder_state(projname1, projradius1);
 // projection on vertical planes
 	kalman->add_zplane_state(projname2, projzpos2);
-	se->registerSubsystem(kalman);
 	kalman->add_zplane_state(projname3, projzpos3);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
@@ -217,7 +216,7 @@ void Fun4All_G4_FastMom(
 	fast_sim_eval->AddProjection(projname1);
 	fast_sim_eval->AddProjection(projname2);
 	fast_sim_eval->AddProjection(projname3);
-//	se->registerSubsystem(fast_sim_eval);
+	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
