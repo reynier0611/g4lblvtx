@@ -7,7 +7,10 @@
 #include <fun4all/Fun4AllOutputManager.h>
 #include <fun4all/Fun4AllServer.h>
 #include <fun4all/SubsysReco.h>
+
 #include <g4detectors/PHG4DetectorSubsystem.h>
+#include <g4detectors/PHG4CylinderSubsystem.h>
+
 #include <g4histos/G4HitNtuple.h>
 #include <g4lblvtx/AllSiliconTrackerSubsystem.h>
 #include <g4main/PHG4ParticleGenerator.h>
@@ -22,6 +25,7 @@
 
 #include <g4lblvtx/G4LBLVtxSubsystem.h>
 #include <g4lblvtx/SimpleNtuple.h>
+#include <g4lblvtx/TrackFastSimEval.h>
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -35,6 +39,11 @@ void Fun4All_G4_FastMom(
 {
 	bool use_particle_gen = true;
         bool use_particle_gun = false;
+
+// projections
+	string projname = "DIRC";
+        double projradius = 85.;
+
         if( (use_particle_gen&&use_particle_gun) && (!use_particle_gen&&!use_particle_gun) ){ cout << "Set one and only one variable above to true" << endl; exit(0);}
 	
 	cout << "Particle that will be generated: " << std::string(genpar) << endl;
@@ -51,9 +60,9 @@ void Fun4All_G4_FastMom(
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string(genpar));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);			// Vertex generation range
-	gen->set_mom_range(0.00001,50.);	// Momentum generation range in GeV/c
+	gen->set_mom_range(1,10.);	// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(-4.0,4.0);		// Detector coverage corresponds to |η|< 4
+	gen->set_eta_range(-1,1);		// Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle Gun Setup
@@ -96,6 +105,20 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(allsili);
 
 	// ======================================================================================================
+
+	PHG4CylinderSubsystem *cyl = new PHG4CylinderSubsystem(projname,0);
+	cyl->set_double_param("length", 400);
+	cyl->set_double_param("radius", projradius); // dirc radius
+	cyl->set_double_param("thickness", 0.1); // needs some thickness
+	cyl->set_string_param("material", "G4_AIR");
+	cyl->SetActive(1);
+	cyl->SuperDetector(projname);
+	cyl->BlackHole();
+        cyl->set_color(1,0,0,0.7); //reddish
+
+	g4Reco->registerSubsystem(cyl);
+	// ======================================================================================================
+
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
 	g4Reco->registerSubsystem(truth);
 
@@ -147,7 +170,7 @@ void Fun4All_G4_FastMom(
 				);
 	}
 // projection on cylinder with 80cm radius
-	kalman->add_cylinder_state("MYCYLINDER", 80.);
+	kalman->add_cylinder_state(projname, projradius);
 // projection on vertical plane at z=40cm
 	kalman->add_zplane_state("MYZPLANE", 40.);
 	se->registerSubsystem(kalman);
@@ -156,8 +179,9 @@ void Fun4All_G4_FastMom(
 	// 20e-4/sqrt(12) cm = 5.8e-4 cm, to simulate 20x20 um
 
 	// ======================================================================================================
-	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
+	TrackFastSimEval *fast_sim_eval = new TrackFastSimEval("FastTrackingEval");
 	fast_sim_eval->set_filename(TString(outputFile)+Form("_B_%.1fT",B_T)+"_FastTrackingEval.root");
+	fast_sim_eval->AddProjection(projname);
 	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
