@@ -23,8 +23,8 @@ class TrackFastSimEval : public SubsysReco
  public:
   //Default constructor
   TrackFastSimEval(const std::string& name = "TrackFastSimEval",
-                       const std::string& filename = "g4eval.root",
-                       const std::string& trackmapname = "SvtxTrackMap");
+                   const std::string& filename = "g4eval.root",
+                   const std::string& trackmapname = "SvtxTrackMap");
 
   //Initialization, called for initialization
   int Init(PHCompositeNode*);
@@ -60,7 +60,7 @@ class TrackFastSimEval : public SubsysReco
 
   //User modules
   void reset_variables();
-  void AddProjection(const std::string &name);
+  void AddProjection(const std::string& name);
 
  private:
   void fill_track_tree(PHCompositeNode*);
@@ -109,10 +109,10 @@ class TrackFastSimEval : public SubsysReco
   float dca2d;
 
   static const int nproj = 3;
-// projections hits/mom
+  // projections hits/mom
   float proj[3][nproj];
   float proj_p[3][nproj];
-// hits/mom at reference
+  // hits/mom at reference
   float ref[3][nproj];
   float ref_p[3][nproj];
 
