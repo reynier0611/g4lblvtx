@@ -1,6 +1,6 @@
 /*
-Winston DeGraw (wdegraw@lbl.gov)
-Rey Cruz-Torres (reynier@lbl.gov)
+   Winston DeGraw (wdegraw@lbl.gov)
+   Rey Cruz-Torres (reynier@lbl.gov)
 */
 
 // Forward-declaring functions
@@ -45,13 +45,13 @@ void analysis_resolution(){
 	float error[size_eta_binning-1][size_p_binning-1] = {{0}};
 	TString label[size_eta_binning-1];
 	TF1 *** f_gaus = new TF1**[size_eta_binning-1];
-        for(int et = 0 ; et < size_eta_binning-1 ; et++){
-                f_gaus[et] = new TF1*[size_p_binning-1];
-                for(int p = 0 ; p < size_p_binning-1 ; p++){
-                        f_gaus[et][p] = new TF1(Form("f_gaus_%i_%i",et,p),"gaus",-.05,.05);
-                }
+	for(int et = 0 ; et < size_eta_binning-1 ; et++){
+		f_gaus[et] = new TF1*[size_p_binning-1];
+		for(int p = 0 ; p < size_p_binning-1 ; p++){
+			f_gaus[et][p] = new TF1(Form("f_gaus_%i_%i",et,p),"gaus",-.05,.05);
+		}
 		label[et] = Form("%.1f < |#eta| < %.1f",eta_binning[et],eta_binning[et+1]);
-        }
+	}
 	// -------------------------------------------------------------
 	// Loop over entries of the tree
 	for(int ev = 0 ; ev < nEntries ; ev++){
@@ -66,7 +66,7 @@ void analysis_resolution(){
 
 		for(int et = 0 ; et < size_eta_binning-1 ; et++){
 			if( abs(geta) >  eta_binning[et] &&  abs(geta) <= eta_binning[et+1] ){
-			
+
 				for(int p = 0 ; p < size_p_binning-1 ; p++){
 					if( p_truth > p_binning[p] && p_truth <= p_binning[p+1] ){
 						h1_dp_p[et][p] -> Fill(dp_p);
@@ -110,16 +110,16 @@ void analysis_resolution(){
 	leg1 -> SetLineColor(0);
 	for(int et = 0 ; et < size_eta_binning-1 ; et++) leg1 -> AddEntry( h1_resolution[et],label[et] );
 	leg1 -> Draw("same");
-    c1 -> Print("muons_AllSiBarrel_dppVp.pdf");
-    
-    
-    TString out_pdf_name = "muons_AllSiBarrel_fits.pdf";
-    for(int et = 0 ; et < size_eta_binning-1 ; et++){
-        TString fname = out_pdf_name;
-        if(et == 0) fname+="(";
-        else if(et == size_eta_binning-2) fname+=")";
-        c_fits[et] -> Print(fname);
-    }
+	c1 -> Print("muons_AllSiBarrel_dppVp.pdf");
+
+
+	TString out_pdf_name = "muons_AllSiBarrel_fits.pdf";
+	for(int et = 0 ; et < size_eta_binning-1 ; et++){
+		TString fname = out_pdf_name;
+		if(et == 0) fname+="(";
+		else if(et == size_eta_binning-2) fname+=")";
+		c_fits[et] -> Print(fname);
+	}
 
 
 }
@@ -135,5 +135,5 @@ void prettyTH1F( TH1F * h1 , int color , int marker ){
 	h1 -> GetXaxis() -> CenterTitle();
 	h1 -> GetXaxis() -> SetNdivisions(107); // to draw less tick marks
 	h1 -> GetYaxis() -> CenterTitle();
-    h1 -> GetYaxis() -> SetNdivisions(107); // to draw less tick marks
+	h1 -> GetYaxis() -> SetNdivisions(107); // to draw less tick marks
 }

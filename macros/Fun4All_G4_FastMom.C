@@ -45,18 +45,18 @@ void Fun4All_G4_FastMom(
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";		// Cylindrical surface object name
-	double projradius1 = 85.;		// taken from ePHENIX dirc
-	double length1     = 400.;		// taken from ePHENIX dirc
+	double projradius1 = 50.;		// [cm] 
+	double length1     = 400.;		// [cm]
 	// ---
 	double thinness    = 0.1;		// black hole thickness, needs to be taken into account for the z positions
 	// ---
-	string projname2   = "FOR"; 
-	double projzpos2   = 150+thinness/2.;
-	double projradius2 = 80.;		// do not collide with barrel
+	string projname2   = "FOR"; 		// Forward plane object name
+	double projzpos2   = 130+thinness/2.;	// [cm]
+	double projradius2 = 50.;		// [cm]
 	// ---
-	string projname3   = "BACK"; 
-	double projzpos3   = -(150+thinness/2.);
-	double projradius3 = 80.;
+	string projname3   = "BACK";		// Backward plane object name
+	double projzpos3   = -(130+thinness/2.);// [cm]
+	double projradius3 = 50.;		// [cm]
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -68,7 +68,7 @@ void Fun4All_G4_FastMom(
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string(genpar));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);			// Vertex generation range
-	gen->set_mom_range(1,10.);		// Momentum generation range in GeV/c
+	gen->set_mom_range(1,50.);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
 	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
@@ -86,9 +86,9 @@ void Fun4All_G4_FastMom(
 	PHG4Reco *g4Reco = new PHG4Reco();
 	//g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
 	//g4Reco->set_field_rescale(-1.4/1.5);
-	float B_T = 1.5; // Magnetic Field [T]
+	float B_T = 3.0; // Magnetic Field [T]
 	g4Reco->set_field(B_T);
-	//g4Reco->SetPhysicsList("FTFP_BERT_HP");
+	g4Reco->SetPhysicsList("FTFP_BERT_HP");
 	// ======================================================================================================
 	// Loading All-Si Tracker from dgml file
 	AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
@@ -113,7 +113,6 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(allsili);
 
 	// ======================================================================================================
-
 	PHG4CylinderSubsystem *cyl;
 	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
@@ -170,7 +169,7 @@ void Fun4All_G4_FastMom(
 		kalman->add_phg4hits(
 				nodename,				// const std::string& phg4hitsNames
 				PHG4TrackFastSim::Cylinder,		// const DETECTOR_TYPE phg4dettype
-				999.,					// radial-resolution [cm] (this number is not used in cylindrial geometry)
+				999.,					// radial-resolution [cm] (this number is not used in cylindrical geometry)
 				5.8e-4,					// azimuthal (arc-length) resolution [cm]
 				5.8e-4,					// longitudinal (z) resolution [cm]
 				1,					// efficiency (fraction)
@@ -201,11 +200,10 @@ void Fun4All_G4_FastMom(
 				0                                  	// hit noise
 				);
 	}
-	// projection on cylinder (DIRC)
-	kalman->add_cylinder_state(projname1, projradius1);
-	// projection on vertical planes
-	kalman->add_zplane_state(projname2, projzpos2);
-	kalman->add_zplane_state(projname3, projzpos3);
+	// Projections
+	kalman->add_cylinder_state(projname1, projradius1);	// projection on cylinder (DIRC)
+	kalman->add_zplane_state  (projname2, projzpos2  );	// projection on vertical planes
+	kalman->add_zplane_state  (projname3, projzpos3  );	// projection on vertical planes
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
