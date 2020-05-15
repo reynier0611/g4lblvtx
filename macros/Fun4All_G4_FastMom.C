@@ -1,4 +1,5 @@
 #pragma once
+#include <phgenfit/Track.h>
 #include <fun4all/Fun4AllDstInputManager.h>
 #include <fun4all/Fun4AllDstOutputManager.h>
 #include <fun4all/Fun4AllDummyInputManager.h>
@@ -38,37 +39,36 @@ void Fun4All_G4_FastMom(
 			const char *genpar = "pi-")
 {
 	bool use_particle_gen = true;
-        bool use_particle_gun = false;
-
-// projections
-	string projname1 = "DIRC";
-        double projradius1 = 85.; // taken from ePHENIX dirc
-        double length1 = 400.; // taken from ePHENIX dirc
-	double thinness = 0.1; // black hole thickness, needs to be taken into account for the z positions
-	string projname2 = "FOR"; 
-        double projzpos2 = 150+thinness/2.;
-        double projradius2 = 80.; // do not collide with barrel
-	string projname3 = "BACK"; 
-        double projzpos3 = -(150+thinness/2.);
-        double projradius3 = 80.;
-
-        if( (use_particle_gen&&use_particle_gun) && (!use_particle_gen&&!use_particle_gun) ){ cout << "Set one and only one variable above to true" << endl; exit(0);}
-	
-	cout << "Particle that will be generated: " << std::string(genpar) << endl;
-
+	bool use_particle_gun = false;
+	if( (use_particle_gen&&use_particle_gun) && (!use_particle_gen&&!use_particle_gun) ){ cout << "Set one and only one variable above to true" << endl; exit(0);}
+        cout << "Particle that will be generated: " << std::string(genpar) << endl;
+	// ======================================================================================================
+	// Parameters for projections
+	string projname1   = "DIRC";		// Cylindrical surface object name
+	double projradius1 = 85.;		// taken from ePHENIX dirc
+	double length1     = 400.;		// taken from ePHENIX dirc
+	// ---
+	double thinness    = 0.1;		// black hole thickness, needs to be taken into account for the z positions
+	// ---
+	string projname2   = "FOR"; 
+	double projzpos2   = 150+thinness/2.;
+	double projradius2 = 80.;		// do not collide with barrel
+	// ---
+	string projname3   = "BACK"; 
+	double projzpos3   = -(150+thinness/2.);
+	double projradius3 = 80.;
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
 	// If you want to fix the random seed for reproducibility
 	// recoConsts *rc = recoConsts::instance();
 	// rc->set_IntFlag("RANDOMSEED", 12345);
-	
 	// ======================================================================================================
 	// Particle Generator Setup
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string(genpar));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);			// Vertex generation range
-	gen->set_mom_range(1,10.);	// Momentum generation range in GeV/c
+	gen->set_mom_range(1,10.);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
 	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
@@ -81,7 +81,7 @@ void Fun4All_G4_FastMom(
 	// --------------------------------------------------------------------------------------
 	if     (use_particle_gen){se->registerSubsystem(gen); cout << "Using particle generator" << endl;}
 	else if(use_particle_gun){se->registerSubsystem(gun); cout << "Using particle gun"       << endl;}
-	
+
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
 	//g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
@@ -106,7 +106,7 @@ void Fun4All_G4_FastMom(
 	// allsili->AddLogicalVolume("FstContainerVolume00");
 	// allsili->AddLogicalVolume("FstChipAssembly37");
 	// allsili->AddLogicalVolume("VstStave00");
-	
+
 	allsili->SuperDetector("LBLVTX");
 	allsili->SetActive();          // this saves hits in the MimosaCore volumes
 	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
@@ -115,7 +115,7 @@ void Fun4All_G4_FastMom(
 	// ======================================================================================================
 
 	PHG4CylinderSubsystem *cyl;
-        cyl = new PHG4CylinderSubsystem(projname1,0);
+	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
 	cyl->set_double_param("radius", projradius1); // dirc radius
 	cyl->set_double_param("thickness", 0.1); // needs some thickness
@@ -123,10 +123,10 @@ void Fun4All_G4_FastMom(
 	cyl->SetActive(1);
 	cyl->SuperDetector(projname1);
 	cyl->BlackHole();
-        cyl->set_color(1,0,0,0.7); //reddish
+	cyl->set_color(1,0,0,0.7); //reddish
 	g4Reco->registerSubsystem(cyl);
 
-        cyl = new PHG4CylinderSubsystem(projname2,0);
+	cyl = new PHG4CylinderSubsystem(projname2,0);
 	cyl->set_double_param("length", thinness);
 	cyl->set_double_param("radius", 2); // beampipe needs to fit here
 	cyl->set_double_param("thickness", projradius2); // 
@@ -135,10 +135,10 @@ void Fun4All_G4_FastMom(
 	cyl->SetActive(1);
 	cyl->SuperDetector(projname2);
 	cyl->BlackHole();
-        cyl->set_color(0,1,1,0.3); //reddish
+	cyl->set_color(0,1,1,0.3); //reddish
 	g4Reco->registerSubsystem(cyl);
 
-        cyl = new PHG4CylinderSubsystem(projname3,0);
+	cyl = new PHG4CylinderSubsystem(projname3,0);
 	cyl->set_double_param("length", thinness);
 	cyl->set_double_param("radius", 2); // beampipe needs to fit here
 	cyl->set_double_param("thickness", projradius3); // 
@@ -147,7 +147,7 @@ void Fun4All_G4_FastMom(
 	cyl->SetActive(1);
 	cyl->SuperDetector(projname3);
 	cyl->BlackHole();
-        cyl->set_color(0,1,1,0.3); //reddish
+	cyl->set_color(0,1,1,0.3); //reddish
 	g4Reco->registerSubsystem(cyl);
 	// ======================================================================================================
 
@@ -201,9 +201,9 @@ void Fun4All_G4_FastMom(
 				0                                  	// hit noise
 				);
 	}
-// projection on cylinder (DIRC)
+	// projection on cylinder (DIRC)
 	kalman->add_cylinder_state(projname1, projradius1);
-// projection on vertical planes
+	// projection on vertical planes
 	kalman->add_zplane_state(projname2, projzpos2);
 	kalman->add_zplane_state(projname3, projzpos3);
 	se->registerSubsystem(kalman);
