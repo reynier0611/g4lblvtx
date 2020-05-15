@@ -88,7 +88,7 @@ void Fun4All_G4_FastMom(
 	//g4Reco->set_field_rescale(-1.4/1.5);
 	float B_T = 3.0; // Magnetic Field [T]
 	g4Reco->set_field(B_T);
-	g4Reco->SetPhysicsList("FTFP_BERT_HP");
+	//g4Reco->SetPhysicsList("FTFP_BERT_HP"); // This list is slower and only useful for hadronic showers. The default list is "QGSP_BERT"
 	// ======================================================================================================
 	// Loading All-Si Tracker from dgml file
 	AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
