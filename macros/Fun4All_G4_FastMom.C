@@ -38,10 +38,10 @@ void Fun4All_G4_FastMom(
 			const char *outputFile = "out_allSi",
 			const char *genpar = "pi-")
 {
-	bool use_particle_gen = true;
-	bool use_particle_gun = false;
-	if( (use_particle_gen&&use_particle_gun) && (!use_particle_gen&&!use_particle_gun) ){ cout << "Set one and only one variable above to true" << endl; exit(0);}
-        cout << "Particle that will be generated: " << std::string(genpar) << endl;
+	// ======================================================================================================
+	// Input from the user
+	const int particle_gen = 1;	// 1 = particle generator, 2 = particle gun
+	const int magnetic_field = 4;	// 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";		// Cylindrical surface object name
@@ -64,11 +64,14 @@ void Fun4All_G4_FastMom(
 	// recoConsts *rc = recoConsts::instance();
 	// rc->set_IntFlag("RANDOMSEED", 12345);
 	// ======================================================================================================
+	// Particle Generation
+	cout << "Particle that will be generated: " << std::string(genpar) << endl;
+	// --------------------------------------------------------------------------------------
 	// Particle Generator Setup
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string(genpar));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);			// Vertex generation range
-	gen->set_mom_range(1,50.);		// Momentum generation range in GeV/c
+	gen->set_mom_range(.00001,50.);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
 	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
@@ -79,16 +82,37 @@ void Fun4All_G4_FastMom(
 	gun->set_vtx(0,0,0);
 	gun->set_mom(0,1,0);
 	// --------------------------------------------------------------------------------------
-	if     (use_particle_gen){se->registerSubsystem(gen); cout << "Using particle generator" << endl;}
-	else if(use_particle_gun){se->registerSubsystem(gun); cout << "Using particle gun"       << endl;}
+	if     (particle_gen==1){se->registerSubsystem(gen); cout << "Using particle generator" << endl;}
+	else if(particle_gen==2){se->registerSubsystem(gun); cout << "Using particle gun"       << endl;}
 
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
-	//g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
-	//g4Reco->set_field_rescale(-1.4/1.5);
-	float B_T = 3.0; // Magnetic Field [T]
-	g4Reco->set_field(B_T);
-	//g4Reco->SetPhysicsList("FTFP_BERT_HP"); // This list is slower and only useful for hadronic showers. The default list is "QGSP_BERT"
+	// ======================================================================================================
+	// Magnetic field setting
+	TString B_label;
+	if(magnetic_field==1){		// uniform 1.5T
+		B_label = "_B_1.5T";
+		g4Reco->set_field(1.5);
+	}
+	else if(magnetic_field==2){	// uniform 3.0T
+		B_label = "_B_3.0T";
+		g4Reco->set_field(3.0);
+	}
+	else if(magnetic_field==3){	// sPHENIX 1.4T map
+		B_label = "_sPHENIX";
+		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
+		g4Reco->set_field_rescale(-1.4/1.5);
+	}
+	else if(magnetic_field==4){	// Beast 3.0T map
+		B_label = "_Beast";
+		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/mfield.4col.dat"), PHFieldConfig::kFieldBeast);
+	}
+	else{				// The user did not provide a valid B field setting
+		cout << "User did not provide a valid magnetic field setting. Set 'magnetic_field'. Bailing out!" << endl;
+	}
+	// ======================================================================================================
+	// Physics list (default list is "QGSP_BERT")
+	//g4Reco->SetPhysicsList("FTFP_BERT_HP"); // This list is slower and only useful for hadronic showers.
 	// ======================================================================================================
 	// Loading All-Si Tracker from dgml file
 	AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
@@ -112,7 +136,7 @@ void Fun4All_G4_FastMom(
 	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
 	g4Reco->registerSubsystem(allsili);
 
-	// ======================================================================================================
+	// ======================================================================================================	
 	PHG4CylinderSubsystem *cyl;
 	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
@@ -200,10 +224,11 @@ void Fun4All_G4_FastMom(
 				0                                  	// hit noise
 				);
 	}
-	// Projections
+	// Projections	
 	kalman->add_cylinder_state(projname1, projradius1);	// projection on cylinder (DIRC)
 	kalman->add_zplane_state  (projname2, projzpos2  );	// projection on vertical planes
 	kalman->add_zplane_state  (projname3, projzpos3  );	// projection on vertical planes
+	
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -211,7 +236,7 @@ void Fun4All_G4_FastMom(
 
 	// ======================================================================================================
 	TrackFastSimEval *fast_sim_eval = new TrackFastSimEval("FastTrackingEval");
-	fast_sim_eval->set_filename(TString(outputFile)+Form("_B_%.1fT",B_T)+"_FastTrackingEval.root");
+	fast_sim_eval->set_filename(TString(outputFile)+B_label+"_FastTrackingEval.root");
 	fast_sim_eval->AddProjection(projname1);
 	fast_sim_eval->AddProjection(projname2);
 	fast_sim_eval->AddProjection(projname3);
