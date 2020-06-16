@@ -87,6 +87,7 @@ void Fun4All_G4_FastMom(
 
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
+	g4Reco->SetWorldMaterial("G4_Galactic");
 	// ======================================================================================================
 	// Magnetic field setting
 	TString B_label;
@@ -136,7 +137,7 @@ void Fun4All_G4_FastMom(
 	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
 	g4Reco->registerSubsystem(allsili);
 
-	// ======================================================================================================	
+	// ======================================================================================================
 	PHG4CylinderSubsystem *cyl;
 	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
@@ -256,7 +257,7 @@ void Fun4All_G4_FastMom(
 	const std::string dst_name = std::string(outputFile)+"_G4LBLVtx.root";
 	//Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT",TString(outputFile)+"_G4LBLVtx.root");
 	Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT",dst_name);
-	out->Verbosity(10);
+	out->Verbosity(0);
 	se->registerOutputManager(out);
 
 	Fun4AllInputManager *in = new Fun4AllDummyInputManager("JADE");
