@@ -31,7 +31,7 @@
 #include <g4lblvtx/G4LBLVtxSubsystem.h>
 #include <g4lblvtx/SimpleNtuple.h>
 #include <g4lblvtx/TrackFastSimEval.h>
-#include <myjetanalysis/MyJetAnalysis.h>
+#include <myjetanalysis/MyJetAnalysis_AllSi.h>
 R__LOAD_LIBRARY(libmyjetanalysis.so)
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -40,13 +40,13 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 R__LOAD_LIBRARY(libPHPythia8.so)
 
 void Fun4All_G4_FastMom(
-	int nEvents = -1,
-	const char *outputFile = "out_allSi",
-	const char *genpar = "pi-")
+		int nEvents = -1,
+		const char *outputFile = "out_allSi",
+		const char *genpar = "pi-")
 {
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 1;     // 1 = particle generator, 2 = particle guni, 3 = pythia8 e+p collision
+	const int particle_gen = 4;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
 	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
 	// ======================================================================================================
 	// Parameters for projections
@@ -70,8 +70,10 @@ void Fun4All_G4_FastMom(
 	// recoConsts *rc = recoConsts::instance();
 	// rc->set_IntFlag("RANDOMSEED", 12345);
 	// ======================================================================================================
+	bool DISPLACED_VERTEX = false; // this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
+	// ======================================================================================================
 	// Particle Generation
-	if(particle_gen<3) cout << "Particle that will be generated: " << std::string(genpar) << endl;
+	if(particle_gen<4) cout << "Particle that will be generated: " << std::string(genpar) << endl;
 	// --------------------------------------------------------------------------------------
 	// Particle Generator Setup
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
@@ -88,10 +90,27 @@ void Fun4All_G4_FastMom(
 	gun->set_vtx(0,0,0);
 	gun->set_mom(0,1,0);
 	// --------------------------------------------------------------------------------------
+	// Simple event generator
+	PHG4SimpleEventGenerator *segen = new PHG4SimpleEventGenerator();
+	segen->add_particles(std::string(genpar),100); // 100 pion option
+	segen->set_vertex_distribution_function(PHG4SimpleEventGenerator::Uniform,PHG4SimpleEventGenerator::Uniform,PHG4SimpleEventGenerator::Uniform);
+	segen->set_vertex_distribution_mean(0.0, 0.0, 0.0);
+	segen->set_vertex_distribution_width(0.0, 0.0, 5.0);
+	segen->set_vertex_size_function(PHG4SimpleEventGenerator::Uniform);
+	segen->set_vertex_size_parameters(0.0, 0.0);
+	segen->set_eta_range(-4.,4.);
+	segen->set_phi_range(0.,2.*TMath::Pi());
+	segen->set_p_range(.00001,30.);
+	//segen->Embed(2);
+	segen->Verbosity(0);
+
+	// --------------------------------------------------------------------------------------
+	// Pythia 8 events
 	bool do_pythia8_jets = false;
-	if     (particle_gen==1){se->registerSubsystem(gen); cout << "Using particle generator" << endl;}
-	else if(particle_gen==2){se->registerSubsystem(gun); cout << "Using particle gun"       << endl;}
-	else if(particle_gen==3){
+	if     (particle_gen==1){se->registerSubsystem(  gen); cout << "Using particle generator"     << endl;}
+	else if(particle_gen==2){se->registerSubsystem(  gun); cout << "Using particle gun"           << endl;}
+	else if(particle_gen==3){se->registerSubsystem(segen); cout << "Using simple event generator" << endl;}
+	else if(particle_gen==4){
 		do_pythia8_jets = true;
 		gSystem->Load("libPHPythia8.so");
 
@@ -255,6 +274,14 @@ void Fun4All_G4_FastMom(
 	kalman->add_zplane_state  (projname2, projzpos2  );     // projection on vertical planes
 	kalman->add_zplane_state  (projname3, projzpos3  );     // projection on vertical planes
 
+	if(DISPLACED_VERTEX){
+  		// use very loose vertex constraint (1cm in sigma) to allow reco of displaced vertex
+        	kalman->set_use_vertex_in_fitting(true);
+        	kalman->set_vertex_xy_resolution(1);
+                kalman->set_vertex_z_resolution(1);
+                kalman->enable_vertexing(true);
+        }
+
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -299,7 +326,9 @@ void Fun4All_G4_FastMom(
 	if(do_pythia8_jets){
 		gSystem->Load("libmyjetanalysis");
 		std::string jetoutputFile = std::string(outputFile) + std::string("_electrons+jets.root");
-		MyJetAnalysis *myJetAnalysis = new MyJetAnalysis("AntiKt_Track_r10","AntiKt_Truth_r10",jetoutputFile.data());	
+		MyJetAnalysis_AllSi *myJetAnalysis = new MyJetAnalysis_AllSi("AntiKt_Track_r10","AntiKt_Truth_r10",jetoutputFile.data());	
+		//MyJetAnalysis_AllSi *myJetAnalysis = new MyJetAnalysis_AllSi("AntiKt_Track_r04","AntiKt_Truth_r04",jetoutputFile.data());
+		//MyJetAnalysis_AllSi *myJetAnalysis = new MyJetAnalysis_AllSi("AntiKt_Track_r02","AntiKt_Truth_r02",jetoutputFile.data());
 		se->registerSubsystem(myJetAnalysis);
 	}
 
