@@ -8,12 +8,12 @@
 #include <fun4all/Fun4AllOutputManager.h>
 #include <fun4all/Fun4AllServer.h>
 #include <fun4all/SubsysReco.h>
-
 #include <g4detectors/PHG4DetectorSubsystem.h>
 #include <g4detectors/PHG4CylinderSubsystem.h>
-
+#include <phpythia8/PHPythia8.h>
 #include <g4histos/G4HitNtuple.h>
 #include <g4lblvtx/AllSiliconTrackerSubsystem.h>
+#include <g4main/HepMCNodeReader.h>
 #include <g4main/PHG4ParticleGenerator.h>
 #include <g4main/PHG4ParticleGeneratorBase.h>
 #include <g4main/PHG4ParticleGun.h>
@@ -24,39 +24,45 @@
 #include <g4trackfastsim/PHG4TrackFastSimEval.h>
 #include <phool/recoConsts.h>
 
+#include "G4_Jets.C"
+#include "G4_Bbc.C"
+#include "G4_Global.C"
+
 #include <g4lblvtx/G4LBLVtxSubsystem.h>
 #include <g4lblvtx/SimpleNtuple.h>
 #include <g4lblvtx/TrackFastSimEval.h>
-
+#include <myjetanalysis/MyJetAnalysis_AllSi.h>
+R__LOAD_LIBRARY(libmyjetanalysis.so)
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
 R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
+R__LOAD_LIBRARY(libPHPythia8.so)
 
 void Fun4All_G4_FastMom(
-			int nEvents = -1,
-			const char *outputFile = "out_allSi",
-			const char *genpar = "pi-")
+		int nEvents = -1,
+		const char *outputFile = "out_allSi",
+		const char *genpar = "pi-")
 {
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 1;	// 1 = particle generator, 2 = particle gun
-	const int magnetic_field = 4;	// 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
+	const int particle_gen = 4;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
+	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
 	// ======================================================================================================
 	// Parameters for projections
-	string projname1   = "DIRC";		// Cylindrical surface object name
-	double projradius1 = 50.;		// [cm] 
-	double length1     = 400.;		// [cm]
+	string projname1   = "DIRC";            // Cylindrical surface object name
+	double projradius1 = 50.;               // [cm] 
+	double length1     = 400.;              // [cm]
 	// ---
-	double thinness    = 0.1;		// black hole thickness, needs to be taken into account for the z positions
+	double thinness    = 0.1;               // black hole thickness, needs to be taken into account for the z positions
 	// ---
-	string projname2   = "FOR"; 		// Forward plane object name
-	double projzpos2   = 130+thinness/2.;	// [cm]
-	double projradius2 = 50.;		// [cm]
+	string projname2   = "FOR";             // Forward plane object name
+	double projzpos2   = 130+thinness/2.;   // [cm]
+	double projradius2 = 50.;               // [cm]
 	// ---
-	string projname3   = "BACK";		// Backward plane object name
+	string projname3   = "BACK";            // Backward plane object name
 	double projzpos3   = -(130+thinness/2.);// [cm]
-	double projradius3 = 50.;		// [cm]
+	double projradius3 = 50.;               // [cm]
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -64,50 +70,83 @@ void Fun4All_G4_FastMom(
 	// recoConsts *rc = recoConsts::instance();
 	// rc->set_IntFlag("RANDOMSEED", 12345);
 	// ======================================================================================================
+	bool DISPLACED_VERTEX = false; // this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
+	// ======================================================================================================
 	// Particle Generation
-	cout << "Particle that will be generated: " << std::string(genpar) << endl;
+	if(particle_gen<4) cout << "Particle that will be generated: " << std::string(genpar) << endl;
 	// --------------------------------------------------------------------------------------
 	// Particle Generator Setup
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
-	gen->set_name(std::string(genpar));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
-	gen->set_vtx(0,0,0);			// Vertex generation range
-	gen->set_mom_range(.00001,50.);		// Momentum generation range in GeV/c
+	gen->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
+	gen->set_vtx(0,0,0);                    // Vertex generation range
+	gen->set_mom_range(.00001,50.);         // Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
+	gen->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle Gun Setup
 	PHG4ParticleGun *gun = new PHG4ParticleGun();
-	gun->set_name(std::string(genpar));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ...
+	gun->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ...
 	gun->set_vtx(0,0,0);
 	gun->set_mom(0,1,0);
 	// --------------------------------------------------------------------------------------
-	if     (particle_gen==1){se->registerSubsystem(gen); cout << "Using particle generator" << endl;}
-	else if(particle_gen==2){se->registerSubsystem(gun); cout << "Using particle gun"       << endl;}
+	// Simple event generator
+	PHG4SimpleEventGenerator *segen = new PHG4SimpleEventGenerator();
+	segen->add_particles(std::string(genpar),100); // 100 pion option
+	segen->set_vertex_distribution_function(PHG4SimpleEventGenerator::Uniform,PHG4SimpleEventGenerator::Uniform,PHG4SimpleEventGenerator::Uniform);
+	segen->set_vertex_distribution_mean(0.0, 0.0, 0.0);
+	segen->set_vertex_distribution_width(0.0, 0.0, 5.0);
+	segen->set_vertex_size_function(PHG4SimpleEventGenerator::Uniform);
+	segen->set_vertex_size_parameters(0.0, 0.0);
+	segen->set_eta_range(-4.,4.);
+	segen->set_phi_range(0.,2.*TMath::Pi());
+	segen->set_p_range(.00001,30.);
+	//segen->Embed(2);
+	segen->Verbosity(0);
+
+	// --------------------------------------------------------------------------------------
+	// Pythia 8 events
+	bool do_pythia8_jets = false;
+	if     (particle_gen==1){se->registerSubsystem(  gen); cout << "Using particle generator"     << endl;}
+	else if(particle_gen==2){se->registerSubsystem(  gun); cout << "Using particle gun"           << endl;}
+	else if(particle_gen==3){se->registerSubsystem(segen); cout << "Using simple event generator" << endl;}
+	else if(particle_gen==4){
+		do_pythia8_jets = true;
+		gSystem->Load("libPHPythia8.so");
+
+		PHPythia8 *pythia8 = new PHPythia8(); // see coresoftware/generators/PHPythia8 for example config
+		pythia8->set_config_file("phpythia8.cfg"); // example configure files : https://github.com/sPHENIX-Collaboration/coresoftware/tree/master/generators/PHPythia8 
+		se->registerSubsystem(pythia8);
+
+		// read-in HepMC events to Geant4 if there are any pythia8 produces hepmc records, so this is needed to read the above generated pythia8 events
+		HepMCNodeReader *hr = new HepMCNodeReader();
+		se->registerSubsystem(hr);
+	}
 
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
+	g4Reco->SetWorldMaterial("G4_Galactic");
 	// ======================================================================================================
 	// Magnetic field setting
 	TString B_label;
-	if(magnetic_field==1){		// uniform 1.5T
+	if(magnetic_field==1){          // uniform 1.5T
 		B_label = "_B_1.5T";
 		g4Reco->set_field(1.5);
 	}
-	else if(magnetic_field==2){	// uniform 3.0T
+	else if(magnetic_field==2){     // uniform 3.0T
 		B_label = "_B_3.0T";
 		g4Reco->set_field(3.0);
 	}
-	else if(magnetic_field==3){	// sPHENIX 1.4T map
+	else if(magnetic_field==3){     // sPHENIX 1.4T map
 		B_label = "_sPHENIX";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
 		g4Reco->set_field_rescale(-1.4/1.5);
 	}
-	else if(magnetic_field==4){	// Beast 3.0T map
+	else if(magnetic_field==4){     // Beast 3.0T map
 		B_label = "_Beast";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/mfield.4col.dat"), PHFieldConfig::kFieldBeast);
 	}
-	else{				// The user did not provide a valid B field setting
+	else{                           // The user did not provide a valid B field setting
 		cout << "User did not provide a valid magnetic field setting. Set 'magnetic_field'. Bailing out!" << endl;
 	}
 	// ======================================================================================================
@@ -117,12 +156,12 @@ void Fun4All_G4_FastMom(
 	// Loading All-Si Tracker from dgml file
 	AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
 	//allsili->set_string_param("GDMPath", string(getenv("CALIBRATIONROOT")) + "/AllSiliconTracker/FAIRGeom.gdml");
-	allsili->set_string_param("GDMPath","FAIRGeom.gdml"); 
+	allsili->set_string_param("GDMPath","FAIRGeom.gdml");
 
-	allsili->AddAssemblyVolume("VST");	// Barrel
-	allsili->AddAssemblyVolume("FST");	// Forward disks
-	allsili->AddAssemblyVolume("BST");	// Backward disks
-	allsili->AddAssemblyVolume("BEAMPIPE");	// Beampipe
+	allsili->AddAssemblyVolume("VST");      // Barrel
+	allsili->AddAssemblyVolume("FST");      // Forward disks
+	allsili->AddAssemblyVolume("BST");      // Backward disks
+	allsili->AddAssemblyVolume("BEAMPIPE"); // Beampipe
 
 	// this is for plotting single logical volumes for debugging and geantino scanning they end up at the center, you can plot multiple
 	// but they end up on top of each other. They cannot coexist with the assembly volumes, the code will quit if you try to use both.
@@ -136,7 +175,7 @@ void Fun4All_G4_FastMom(
 	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
 	g4Reco->registerSubsystem(allsili);
 
-	// ======================================================================================================	
+	// ======================================================================================================
 	PHG4CylinderSubsystem *cyl;
 	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
@@ -180,6 +219,12 @@ void Fun4All_G4_FastMom(
 	se->registerSubsystem(g4Reco);
 
 	// ======================================================================================================
+	if(do_pythia8_jets){
+		Bbc_Reco();
+		Global_Reco();
+	}
+
+	// ======================================================================================================
 	// Fast pattern recognition and full Kalman filter
 	// output evaluation file for truth track and reco tracks are PHG4TruthInfoContainer
 	char nodename[100];
@@ -191,44 +236,52 @@ void Fun4All_G4_FastMom(
 	for (int i=10; i<16; i++){ // CENTRAL BARREL
 		sprintf(nodename,"G4HIT_LBLVTX_CENTRAL_%d", i);
 		kalman->add_phg4hits(
-				nodename,				// const std::string& phg4hitsNames
-				PHG4TrackFastSim::Cylinder,		// const DETECTOR_TYPE phg4dettype
-				999.,					// radial-resolution [cm] (this number is not used in cylindrical geometry)
-				5.8e-4,					// azimuthal (arc-length) resolution [cm]
-				5.8e-4,					// longitudinal (z) resolution [cm]
-				1,					// efficiency (fraction)
-				0					// hit noise
+				nodename,                               // const std::string& phg4hitsNames
+				PHG4TrackFastSim::Cylinder,             // const DETECTOR_TYPE phg4dettype
+				999.,                                   // radial-resolution [cm] (this number is not used in cylindrical geometry)
+				5.8e-4,                                 // azimuthal (arc-length) resolution [cm]
+				5.8e-4,                                 // longitudinal (z) resolution [cm]
+				1,                                      // efficiency (fraction)
+				0                                       // hit noise
 				);
 	}
 	for (int i=20; i<25; i++){ // FORWARD DISKS
 		sprintf(nodename,"G4HIT_LBLVTX_FORWARD_%d", i);
 		kalman->add_phg4hits(
-				nodename,                          	// const std::string& phg4hitsNames
-				PHG4TrackFastSim::Vertical_Plane,  	// const DETECTOR_TYPE phg4dettype
-				5.8e-4,                            	// radial-resolution [cm]
-				5.8e-4,                            	// azimuthal (arc-length) resolution [cm]
-				999.,                              	// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
-				1,                                 	// efficiency (fraction)
-				0                                  	// hit noise
+				nodename,                               // const std::string& phg4hitsNames
+				PHG4TrackFastSim::Vertical_Plane,       // const DETECTOR_TYPE phg4dettype
+				5.8e-4,                                 // radial-resolution [cm]
+				5.8e-4,                                 // azimuthal (arc-length) resolution [cm]
+				999.,                                   // longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
+				1,                                      // efficiency (fraction)
+				0                                       // hit noise
 				);
 	}
 	for (int i=30; i<35; i++){ // BACKWARD DISKS
 		sprintf(nodename,"G4HIT_LBLVTX_BACKWARD_%d", i);
 		kalman->add_phg4hits(
-				nodename,                          	// const std::string& phg4hitsNames
-				PHG4TrackFastSim::Vertical_Plane,  	// const DETECTOR_TYPE phg4dettype
-				5.8e-4,                            	// radial-resolution [cm]
-				5.8e-4,                            	// azimuthal (arc-length) resolution [cm]
-				999.,                              	// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
-				1,                                 	// efficiency (fraction)
-				0                                  	// hit noise
+				nodename,                               // const std::string& phg4hitsNames
+				PHG4TrackFastSim::Vertical_Plane,       // const DETECTOR_TYPE phg4dettype
+				5.8e-4,                                 // radial-resolution [cm]
+				5.8e-4,                                 // azimuthal (arc-length) resolution [cm]
+				999.,                                   // longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
+				1,                                      // efficiency (fraction)
+				0                                       // hit noise
 				);
 	}
-	// Projections	
-	kalman->add_cylinder_state(projname1, projradius1);	// projection on cylinder (DIRC)
-	kalman->add_zplane_state  (projname2, projzpos2  );	// projection on vertical planes
-	kalman->add_zplane_state  (projname3, projzpos3  );	// projection on vertical planes
-	
+	// Projections  
+	kalman->add_cylinder_state(projname1, projradius1);     // projection on cylinder (DIRC)
+	kalman->add_zplane_state  (projname2, projzpos2  );     // projection on vertical planes
+	kalman->add_zplane_state  (projname3, projzpos3  );     // projection on vertical planes
+
+	if(DISPLACED_VERTEX){
+  		// use very loose vertex constraint (1cm in sigma) to allow reco of displaced vertex
+        	kalman->set_use_vertex_in_fitting(true);
+        	kalman->set_vertex_xy_resolution(1);
+                kalman->set_vertex_z_resolution(1);
+                kalman->enable_vertexing(true);
+        }
+
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -243,12 +296,20 @@ void Fun4All_G4_FastMom(
 	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
+	// resonstruct jets after the tracking
+	if(do_pythia8_jets) Jet_Reco();
+
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
 	//  hits->AddNode("ABSORBER_LBLVTX",0); // hits in the passive volumes
-	for (int i = 10; i < 16; i++){sprintf(nodename, "LBLVTX_CENTRAL_%d", i);	hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
-	for (int i = 20; i < 25; i++){sprintf(nodename, "LBLVTX_FORWARD_%d", i);	hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
-	for (int i = 30; i < 35; i++){sprintf(nodename, "LBLVTX_BACKWARD_%d",i);	hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
+	for (int i = 10; i < 16; i++){sprintf(nodename, "LBLVTX_CENTRAL_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
+	for (int i = 20; i < 25; i++){sprintf(nodename, "LBLVTX_FORWARD_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
+	for (int i = 30; i < 35; i++){sprintf(nodename, "LBLVTX_BACKWARD_%d",i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
 	se->registerSubsystem(hits);
+
+	// ======================================================================================================
+	if(do_pythia8_jets)
+		Jet_Eval(string(outputFile) + "_g4jet_eval.root");
+	// ======================================================================================================
 
 	///////////////////////////////////////////
 	// IOManagers...
@@ -256,17 +317,26 @@ void Fun4All_G4_FastMom(
 	const std::string dst_name = std::string(outputFile)+"_G4LBLVtx.root";
 	//Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT",TString(outputFile)+"_G4LBLVtx.root");
 	Fun4AllDstOutputManager *out = new Fun4AllDstOutputManager("DSTOUT",dst_name);
-	out->Verbosity(10);
+	out->Verbosity(0);
 	se->registerOutputManager(out);
 
 	Fun4AllInputManager *in = new Fun4AllDummyInputManager("JADE");
 	se->registerInputManager(in);
-	if (nEvents <= 0)
-	{
-		return;
+
+	if(do_pythia8_jets){
+		gSystem->Load("libmyjetanalysis");
+		std::string jetoutputFile = std::string(outputFile) + std::string("_electrons+jets.root");
+		MyJetAnalysis_AllSi *myJetAnalysis = new MyJetAnalysis_AllSi("AntiKt_Track_r10","AntiKt_Truth_r10",jetoutputFile.data());	
+		//MyJetAnalysis_AllSi *myJetAnalysis = new MyJetAnalysis_AllSi("AntiKt_Track_r04","AntiKt_Truth_r04",jetoutputFile.data());
+		//MyJetAnalysis_AllSi *myJetAnalysis = new MyJetAnalysis_AllSi("AntiKt_Track_r02","AntiKt_Truth_r02",jetoutputFile.data());
+		se->registerSubsystem(myJetAnalysis);
 	}
+
+	if (nEvents <= 0) return;
+
 	se->run(nEvents);
 	se->End();
 	delete se;
+
 	gSystem->Exit(0);
 }
