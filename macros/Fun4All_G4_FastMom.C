@@ -280,8 +280,9 @@ void Fun4All_G4_FastMom(
         	kalman->set_vertex_xy_resolution(1);
                 kalman->set_vertex_z_resolution(1);
                 kalman->enable_vertexing(true);
-        }
-
+        	kalman->set_vertex_min_ndf(2); // Only tracks with number of degrees of freedom greater than this value are used to fit the vertex
+	}
+	//kalman->Verbosity(10);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
