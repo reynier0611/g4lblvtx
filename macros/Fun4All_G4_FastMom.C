@@ -41,15 +41,16 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 R__LOAD_LIBRARY(libPHPythia8.so)
 
 void Fun4All_G4_FastMom(
-		int nEvents = -1,
-		const char *outputFile = "out_allSi",
-		const char *genpar = "pi-")
+		int nEvents = -1,			// number of events
+		const char *outputFile = "out_allSi",	// output filename
+		const int det_ver = 2,			// version of detector geometry
+		const char *genpar = "pi-")		// particle species to simulate with the simple generators
 {
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 4;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
+	const int particle_gen = 1;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
 	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
-	const int det_ver = 2;		// version of the detector geometry
+	const double pixel_size = 20.;	// um
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";            // Cylindrical surface object name
@@ -81,7 +82,7 @@ void Fun4All_G4_FastMom(
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);                    // Vertex generation range
-	gen->set_mom_range(.00001,50.);         // Momentum generation range in GeV/c
+	gen->set_mom_range(.00001,30.);         // Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
 	gen->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
@@ -168,6 +169,12 @@ void Fun4All_G4_FastMom(
         	double pipe_radius = 0;
         	pipe_radius = Pipe(g4Reco,pipe_radius);
 	}
+	else if(det_ver==3){
+                allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v3.gdml");
+                PipeInit();                             // Load beampipe from Fun4All rather than from gdml file
+                double pipe_radius = 0;
+                pipe_radius = Pipe(g4Reco,pipe_radius);
+        }
 
 	allsili->AddAssemblyVolume("VST");      // Barrel
 	allsili->AddAssemblyVolume("FST");      // Forward disks
@@ -186,7 +193,6 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(allsili);
 
 	// ======================================================================================================
-	/*
 	PHG4CylinderSubsystem *cyl;
 	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
@@ -222,7 +228,6 @@ void Fun4All_G4_FastMom(
 	cyl->BlackHole();
 	cyl->set_color(0,1,1,0.3); //reddish
 	g4Reco->registerSubsystem(cyl);
-	*/
 	// ======================================================================================================
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
@@ -239,6 +244,7 @@ void Fun4All_G4_FastMom(
 	// ======================================================================================================
 	// Fast pattern recognition and full Kalman filter
 	// output evaluation file for truth track and reco tracks are PHG4TruthInfoContainer
+	double um_to_cm = 1E-04; // Conversion factor from um to cm
 	char nodename[100];
 	PHG4TrackFastSim *kalman = new PHG4TrackFastSim("PHG4TrackFastSim");
 	kalman->set_use_vertex_in_fitting(false);
@@ -251,8 +257,8 @@ void Fun4All_G4_FastMom(
 				nodename,                               // const std::string& phg4hitsNames
 				PHG4TrackFastSim::Cylinder,             // const DETECTOR_TYPE phg4dettype
 				999.,                                   // radial-resolution [cm] (this number is not used in cylindrical geometry)
-				5.8e-4,                                 // azimuthal (arc-length) resolution [cm]
-				5.8e-4,                                 // longitudinal (z) resolution [cm]
+				pixel_size*um_to_cm/sqrt(12.),          // azimuthal (arc-length) resolution [cm]
+				pixel_size*um_to_cm/sqrt(12.),          // longitudinal (z) resolution [cm]
 				1,                                      // efficiency (fraction)
 				0                                       // hit noise
 				);
@@ -262,8 +268,8 @@ void Fun4All_G4_FastMom(
 		kalman->add_phg4hits(
 				nodename,                               // const std::string& phg4hitsNames
 				PHG4TrackFastSim::Vertical_Plane,       // const DETECTOR_TYPE phg4dettype
-				5.8e-4,                                 // radial-resolution [cm]
-				5.8e-4,                                 // azimuthal (arc-length) resolution [cm]
+				pixel_size*um_to_cm/sqrt(12.),          // radial-resolution [cm]
+				pixel_size*um_to_cm/sqrt(12.),          // azimuthal (arc-length) resolution [cm]
 				999.,                                   // longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 				1,                                      // efficiency (fraction)
 				0                                       // hit noise
@@ -274,8 +280,8 @@ void Fun4All_G4_FastMom(
 		kalman->add_phg4hits(
 				nodename,                               // const std::string& phg4hitsNames
 				PHG4TrackFastSim::Vertical_Plane,       // const DETECTOR_TYPE phg4dettype
-				5.8e-4,                                 // radial-resolution [cm]
-				5.8e-4,                                 // azimuthal (arc-length) resolution [cm]
+				pixel_size*um_to_cm/sqrt(12.),          // radial-resolution [cm]
+				pixel_size*um_to_cm/sqrt(12.),          // azimuthal (arc-length) resolution [cm]
 				999.,                                   // longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 				1,                                      // efficiency (fraction)
 				0                                       // hit noise

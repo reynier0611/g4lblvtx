@@ -210,25 +210,26 @@
     <rotation name="VstSideWall02_0inVstChipAssembly02rot" x="0" y="-29.999999999999996" z="0" unit="deg"/>
     <position name="VstSideWall02_1inVstChipAssembly02pos" x="-0.38125000000000003" y="0" z="0.0017409257229537901" unit="cm"/>
     <rotation name="VstSideWall02_1inVstChipAssembly02rot" x="0" y="29.999999999999996" z="180" unit="deg"/>
-    <position name="VstChipAssembly02_0inVstStave02pos" x="0" y="-27.090000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_1inVstStave02pos" x="0" y="-24.080000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_2inVstStave02pos" x="0" y="-21.070000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_3inVstStave02pos" x="0" y="-18.060000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_4inVstStave02pos" x="0" y="-15.050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_5inVstStave02pos" x="0" y="-12.040000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_6inVstStave02pos" x="0" y="-9.0300000000000011" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_7inVstStave02pos" x="0" y="-6.0200000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_8inVstStave02pos" x="0" y="-3.0100000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_9inVstStave02pos" x="0" y="0" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_10inVstStave02pos" x="0" y="3.0100000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_11inVstStave02pos" x="0" y="6.0200000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_12inVstStave02pos" x="0" y="9.0300000000000011" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_13inVstStave02pos" x="0" y="12.040000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_14inVstStave02pos" x="0" y="15.050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_15inVstStave02pos" x="0" y="18.060000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_16inVstStave02pos" x="0" y="21.070000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_17inVstStave02pos" x="0" y="24.080000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly02_18inVstStave02pos" x="0" y="27.090000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_0inVstStave02pos" x="0" y="-28.594999999999999" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_1inVstStave02pos" x="0" y="-25.585000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_2inVstStave02pos" x="0" y="-22.575000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_3inVstStave02pos" x="0" y="-19.565000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_4inVstStave02pos" x="0" y="-16.555000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_5inVstStave02pos" x="0" y="-13.545000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_6inVstStave02pos" x="0" y="-10.535000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_7inVstStave02pos" x="0" y="-7.5250000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_8inVstStave02pos" x="0" y="-4.5150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_9inVstStave02pos" x="0" y="-1.5050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_10inVstStave02pos" x="0" y="1.5050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_11inVstStave02pos" x="0" y="4.5150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_12inVstStave02pos" x="0" y="7.5250000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_13inVstStave02pos" x="0" y="10.535000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_14inVstStave02pos" x="0" y="13.545000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_15inVstStave02pos" x="0" y="16.555000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_16inVstStave02pos" x="0" y="19.565000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_17inVstStave02pos" x="0" y="22.575000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_18inVstStave02pos" x="0" y="25.585000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly02_19inVstStave02pos" x="0" y="28.594999999999999" z="0" unit="cm"/>
     <position name="VstStave02_0inVSTpos" x="0" y="22.710581483726415" z="0" unit="cm"/>
     <rotation name="VstStave02_0inVSTrot" x="90" y="-0.49999999999999784" z="0" unit="deg"/>
     <position name="VstStave02_1inVSTpos" x="1.7384780440616099" y="22.643944122420297" z="0" unit="cm"/>
@@ -424,188 +425,189 @@
     <rotation name="VstSideWall03_0inVstChipAssembly03rot" x="0" y="-29.999999999999996" z="0" unit="deg"/>
     <position name="VstSideWall03_1inVstChipAssembly03pos" x="-0.38125000000000003" y="0" z="0.0017409257229537901" unit="cm"/>
     <rotation name="VstSideWall03_1inVstChipAssembly03rot" x="0" y="29.999999999999996" z="180" unit="deg"/>
-    <position name="VstChipAssembly03_0inVstStave03pos" x="0" y="-27.090000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_1inVstStave03pos" x="0" y="-24.080000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_2inVstStave03pos" x="0" y="-21.070000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_3inVstStave03pos" x="0" y="-18.060000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_4inVstStave03pos" x="0" y="-15.050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_5inVstStave03pos" x="0" y="-12.040000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_6inVstStave03pos" x="0" y="-9.0300000000000011" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_7inVstStave03pos" x="0" y="-6.0200000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_8inVstStave03pos" x="0" y="-3.0100000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_9inVstStave03pos" x="0" y="0" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_10inVstStave03pos" x="0" y="3.0100000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_11inVstStave03pos" x="0" y="6.0200000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_12inVstStave03pos" x="0" y="9.0300000000000011" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_13inVstStave03pos" x="0" y="12.040000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_14inVstStave03pos" x="0" y="15.050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_15inVstStave03pos" x="0" y="18.060000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_16inVstStave03pos" x="0" y="21.070000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_17inVstStave03pos" x="0" y="24.080000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly03_18inVstStave03pos" x="0" y="27.090000000000003" z="0" unit="cm"/>
-    <position name="VstStave03_0inVSTpos" x="0.7907324960135399" y="22.643616034875784" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_0inVstStave03pos" x="0" y="-28.594999999999999" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_1inVstStave03pos" x="0" y="-25.585000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_2inVstStave03pos" x="0" y="-22.575000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_3inVstStave03pos" x="0" y="-19.565000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_4inVstStave03pos" x="0" y="-16.555000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_5inVstStave03pos" x="0" y="-13.545000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_6inVstStave03pos" x="0" y="-10.535000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_7inVstStave03pos" x="0" y="-7.5250000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_8inVstStave03pos" x="0" y="-4.5150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_9inVstStave03pos" x="0" y="-1.5050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_10inVstStave03pos" x="0" y="1.5050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_11inVstStave03pos" x="0" y="4.5150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_12inVstStave03pos" x="0" y="7.5250000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_13inVstStave03pos" x="0" y="10.535000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_14inVstStave03pos" x="0" y="13.545000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_15inVstStave03pos" x="0" y="16.555000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_16inVstStave03pos" x="0" y="19.565000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_17inVstStave03pos" x="0" y="22.575000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_18inVstStave03pos" x="0" y="25.585000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly03_19inVstStave03pos" x="0" y="28.594999999999999" z="0" unit="cm"/>
+    <position name="VstStave03_0inVSTpos" x="0.77405053651812594" y="22.165907217509773" z="0" unit="cm"/>
     <rotation name="VstStave03_0inVSTrot" x="-90" y="1.4999999999999925" z="180" unit="deg"/>
-    <position name="VstStave03_1inVSTpos" x="2.5217642186459925" y="22.516645181747041" z="0" unit="cm"/>
+    <position name="VstStave03_1inVSTpos" x="2.4685629542936089" y="22.041615048562683" z="0" unit="cm"/>
     <rotation name="VstStave03_1inVSTrot" x="-90" y="5.8902439024390132" z="180" unit="deg"/>
-    <position name="VstStave03_2inVSTpos" x="4.2379972261079724" y="22.257537701341462" z="0" unit="cm"/>
+    <position name="VstStave03_2inVSTpos" x="4.1485888630723915" y="21.787973918047715" z="0" unit="cm"/>
     <rotation name="VstStave03_2inVSTrot" x="-90" y="10.280487804878048" z="180" unit="deg"/>
-    <position name="VstStave03_3inVSTpos" x="5.9293599806816353" y="21.867814139383629" z="0" unit="cm"/>
+    <position name="VstStave03_3inVSTpos" x="5.8042692027888227" y="21.406472292974687" z="0" unit="cm"/>
     <rotation name="VstStave03_3inVSTrot" x="-90" y="14.670731707317056" z="180" unit="deg"/>
-    <position name="VstStave03_4inVSTpos" x="7.5859268931823154" y="21.349761548701867" z="0" unit="cm"/>
+    <position name="VstStave03_4inVSTpos" x="7.4258877828571066" y="20.899348976576981" z="0" unit="cm"/>
     <rotation name="VstStave03_4inVSTrot" x="-90" y="19.060975609756103" z="180" unit="deg"/>
-    <position name="VstStave03_5inVSTpos" x="9.1979765702625791" y="20.706420067892861" z="0" unit="cm"/>
+    <position name="VstStave03_5inVSTpos" x="9.0039283006411175" y="20.269579970123942" z="0" unit="cm"/>
     <rotation name="VstStave03_5inVSTrot" x="-90" y="23.451219512195106" z="180" unit="deg"/>
-    <position name="VstStave03_6inVSTpos" x="10.75604886341395" y="19.94156508057948" z="0" unit="cm"/>
+    <position name="VstStave03_6inVSTpos" x="10.529130186902277" y="19.520861008562068" z="0" unit="cm"/>
     <rotation name="VstStave03_6inVSTrot" x="-90" y="27.841463414634159" z="180" unit="deg"/>
-    <position name="VstStave03_7inVSTpos" x="12.251000384880005" y="19.059685059958504" z="0" unit="cm"/>
+    <position name="VstStave03_7inVSTpos" x="11.992542950502134" y="18.657585872472819" z="0" unit="cm"/>
     <rotation name="VstStave03_7inVSTrot" x="-90" y="32.231707317073194" z="180" unit="deg"/>
-    <position name="VstStave03_8inVSTpos" x="13.674058164691436" y="18.06595522865511" z="0" unit="cm"/>
+    <position name="VstStave03_8inVSTpos" x="13.385578703443381" y="17.684820603621027" z="0" unit="cm"/>
     <rotation name="VstStave03_8inVSTrot" x="-90" y="36.621951219512198" z="180" unit="deg"/>
-    <position name="VstStave03_9inVSTpos" x="15.016871133942265" y="16.966207188458679" z="0" unit="cm"/>
+    <position name="VstStave03_9inVSTpos" x="14.700062558011441" y="16.608273775407419" z="0" unit="cm"/>
     <rotation name="VstStave03_9inVSTrot" x="-90" y="41.012195121951208" z="180" unit="deg"/>
-    <position name="VstStave03_10inVSTpos" x="16.271559132182823" y="15.766894698164673" z="0" unit="cm"/>
+    <position name="VstStave03_10inVSTpos" x="15.928280600266184" y="15.434262992689986" z="0" unit="cm"/>
     <rotation name="VstStave03_10inVSTrot" x="-90" y="45.40243902439024" z="180" unit="deg"/>
-    <position name="VstStave03_11inVSTpos" x="17.430759151334684" y="14.475055800351777" z="0" unit="cm"/>
+    <position name="VstStave03_11inVSTpos" x="17.063025158356226" y="14.169677817566573" z="0" unit="cm"/>
     <rotation name="VstStave03_11inVSTrot" x="-90" y="49.792682926829272" z="180" unit="deg"/>
-    <position name="VstStave03_12inVSTpos" x="18.487668544749841" y="13.098271519349517" z="0" unit="cm"/>
+    <position name="VstStave03_12inVSTpos" x="18.097637100003357" y="12.821939338684995" z="0" unit="cm"/>
     <rotation name="VstStave03_12inVSTrot" x="-90" y="54.182926829268304" z="180" unit="deg"/>
-    <position name="VstStave03_13inVSTpos" x="19.436084947846197" y="11.64462137277301" z="0" unit="cm"/>
+    <position name="VstStave03_13inVSTpos" x="19.026044910938644" y="11.39895662134397" z="0" unit="cm"/>
     <rotation name="VstStave03_13inVSTrot" x="-90" y="58.573170731707286" z="180" unit="deg"/>
-    <position name="VstStave03_14inVSTpos" x="20.270442676049168" y="10.122635957700941" z="0" unit="cm"/>
+    <position name="VstStave03_14inVSTpos" x="19.842800324962372" y="9.909080293953064" z="0" unit="cm"/>
     <rotation name="VstStave03_14inVSTrot" x="-90" y="62.963414634146339" z="180" unit="deg"/>
-    <position name="VstStave03_15inVSTpos" x="20.985845386441902" y="8.5412468897398526" z="0" unit="cm"/>
+    <position name="VstStave03_15inVSTpos" x="20.543110296536543" y="8.3610535432246849" z="0" unit="cm"/>
     <rotation name="VstStave03_15inVSTrot" x="-90" y="67.353658536585371" z="180" unit="deg"/>
-    <position name="VstStave03_16inVSTpos" x="21.578094811452427" y="6.9097343887522475" z="0" unit="cm"/>
+    <position name="VstStave03_16inVSTpos" x="21.122865128281941" y="6.7639608056778773" z="0" unit="cm"/>
     <rotation name="VstStave03_16inVSTrot" x="-90" y="71.743902439024396" z="180" unit="deg"/>
-    <position name="VstStave03_17inVSTpos" x="22.04371539595715" y="5.2376728188363568" z="0" unit="cm"/>
+    <position name="VstStave03_17inVSTpos" x="21.578662588316508" y="5.1271744565525808" z="0" unit="cm"/>
     <rotation name="VstStave03_17inVSTrot" x="-90" y="76.134146341463378" z="180" unit="deg"/>
-    <position name="VstStave03_18inVSTpos" x="22.379974693220316" y="3.5348745021504984" z="0" unit="cm"/>
+    <position name="VstStave03_18inVSTpos" x="21.907827875904871" y="3.4602998089849395" z="0" unit="cm"/>
     <rotation name="VstStave03_18inVSTrot" x="-90" y="80.524390243902403" z="180" unit="deg"/>
-    <position name="VstStave03_19inVSTpos" x="22.584899399977949" y="1.811332136304967" z="0" unit="cm"/>
+    <position name="VstStave03_19inVSTpos" x="22.108429318252639" y="1.7731187462104443" z="0" unit="cm"/>
     <rotation name="VstStave03_19inVSTrot" x="-90" y="84.914634146341498" z="180" unit="deg"/>
-    <position name="VstStave03_20inVSTpos" x="22.65728693656607" y="0.077160153239033552" z="0" unit="cm"/>
+    <position name="VstStave03_20inVSTpos" x="22.179289706330458" y="0.075532317583508091" z="0" unit="cm"/>
     <rotation name="VstStave03_20inVSTrot" x="-90" y="89.304878048780481" z="180" unit="deg"/>
-    <position name="VstStave03_21inVSTpos" x="22.596712504136345" y="-1.657464636287483" z="0" unit="cm"/>
+    <position name="VstStave03_21inVSTpos" x="22.119993203204693" y="-1.6224973647171044" z="0" unit="cm"/>
     <rotation name="VstStave03_21inVSTrot" x="90" y="86.304878048780481" z="0" unit="deg"/>
-    <position name="VstStave03_22inVSTpos" x="22.40353157754463" y="-3.3823627642664258" z="0" unit="cm"/>
+    <position name="VstStave03_22inVSTpos" x="21.930887784333901" y="-3.3110055873238426" z="0" unit="cm"/>
     <rotation name="VstStave03_22inVSTrot" x="90" y="81.914634146341498" z="0" unit="deg"/>
-    <position name="VstStave03_23inVSTpos" x="22.078877819283186" y="-5.0874118426072368" z="0" unit="cm"/>
+    <position name="VstStave03_23inVSTpos" x="21.613083195510487" y="-4.9800835125806815" z="0" unit="cm"/>
     <rotation name="VstStave03_23inVSTrot" x="90" y="77.524390243902417" z="0" unit="deg"/>
-    <position name="VstStave03_24inVSTpos" x="21.624656426698383" y="-6.7626059653352417" z="0" unit="cm"/>
+    <position name="VstStave03_24inVSTpos" x="21.168444440431099" y="-6.6199363275425442" z="0" unit="cm"/>
     <rotation name="VstStave03_24inVSTrot" x="90" y="73.134146341463435" z="0" unit="deg"/>
-    <position name="VstStave03_25inVSTpos" x="21.043532951535106" y="-8.3981144272266093" z="0" unit="cm"/>
+    <position name="VstStave03_25inVSTpos" x="20.599580836113372" y="-8.2209407238324257" z="0" unit="cm"/>
     <rotation name="VstStave03_25inVSTrot" x="90" y="68.743902439024396" z="0" unit="deg"/>
-    <position name="VstStave03_26inVSTpos" x="20.338917657419202" y="-9.9843394142956114" z="0" unit="cm"/>
+    <position name="VstStave03_26inVSTpos" x="19.909830700386117" y="-9.7737013710414846" z="0" unit="cm"/>
     <rotation name="VstStave03_26inVSTrot" x="90" y="64.353658536585385" z="0" unit="deg"/>
-    <position name="VstStave03_27inVSTpos" x="19.514945507074497" y="-11.511972327583504" z="0" unit="cm"/>
+    <position name="VstStave03_27inVSTpos" x="19.103241761312855" y="-11.269106052263783" z="0" unit="cm"/>
     <rotation name="VstStave03_27inVSTrot" x="90" y="59.963414634146382" z="0" unit="deg"/>
-    <position name="VstStave03_28inVSTpos" x="18.576451896717337" y="-12.972048409718578" z="0" unit="cm"/>
+    <position name="VstStave03_28inVSTpos" x="18.184547403514067" y="-12.69837913820837" z="0" unit="cm"/>
     <rotation name="VstStave03_28inVSTrot" x="90" y="55.573170731707307" z="0" unit="deg"/>
-    <position name="VstStave03_29inVSTpos" x="17.528944280028881" y="-14.355999353677131" z="0" unit="cm"/>
+    <position name="VstStave03_29inVSTpos" x="17.159138890784067" y="-14.053133086081459" z="0" unit="cm"/>
     <rotation name="VstStave03_29inVSTrot" x="90" y="51.182926829268311" z="0" unit="deg"/>
-    <position name="VstStave03_30inVSTpos" x="16.378569848226931" y="-15.655703585016134" z="0" unit="cm"/>
+    <position name="VstStave03_30inVSTpos" x="16.033033728011315" y="-15.325417661022726" z="0" unit="cm"/>
     <rotation name="VstStave03_30inVSTrot" x="90" y="46.792682926829229" z="0" unit="deg"/>
-    <position name="VstStave03_31inVSTpos" x="15.132079455903613" y="-16.863533922501393" z="0" unit="cm"/>
+    <position name="VstStave03_31inVSTpos" x="14.812840348067015" y="-16.507766591244668" z="0" unit="cm"/>
     <rotation name="VstStave03_31inVSTrot" x="90" y="42.402439024390226" z="0" unit="deg"/>
-    <position name="VstStave03_32inVSTpos" x="13.796788004326174" y="-17.972402337439945" z="0" unit="cm"/>
+    <position name="VstStave03_32inVSTpos" x="13.50571933089323" y="-17.593241383084376" z="0" unit="cm"/>
     <rotation name="VstStave03_32inVSTrot" x="90" y="38.012195121951201" z="0" unit="deg"/>
-    <position name="VstStave03_33inVSTpos" x="12.380531514687783" y="-18.975801549050782" z="0" unit="cm"/>
+    <position name="VstStave03_33inVSTpos" x="12.11934138237257" y="-18.575472038843252" z="0" unit="cm"/>
     <rotation name="VstStave03_33inVSTrot" x="90" y="33.621951219512219" z="0" unit="deg"/>
-    <position name="VstStave03_34inVSTpos" x="10.891621143219266" y="-19.86784321177602" z="0" unit="cm"/>
+    <position name="VstStave03_34inVSTpos" x="10.661842319575896" y="-19.448694438466458" z="0" unit="cm"/>
     <rotation name="VstStave03_34inVSTrot" x="90" y="29.231707317073194" z="0" unit="deg"/>
-    <position name="VstStave03_35inVSTpos" x="9.338794408019595" y="-20.643292470434009" z="0" unit="cm"/>
+    <position name="VstStave03_35inVSTpos" x="9.1417753265527413" y="-20.207784165691379" z="0" unit="cm"/>
     <rotation name="VstStave03_35inVSTrot" x="90" y="24.841463414634156" z="0" unit="deg"/>
-    <position name="VstStave03_36inVSTpos" x="7.7311639138253101" y="-21.297598680431104" z="0" unit="cm"/>
+    <position name="VstStave03_36inVSTpos" x="7.5680607608462136" y="-20.848286580159904" z="0" unit="cm"/>
     <rotation name="VstStave03_36inVSTrot" x="90" y="20.45121951219512" z="0" unit="deg"/>
-    <position name="VstStave03_37inVSTpos" x="6.078163875622514" y="-21.826922112753618" z="0" unit="cm"/>
+    <position name="VstStave03_37inVSTpos" x="5.9499338052879738" y="-21.366442959019338" z="0" unit="cm"/>
     <rotation name="VstStave03_37inVSTrot" x="90" y="16.060975609756088" z="0" unit="deg"/>
-    <position name="VstStave03_38inVSTpos" x="4.3894947549219525" y="-22.228156487024471" z="0" unit="cm"/>
+    <position name="VstStave03_38inVSTpos" x="4.2968902722731377" y="-21.759212554602708" z="0" unit="cm"/>
     <rotation name="VstStave03_38inVSTrot" x="90" y="11.670731707317053" z="0" unit="deg"/>
-    <position name="VstStave03_39inVSTpos" x="2.6750663335936724" y="-22.498947200391601" z="0" unit="cm"/>
+    <position name="VstStave03_39inVSTpos" x="2.6186308785573198" y="-22.024290438745169" z="0" unit="cm"/>
     <rotation name="VstStave03_39inVSTrot" x="90" y="7.2804878048780202" z="0" unit="deg"/>
-    <position name="VstStave03_40inVSTpos" x="0.94493955932646967" y="-22.637705145273788" z="0" unit="cm"/>
+    <position name="VstStave03_40inVSTpos" x="0.92500431759330515" y="-22.160121029018985" z="0" unit="cm"/>
     <rotation name="VstStave03_40inVSTrot" x="90" y="2.8902439024390367" z="0" unit="deg"/>
-    <position name="VstStave03_41inVSTpos" x="-0.79073249601353834" y="-22.643616034875784" z="0" unit="cm"/>
+    <position name="VstStave03_41inVSTpos" x="-0.77405053651812439" y="-22.165907217509773" z="0" unit="cm"/>
     <rotation name="VstStave03_41inVSTrot" x="90" y="-1.499999999999998" z="0" unit="deg"/>
-    <position name="VstStave03_42inVSTpos" x="-2.5217642186459948" y="-22.516645181747041" z="0" unit="cm"/>
+    <position name="VstStave03_42inVSTpos" x="-2.4685629542936107" y="-22.041615048562683" z="0" unit="cm"/>
     <rotation name="VstStave03_42inVSTrot" x="90" y="-5.8902439024389821" z="0" unit="deg"/>
-    <position name="VstStave03_43inVSTpos" x="-4.237997226107967" y="-22.257537701341462" z="0" unit="cm"/>
+    <position name="VstStave03_43inVSTpos" x="-4.1485888630723862" y="-21.787973918047715" z="0" unit="cm"/>
     <rotation name="VstStave03_43inVSTrot" x="90" y="-10.280487804878016" z="0" unit="deg"/>
-    <position name="VstStave03_44inVSTpos" x="-5.9293599806816255" y="-21.867814139383629" z="0" unit="cm"/>
+    <position name="VstStave03_44inVSTpos" x="-5.804269202788813" y="-21.406472292974691" z="0" unit="cm"/>
     <rotation name="VstStave03_44inVSTrot" x="90" y="-14.670731707317051" z="0" unit="deg"/>
-    <position name="VstStave03_45inVSTpos" x="-7.5859268931823181" y="-21.349761548701863" z="0" unit="cm"/>
+    <position name="VstStave03_45inVSTpos" x="-7.4258877828571093" y="-20.899348976576977" z="0" unit="cm"/>
     <rotation name="VstStave03_45inVSTrot" x="90" y="-19.060975609756081" z="0" unit="deg"/>
-    <position name="VstStave03_46inVSTpos" x="-9.1979765702625684" y="-20.706420067892864" z="0" unit="cm"/>
+    <position name="VstStave03_46inVSTpos" x="-9.0039283006411068" y="-20.269579970123946" z="0" unit="cm"/>
     <rotation name="VstStave03_46inVSTrot" x="90" y="-23.45121951219512" z="0" unit="deg"/>
-    <position name="VstStave03_47inVSTpos" x="-10.756048863413943" y="-19.941565080579483" z="0" unit="cm"/>
+    <position name="VstStave03_47inVSTpos" x="-10.52913018690227" y="-19.520861008562072" z="0" unit="cm"/>
     <rotation name="VstStave03_47inVSTrot" x="90" y="-27.841463414634152" z="0" unit="deg"/>
-    <position name="VstStave03_48inVSTpos" x="-12.251000384879999" y="-19.059685059958507" z="0" unit="cm"/>
+    <position name="VstStave03_48inVSTpos" x="-11.992542950502129" y="-18.657585872472819" z="0" unit="cm"/>
     <rotation name="VstStave03_48inVSTrot" x="90" y="-32.231707317073187" z="0" unit="deg"/>
-    <position name="VstStave03_49inVSTpos" x="-13.674058164691433" y="-18.065955228655113" z="0" unit="cm"/>
+    <position name="VstStave03_49inVSTpos" x="-13.385578703443377" y="-17.684820603621027" z="0" unit="cm"/>
     <rotation name="VstStave03_49inVSTrot" x="90" y="-36.621951219512169" z="0" unit="deg"/>
-    <position name="VstStave03_50inVSTpos" x="-15.016871133942253" y="-16.966207188458693" z="0" unit="cm"/>
+    <position name="VstStave03_50inVSTpos" x="-14.700062558011428" y="-16.608273775407433" z="0" unit="cm"/>
     <rotation name="VstStave03_50inVSTrot" x="90" y="-41.012195121951201" z="0" unit="deg"/>
-    <position name="VstStave03_51inVSTpos" x="-16.271559132182826" y="-15.766894698164668" z="0" unit="cm"/>
+    <position name="VstStave03_51inVSTpos" x="-15.92828060026619" y="-15.434262992689982" z="0" unit="cm"/>
     <rotation name="VstStave03_51inVSTrot" x="90" y="-45.40243902439024" z="0" unit="deg"/>
-    <position name="VstStave03_52inVSTpos" x="-17.43075915133468" y="-14.475055800351784" z="0" unit="cm"/>
+    <position name="VstStave03_52inVSTpos" x="-17.063025158356222" y="-14.16967781756658" z="0" unit="cm"/>
     <rotation name="VstStave03_52inVSTrot" x="90" y="-49.792682926829222" z="0" unit="deg"/>
-    <position name="VstStave03_53inVSTpos" x="-18.487668544749841" y="-13.098271519349518" z="0" unit="cm"/>
+    <position name="VstStave03_53inVSTpos" x="-18.097637100003357" y="-12.821939338684997" z="0" unit="cm"/>
     <rotation name="VstStave03_53inVSTrot" x="90" y="-54.182926829268304" z="0" unit="deg"/>
-    <position name="VstStave03_54inVSTpos" x="-19.436084947846194" y="-11.644621372773011" z="0" unit="cm"/>
+    <position name="VstStave03_54inVSTpos" x="-19.026044910938641" y="-11.398956621343972" z="0" unit="cm"/>
     <rotation name="VstStave03_54inVSTrot" x="90" y="-58.573170731707286" z="0" unit="deg"/>
-    <position name="VstStave03_55inVSTpos" x="-20.270442676049168" y="-10.122635957700941" z="0" unit="cm"/>
+    <position name="VstStave03_55inVSTpos" x="-19.842800324962372" y="-9.909080293953064" z="0" unit="cm"/>
     <rotation name="VstStave03_55inVSTrot" x="90" y="-62.963414634146375" z="0" unit="deg"/>
-    <position name="VstStave03_56inVSTpos" x="-20.985845386441902" y="-8.5412468897398455" z="0" unit="cm"/>
+    <position name="VstStave03_56inVSTpos" x="-20.543110296536543" y="-8.3610535432246795" z="0" unit="cm"/>
     <rotation name="VstStave03_56inVSTrot" x="90" y="-67.353658536585357" z="0" unit="deg"/>
-    <position name="VstStave03_57inVSTpos" x="-21.578094811452427" y="-6.9097343887522396" z="0" unit="cm"/>
+    <position name="VstStave03_57inVSTpos" x="-21.122865128281941" y="-6.7639608056778702" z="0" unit="cm"/>
     <rotation name="VstStave03_57inVSTrot" x="90" y="-71.743902439024396" z="0" unit="deg"/>
-    <position name="VstStave03_58inVSTpos" x="-22.043715395957147" y="-5.2376728188363648" z="0" unit="cm"/>
+    <position name="VstStave03_58inVSTpos" x="-21.578662588316504" y="-5.1271744565525887" z="0" unit="cm"/>
     <rotation name="VstStave03_58inVSTrot" x="90" y="-76.134146341463421" z="0" unit="deg"/>
-    <position name="VstStave03_59inVSTpos" x="-22.379974693220312" y="-3.5348745021505006" z="0" unit="cm"/>
+    <position name="VstStave03_59inVSTpos" x="-21.907827875904868" y="-3.4602998089849422" z="0" unit="cm"/>
     <rotation name="VstStave03_59inVSTrot" x="90" y="-80.524390243902403" z="0" unit="deg"/>
-    <position name="VstStave03_60inVSTpos" x="-22.584899399977949" y="-1.8113321363049648" z="0" unit="cm"/>
+    <position name="VstStave03_60inVSTpos" x="-22.108429318252639" y="-1.7731187462104423" z="0" unit="cm"/>
     <rotation name="VstStave03_60inVSTrot" x="90" y="-84.914634146341498" z="0" unit="deg"/>
-    <position name="VstStave03_61inVSTpos" x="-22.65728693656607" y="-0.077160153239051427" z="0" unit="cm"/>
+    <position name="VstStave03_61inVSTpos" x="-22.179289706330458" y="-0.075532317583525577" z="0" unit="cm"/>
     <rotation name="VstStave03_61inVSTrot" x="90" y="-89.304878048780481" z="0" unit="deg"/>
-    <position name="VstStave03_62inVSTpos" x="-22.596712504136345" y="1.657464636287475" z="0" unit="cm"/>
+    <position name="VstStave03_62inVSTpos" x="-22.119993203204693" y="1.6224973647170966" z="0" unit="cm"/>
     <rotation name="VstStave03_62inVSTrot" x="-90" y="-86.304878048780495" z="180" unit="deg"/>
-    <position name="VstStave03_63inVSTpos" x="-22.40353157754463" y="3.3823627642664276" z="0" unit="cm"/>
+    <position name="VstStave03_63inVSTpos" x="-21.930887784333901" y="3.3110055873238444" z="0" unit="cm"/>
     <rotation name="VstStave03_63inVSTrot" x="-90" y="-81.914634146341513" z="180" unit="deg"/>
-    <position name="VstStave03_64inVSTpos" x="-22.078877819283186" y="5.0874118426072386" z="0" unit="cm"/>
+    <position name="VstStave03_64inVSTpos" x="-21.613083195510487" y="4.9800835125806833" z="0" unit="cm"/>
     <rotation name="VstStave03_64inVSTrot" x="-90" y="-77.524390243902431" z="180" unit="deg"/>
-    <position name="VstStave03_65inVSTpos" x="-21.62465642669838" y="6.7626059653352435" z="0" unit="cm"/>
+    <position name="VstStave03_65inVSTpos" x="-21.168444440431095" y="6.6199363275425469" z="0" unit="cm"/>
     <rotation name="VstStave03_65inVSTrot" x="-90" y="-73.134146341463392" z="180" unit="deg"/>
-    <position name="VstStave03_66inVSTpos" x="-21.043532951535109" y="8.3981144272265968" z="0" unit="cm"/>
+    <position name="VstStave03_66inVSTpos" x="-20.599580836113379" y="8.2209407238324133" z="0" unit="cm"/>
     <rotation name="VstStave03_66inVSTrot" x="-90" y="-68.743902439024367" z="180" unit="deg"/>
-    <position name="VstStave03_67inVSTpos" x="-20.338917657419202" y="9.9843394142956079" z="0" unit="cm"/>
+    <position name="VstStave03_67inVSTpos" x="-19.90983070038612" y="9.7737013710414811" z="0" unit="cm"/>
     <rotation name="VstStave03_67inVSTrot" x="-90" y="-64.353658536585414" z="180" unit="deg"/>
-    <position name="VstStave03_68inVSTpos" x="-19.51494550707449" y="11.51197232758352" z="0" unit="cm"/>
+    <position name="VstStave03_68inVSTpos" x="-19.103241761312848" y="11.269106052263799" z="0" unit="cm"/>
     <rotation name="VstStave03_68inVSTrot" x="-90" y="-59.963414634146304" z="180" unit="deg"/>
-    <position name="VstStave03_69inVSTpos" x="-18.576451896717337" y="12.972048409718576" z="0" unit="cm"/>
+    <position name="VstStave03_69inVSTpos" x="-18.184547403514067" y="12.698379138208368" z="0" unit="cm"/>
     <rotation name="VstStave03_69inVSTrot" x="-90" y="-55.573170731707343" z="180" unit="deg"/>
-    <position name="VstStave03_70inVSTpos" x="-17.528944280028878" y="14.355999353677136" z="0" unit="cm"/>
+    <position name="VstStave03_70inVSTpos" x="-17.159138890784064" y="14.053133086081464" z="0" unit="cm"/>
     <rotation name="VstStave03_70inVSTrot" x="-90" y="-51.182926829268318" z="180" unit="deg"/>
-    <position name="VstStave03_71inVSTpos" x="-16.378569848226949" y="15.655703585016116" z="0" unit="cm"/>
+    <position name="VstStave03_71inVSTpos" x="-16.033033728011329" y="15.32541766102271" z="0" unit="cm"/>
     <rotation name="VstStave03_71inVSTrot" x="-90" y="-46.792682926829286" z="180" unit="deg"/>
-    <position name="VstStave03_72inVSTpos" x="-15.132079455903607" y="16.863533922501396" z="0" unit="cm"/>
+    <position name="VstStave03_72inVSTpos" x="-14.812840348067009" y="16.507766591244671" z="0" unit="cm"/>
     <rotation name="VstStave03_72inVSTrot" x="-90" y="-42.402439024390254" z="180" unit="deg"/>
-    <position name="VstStave03_73inVSTpos" x="-13.796788004326169" y="17.972402337439949" z="0" unit="cm"/>
+    <position name="VstStave03_73inVSTpos" x="-13.505719330893225" y="17.593241383084379" z="0" unit="cm"/>
     <rotation name="VstStave03_73inVSTrot" x="-90" y="-38.012195121951216" z="180" unit="deg"/>
-    <position name="VstStave03_74inVSTpos" x="-12.380531514687771" y="18.975801549050789" z="0" unit="cm"/>
+    <position name="VstStave03_74inVSTpos" x="-12.119341382372557" y="18.575472038843262" z="0" unit="cm"/>
     <rotation name="VstStave03_74inVSTrot" x="-90" y="-33.621951219512184" z="180" unit="deg"/>
-    <position name="VstStave03_75inVSTpos" x="-10.89162114321927" y="19.86784321177602" z="0" unit="cm"/>
+    <position name="VstStave03_75inVSTpos" x="-10.661842319575898" y="19.448694438466458" z="0" unit="cm"/>
     <rotation name="VstStave03_75inVSTrot" x="-90" y="-29.231707317073187" z="180" unit="deg"/>
-    <position name="VstStave03_76inVSTpos" x="-9.3387944080195897" y="20.643292470434009" z="0" unit="cm"/>
+    <position name="VstStave03_76inVSTpos" x="-9.1417753265527342" y="20.207784165691383" z="0" unit="cm"/>
     <rotation name="VstStave03_76inVSTrot" x="-90" y="-24.84146341463407" z="180" unit="deg"/>
-    <position name="VstStave03_77inVSTpos" x="-7.731163913825303" y="21.297598680431108" z="0" unit="cm"/>
+    <position name="VstStave03_77inVSTpos" x="-7.5680607608462056" y="20.848286580159908" z="0" unit="cm"/>
     <rotation name="VstStave03_77inVSTrot" x="-90" y="-20.451219512195181" z="180" unit="deg"/>
-    <position name="VstStave03_78inVSTpos" x="-6.0781638756225265" y="21.826922112753618" z="0" unit="cm"/>
+    <position name="VstStave03_78inVSTpos" x="-5.9499338052879862" y="21.366442959019334" z="0" unit="cm"/>
     <rotation name="VstStave03_78inVSTrot" x="-90" y="-16.060975609756046" z="180" unit="deg"/>
-    <position name="VstStave03_79inVSTpos" x="-4.3894947549219854" y="22.228156487024467" z="0" unit="cm"/>
+    <position name="VstStave03_79inVSTpos" x="-4.2968902722731697" y="21.759212554602705" z="0" unit="cm"/>
     <rotation name="VstStave03_79inVSTrot" x="-90" y="-11.670731707317159" z="180" unit="deg"/>
-    <position name="VstStave03_80inVSTpos" x="-2.6750663335936458" y="22.498947200391605" z="0" unit="cm"/>
+    <position name="VstStave03_80inVSTpos" x="-2.6186308785572936" y="22.024290438745172" z="0" unit="cm"/>
     <rotation name="VstStave03_80inVSTrot" x="-90" y="-7.2804878048780282" z="180" unit="deg"/>
-    <position name="VstStave03_81inVSTpos" x="-0.94493955932647256" y="22.637705145273788" z="0" unit="cm"/>
+    <position name="VstStave03_81inVSTpos" x="-0.92500431759330792" y="22.160121029018985" z="0" unit="cm"/>
     <rotation name="VstStave03_81inVSTrot" x="-90" y="-2.8902439024390438" z="180" unit="deg"/>
     <position name="VstCellFlexLayer04_0inVstChipAssembly04pos" x="0" y="0" z="-0.24759074277046131" unit="cm"/>
     <position name="VstAluStrips04_0inVstChipAssembly04pos" x="0" y="0" z="-0.2415907427704613" unit="cm"/>
@@ -638,353 +640,343 @@
     <rotation name="VstSideWall04_0inVstChipAssembly04rot" x="0" y="-29.999999999999996" z="0" unit="deg"/>
     <position name="VstSideWall04_1inVstChipAssembly04pos" x="-0.38125000000000003" y="0" z="0.0017409257229537901" unit="cm"/>
     <rotation name="VstSideWall04_1inVstChipAssembly04rot" x="0" y="29.999999999999996" z="180" unit="deg"/>
-    <position name="VstChipAssembly04_0inVstStave04pos" x="0" y="-54.180000000000007" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_1inVstStave04pos" x="0" y="-51.170000000000009" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_2inVstStave04pos" x="0" y="-48.160000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_3inVstStave04pos" x="0" y="-45.150000000000006" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_4inVstStave04pos" x="0" y="-42.140000000000008" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_5inVstStave04pos" x="0" y="-39.130000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_6inVstStave04pos" x="0" y="-36.120000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_7inVstStave04pos" x="0" y="-33.110000000000007" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_8inVstStave04pos" x="0" y="-30.100000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_9inVstStave04pos" x="0" y="-27.090000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_10inVstStave04pos" x="0" y="-24.080000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_11inVstStave04pos" x="0" y="-21.070000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_12inVstStave04pos" x="0" y="-18.060000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_13inVstStave04pos" x="0" y="-15.050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_14inVstStave04pos" x="0" y="-12.040000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_15inVstStave04pos" x="0" y="-9.0300000000000011" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_16inVstStave04pos" x="0" y="-6.0200000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_17inVstStave04pos" x="0" y="-3.0100000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_18inVstStave04pos" x="0" y="0" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_19inVstStave04pos" x="0" y="3.0100000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_20inVstStave04pos" x="0" y="6.0200000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_21inVstStave04pos" x="0" y="9.0300000000000011" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_22inVstStave04pos" x="0" y="12.040000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_23inVstStave04pos" x="0" y="15.050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_24inVstStave04pos" x="0" y="18.060000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_25inVstStave04pos" x="0" y="21.070000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_26inVstStave04pos" x="0" y="24.080000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_27inVstStave04pos" x="0" y="27.090000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_28inVstStave04pos" x="0" y="30.100000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_29inVstStave04pos" x="0" y="33.110000000000007" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_30inVstStave04pos" x="0" y="36.120000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_31inVstStave04pos" x="0" y="39.130000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_32inVstStave04pos" x="0" y="42.140000000000008" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_33inVstStave04pos" x="0" y="45.150000000000006" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_34inVstStave04pos" x="0" y="48.160000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_35inVstStave04pos" x="0" y="51.170000000000009" z="0" unit="cm"/>
-    <position name="VstChipAssembly04_36inVstStave04pos" x="0" y="54.180000000000007" z="0" unit="cm"/>
-    <position name="VstStave04_0inVSTpos" x="0" y="43.400590739146431" z="0" unit="cm"/>
-    <rotation name="VstStave04_0inVSTrot" x="90" y="-0.010000000000002887" z="0" unit="deg"/>
-    <position name="VstStave04_1inVSTpos" x="1.7588340476753435" y="43.364937210834526" z="0" unit="cm"/>
-    <rotation name="VstStave04_1inVSTrot" x="90" y="-2.3325806451612898" z="0" unit="deg"/>
-    <position name="VstStave04_2inVSTpos" x="3.5147783356286757" y="43.258035204552208" z="0" unit="cm"/>
-    <rotation name="VstStave04_2inVSTrot" x="90" y="-4.6551612903225781" z="0" unit="deg"/>
-    <position name="VstStave04_3inVSTpos" x="5.264947852005621" y="43.080060360015096" z="0" unit="cm"/>
-    <rotation name="VstStave04_3inVSTrot" x="90" y="-6.9777419354838788" z="0" unit="deg"/>
-    <position name="VstStave04_4inVSTpos" x="7.0064670728863412" y="42.831305089425449" z="0" unit="cm"/>
-    <rotation name="VstStave04_4inVSTrot" x="90" y="-9.3003225806451653" z="0" unit="deg"/>
-    <position name="VstStave04_5inVSTpos" x="8.7364746867637812" y="42.512178097039659" z="0" unit="cm"/>
-    <rotation name="VstStave04_5inVSTrot" x="90" y="-11.622903225806454" z="0" unit="deg"/>
-    <position name="VstStave04_6inVSTpos" x="10.452128295670972" y="42.12320370766826" z="0" unit="cm"/>
-    <rotation name="VstStave04_6inVSTrot" x="90" y="-13.94548387096774" z="0" unit="deg"/>
-    <position name="VstStave04_7inVSTpos" x="12.150609085233413" y="41.665021005211628" z="0" unit="cm"/>
-    <rotation name="VstStave04_7inVSTrot" x="90" y="-16.268064516129026" z="0" unit="deg"/>
-    <position name="VstStave04_8inVSTpos" x="13.829126455973702" y="41.138382782646808" z="0" unit="cm"/>
-    <rotation name="VstStave04_8inVSTrot" x="90" y="-18.590645161290329" z="0" unit="deg"/>
-    <position name="VstStave04_9inVSTpos" x="15.484922608259131" y="40.544154305190638" z="0" unit="cm"/>
-    <rotation name="VstStave04_9inVSTrot" x="90" y="-20.913225806451607" z="0" unit="deg"/>
-    <position name="VstStave04_10inVSTpos" x="17.115277073359266" y="39.883311888671251" z="0" unit="cm"/>
-    <rotation name="VstStave04_10inVSTrot" x="90" y="-23.235806451612902" z="0" unit="deg"/>
-    <position name="VstStave04_11inVSTpos" x="18.717511183168899" y="39.156941295443772" z="0" unit="cm"/>
-    <rotation name="VstStave04_11inVSTrot" x="90" y="-25.558387096774201" z="0" unit="deg"/>
-    <position name="VstStave04_12inVSTpos" x="20.288992471252747" y="38.366235950485581" z="0" unit="cm"/>
-    <rotation name="VstStave04_12inVSTrot" x="90" y="-27.880967741935489" z="0" unit="deg"/>
-    <position name="VstStave04_13inVSTpos" x="21.827138997980853" y="37.51249498060222" z="0" unit="cm"/>
-    <rotation name="VstStave04_13inVSTrot" x="90" y="-30.203548387096781" z="0" unit="deg"/>
-    <position name="VstStave04_14inVSTpos" x="23.329423592648642" y="36.597121079965461" z="0" unit="cm"/>
-    <rotation name="VstStave04_14inVSTrot" x="90" y="-32.526129032258062" z="0" unit="deg"/>
-    <position name="VstStave04_15inVSTpos" x="24.79337800561175" y="35.621618205490478" z="0" unit="cm"/>
-    <rotation name="VstStave04_15inVSTrot" x="90" y="-34.848709677419357" z="0" unit="deg"/>
-    <position name="VstStave04_16inVSTpos" x="26.216596963613718" y="34.587589105838568" z="0" unit="cm"/>
-    <rotation name="VstStave04_16inVSTrot" x="90" y="-37.171290322580646" z="0" unit="deg"/>
-    <position name="VstStave04_17inVSTpos" x="27.596742121643604" y="33.49673268810534" z="0" unit="cm"/>
-    <rotation name="VstStave04_17inVSTrot" x="90" y="-39.493870967741927" z="0" unit="deg"/>
-    <position name="VstStave04_18inVSTpos" x="28.931545904830728" y="32.350841226520757" z="0" unit="cm"/>
-    <rotation name="VstStave04_18inVSTrot" x="90" y="-41.816451612903222" z="0" unit="deg"/>
-    <position name="VstStave04_19inVSTpos" x="30.21881523406423" y="31.15179741774735" z="0" unit="cm"/>
-    <rotation name="VstStave04_19inVSTrot" x="90" y="-44.139032258064518" z="0" unit="deg"/>
-    <position name="VstStave04_20inVSTpos" x="31.45643512921627" y="29.901571287614495" z="0" unit="cm"/>
-    <rotation name="VstStave04_20inVSTrot" x="90" y="-46.461612903225806" z="0" unit="deg"/>
-    <position name="VstStave04_21inVSTpos" x="32.642372184048831" y="28.602216954371176" z="0" unit="cm"/>
-    <rotation name="VstStave04_21inVSTrot" x="90" y="-48.784193548387094" z="0" unit="deg"/>
-    <position name="VstStave04_22inVSTpos" x="33.774677907094848" y="27.255869253775089" z="0" unit="cm"/>
-    <rotation name="VstStave04_22inVSTrot" x="90" y="-51.106774193548382" z="0" unit="deg"/>
-    <position name="VstStave04_23inVSTpos" x="34.851491923024533" y="25.864740231563093" z="0" unit="cm"/>
-    <rotation name="VstStave04_23inVSTrot" x="90" y="-53.429354838709678" z="0" unit="deg"/>
-    <position name="VstStave04_24inVSTpos" x="35.871045029237209" y="24.431115509065883" z="0" unit="cm"/>
-    <rotation name="VstStave04_24inVSTrot" x="90" y="-55.751935483870966" z="0" unit="deg"/>
-    <position name="VstStave04_25inVSTpos" x="36.831662102656487" y="22.957350527938122" z="0" unit="cm"/>
-    <rotation name="VstStave04_25inVSTrot" x="90" y="-58.074516129032247" z="0" unit="deg"/>
-    <position name="VstStave04_26inVSTpos" x="37.731764851953116" y="21.445866680174024" z="0" unit="cm"/>
-    <rotation name="VstStave04_26inVSTrot" x="90" y="-60.39709677419355" z="0" unit="deg"/>
-    <position name="VstStave04_27inVSTpos" x="38.569874410673471" y="19.899147329766627" z="0" unit="cm"/>
-    <rotation name="VstStave04_27inVSTrot" x="90" y="-62.719677419354838" z="0" unit="deg"/>
-    <position name="VstStave04_28inVSTpos" x="39.344613767013286" y="18.319733732547302" z="0" unit="cm"/>
-    <rotation name="VstStave04_28inVSTrot" x="90" y="-65.042258064516133" z="0" unit="deg"/>
-    <position name="VstStave04_29inVSTpos" x="40.054710026244386" y="16.710220860909072" z="0" unit="cm"/>
-    <rotation name="VstStave04_29inVSTrot" x="90" y="-67.364838709677429" z="0" unit="deg"/>
-    <position name="VstStave04_30inVSTpos" x="40.698996502077399" y="15.073253140273826" z="0" unit="cm"/>
-    <rotation name="VstStave04_30inVSTrot" x="90" y="-69.68741935483871" z="0" unit="deg"/>
-    <position name="VstStave04_31inVSTpos" x="41.276414633524304" y="13.41152010430821" z="0" unit="cm"/>
-    <rotation name="VstStave04_31inVSTrot" x="90" y="-72.010000000000005" z="0" unit="deg"/>
-    <position name="VstStave04_32inVSTpos" x="41.786015724111316" y="11.72775197602698" z="0" unit="cm"/>
-    <rotation name="VstStave04_32inVSTrot" x="90" y="-74.3325806451613" z="0" unit="deg"/>
-    <position name="VstStave04_33inVSTpos" x="42.22696250058469" y="10.024715182043709" z="0" unit="cm"/>
-    <rotation name="VstStave04_33inVSTrot" x="90" y="-76.655161290322582" z="0" unit="deg"/>
-    <position name="VstStave04_34inVSTpos" x="42.598530488548512" y="8.3052078073390625" z="0" unit="cm"/>
-    <rotation name="VstStave04_34inVSTrot" x="90" y="-78.977741935483877" z="0" unit="deg"/>
-    <position name="VstStave04_35inVSTpos" x="42.900109202774225" y="6.5720549980146581" z="0" unit="cm"/>
-    <rotation name="VstStave04_35inVSTrot" x="90" y="-81.300322580645172" z="0" unit="deg"/>
-    <position name="VstStave04_36inVSTpos" x="43.131203150226227" y="4.8281043195853153" z="0" unit="cm"/>
-    <rotation name="VstStave04_36inVSTrot" x="90" y="-83.622903225806454" z="0" unit="deg"/>
-    <position name="VstStave04_37inVSTpos" x="43.291432644155655" y="3.0762210784364568" z="0" unit="cm"/>
-    <rotation name="VstStave04_37inVSTrot" x="90" y="-85.945483870967749" z="0" unit="deg"/>
-    <position name="VstStave04_38inVSTpos" x="43.380534427924729" y="1.319283614133222" z="0" unit="cm"/>
-    <rotation name="VstStave04_38inVSTrot" x="90" y="-88.268064516129044" z="0" unit="deg"/>
-    <position name="VstStave04_39inVSTpos" x="43.398362107536656" y="-0.43982142968388888" z="0" unit="cm"/>
-    <rotation name="VstStave04_39inVSTrot" x="-90" y="-89.409354838709689" z="180" unit="deg"/>
-    <position name="VstStave04_40inVSTpos" x="43.34488639216066" y="-2.1982038480468957" z="0" unit="cm"/>
-    <rotation name="VstStave04_40inVSTrot" x="-90" y="-87.086774193548393" z="180" unit="deg"/>
-    <position name="VstStave04_41inVSTpos" x="43.220195142256685" y="-3.9529746232595722" z="0" unit="cm"/>
-    <rotation name="VstStave04_41inVSTrot" x="-90" y="-84.764193548387112" z="180" unit="deg"/>
-    <position name="VstStave04_42inVSTpos" x="43.024493225220915" y="-5.7012506715458926" z="0" unit="cm"/>
-    <rotation name="VstStave04_42inVSTrot" x="-90" y="-82.441612903225817" z="180" unit="deg"/>
-    <position name="VstStave04_43inVSTpos" x="42.758102178789159" y="-7.4401595799491309" z="0" unit="cm"/>
-    <rotation name="VstStave04_43inVSTrot" x="-90" y="-80.119032258064507" z="180" unit="deg"/>
-    <position name="VstStave04_44inVSTpos" x="42.421459682751227" y="-9.1668443256987491" z="0" unit="cm"/>
-    <rotation name="VstStave04_44inVSTrot" x="-90" y="-77.79645161290324" z="180" unit="deg"/>
-    <position name="VstStave04_45inVSTpos" x="42.015118839844142" y="-10.878467970291434" z="0" unit="cm"/>
-    <rotation name="VstStave04_45inVSTrot" x="-90" y="-75.473870967741931" z="180" unit="deg"/>
-    <position name="VstStave04_46inVSTpos" x="41.539747267005858" y="-12.572218320573425" z="0" unit="cm"/>
-    <rotation name="VstStave04_46inVSTrot" x="-90" y="-73.151290322580635" z="180" unit="deg"/>
-    <position name="VstStave04_47inVSTpos" x="40.99612599848232" y="-14.245312549166654" z="0" unit="cm"/>
-    <rotation name="VstStave04_47inVSTrot" x="-90" y="-70.828709677419369" z="180" unit="deg"/>
-    <position name="VstStave04_48inVSTpos" x="40.385148202590273" y="-15.895001766646722" z="0" unit="cm"/>
-    <rotation name="VstStave04_48inVSTrot" x="-90" y="-68.506129032258059" z="180" unit="deg"/>
-    <position name="VstStave04_49inVSTpos" x="39.707817714244079" y="-17.518575537961045" z="0" unit="cm"/>
-    <rotation name="VstStave04_49inVSTrot" x="-90" y="-66.183548387096778" z="180" unit="deg"/>
-    <position name="VstStave04_50inVSTpos" x="38.965247385657555" y="-19.113366335666516" z="0" unit="cm"/>
-    <rotation name="VstStave04_50inVSTrot" x="-90" y="-63.86096774193549" z="180" unit="deg"/>
-    <position name="VstStave04_51inVSTpos" x="38.158657257930756" y="-20.676753922670056" z="0" unit="cm"/>
-    <rotation name="VstStave04_51inVSTrot" x="-90" y="-61.538387096774187" z="180" unit="deg"/>
-    <position name="VstStave04_52inVSTpos" x="37.289372556525585" y="-22.206169657271367" z="0" unit="cm"/>
-    <rotation name="VstStave04_52inVSTrot" x="-90" y="-59.215806451612899" z="180" unit="deg"/>
-    <position name="VstStave04_53inVSTpos" x="36.358821513923921" y="-23.699100713434383" z="0" unit="cm"/>
-    <rotation name="VstStave04_53inVSTrot" x="-90" y="-56.893225806451603" z="180" unit="deg"/>
-    <position name="VstStave04_54inVSTpos" x="35.368533023045302" y="-25.153094209353981" z="0" unit="cm"/>
-    <rotation name="VstStave04_54inVSTrot" x="-90" y="-54.570645161290315" z="180" unit="deg"/>
-    <position name="VstStave04_55inVSTpos" x="34.320134125279985" y="-26.565761237534211" z="0" unit="cm"/>
-    <rotation name="VstStave04_55inVSTrot" x="-90" y="-52.248064516129034" z="180" unit="deg"/>
-    <position name="VstStave04_56inVSTpos" x="33.215347337264106" y="-27.934780789757152" z="0" unit="cm"/>
-    <rotation name="VstStave04_56inVSTrot" x="-90" y="-49.92548387096776" z="180" unit="deg"/>
-    <position name="VstStave04_57inVSTpos" x="32.055987820789454" y="-29.257903570493241" z="0" unit="cm"/>
-    <rotation name="VstStave04_57inVSTrot" x="-90" y="-47.602903225806479" z="180" unit="deg"/>
-    <position name="VstStave04_58inVSTpos" x="30.843960400497362" y="-30.532955692487967" z="0" unit="cm"/>
-    <rotation name="VstStave04_58inVSTrot" x="-90" y="-45.280322580645162" z="180" unit="deg"/>
-    <position name="VstStave04_59inVSTpos" x="29.581256434256876" y="-31.757842248452889" z="0" unit="cm"/>
-    <rotation name="VstStave04_59inVSTrot" x="-90" y="-42.957741935483888" z="180" unit="deg"/>
-    <position name="VstStave04_60inVSTpos" x="28.26995054136891" y="-32.930550752992858" z="0" unit="cm"/>
-    <rotation name="VstStave04_60inVSTrot" x="-90" y="-40.635161290322607" z="180" unit="deg"/>
-    <position name="VstStave04_61inVSTpos" x="26.912197193972268" y="-34.049154449114212" z="0" unit="cm"/>
-    <rotation name="VstStave04_61inVSTrot" x="-90" y="-38.31258064516129" z="180" unit="deg"/>
-    <position name="VstStave04_62inVSTpos" x="25.510227177251561" y="-35.111815473881421" z="0" unit="cm"/>
-    <rotation name="VstStave04_62inVSTrot" x="-90" y="-35.990000000000009" z="180" unit="deg"/>
-    <position name="VstStave04_63inVSTpos" x="24.066343924262995" y="-36.116787878021107" z="0" unit="cm"/>
-    <rotation name="VstStave04_63inVSTrot" x="-90" y="-33.667419354838735" z="180" unit="deg"/>
-    <position name="VstStave04_64inVSTpos" x="22.582919731399908" y="-37.062420494512118" z="0" unit="cm"/>
-    <rotation name="VstStave04_64inVSTrot" x="-90" y="-31.344838709677418" z="180" unit="deg"/>
-    <position name="VstStave04_65inVSTpos" x="21.062391860716023" y="-37.947159651448565" z="0" unit="cm"/>
-    <rotation name="VstStave04_65inVSTrot" x="-90" y="-29.022258064516137" z="180" unit="deg"/>
-    <position name="VstStave04_66inVSTpos" x="19.507258535510296" y="-38.769551724718767" z="0" unit="cm"/>
-    <rotation name="VstStave04_66inVSTrot" x="-90" y="-26.699677419354853" z="180" unit="deg"/>
-    <position name="VstStave04_67inVSTpos" x="17.920074835752565" y="-39.528245526305753" z="0" unit="cm"/>
-    <rotation name="VstStave04_67inVSTrot" x="-90" y="-24.377096774193557" z="180" unit="deg"/>
-    <position name="VstStave04_68inVSTpos" x="16.303448500093953" y="-40.221994524285684" z="0" unit="cm"/>
-    <rotation name="VstStave04_68inVSTrot" x="-90" y="-22.054516129032265" z="180" unit="deg"/>
-    <position name="VstStave04_69inVSTpos" x="14.660035641359054" y="-40.849658890876498" z="0" unit="cm"/>
-    <rotation name="VstStave04_69inVSTrot" x="-90" y="-19.731935483870991" z="180" unit="deg"/>
-    <position name="VstStave04_70inVSTpos" x="12.992536382559477" y="-41.410207375172021" z="0" unit="cm"/>
-    <rotation name="VstStave04_70inVSTrot" x="-90" y="-17.409354838709682" z="180" unit="deg"/>
-    <position name="VstStave04_71inVSTpos" x="11.303690420598977" y="-41.902718997484421" z="0" unit="cm"/>
-    <rotation name="VstStave04_71inVSTrot" x="-90" y="-15.086774193548392" z="180" unit="deg"/>
-    <position name="VstStave04_72inVSTpos" x="9.5962725249584722" y="-42.326384562511478" z="0" unit="cm"/>
-    <rotation name="VstStave04_72inVSTrot" x="-90" y="-12.764193548387116" z="180" unit="deg"/>
-    <position name="VstStave04_73inVSTpos" x="7.8730879787571872" y="-42.680507988842308" z="0" unit="cm"/>
-    <rotation name="VstStave04_73inVSTrot" x="-90" y="-10.441612903225804" z="180" unit="deg"/>
-    <position name="VstStave04_74inVSTpos" x="6.1369679696798958" y="-42.964507452617283" z="0" unit="cm"/>
-    <rotation name="VstStave04_74inVSTrot" x="-90" y="-8.1190322580645287" z="180" unit="deg"/>
-    <position name="VstStave04_75inVSTpos" x="4.3907649383427572" y="-43.177916343463153" z="0" unit="cm"/>
-    <rotation name="VstStave04_75inVSTrot" x="-90" y="-5.7964516129032413" z="180" unit="deg"/>
-    <position name="VstStave04_76inVSTpos" x="2.637347891741106" y="-43.320384031132633" z="0" unit="cm"/>
-    <rotation name="VstStave04_76inVSTrot" x="-90" y="-3.4738709677419286" z="180" unit="deg"/>
-    <position name="VstStave04_77inVSTpos" x="0.87959768947841255" y="-43.39167644158897" z="0" unit="cm"/>
-    <rotation name="VstStave04_77inVSTrot" x="-90" y="-1.1512903225806543" z="180" unit="deg"/>
-    <position name="VstStave04_78inVSTpos" x="-0.87959768947842121" y="-43.39167644158897" z="0" unit="cm"/>
-    <rotation name="VstStave04_78inVSTrot" x="-90" y="1.1712903225806333" z="180" unit="deg"/>
-    <position name="VstStave04_79inVSTpos" x="-2.6373478917410567" y="-43.32038403113264" z="0" unit="cm"/>
-    <rotation name="VstStave04_79inVSTrot" x="-90" y="3.4938709677419078" z="180" unit="deg"/>
-    <position name="VstStave04_80inVSTpos" x="-4.390764938342727" y="-43.17791634346316" z="0" unit="cm"/>
-    <rotation name="VstStave04_80inVSTrot" x="-90" y="5.8164516129032213" z="180" unit="deg"/>
-    <position name="VstStave04_81inVSTpos" x="-6.1369679696798851" y="-42.964507452617283" z="0" unit="cm"/>
-    <rotation name="VstStave04_81inVSTrot" x="-90" y="8.1390322580645087" z="180" unit="deg"/>
-    <position name="VstStave04_82inVSTpos" x="-7.8730879787571961" y="-42.680507988842301" z="0" unit="cm"/>
-    <rotation name="VstStave04_82inVSTrot" x="-90" y="10.461612903225783" z="180" unit="deg"/>
-    <position name="VstStave04_83inVSTpos" x="-9.5962725249584615" y="-42.326384562511478" z="0" unit="cm"/>
-    <rotation name="VstStave04_83inVSTrot" x="-90" y="12.784193548387094" z="180" unit="deg"/>
-    <position name="VstStave04_84inVSTpos" x="-11.303690420598947" y="-41.902718997484428" z="0" unit="cm"/>
-    <rotation name="VstStave04_84inVSTrot" x="-90" y="15.106774193548372" z="180" unit="deg"/>
-    <position name="VstStave04_85inVSTpos" x="-12.992536382559464" y="-41.410207375172028" z="0" unit="cm"/>
-    <rotation name="VstStave04_85inVSTrot" x="-90" y="17.42935483870966" z="180" unit="deg"/>
-    <position name="VstStave04_86inVSTpos" x="-14.660035641359041" y="-40.849658890876498" z="0" unit="cm"/>
-    <rotation name="VstStave04_86inVSTrot" x="-90" y="19.75193548387097" z="180" unit="deg"/>
-    <position name="VstStave04_87inVSTpos" x="-16.303448500093946" y="-40.221994524285684" z="0" unit="cm"/>
-    <rotation name="VstStave04_87inVSTrot" x="-90" y="22.074516129032247" z="180" unit="deg"/>
-    <position name="VstStave04_88inVSTpos" x="-17.920074835752541" y="-39.52824552630576" z="0" unit="cm"/>
-    <rotation name="VstStave04_88inVSTrot" x="-90" y="24.397096774193532" z="180" unit="deg"/>
-    <position name="VstStave04_89inVSTpos" x="-19.507258535510267" y="-38.769551724718774" z="0" unit="cm"/>
-    <rotation name="VstStave04_89inVSTrot" x="-90" y="26.719677419354841" z="180" unit="deg"/>
-    <position name="VstStave04_90inVSTpos" x="-21.06239186071603" y="-37.947159651448565" z="0" unit="cm"/>
-    <rotation name="VstStave04_90inVSTrot" x="-90" y="29.042258064516123" z="180" unit="deg"/>
-    <position name="VstStave04_91inVSTpos" x="-22.582919731399912" y="-37.062420494512111" z="0" unit="cm"/>
-    <rotation name="VstStave04_91inVSTrot" x="-90" y="31.364838709677393" z="180" unit="deg"/>
-    <position name="VstStave04_92inVSTpos" x="-24.066343924263006" y="-36.1167878780211" z="0" unit="cm"/>
-    <rotation name="VstStave04_92inVSTrot" x="-90" y="33.687419354838717" z="180" unit="deg"/>
-    <position name="VstStave04_93inVSTpos" x="-25.510227177251554" y="-35.111815473881428" z="0" unit="cm"/>
-    <rotation name="VstStave04_93inVSTrot" x="-90" y="36.009999999999991" z="180" unit="deg"/>
-    <position name="VstStave04_94inVSTpos" x="-26.912197193972258" y="-34.049154449114219" z="0" unit="cm"/>
-    <rotation name="VstStave04_94inVSTrot" x="-90" y="38.332580645161272" z="180" unit="deg"/>
-    <position name="VstStave04_95inVSTpos" x="-28.269950541368903" y="-32.930550752992865" z="0" unit="cm"/>
-    <rotation name="VstStave04_95inVSTrot" x="-90" y="40.655161290322575" z="180" unit="deg"/>
-    <position name="VstStave04_96inVSTpos" x="-29.581256434256865" y="-31.757842248452896" z="0" unit="cm"/>
-    <rotation name="VstStave04_96inVSTrot" x="-90" y="42.97774193548387" z="180" unit="deg"/>
-    <position name="VstStave04_97inVSTpos" x="-30.843960400497359" y="-30.532955692487974" z="0" unit="cm"/>
-    <rotation name="VstStave04_97inVSTrot" x="-90" y="45.300322580645144" z="180" unit="deg"/>
-    <position name="VstStave04_98inVSTpos" x="-32.055987820789447" y="-29.257903570493252" z="0" unit="cm"/>
-    <rotation name="VstStave04_98inVSTrot" x="-90" y="47.622903225806439" z="180" unit="deg"/>
-    <position name="VstStave04_99inVSTpos" x="-33.215347337264099" y="-27.934780789757159" z="0" unit="cm"/>
-    <rotation name="VstStave04_99inVSTrot" x="-90" y="49.945483870967742" z="180" unit="deg"/>
-    <position name="VstStave04_100inVSTpos" x="-34.320134125279978" y="-26.565761237534215" z="0" unit="cm"/>
-    <rotation name="VstStave04_100inVSTrot" x="-90" y="52.268064516129002" z="180" unit="deg"/>
-    <position name="VstStave04_101inVSTpos" x="-35.368533023045302" y="-25.153094209353977" z="0" unit="cm"/>
-    <rotation name="VstStave04_101inVSTrot" x="-90" y="54.59064516129034" z="180" unit="deg"/>
-    <position name="VstStave04_102inVSTpos" x="-36.358821513923907" y="-23.699100713434408" z="0" unit="cm"/>
-    <rotation name="VstStave04_102inVSTrot" x="-90" y="56.913225806451592" z="180" unit="deg"/>
-    <position name="VstStave04_103inVSTpos" x="-37.289372556525578" y="-22.206169657271378" z="0" unit="cm"/>
-    <rotation name="VstStave04_103inVSTrot" x="-90" y="59.235806451612902" z="180" unit="deg"/>
-    <position name="VstStave04_104inVSTpos" x="-38.158657257930749" y="-20.676753922670063" z="0" unit="cm"/>
-    <rotation name="VstStave04_104inVSTrot" x="-90" y="61.558387096774197" z="180" unit="deg"/>
-    <position name="VstStave04_105inVSTpos" x="-38.965247385657555" y="-19.113366335666509" z="0" unit="cm"/>
-    <rotation name="VstStave04_105inVSTrot" x="-90" y="63.880967741935486" z="180" unit="deg"/>
-    <position name="VstStave04_106inVSTpos" x="-39.707817714244065" y="-17.518575537961073" z="0" unit="cm"/>
-    <rotation name="VstStave04_106inVSTrot" x="-90" y="66.203548387096745" z="180" unit="deg"/>
-    <position name="VstStave04_107inVSTpos" x="-40.385148202590265" y="-15.895001766646741" z="0" unit="cm"/>
-    <rotation name="VstStave04_107inVSTrot" x="-90" y="68.526129032258083" z="180" unit="deg"/>
-    <position name="VstStave04_108inVSTpos" x="-40.996125998482313" y="-14.245312549166663" z="0" unit="cm"/>
-    <rotation name="VstStave04_108inVSTrot" x="-90" y="70.848709677419336" z="180" unit="deg"/>
-    <position name="VstStave04_109inVSTpos" x="-41.539747267005858" y="-12.572218320573425" z="0" unit="cm"/>
-    <rotation name="VstStave04_109inVSTrot" x="-90" y="73.171290322580631" z="180" unit="deg"/>
-    <position name="VstStave04_110inVSTpos" x="-42.015118839844135" y="-10.878467970291462" z="0" unit="cm"/>
-    <rotation name="VstStave04_110inVSTrot" x="-90" y="75.493870967741898" z="180" unit="deg"/>
-    <position name="VstStave04_111inVSTpos" x="-42.421459682751227" y="-9.1668443256987509" z="0" unit="cm"/>
-    <rotation name="VstStave04_111inVSTrot" x="-90" y="77.816451612903236" z="180" unit="deg"/>
-    <position name="VstStave04_112inVSTpos" x="-42.758102178789152" y="-7.4401595799491496" z="0" unit="cm"/>
-    <rotation name="VstStave04_112inVSTrot" x="-90" y="80.139032258064503" z="180" unit="deg"/>
-    <position name="VstStave04_113inVSTpos" x="-43.024493225220908" y="-5.701250671545913" z="0" unit="cm"/>
-    <rotation name="VstStave04_113inVSTrot" x="-90" y="82.461612903225785" z="180" unit="deg"/>
-    <position name="VstStave04_114inVSTpos" x="-43.220195142256685" y="-3.9529746232595824" z="0" unit="cm"/>
-    <rotation name="VstStave04_114inVSTrot" x="-90" y="84.784193548387037" z="180" unit="deg"/>
-    <position name="VstStave04_115inVSTpos" x="-43.34488639216066" y="-2.1982038480468966" z="0" unit="cm"/>
-    <rotation name="VstStave04_115inVSTrot" x="-90" y="87.106774193548389" z="180" unit="deg"/>
-    <position name="VstStave04_116inVSTpos" x="-43.398362107536656" y="-0.43982142968388022" z="0" unit="cm"/>
-    <rotation name="VstStave04_116inVSTrot" x="-90" y="89.429354838709685" z="180" unit="deg"/>
-    <position name="VstStave04_117inVSTpos" x="-43.380534427924729" y="1.3192836141331921" z="0" unit="cm"/>
-    <rotation name="VstStave04_117inVSTrot" x="90" y="88.248064516129062" z="0" unit="deg"/>
-    <position name="VstStave04_118inVSTpos" x="-43.291432644155663" y="3.0762210784364368" z="0" unit="cm"/>
-    <rotation name="VstStave04_118inVSTrot" x="90" y="85.925483870967767" z="0" unit="deg"/>
-    <position name="VstStave04_119inVSTpos" x="-43.131203150226227" y="4.8281043195853046" z="0" unit="cm"/>
-    <rotation name="VstStave04_119inVSTrot" x="90" y="83.602903225806457" z="0" unit="deg"/>
-    <position name="VstStave04_120inVSTpos" x="-42.900109202774225" y="6.5720549980146181" z="0" unit="cm"/>
-    <rotation name="VstStave04_120inVSTrot" x="90" y="81.280322580645219" z="0" unit="deg"/>
-    <position name="VstStave04_121inVSTpos" x="-42.598530488548512" y="8.3052078073390714" z="0" unit="cm"/>
-    <rotation name="VstStave04_121inVSTrot" x="90" y="78.957741935483867" z="0" unit="deg"/>
-    <position name="VstStave04_122inVSTpos" x="-42.22696250058469" y="10.024715182043678" z="0" unit="cm"/>
-    <rotation name="VstStave04_122inVSTrot" x="90" y="76.635161290322557" z="0" unit="deg"/>
-    <position name="VstStave04_123inVSTpos" x="-41.786015724111309" y="11.727751976027006" z="0" unit="cm"/>
-    <rotation name="VstStave04_123inVSTrot" x="90" y="74.312580645161319" z="0" unit="deg"/>
-    <position name="VstStave04_124inVSTpos" x="-41.276414633524311" y="13.411520104308199" z="0" unit="cm"/>
-    <rotation name="VstStave04_124inVSTrot" x="90" y="71.990000000000009" z="0" unit="deg"/>
-    <position name="VstStave04_125inVSTpos" x="-40.698996502077414" y="15.073253140273779" z="0" unit="cm"/>
-    <rotation name="VstStave04_125inVSTrot" x="90" y="69.667419354838714" z="0" unit="deg"/>
-    <position name="VstStave04_126inVSTpos" x="-40.054710026244379" y="16.710220860909079" z="0" unit="cm"/>
-    <rotation name="VstStave04_126inVSTrot" x="90" y="67.344838709677461" z="0" unit="deg"/>
-    <position name="VstStave04_127inVSTpos" x="-39.3446137670133" y="18.319733732547277" z="0" unit="cm"/>
-    <rotation name="VstStave04_127inVSTrot" x="90" y="65.022258064516166" z="0" unit="deg"/>
-    <position name="VstStave04_128inVSTpos" x="-38.569874410673471" y="19.899147329766645" z="0" unit="cm"/>
-    <rotation name="VstStave04_128inVSTrot" x="90" y="62.699677419354828" z="0" unit="deg"/>
-    <position name="VstStave04_129inVSTpos" x="-37.731764851953123" y="21.445866680174014" z="0" unit="cm"/>
-    <rotation name="VstStave04_129inVSTrot" x="90" y="60.377096774193561" z="0" unit="deg"/>
-    <position name="VstStave04_130inVSTpos" x="-36.831662102656487" y="22.957350527938122" z="0" unit="cm"/>
-    <rotation name="VstStave04_130inVSTrot" x="90" y="58.054516129032265" z="0" unit="deg"/>
-    <position name="VstStave04_131inVSTpos" x="-35.871045029237209" y="24.431115509065883" z="0" unit="cm"/>
-    <rotation name="VstStave04_131inVSTrot" x="90" y="55.731935483871005" z="0" unit="deg"/>
-    <position name="VstStave04_132inVSTpos" x="-34.851491923024547" y="25.864740231563072" z="0" unit="cm"/>
-    <rotation name="VstStave04_132inVSTrot" x="90" y="53.40935483870971" z="0" unit="deg"/>
-    <position name="VstStave04_133inVSTpos" x="-33.774677907094862" y="27.255869253775071" z="0" unit="cm"/>
-    <rotation name="VstStave04_133inVSTrot" x="90" y="51.086774193548422" z="0" unit="deg"/>
-    <position name="VstStave04_134inVSTpos" x="-32.642372184048845" y="28.602216954371162" z="0" unit="cm"/>
-    <rotation name="VstStave04_134inVSTrot" x="90" y="48.764193548387098" z="0" unit="deg"/>
-    <position name="VstStave04_135inVSTpos" x="-31.456435129216274" y="29.901571287614487" z="0" unit="cm"/>
-    <rotation name="VstStave04_135inVSTrot" x="90" y="46.44161290322581" z="0" unit="deg"/>
-    <position name="VstStave04_136inVSTpos" x="-30.21881523406423" y="31.15179741774735" z="0" unit="cm"/>
-    <rotation name="VstStave04_136inVSTrot" x="90" y="44.119032258064529" z="0" unit="deg"/>
-    <position name="VstStave04_137inVSTpos" x="-28.931545904830752" y="32.350841226520735" z="0" unit="cm"/>
-    <rotation name="VstStave04_137inVSTrot" x="90" y="41.796451612903248" z="0" unit="deg"/>
-    <position name="VstStave04_138inVSTpos" x="-27.596742121643619" y="33.496732688105325" z="0" unit="cm"/>
-    <rotation name="VstStave04_138inVSTrot" x="90" y="39.473870967741959" z="0" unit="deg"/>
-    <position name="VstStave04_139inVSTpos" x="-26.216596963613757" y="34.587589105838539" z="0" unit="cm"/>
-    <rotation name="VstStave04_139inVSTrot" x="90" y="37.151290322580664" z="0" unit="deg"/>
-    <position name="VstStave04_140inVSTpos" x="-24.793378005611761" y="35.621618205490471" z="0" unit="cm"/>
-    <rotation name="VstStave04_140inVSTrot" x="90" y="34.828709677419361" z="0" unit="deg"/>
-    <position name="VstStave04_141inVSTpos" x="-23.329423592648642" y="36.597121079965454" z="0" unit="cm"/>
-    <rotation name="VstStave04_141inVSTrot" x="90" y="32.506129032258066" z="0" unit="deg"/>
-    <position name="VstStave04_142inVSTpos" x="-21.827138997980878" y="37.512494980602199" z="0" unit="cm"/>
-    <rotation name="VstStave04_142inVSTrot" x="90" y="30.183548387096764" z="0" unit="deg"/>
-    <position name="VstStave04_143inVSTpos" x="-20.288992471252737" y="38.366235950485589" z="0" unit="cm"/>
-    <rotation name="VstStave04_143inVSTrot" x="90" y="27.860967741935511" z="0" unit="deg"/>
-    <position name="VstStave04_144inVSTpos" x="-18.717511183168916" y="39.156941295443772" z="0" unit="cm"/>
-    <rotation name="VstStave04_144inVSTrot" x="90" y="25.538387096774212" z="0" unit="deg"/>
-    <position name="VstStave04_145inVSTpos" x="-17.115277073359273" y="39.883311888671251" z="0" unit="cm"/>
-    <rotation name="VstStave04_145inVSTrot" x="90" y="23.215806451612959" z="0" unit="deg"/>
-    <position name="VstStave04_146inVSTpos" x="-15.484922608259096" y="40.544154305190645" z="0" unit="cm"/>
-    <rotation name="VstStave04_146inVSTrot" x="90" y="20.893225806451611" z="0" unit="deg"/>
-    <position name="VstStave04_147inVSTpos" x="-13.829126455973695" y="41.138382782646808" z="0" unit="cm"/>
-    <rotation name="VstStave04_147inVSTrot" x="90" y="18.570645161290308" z="0" unit="deg"/>
-    <position name="VstStave04_148inVSTpos" x="-12.150609085233437" y="41.665021005211621" z="0" unit="cm"/>
-    <rotation name="VstStave04_148inVSTrot" x="90" y="16.248064516129059" z="0" unit="deg"/>
-    <position name="VstStave04_149inVSTpos" x="-10.452128295670988" y="42.12320370766826" z="0" unit="cm"/>
-    <rotation name="VstStave04_149inVSTrot" x="90" y="13.925483870967762" z="0" unit="deg"/>
-    <position name="VstStave04_150inVSTpos" x="-8.7364746867638292" y="42.512178097039651" z="0" unit="cm"/>
-    <rotation name="VstStave04_150inVSTrot" x="90" y="11.602903225806461" z="0" unit="deg"/>
-    <position name="VstStave04_151inVSTpos" x="-7.0064670728863421" y="42.831305089425449" z="0" unit="cm"/>
-    <rotation name="VstStave04_151inVSTrot" x="90" y="9.2803225806452101" z="0" unit="deg"/>
-    <position name="VstStave04_152inVSTpos" x="-5.264947852005653" y="43.080060360015096" z="0" unit="cm"/>
-    <rotation name="VstStave04_152inVSTrot" x="90" y="6.9577419354838606" z="0" unit="deg"/>
-    <position name="VstStave04_153inVSTpos" x="-3.5147783356286624" y="43.258035204552208" z="0" unit="cm"/>
-    <rotation name="VstStave04_153inVSTrot" x="90" y="4.6351612903225607" z="0" unit="deg"/>
-    <position name="VstStave04_154inVSTpos" x="-1.7588340476753228" y="43.364937210834526" z="0" unit="cm"/>
-    <rotation name="VstStave04_154inVSTrot" x="90" y="2.3125806451613111" z="0" unit="deg"/>
+    <position name="VstChipAssembly04_0inVstStave04pos" x="0" y="-51.170000000000009" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_1inVstStave04pos" x="0" y="-48.160000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_2inVstStave04pos" x="0" y="-45.150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_3inVstStave04pos" x="0" y="-42.140000000000008" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_4inVstStave04pos" x="0" y="-39.130000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_5inVstStave04pos" x="0" y="-36.120000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_6inVstStave04pos" x="0" y="-33.110000000000007" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_7inVstStave04pos" x="0" y="-30.100000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_8inVstStave04pos" x="0" y="-27.090000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_9inVstStave04pos" x="0" y="-24.080000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_10inVstStave04pos" x="0" y="-21.070000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_11inVstStave04pos" x="0" y="-18.060000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_12inVstStave04pos" x="0" y="-15.050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_13inVstStave04pos" x="0" y="-12.040000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_14inVstStave04pos" x="0" y="-9.0300000000000011" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_15inVstStave04pos" x="0" y="-6.0200000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_16inVstStave04pos" x="0" y="-3.0100000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_17inVstStave04pos" x="0" y="0" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_18inVstStave04pos" x="0" y="3.0100000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_19inVstStave04pos" x="0" y="6.0200000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_20inVstStave04pos" x="0" y="9.0300000000000011" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_21inVstStave04pos" x="0" y="12.040000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_22inVstStave04pos" x="0" y="15.050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_23inVstStave04pos" x="0" y="18.060000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_24inVstStave04pos" x="0" y="21.070000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_25inVstStave04pos" x="0" y="24.080000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_26inVstStave04pos" x="0" y="27.090000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_27inVstStave04pos" x="0" y="30.100000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_28inVstStave04pos" x="0" y="33.110000000000007" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_29inVstStave04pos" x="0" y="36.120000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_30inVstStave04pos" x="0" y="39.130000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_31inVstStave04pos" x="0" y="42.140000000000008" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_32inVstStave04pos" x="0" y="45.150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_33inVstStave04pos" x="0" y="48.160000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly04_34inVstStave04pos" x="0" y="51.170000000000009" z="0" unit="cm"/>
+    <position name="VstStave04_0inVSTpos" x="0" y="42.191581529274913" z="0" unit="cm"/>
+    <rotation name="VstStave04_0inVSTrot" x="90" y="-0.49999999999999784" z="0" unit="deg"/>
+    <position name="VstStave04_1inVSTpos" x="1.7551061720526882" y="42.155060838128016" z="0" unit="cm"/>
+    <rotation name="VstStave04_1inVSTrot" x="90" y="-2.8841059602649017" z="0" unit="deg"/>
+    <position name="VstStave04_2inVSTpos" x="3.5071739327391152" y="42.045561988716088" z="0" unit="cm"/>
+    <rotation name="VstStave04_2inVSTrot" x="90" y="-5.2682119205298061" z="0" unit="deg"/>
+    <position name="VstStave04_3inVSTpos" x="5.2531701307415437" y="41.863274543672965" z="0" unit="cm"/>
+    <rotation name="VstStave04_3inVSTrot" x="90" y="-7.6523178807946968" z="0" unit="deg"/>
+    <position name="VstStave04_4inVSTpos" x="6.9900721257331764" y="41.608514076069817" z="0" unit="cm"/>
+    <rotation name="VstStave04_4inVSTrot" x="90" y="-10.036423841059602" z="0" unit="deg"/>
+    <position name="VstStave04_5inVSTpos" x="8.7148730211241077" y="41.281721623100154" z="0" unit="cm"/>
+    <rotation name="VstStave04_5inVSTrot" x="90" y="-12.420529801324506" z="0" unit="deg"/>
+    <position name="VstStave04_6inVSTpos" x="10.424586869551984" y="40.883462922563403" z="0" unit="cm"/>
+    <rotation name="VstStave04_6inVSTrot" x="90" y="-14.80463576158941" z="0" unit="deg"/>
+    <position name="VstStave04_7inVSTpos" x="12.116253842105694" y="40.414427433468745" z="0" unit="cm"/>
+    <rotation name="VstStave04_7inVSTrot" x="90" y="-17.188741721854313" z="0" unit="deg"/>
+    <position name="VstStave04_8inVSTpos" x="13.786945352333206" y="39.87542714245491" z="0" unit="cm"/>
+    <rotation name="VstStave04_8inVSTrot" x="90" y="-19.572847682119203" z="0" unit="deg"/>
+    <position name="VstStave04_9inVSTpos" x="15.433769126163007" y="39.267395158092036" z="0" unit="cm"/>
+    <rotation name="VstStave04_9inVSTrot" x="90" y="-21.956953642384107" z="0" unit="deg"/>
+    <position name="VstStave04_10inVSTpos" x="17.053874208962085" y="38.591384095499215" z="0" unit="cm"/>
+    <rotation name="VstStave04_10inVSTrot" x="90" y="-24.341059602649011" z="0" unit="deg"/>
+    <position name="VstStave04_11inVSTpos" x="18.644455901062418" y="37.848564254074297" z="0" unit="cm"/>
+    <rotation name="VstStave04_11inVSTrot" x="90" y="-26.725165562913904" z="0" unit="deg"/>
+    <position name="VstStave04_12inVSTpos" x="20.202760613211563" y="37.040221591490507" z="0" unit="cm"/>
+    <rotation name="VstStave04_12inVSTrot" x="90" y="-29.109271523178812" z="0" unit="deg"/>
+    <position name="VstStave04_13inVSTpos" x="21.72609063354178" y="36.167755497467354" z="0" unit="cm"/>
+    <rotation name="VstStave04_13inVSTrot" x="90" y="-31.493377483443716" z="0" unit="deg"/>
+    <position name="VstStave04_14inVSTpos" x="23.211808797805102" y="35.232676371169845" z="0" unit="cm"/>
+    <rotation name="VstStave04_14inVSTrot" x="90" y="-33.877483443708613" z="0" unit="deg"/>
+    <position name="VstStave04_15inVSTpos" x="24.657343054789322" y="34.236603006429895" z="0" unit="cm"/>
+    <rotation name="VstStave04_15inVSTrot" x="90" y="-36.261589403973517" z="0" unit="deg"/>
+    <position name="VstStave04_16inVSTpos" x="26.060190919011422" y="33.181259789316719" z="0" unit="cm"/>
+    <rotation name="VstStave04_16inVSTrot" x="90" y="-38.645695364238421" z="0" unit="deg"/>
+    <position name="VstStave04_17inVSTpos" x="27.417923802979839" y="32.068473712907561" z="0" unit="cm"/>
+    <rotation name="VstStave04_17inVSTrot" x="90" y="-41.02980132450331" z="0" unit="deg"/>
+    <position name="VstStave04_18inVSTpos" x="28.728191221525833" y="30.900171214426919" z="0" unit="cm"/>
+    <rotation name="VstStave04_18inVSTrot" x="90" y="-43.413907284768214" z="0" unit="deg"/>
+    <position name="VstStave04_19inVSTpos" x="29.988724860925277" y="29.678374840229615" z="0" unit="cm"/>
+    <rotation name="VstStave04_19inVSTrot" x="90" y="-45.798013245033111" z="0" unit="deg"/>
+    <position name="VstStave04_20inVSTpos" x="31.197342505766652" y="28.405199744401326" z="0" unit="cm"/>
+    <rotation name="VstStave04_20inVSTrot" x="90" y="-48.182119205298015" z="0" unit="deg"/>
+    <position name="VstStave04_21inVSTpos" x="32.351951816767006" y="27.082850027038109" z="0" unit="cm"/>
+    <rotation name="VstStave04_21inVSTrot" x="90" y="-50.566225165562912" z="0" unit="deg"/>
+    <position name="VstStave04_22inVSTpos" x="33.45055395299579" y="25.713614918544021" z="0" unit="cm"/>
+    <rotation name="VstStave04_22inVSTrot" x="90" y="-52.950331125827816" z="0" unit="deg"/>
+    <position name="VstStave04_23inVSTpos" x="34.491247032235933" y="24.299864816552535" z="0" unit="cm"/>
+    <rotation name="VstStave04_23inVSTrot" x="90" y="-55.33443708609272" z="0" unit="deg"/>
+    <position name="VstStave04_24inVSTpos" x="35.472229423491498" y="22.844047182332567" z="0" unit="cm"/>
+    <rotation name="VstStave04_24inVSTrot" x="90" y="-57.718543046357617" z="0" unit="deg"/>
+    <position name="VstStave04_25inVSTpos" x="36.391802865942026" y="21.3486823037832" z="0" unit="cm"/>
+    <rotation name="VstStave04_25inVSTrot" x="90" y="-60.102649006622521" z="0" unit="deg"/>
+    <position name="VstStave04_26inVSTpos" x="37.248375408944241" y="19.816358932352085" z="0" unit="cm"/>
+    <rotation name="VstStave04_26inVSTrot" x="90" y="-62.486754966887425" z="0" unit="deg"/>
+    <position name="VstStave04_27inVSTpos" x="38.040464167991125" y="18.249729801430902" z="0" unit="cm"/>
+    <rotation name="VstStave04_27inVSTrot" x="90" y="-64.870860927152322" z="0" unit="deg"/>
+    <position name="VstStave04_28inVSTpos" x="38.766697891857611" y="16.651507033986288" z="0" unit="cm"/>
+    <rotation name="VstStave04_28inVSTrot" x="90" y="-67.254966887417226" z="0" unit="deg"/>
+    <position name="VstStave04_29inVSTpos" x="39.425819336488424" y="15.024457447376511" z="0" unit="cm"/>
+    <rotation name="VstStave04_29inVSTrot" x="90" y="-69.639072847682115" z="0" unit="deg"/>
+    <position name="VstStave04_30inVSTpos" x="40.016687441518684" y="13.371397763482054" z="0" unit="cm"/>
+    <rotation name="VstStave04_30inVSTrot" x="90" y="-72.023178807947019" z="0" unit="deg"/>
+    <position name="VstStave04_31inVSTpos" x="40.538279305659067" y="11.695189732442394" z="0" unit="cm"/>
+    <rotation name="VstStave04_31inVSTrot" x="90" y="-74.407284768211923" z="0" unit="deg"/>
+    <position name="VstStave04_32inVSTpos" x="40.989691957525963" y="9.9987351784404908" z="0" unit="cm"/>
+    <rotation name="VstStave04_32inVSTrot" x="90" y="-76.791390728476827" z="0" unit="deg"/>
+    <position name="VstStave04_33inVSTpos" x="41.370143918850914" y="8.2849709761118095" z="0" unit="cm"/>
+    <rotation name="VstStave04_33inVSTrot" x="90" y="-79.175496688741717" z="0" unit="deg"/>
+    <position name="VstStave04_34inVSTpos" x="41.678976557363107" y="6.5568639662744861" z="0" unit="cm"/>
+    <rotation name="VstStave04_34inVSTrot" x="90" y="-81.559602649006621" z="0" unit="deg"/>
+    <position name="VstStave04_35inVSTpos" x="41.915655227002908" y="4.817405819782647" z="0" unit="cm"/>
+    <rotation name="VstStave04_35inVSTrot" x="90" y="-83.943708609271525" z="0" unit="deg"/>
+    <position name="VstStave04_36inVSTpos" x="42.079770193492458" y="3.0696078583942517" z="0" unit="cm"/>
+    <rotation name="VstStave04_36inVSTrot" x="90" y="-86.327814569536429" z="0" unit="deg"/>
+    <position name="VstStave04_37inVSTpos" x="42.171037343660998" y="1.3164958416196881" z="0" unit="cm"/>
+    <rotation name="VstStave04_37inVSTrot" x="90" y="-88.711920529801318" z="0" unit="deg"/>
+    <position name="VstStave04_38inVSTpos" x="42.189298677296989" y="-0.43889527142410584" z="0" unit="cm"/>
+    <rotation name="VstStave04_38inVSTrot" x="-90" y="-88.903973509933792" z="180" unit="deg"/>
+    <position name="VstStave04_39inVSTpos" x="42.134522580675551" y="-2.193526576085624" z="0" unit="cm"/>
+    <rotation name="VstStave04_39inVSTrot" x="-90" y="-86.519867549668888" z="180" unit="deg"/>
+    <position name="VstStave04_40inVSTpos" x="42.006803881287588" y="-3.9443604830813666" z="0" unit="cm"/>
+    <rotation name="VstStave04_40inVSTrot" x="-90" y="-84.135761589403984" z="180" unit="deg"/>
+    <position name="VstStave04_41inVSTpos" x="41.806363683676004" y="-5.688365977121066" z="0" unit="cm"/>
+    <rotation name="VstStave04_41inVSTrot" x="-90" y="-81.751655629139094" z="180" unit="deg"/>
+    <position name="VstStave04_42inVSTpos" x="41.533548986663057" y="-7.4225238641524243" z="0" unit="cm"/>
+    <rotation name="VstStave04_42inVSTrot" x="-90" y="-79.36754966887419" z="180" unit="deg"/>
+    <position name="VstStave04_43inVSTpos" x="41.188832082631691" y="-9.1438319981407261" z="0" unit="cm"/>
+    <rotation name="VstStave04_43inVSTrot" x="-90" y="-76.983443708609286" z="180" unit="deg"/>
+    <position name="VstStave04_44inVSTpos" x="40.772809739900552" y="-10.849310478335592" z="0" unit="cm"/>
+    <rotation name="VstStave04_44inVSTrot" x="-90" y="-74.599337748344382" z="180" unit="deg"/>
+    <position name="VstStave04_45inVSTpos" x="40.286202169608373" y="-12.536006808026764" z="0" unit="cm"/>
+    <rotation name="VstStave04_45inVSTrot" x="-90" y="-72.215231788079478" z="180" unit="deg"/>
+    <position name="VstStave04_46inVSTpos" x="39.729851778896133" y="-14.201001005858565" z="0" unit="cm"/>
+    <rotation name="VstStave04_46inVSTrot" x="-90" y="-69.831125827814589" z="180" unit="deg"/>
+    <position name="VstStave04_47inVSTpos" x="39.104721712545398" y="-15.841410660854432" z="0" unit="cm"/>
+    <rotation name="VstStave04_47inVSTrot" x="-90" y="-67.447019867549685" z="180" unit="deg"/>
+    <position name="VstStave04_48inVSTpos" x="38.411894185597795" y="-17.454395922399907" z="0" unit="cm"/>
+    <rotation name="VstStave04_48inVSTrot" x="-90" y="-65.062913907284766" z="180" unit="deg"/>
+    <position name="VstStave04_49inVSTpos" x="37.652568609841744" y="-19.037164416546187" z="0" unit="cm"/>
+    <rotation name="VstStave04_49inVSTrot" x="-90" y="-62.678807947019877" z="180" unit="deg"/>
+    <position name="VstStave04_50inVSTpos" x="36.828059517410317" y="-20.586976080122486" z="0" unit="cm"/>
+    <rotation name="VstStave04_50inVSTrot" x="-90" y="-60.29470198675498" z="180" unit="deg"/>
+    <position name="VstStave04_51inVSTpos" x="35.93979428508441" y="-22.101147904289181" z="0" unit="cm"/>
+    <rotation name="VstStave04_51inVSTrot" x="-90" y="-57.910596026490076" z="180" unit="deg"/>
+    <position name="VstStave04_52inVSTpos" x="34.989310663241262" y="-23.577058579319083" z="0" unit="cm"/>
+    <rotation name="VstStave04_52inVSTrot" x="-90" y="-55.526490066225172" z="180" unit="deg"/>
+    <position name="VstStave04_53inVSTpos" x="33.978254113725875" y="-25.012153032566445" z="0" unit="cm"/>
+    <rotation name="VstStave04_53inVSTrot" x="-90" y="-53.142384105960268" z="180" unit="deg"/>
+    <position name="VstStave04_54inVSTpos" x="32.908374961254161" y="-26.403946851767294" z="0" unit="cm"/>
+    <rotation name="VstStave04_54inVSTrot" x="-90" y="-50.758278145695364" z="180" unit="deg"/>
+    <position name="VstStave04_55inVSTpos" x="31.781525363279144" y="-27.750030586013711" z="0" unit="cm"/>
+    <rotation name="VstStave04_55inVSTrot" x="-90" y="-48.374172185430467" z="180" unit="deg"/>
+    <position name="VstStave04_56inVSTpos" x="30.599656103565934" y="-29.04807391695622" z="0" unit="cm"/>
+    <rotation name="VstStave04_56inVSTrot" x="-90" y="-45.990066225165556" z="180" unit="deg"/>
+    <position name="VstStave04_57inVSTpos" x="29.364813215026611" y="-30.295829693013037" z="0" unit="cm"/>
+    <rotation name="VstStave04_57inVSTrot" x="-90" y="-43.605960264900659" z="180" unit="deg"/>
+    <position name="VstStave04_58inVSTpos" x="28.079134437661089" y="-31.491137819602628" z="0" unit="cm"/>
+    <rotation name="VstStave04_58inVSTrot" x="-90" y="-41.221854304635777" z="180" unit="deg"/>
+    <position name="VstStave04_59inVSTpos" x="26.744845517736248" y="-32.631928998664407" z="0" unit="cm"/>
+    <rotation name="VstStave04_59inVSTrot" x="-90" y="-38.837748344370858" z="180" unit="deg"/>
+    <position name="VstStave04_60inVSTpos" x="25.364256354610227" y="-33.716228310993905" z="0" unit="cm"/>
+    <rotation name="VstStave04_60inVSTrot" x="-90" y="-36.453642384105969" z="180" unit="deg"/>
+    <position name="VstStave04_61inVSTpos" x="23.93975700187185" y="-34.742158635191046" z="0" unit="cm"/>
+    <rotation name="VstStave04_61inVSTrot" x="-90" y="-34.069536423841079" z="180" unit="deg"/>
+    <position name="VstStave04_62inVSTpos" x="22.473813529718782" y="-35.707943897302194" z="0" unit="cm"/>
+    <rotation name="VstStave04_62inVSTrot" x="-90" y="-31.685430463576154" z="180" unit="deg"/>
+    <position name="VstStave04_63inVSTpos" x="20.968963755736652" y="-36.611912145530653" z="0" unit="cm"/>
+    <rotation name="VstStave04_63inVSTrot" x="-90" y="-29.301324503311267" z="180" unit="deg"/>
+    <position name="VstStave04_64inVSTpos" x="19.427812851470396" y="-37.452498444692495" z="0" unit="cm"/>
+    <rotation name="VstStave04_64inVSTrot" x="-90" y="-26.917218543046346" z="180" unit="deg"/>
+    <position name="VstStave04_65inVSTpos" x="17.853028832393527" y="-38.228247585407019" z="0" unit="cm"/>
+    <rotation name="VstStave04_65inVSTrot" x="-90" y="-24.533112582781463" z="180" unit="deg"/>
+    <position name="VstStave04_66inVSTpos" x="16.247337939082872" y="-38.937816603331655" z="0" unit="cm"/>
+    <rotation name="VstStave04_66inVSTrot" x="-90" y="-22.149006622516573" z="180" unit="deg"/>
+    <position name="VstStave04_67inVSTpos" x="14.613519917595205" y="-39.579977104080044" z="0" unit="cm"/>
+    <rotation name="VstStave04_67inVSTrot" x="-90" y="-19.764900662251652" z="180" unit="deg"/>
+    <position name="VstStave04_68inVSTpos" x="12.954403207215814" y="-40.153617389798505" z="0" unit="cm"/>
+    <rotation name="VstStave04_68inVSTrot" x="-90" y="-17.380794701986762" z="180" unit="deg"/>
+    <position name="VstStave04_69inVSTpos" x="11.272860043910269" y="-40.657744383719361" z="0" unit="cm"/>
+    <rotation name="VstStave04_69inVSTrot" x="-90" y="-14.996688741721847" z="180" unit="deg"/>
+    <position name="VstStave04_70inVSTpos" x="9.5718014879560691" y="-41.091485349359353" z="0" unit="cm"/>
+    <rotation name="VstStave04_70inVSTrot" x="-90" y="-12.612582781456956" z="180" unit="deg"/>
+    <position name="VstStave04_71inVSTpos" x="7.8541723843622622" y="-41.454089401386845" z="0" unit="cm"/>
+    <rotation name="VstStave04_71inVSTrot" x="-90" y="-10.228476821192064" z="180" unit="deg"/>
+    <position name="VstStave04_72inVSTpos" x="6.122946264801393" y="-41.744928805542436" z="0" unit="cm"/>
+    <rotation name="VstStave04_72inVSTrot" x="-90" y="-7.8443708609271487" z="180" unit="deg"/>
+    <position name="VstStave04_73inVSTpos" x="4.3811201998798657" y="-41.96350006536224" z="0" unit="cm"/>
+    <rotation name="VstStave04_73inVSTrot" x="-90" y="-5.4602649006622572" z="180" unit="deg"/>
+    <position name="VstStave04_74inVSTpos" x="2.6317096106576021" y="-42.109424793822875" z="0" unit="cm"/>
+    <rotation name="VstStave04_74inVSTrot" x="-90" y="-3.0761589403973653" z="180" unit="deg"/>
+    <position name="VstStave04_75inVSTpos" x="0.87774304840015682" y="-42.182450368398911" z="0" unit="cm"/>
+    <rotation name="VstStave04_75inVSTrot" x="-90" y="-0.69205298013244843" z="180" unit="deg"/>
+    <position name="VstStave04_76inVSTpos" x="-0.87774304840016526" y="-42.182450368398911" z="0" unit="cm"/>
+    <rotation name="VstStave04_76inVSTrot" x="-90" y="1.6920529801324429" z="180" unit="deg"/>
+    <position name="VstStave04_77inVSTpos" x="-2.6317096106575919" y="-42.109424793822875" z="0" unit="cm"/>
+    <rotation name="VstStave04_77inVSTrot" x="-90" y="4.0761589403973595" z="180" unit="deg"/>
+    <position name="VstStave04_78inVSTpos" x="-4.3811201998798364" y="-41.96350006536224" z="0" unit="cm"/>
+    <rotation name="VstStave04_78inVSTrot" x="-90" y="6.4602649006622501" z="180" unit="deg"/>
+    <position name="VstStave04_79inVSTpos" x="-6.1229462648014019" y="-41.744928805542436" z="0" unit="cm"/>
+    <rotation name="VstStave04_79inVSTrot" x="-90" y="8.8443708609271425" z="180" unit="deg"/>
+    <position name="VstStave04_80inVSTpos" x="-7.8541723843622515" y="-41.454089401386852" z="0" unit="cm"/>
+    <rotation name="VstStave04_80inVSTrot" x="-90" y="11.228476821192059" z="180" unit="deg"/>
+    <position name="VstStave04_81inVSTpos" x="-9.5718014879560602" y="-41.091485349359353" z="0" unit="cm"/>
+    <rotation name="VstStave04_81inVSTrot" x="-90" y="13.612582781456952" z="180" unit="deg"/>
+    <position name="VstStave04_82inVSTpos" x="-11.272860043910242" y="-40.657744383719368" z="0" unit="cm"/>
+    <rotation name="VstStave04_82inVSTrot" x="-90" y="15.996688741721838" z="180" unit="deg"/>
+    <position name="VstStave04_83inVSTpos" x="-12.954403207215805" y="-40.153617389798505" z="0" unit="cm"/>
+    <rotation name="VstStave04_83inVSTrot" x="-90" y="18.380794701986758" z="180" unit="deg"/>
+    <position name="VstStave04_84inVSTpos" x="-14.613519917595196" y="-39.579977104080044" z="0" unit="cm"/>
+    <rotation name="VstStave04_84inVSTrot" x="-90" y="20.764900662251652" z="180" unit="deg"/>
+    <position name="VstStave04_85inVSTpos" x="-16.247337939082865" y="-38.937816603331662" z="0" unit="cm"/>
+    <rotation name="VstStave04_85inVSTrot" x="-90" y="23.149006622516566" z="180" unit="deg"/>
+    <position name="VstStave04_86inVSTpos" x="-17.853028832393502" y="-38.228247585407033" z="0" unit="cm"/>
+    <rotation name="VstStave04_86inVSTrot" x="-90" y="25.53311258278146" z="180" unit="deg"/>
+    <position name="VstStave04_87inVSTpos" x="-19.427812851470371" y="-37.452498444692509" z="0" unit="cm"/>
+    <rotation name="VstStave04_87inVSTrot" x="-90" y="27.917218543046335" z="180" unit="deg"/>
+    <position name="VstStave04_88inVSTpos" x="-20.968963755736642" y="-36.611912145530653" z="0" unit="cm"/>
+    <rotation name="VstStave04_88inVSTrot" x="-90" y="30.301324503311264" z="180" unit="deg"/>
+    <position name="VstStave04_89inVSTpos" x="-22.473813529718772" y="-35.707943897302194" z="0" unit="cm"/>
+    <rotation name="VstStave04_89inVSTrot" x="-90" y="32.685430463576139" z="180" unit="deg"/>
+    <position name="VstStave04_90inVSTpos" x="-23.939757001871858" y="-34.742158635191039" z="0" unit="cm"/>
+    <rotation name="VstStave04_90inVSTrot" x="-90" y="35.069536423841072" z="180" unit="deg"/>
+    <position name="VstStave04_91inVSTpos" x="-25.364256354610216" y="-33.716228310993912" z="0" unit="cm"/>
+    <rotation name="VstStave04_91inVSTrot" x="-90" y="37.453642384105947" z="180" unit="deg"/>
+    <position name="VstStave04_92inVSTpos" x="-26.744845517736241" y="-32.631928998664421" z="0" unit="cm"/>
+    <rotation name="VstStave04_92inVSTrot" x="-90" y="39.837748344370858" z="180" unit="deg"/>
+    <position name="VstStave04_93inVSTpos" x="-28.079134437661068" y="-31.491137819602653" z="0" unit="cm"/>
+    <rotation name="VstStave04_93inVSTrot" x="-90" y="42.221854304635755" z="180" unit="deg"/>
+    <position name="VstStave04_94inVSTpos" x="-29.364813215026619" y="-30.29582969301303" z="0" unit="cm"/>
+    <rotation name="VstStave04_94inVSTrot" x="-90" y="44.605960264900659" z="180" unit="deg"/>
+    <position name="VstStave04_95inVSTpos" x="-30.599656103565927" y="-29.048073916956223" z="0" unit="cm"/>
+    <rotation name="VstStave04_95inVSTrot" x="-90" y="46.990066225165542" z="180" unit="deg"/>
+    <position name="VstStave04_96inVSTpos" x="-31.781525363279126" y="-27.750030586013736" z="0" unit="cm"/>
+    <rotation name="VstStave04_96inVSTrot" x="-90" y="49.37417218543046" z="180" unit="deg"/>
+    <position name="VstStave04_97inVSTpos" x="-32.90837496125414" y="-26.403946851767319" z="0" unit="cm"/>
+    <rotation name="VstStave04_97inVSTrot" x="-90" y="51.75827814569535" z="180" unit="deg"/>
+    <position name="VstStave04_98inVSTpos" x="-33.978254113725882" y="-25.012153032566435" z="0" unit="cm"/>
+    <rotation name="VstStave04_98inVSTrot" x="-90" y="54.142384105960268" z="180" unit="deg"/>
+    <position name="VstStave04_99inVSTpos" x="-34.989310663241262" y="-23.577058579319075" z="0" unit="cm"/>
+    <rotation name="VstStave04_99inVSTrot" x="-90" y="56.526490066225158" z="180" unit="deg"/>
+    <position name="VstStave04_100inVSTpos" x="-35.939794285084396" y="-22.101147904289206" z="0" unit="cm"/>
+    <rotation name="VstStave04_100inVSTrot" x="-90" y="58.910596026490069" z="180" unit="deg"/>
+    <position name="VstStave04_101inVSTpos" x="-36.828059517410303" y="-20.586976080122511" z="0" unit="cm"/>
+    <rotation name="VstStave04_101inVSTrot" x="-90" y="61.294701986754973" z="180" unit="deg"/>
+    <position name="VstStave04_102inVSTpos" x="-37.652568609841737" y="-19.037164416546194" z="0" unit="cm"/>
+    <rotation name="VstStave04_102inVSTrot" x="-90" y="63.678807947019862" z="180" unit="deg"/>
+    <position name="VstStave04_103inVSTpos" x="-38.411894185597795" y="-17.454395922399893" z="0" unit="cm"/>
+    <rotation name="VstStave04_103inVSTrot" x="-90" y="66.062913907284766" z="180" unit="deg"/>
+    <position name="VstStave04_104inVSTpos" x="-39.104721712545398" y="-15.841410660854443" z="0" unit="cm"/>
+    <rotation name="VstStave04_104inVSTrot" x="-90" y="68.447019867549685" z="180" unit="deg"/>
+    <position name="VstStave04_105inVSTpos" x="-39.729851778896119" y="-14.201001005858584" z="0" unit="cm"/>
+    <rotation name="VstStave04_105inVSTrot" x="-90" y="70.831125827814574" z="180" unit="deg"/>
+    <position name="VstStave04_106inVSTpos" x="-40.286202169608373" y="-12.536006808026768" z="0" unit="cm"/>
+    <rotation name="VstStave04_106inVSTrot" x="-90" y="73.215231788079478" z="180" unit="deg"/>
+    <position name="VstStave04_107inVSTpos" x="-40.772809739900552" y="-10.849310478335605" z="0" unit="cm"/>
+    <rotation name="VstStave04_107inVSTrot" x="-90" y="75.599337748344382" z="180" unit="deg"/>
+    <position name="VstStave04_108inVSTpos" x="-41.188832082631691" y="-9.1438319981407368" z="0" unit="cm"/>
+    <rotation name="VstStave04_108inVSTrot" x="-90" y="77.9834437086093" z="180" unit="deg"/>
+    <position name="VstStave04_109inVSTpos" x="-41.533548986663057" y="-7.4225238641524243" z="0" unit="cm"/>
+    <rotation name="VstStave04_109inVSTrot" x="-90" y="80.36754966887419" z="180" unit="deg"/>
+    <position name="VstStave04_110inVSTpos" x="-41.80636368367599" y="-5.688365977121113" z="0" unit="cm"/>
+    <rotation name="VstStave04_110inVSTrot" x="-90" y="82.751655629139037" z="180" unit="deg"/>
+    <position name="VstStave04_111inVSTpos" x="-42.006803881287588" y="-3.944360483081395" z="0" unit="cm"/>
+    <rotation name="VstStave04_111inVSTrot" x="-90" y="85.135761589403941" z="180" unit="deg"/>
+    <position name="VstStave04_112inVSTpos" x="-42.134522580675551" y="-2.1935265760856248" z="0" unit="cm"/>
+    <rotation name="VstStave04_112inVSTrot" x="-90" y="87.519867549668902" z="180" unit="deg"/>
+    <position name="VstStave04_113inVSTpos" x="-42.189298677296989" y="-0.43889527142409751" z="0" unit="cm"/>
+    <rotation name="VstStave04_113inVSTrot" x="-90" y="89.903973509933806" z="180" unit="deg"/>
+    <position name="VstStave04_114inVSTpos" x="-42.171037343660998" y="1.3164958416196966" z="0" unit="cm"/>
+    <rotation name="VstStave04_114inVSTrot" x="90" y="87.711920529801347" z="0" unit="deg"/>
+    <position name="VstStave04_115inVSTpos" x="-42.079770193492458" y="3.0696078583942317" z="0" unit="cm"/>
+    <rotation name="VstStave04_115inVSTrot" x="90" y="85.327814569536443" z="0" unit="deg"/>
+    <position name="VstStave04_116inVSTpos" x="-41.915655227002915" y="4.8174058197826266" z="0" unit="cm"/>
+    <rotation name="VstStave04_116inVSTrot" x="90" y="82.943708609271539" z="0" unit="deg"/>
+    <position name="VstStave04_117inVSTpos" x="-41.678976557363107" y="6.5568639662744674" z="0" unit="cm"/>
+    <rotation name="VstStave04_117inVSTrot" x="90" y="80.559602649006678" z="0" unit="deg"/>
+    <position name="VstStave04_118inVSTpos" x="-41.370143918850907" y="8.2849709761118255" z="0" unit="cm"/>
+    <rotation name="VstStave04_118inVSTrot" x="90" y="78.175496688741717" z="0" unit="deg"/>
+    <position name="VstStave04_119inVSTpos" x="-40.98969195752597" y="9.9987351784404801" z="0" unit="cm"/>
+    <rotation name="VstStave04_119inVSTrot" x="90" y="75.791390728476813" z="0" unit="deg"/>
+    <position name="VstStave04_120inVSTpos" x="-40.538279305659067" y="11.695189732442383" z="0" unit="cm"/>
+    <rotation name="VstStave04_120inVSTrot" x="90" y="73.407284768211909" z="0" unit="deg"/>
+    <position name="VstStave04_121inVSTpos" x="-40.016687441518684" y="13.371397763482044" z="0" unit="cm"/>
+    <rotation name="VstStave04_121inVSTrot" x="90" y="71.023178807947062" z="0" unit="deg"/>
+    <position name="VstStave04_122inVSTpos" x="-39.425819336488424" y="15.0244574473765" z="0" unit="cm"/>
+    <rotation name="VstStave04_122inVSTrot" x="90" y="68.639072847682158" z="0" unit="deg"/>
+    <position name="VstStave04_123inVSTpos" x="-38.766697891857611" y="16.651507033986288" z="0" unit="cm"/>
+    <rotation name="VstStave04_123inVSTrot" x="90" y="66.254966887417197" z="0" unit="deg"/>
+    <position name="VstStave04_124inVSTpos" x="-38.040464167991125" y="18.249729801430902" z="0" unit="cm"/>
+    <rotation name="VstStave04_124inVSTrot" x="90" y="63.8708609271523" z="0" unit="deg"/>
+    <position name="VstStave04_125inVSTpos" x="-37.248375408944241" y="19.816358932352081" z="0" unit="cm"/>
+    <rotation name="VstStave04_125inVSTrot" x="90" y="61.486754966887446" z="0" unit="deg"/>
+    <position name="VstStave04_126inVSTpos" x="-36.391802865942026" y="21.3486823037832" z="0" unit="cm"/>
+    <rotation name="VstStave04_126inVSTrot" x="90" y="59.102649006622542" z="0" unit="deg"/>
+    <position name="VstStave04_127inVSTpos" x="-35.472229423491513" y="22.844047182332538" z="0" unit="cm"/>
+    <rotation name="VstStave04_127inVSTrot" x="90" y="56.718543046357638" z="0" unit="deg"/>
+    <position name="VstStave04_128inVSTpos" x="-34.491247032235933" y="24.299864816552535" z="0" unit="cm"/>
+    <rotation name="VstStave04_128inVSTrot" x="90" y="54.334437086092692" z="0" unit="deg"/>
+    <position name="VstStave04_129inVSTpos" x="-33.45055395299579" y="25.713614918544025" z="0" unit="cm"/>
+    <rotation name="VstStave04_129inVSTrot" x="90" y="51.950331125827823" z="0" unit="deg"/>
+    <position name="VstStave04_130inVSTpos" x="-32.35195181676702" y="27.082850027038091" z="0" unit="cm"/>
+    <rotation name="VstStave04_130inVSTrot" x="90" y="49.566225165562926" z="0" unit="deg"/>
+    <position name="VstStave04_131inVSTpos" x="-31.197342505766667" y="28.405199744401312" z="0" unit="cm"/>
+    <rotation name="VstStave04_131inVSTrot" x="90" y="47.182119205298022" z="0" unit="deg"/>
+    <position name="VstStave04_132inVSTpos" x="-29.988724860925288" y="29.678374840229601" z="0" unit="cm"/>
+    <rotation name="VstStave04_132inVSTrot" x="90" y="44.798013245033133" z="0" unit="deg"/>
+    <position name="VstStave04_133inVSTpos" x="-28.728191221525819" y="30.900171214426933" z="0" unit="cm"/>
+    <rotation name="VstStave04_133inVSTrot" x="90" y="42.4139072847682" z="0" unit="deg"/>
+    <position name="VstStave04_134inVSTpos" x="-27.417923802979853" y="32.068473712907554" z="0" unit="cm"/>
+    <rotation name="VstStave04_134inVSTrot" x="90" y="40.02980132450331" z="0" unit="deg"/>
+    <position name="VstStave04_135inVSTpos" x="-26.060190919011433" y="33.181259789316712" z="0" unit="cm"/>
+    <rotation name="VstStave04_135inVSTrot" x="90" y="37.645695364238406" z="0" unit="deg"/>
+    <position name="VstStave04_136inVSTpos" x="-24.657343054789333" y="34.236603006429888" z="0" unit="cm"/>
+    <rotation name="VstStave04_136inVSTrot" x="90" y="35.261589403973502" z="0" unit="deg"/>
+    <position name="VstStave04_137inVSTpos" x="-23.211808797805141" y="35.232676371169816" z="0" unit="cm"/>
+    <rotation name="VstStave04_137inVSTrot" x="90" y="32.877483443708648" z="0" unit="deg"/>
+    <position name="VstStave04_138inVSTpos" x="-21.726090633541784" y="36.167755497467354" z="0" unit="cm"/>
+    <rotation name="VstStave04_138inVSTrot" x="90" y="30.493377483443695" z="0" unit="deg"/>
+    <position name="VstStave04_139inVSTpos" x="-20.202760613211531" y="37.040221591490521" z="0" unit="cm"/>
+    <rotation name="VstStave04_139inVSTrot" x="90" y="28.109271523178791" z="0" unit="deg"/>
+    <position name="VstStave04_140inVSTpos" x="-18.644455901062418" y="37.848564254074297" z="0" unit="cm"/>
+    <rotation name="VstStave04_140inVSTrot" x="90" y="25.725165562913883" z="0" unit="deg"/>
+    <position name="VstStave04_141inVSTpos" x="-17.053874208962085" y="38.591384095499215" z="0" unit="cm"/>
+    <rotation name="VstStave04_141inVSTrot" x="90" y="23.341059602649029" z="0" unit="deg"/>
+    <position name="VstStave04_142inVSTpos" x="-15.433769126163035" y="39.267395158092022" z="0" unit="cm"/>
+    <rotation name="VstStave04_142inVSTrot" x="90" y="20.956953642384125" z="0" unit="deg"/>
+    <position name="VstStave04_143inVSTpos" x="-13.786945352333234" y="39.875427142454903" z="0" unit="cm"/>
+    <rotation name="VstStave04_143inVSTrot" x="90" y="18.572847682119221" z="0" unit="deg"/>
+    <position name="VstStave04_144inVSTpos" x="-12.116253842105682" y="40.414427433468745" z="0" unit="cm"/>
+    <rotation name="VstStave04_144inVSTrot" x="90" y="16.188741721854267" z="0" unit="deg"/>
+    <position name="VstStave04_145inVSTpos" x="-10.424586869552009" y="40.883462922563396" z="0" unit="cm"/>
+    <rotation name="VstStave04_145inVSTrot" x="90" y="13.804635761589415" z="0" unit="deg"/>
+    <position name="VstStave04_146inVSTpos" x="-8.714873021124129" y="41.281721623100154" z="0" unit="cm"/>
+    <rotation name="VstStave04_146inVSTrot" x="90" y="11.420529801324511" z="0" unit="deg"/>
+    <position name="VstStave04_147inVSTpos" x="-6.9900721257331586" y="41.608514076069817" z="0" unit="cm"/>
+    <rotation name="VstStave04_147inVSTrot" x="90" y="9.0364238410596069" z="0" unit="deg"/>
+    <position name="VstStave04_148inVSTpos" x="-5.2531701307415615" y="41.863274543672965" z="0" unit="cm"/>
+    <rotation name="VstStave04_148inVSTrot" x="90" y="6.6523178807947536" z="0" unit="deg"/>
+    <position name="VstStave04_149inVSTpos" x="-3.5071739327390929" y="42.045561988716095" z="0" unit="cm"/>
+    <rotation name="VstStave04_149inVSTrot" x="90" y="4.268211920529799" z="0" unit="deg"/>
+    <position name="VstStave04_150inVSTpos" x="-1.7551061720526635" y="42.155060838128016" z="0" unit="cm"/>
+    <rotation name="VstStave04_150inVSTrot" x="90" y="1.8841059602648946" z="0" unit="deg"/>
     <position name="VstCellFlexLayer05_0inVstChipAssembly05pos" x="0" y="0" z="-0.24759074277046131" unit="cm"/>
     <position name="VstAluStrips05_0inVstChipAssembly05pos" x="0" y="0" z="-0.2415907427704613" unit="cm"/>
     <position name="VstMimosaCore05_0inVstMimosaShell05pos" x="-0.10000000000000001" y="0" z="0" unit="cm"/>
@@ -1016,354 +1008,343 @@
     <rotation name="VstSideWall05_0inVstChipAssembly05rot" x="0" y="-29.999999999999996" z="0" unit="deg"/>
     <position name="VstSideWall05_1inVstChipAssembly05pos" x="-0.38125000000000003" y="0" z="0.0017409257229537901" unit="cm"/>
     <rotation name="VstSideWall05_1inVstChipAssembly05rot" x="0" y="29.999999999999996" z="180" unit="deg"/>
-    <position name="VstChipAssembly05_0inVstStave05pos" x="0" y="-55.685000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_1inVstStave05pos" x="0" y="-52.675000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_2inVstStave05pos" x="0" y="-49.665000000000006" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_3inVstStave05pos" x="0" y="-46.655000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_4inVstStave05pos" x="0" y="-43.64500000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_5inVstStave05pos" x="0" y="-40.635000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_6inVstStave05pos" x="0" y="-37.625" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_7inVstStave05pos" x="0" y="-34.615000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_8inVstStave05pos" x="0" y="-31.605000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_9inVstStave05pos" x="0" y="-28.594999999999999" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_10inVstStave05pos" x="0" y="-25.585000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_11inVstStave05pos" x="0" y="-22.575000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_12inVstStave05pos" x="0" y="-19.565000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_13inVstStave05pos" x="0" y="-16.555000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_14inVstStave05pos" x="0" y="-13.545000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_15inVstStave05pos" x="0" y="-10.535000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_16inVstStave05pos" x="0" y="-7.5250000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_17inVstStave05pos" x="0" y="-4.5150000000000006" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_18inVstStave05pos" x="0" y="-1.5050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_19inVstStave05pos" x="0" y="1.5050000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_20inVstStave05pos" x="0" y="4.5150000000000006" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_21inVstStave05pos" x="0" y="7.5250000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_22inVstStave05pos" x="0" y="10.535000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_23inVstStave05pos" x="0" y="13.545000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_24inVstStave05pos" x="0" y="16.555000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_25inVstStave05pos" x="0" y="19.565000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_26inVstStave05pos" x="0" y="22.575000000000003" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_27inVstStave05pos" x="0" y="25.585000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_28inVstStave05pos" x="0" y="28.594999999999999" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_29inVstStave05pos" x="0" y="31.605000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_30inVstStave05pos" x="0" y="34.615000000000002" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_31inVstStave05pos" x="0" y="37.625" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_32inVstStave05pos" x="0" y="40.635000000000005" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_33inVstStave05pos" x="0" y="43.64500000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_34inVstStave05pos" x="0" y="46.655000000000001" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_35inVstStave05pos" x="0" y="49.665000000000006" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_36inVstStave05pos" x="0" y="52.675000000000004" z="0" unit="cm"/>
-    <position name="VstChipAssembly05_37inVstStave05pos" x="0" y="55.685000000000002" z="0" unit="cm"/>
-    <position name="VstStave05_0inVSTpos" x="0.90945409676707756" y="43.416885131664088" z="0" unit="cm"/>
-    <rotation name="VstStave05_0inVSTrot" x="-90" y="1.1899999999999988" z="180" unit="deg"/>
-    <position name="VstStave05_1inVSTpos" x="2.6682013687792998" y="43.344362064124155" z="0" unit="cm"/>
-    <rotation name="VstStave05_1inVSTrot" x="-90" y="3.5125806451613122" z="180" unit="deg"/>
-    <position name="VstStave05_2inVSTpos" x="4.4225647929487408" y="43.200624323525822" z="0" unit="cm"/>
-    <rotation name="VstStave05_2inVSTrot" x="-90" y="5.8351612903225867" z="180" unit="deg"/>
-    <position name="VstStave05_3inVSTpos" x="6.1696619547760694" y="42.985908070599478" z="0" unit="cm"/>
-    <rotation name="VstStave05_3inVSTrot" x="-90" y="8.1577419354838749" z="180" unit="deg"/>
-    <position name="VstStave05_4inVSTpos" x="7.9066223782119049" y="42.700566083584881" z="0" unit="cm"/>
-    <rotation name="VstStave05_4inVSTrot" x="-90" y="10.480322580645174" z="180" unit="deg"/>
-    <position name="VstStave05_5inVSTpos" x="9.6305922418414269" y="42.345067178617448" z="0" unit="cm"/>
-    <rotation name="VstStave05_5inVSTrot" x="-90" y="12.80290322580646" z="180" unit="deg"/>
-    <position name="VstStave05_6inVSTpos" x="11.338739067705465" y="41.919995439464572" z="0" unit="cm"/>
-    <rotation name="VstStave05_6inVSTrot" x="-90" y="15.125483870967736" z="180" unit="deg"/>
-    <position name="VstStave05_7inVSTpos" x="13.028256375054349" y="41.426049257877544" z="0" unit="cm"/>
-    <rotation name="VstStave05_7inVSTrot" x="-90" y="17.448064516129051" z="180" unit="deg"/>
-    <position name="VstStave05_8inVSTpos" x="14.696368291388417" y="40.864040186135703" z="0" unit="cm"/>
-    <rotation name="VstStave05_8inVSTrot" x="-90" y="19.770645161290332" z="180" unit="deg"/>
-    <position name="VstStave05_9inVSTpos" x="16.340334113209231" y="40.234891603668217" z="0" unit="cm"/>
-    <rotation name="VstStave05_9inVSTrot" x="-90" y="22.09322580645161" z="180" unit="deg"/>
-    <position name="VstStave05_10inVSTpos" x="17.957452808988247" y="39.539637199944067" z="0" unit="cm"/>
-    <rotation name="VstStave05_10inVSTrot" x="-90" y="24.415806451612923" z="180" unit="deg"/>
-    <position name="VstStave05_11inVSTpos" x="19.545067456954495" y="38.779419276122987" z="0" unit="cm"/>
-    <rotation name="VstStave05_11inVSTrot" x="-90" y="26.738387096774201" z="180" unit="deg"/>
-    <position name="VstStave05_12inVSTpos" x="21.100569610410108" y="37.955486868257637" z="0" unit="cm"/>
-    <rotation name="VstStave05_12inVSTrot" x="-90" y="29.060967741935478" z="180" unit="deg"/>
-    <position name="VstStave05_13inVSTpos" x="22.621403583401371" y="37.069193695130686" z="0" unit="cm"/>
-    <rotation name="VstStave05_13inVSTrot" x="-90" y="31.383548387096795" z="180" unit="deg"/>
-    <position name="VstStave05_14inVSTpos" x="24.105070649704043" y="36.121995934098351" z="0" unit="cm"/>
-    <rotation name="VstStave05_14inVSTrot" x="-90" y="33.706129032258069" z="180" unit="deg"/>
-    <position name="VstStave05_15inVSTpos" x="25.549133148223969" y="35.115449828594876" z="0" unit="cm"/>
-    <rotation name="VstStave05_15inVSTrot" x="-90" y="36.028709677419343" z="180" unit="deg"/>
-    <position name="VstStave05_16inVSTpos" x="26.951218488067894" y="34.051209131228632" z="0" unit="cm"/>
-    <rotation name="VstStave05_16inVSTrot" x="-90" y="38.351290322580674" z="180" unit="deg"/>
-    <position name="VstStave05_17inVSTpos" x="28.309023046704016" y="32.931022386670925" z="0" unit="cm"/>
-    <rotation name="VstStave05_17inVSTrot" x="-90" y="40.673870967741948" z="180" unit="deg"/>
-    <position name="VstStave05_18inVSTpos" x="29.620315954807811" y="31.75673005880169" z="0" unit="cm"/>
-    <rotation name="VstStave05_18inVSTrot" x="-90" y="42.996451612903222" z="180" unit="deg"/>
-    <position name="VstStave05_19inVSTpos" x="30.882942761574423" y="30.530261506832179" z="0" unit="cm"/>
-    <rotation name="VstStave05_19inVSTrot" x="-90" y="45.319032258064546" z="180" unit="deg"/>
-    <position name="VstStave05_20inVSTpos" x="32.094828974475732" y="29.253631815372838" z="0" unit="cm"/>
-    <rotation name="VstStave05_20inVSTrot" x="-90" y="47.64161290322582" z="180" unit="deg"/>
-    <position name="VstStave05_21inVSTpos" x="33.25398346764608" y="27.92893848365458" z="0" unit="cm"/>
-    <rotation name="VstStave05_21inVSTrot" x="-90" y="49.964193548387115" z="180" unit="deg"/>
-    <position name="VstStave05_22inVSTpos" x="34.358501753296892" y="26.558357979343057" z="0" unit="cm"/>
-    <rotation name="VstStave05_22inVSTrot" x="-90" y="52.286774193548418" z="180" unit="deg"/>
-    <position name="VstStave05_23inVSTpos" x="35.406569110785071" y="25.144142162608002" z="0" unit="cm"/>
-    <rotation name="VstStave05_23inVSTrot" x="-90" y="54.609354838709685" z="180" unit="deg"/>
-    <position name="VstStave05_24inVSTpos" x="36.39646356819425" y="23.688614586322895" z="0" unit="cm"/>
-    <rotation name="VstStave05_24inVSTrot" x="-90" y="56.931935483870973" z="180" unit="deg"/>
-    <position name="VstStave05_25inVSTpos" x="37.326558731530156" y="22.194166678473653" z="0" unit="cm"/>
-    <rotation name="VstStave05_25inVSTrot" x="-90" y="59.254516129032268" z="180" unit="deg"/>
-    <position name="VstStave05_26inVSTpos" x="38.195326456881681" y="20.66325381304878" z="0" unit="cm"/>
-    <rotation name="VstStave05_26inVSTrot" x="-90" y="61.577096774193564" z="180" unit="deg"/>
-    <position name="VstStave05_27inVSTpos" x="39.001339361157243" y="19.09839127586633" z="0" unit="cm"/>
-    <rotation name="VstStave05_27inVSTrot" x="-90" y="63.899677419354823" z="180" unit="deg"/>
-    <position name="VstStave05_28inVSTpos" x="39.743273167271553" y="17.502150131965895" z="0" unit="cm"/>
-    <rotation name="VstStave05_28inVSTrot" x="-90" y="66.222258064516168" z="180" unit="deg"/>
-    <position name="VstStave05_29inVSTpos" x="40.419908879929309" y="15.877153001355509" z="0" unit="cm"/>
-    <rotation name="VstStave05_29inVSTrot" x="-90" y="68.544838709677421" z="180" unit="deg"/>
-    <position name="VstStave05_30inVSTpos" x="41.030134788431326" y="14.226069750053888" z="0" unit="cm"/>
-    <rotation name="VstStave05_30inVSTrot" x="-90" y="70.867419354838717" z="180" unit="deg"/>
-    <position name="VstStave05_31inVSTpos" x="41.572948293212242" y="12.551613103507529" z="0" unit="cm"/>
-    <rotation name="VstStave05_31inVSTrot" x="-90" y="73.190000000000012" z="180" unit="deg"/>
-    <position name="VstStave05_32inVSTpos" x="42.047457553109027" y="10.856534189589929" z="0" unit="cm"/>
-    <rotation name="VstStave05_32inVSTrot" x="-90" y="75.512580645161322" z="180" unit="deg"/>
-    <position name="VstStave05_33inVSTpos" x="42.452882950653624" y="9.1436180185057747" z="0" unit="cm"/>
-    <rotation name="VstStave05_33inVSTrot" x="-90" y="77.835161290322617" z="180" unit="deg"/>
-    <position name="VstStave05_34inVSTpos" x="42.788558372982429" y="7.4156789070263684" z="0" unit="cm"/>
-    <rotation name="VstStave05_34inVSTrot" x="-90" y="80.157741935483912" z="180" unit="deg"/>
-    <position name="VstStave05_35inVSTpos" x="43.05393230625797" y="5.6755558545746938" z="0" unit="cm"/>
-    <rotation name="VstStave05_35inVSTrot" x="-90" y="82.480322580645165" z="180" unit="deg"/>
-    <position name="VstStave05_36inVSTpos" x="43.248568741804682" y="3.92610787875675" z="0" unit="cm"/>
-    <rotation name="VstStave05_36inVSTrot" x="-90" y="84.80290322580646" z="180" unit="deg"/>
-    <position name="VstStave05_37inVSTpos" x="43.372147892470039" y="2.1702093180031232" z="0" unit="cm"/>
-    <rotation name="VstStave05_37inVSTrot" x="-90" y="87.125483870967713" z="180" unit="deg"/>
-    <position name="VstStave05_38inVSTpos" x="43.42446671803399" y="0.41074510903851996" z="0" unit="cm"/>
-    <rotation name="VstStave05_38inVSTrot" x="-90" y="89.448064516129065" z="180" unit="deg"/>
-    <position name="VstStave05_39inVSTpos" x="43.405439258803511" y="-1.3493939530617056" z="0" unit="cm"/>
-    <rotation name="VstStave05_39inVSTrot" x="90" y="88.229354838709682" z="0" unit="deg"/>
-    <position name="VstStave05_40inVSTpos" x="43.315096776844165" y="-3.1073159644402688" z="0" unit="cm"/>
-    <rotation name="VstStave05_40inVSTrot" x="90" y="85.906774193548387" z="0" unit="deg"/>
-    <position name="VstStave05_41inVSTpos" x="43.153587704616569" y="-4.8601326638483995" z="0" unit="cm"/>
-    <rotation name="VstStave05_41inVSTrot" x="90" y="83.584193548387091" z="0" unit="deg"/>
-    <position name="VstStave05_42inVSTpos" x="42.921177401102327" y="-6.6049641780514898" z="0" unit="cm"/>
-    <rotation name="VstStave05_42inVSTrot" x="90" y="81.261612903225782" z="0" unit="deg"/>
-    <position name="VstStave05_43inVSTpos" x="42.618247715819848" y="-8.338943753453254" z="0" unit="cm"/>
-    <rotation name="VstStave05_43inVSTrot" x="90" y="78.939032258064529" z="0" unit="deg"/>
-    <position name="VstStave05_44inVSTpos" x="42.245296361446613" y="-10.059222466164377" z="0" unit="cm"/>
-    <rotation name="VstStave05_44inVSTrot" x="90" y="76.616451612903234" z="0" unit="deg"/>
-    <position name="VstStave05_45inVSTpos" x="41.802936096078582" y="-11.762973902776933" z="0" unit="cm"/>
-    <rotation name="VstStave05_45inVSTrot" x="90" y="74.293870967741881" z="0" unit="deg"/>
-    <position name="VstStave05_46inVSTpos" x="41.291893716470199" y="-13.447398804154274" z="0" unit="cm"/>
-    <rotation name="VstStave05_46inVSTrot" x="90" y="71.971290322580629" z="0" unit="deg"/>
-    <position name="VstStave05_47inVSTpos" x="40.71300886390928" y="-15.109729664606345" z="0" unit="cm"/>
-    <rotation name="VstStave05_47inVSTrot" x="90" y="69.648709677419333" z="0" unit="deg"/>
-    <position name="VstStave05_48inVSTpos" x="40.067232644688552" y="-16.747235278894383" z="0" unit="cm"/>
-    <rotation name="VstStave05_48inVSTrot" x="90" y="67.326129032258038" z="0" unit="deg"/>
-    <position name="VstStave05_49inVSTpos" x="39.355626067440532" y="-18.357225229593823" z="0" unit="cm"/>
-    <rotation name="VstStave05_49inVSTrot" x="90" y="65.003548387096785" z="0" unit="deg"/>
-    <position name="VstStave05_50inVSTpos" x="38.579358299903106" y="-19.937054307443169" z="0" unit="cm"/>
-    <rotation name="VstStave05_50inVSTrot" x="90" y="62.680967741935483" z="0" unit="deg"/>
-    <position name="VstStave05_51inVSTpos" x="37.739704747980028" y="-21.484126857415784" z="0" unit="cm"/>
-    <rotation name="VstStave05_51inVSTrot" x="90" y="60.358387096774223" z="0" unit="deg"/>
-    <position name="VstStave05_52inVSTpos" x="36.838044960252354" y="-22.995901043374371" z="0" unit="cm"/>
-    <rotation name="VstStave05_52inVSTrot" x="90" y="58.035806451612885" z="0" unit="deg"/>
-    <position name="VstStave05_53inVSTpos" x="35.875860361383779" y="-24.469893024300962" z="0" unit="cm"/>
-    <rotation name="VstStave05_53inVSTrot" x="90" y="55.713225806451597" z="0" unit="deg"/>
-    <position name="VstStave05_54inVSTpos" x="34.854731818143712" y="-25.903681035241316" z="0" unit="cm"/>
-    <rotation name="VstStave05_54inVSTrot" x="90" y="53.39064516129033" z="0" unit="deg"/>
-    <position name="VstStave05_55inVSTpos" x="33.776337042047466" y="-27.29490936625826" z="0" unit="cm"/>
-    <rotation name="VstStave05_55inVSTrot" x="90" y="51.068064516129034" z="0" unit="deg"/>
-    <position name="VstStave05_56inVSTpos" x="32.642447832880549" y="-28.641292232856966" z="0" unit="cm"/>
-    <rotation name="VstStave05_56inVSTrot" x="90" y="48.745483870967746" z="0" unit="deg"/>
-    <position name="VstStave05_57inVSTpos" x="31.454927167636225" y="-29.940617531522982" z="0" unit="cm"/>
-    <rotation name="VstStave05_57inVSTrot" x="90" y="46.422903225806472" z="0" unit="deg"/>
-    <position name="VstStave05_58inVSTpos" x="30.215726139649341" y="-31.190750474202325" z="0" unit="cm"/>
-    <rotation name="VstStave05_58inVSTrot" x="90" y="44.100322580645184" z="0" unit="deg"/>
-    <position name="VstStave05_59inVSTpos" x="28.926880752954997" y="-32.389637095752747" z="0" unit="cm"/>
-    <rotation name="VstStave05_59inVSTrot" x="90" y="41.777741935483846" z="0" unit="deg"/>
-    <position name="VstStave05_60inVSTpos" x="27.590508577139332" y="-33.53530762860305" z="0" unit="cm"/>
-    <rotation name="VstStave05_60inVSTrot" x="90" y="39.455161290322636" z="0" unit="deg"/>
-    <position name="VstStave05_61inVSTpos" x="26.208805268178146" y="-34.625879739076062" z="0" unit="cm"/>
-    <rotation name="VstStave05_61inVSTrot" x="90" y="37.132580645161283" z="0" unit="deg"/>
-    <position name="VstStave05_62inVSTpos" x="24.78404096098004" y="-35.659561620057872" z="0" unit="cm"/>
-    <rotation name="VstStave05_62inVSTrot" x="90" y="34.809999999999981" z="0" unit="deg"/>
-    <position name="VstStave05_63inVSTpos" x="23.318556539560582" y="-36.634654934932271" z="0" unit="cm"/>
-    <rotation name="VstStave05_63inVSTrot" x="90" y="32.487419354838728" z="0" unit="deg"/>
-    <position name="VstStave05_64inVSTpos" x="21.814759790976133" y="-37.549557607943292" z="0" unit="cm"/>
-    <rotation name="VstStave05_64inVSTrot" x="90" y="30.16483870967738" z="0" unit="deg"/>
-    <position name="VstStave05_65inVSTpos" x="20.275121449335991" y="-38.402766456401501" z="0" unit="cm"/>
-    <rotation name="VstStave05_65inVSTrot" x="90" y="27.842258064516184" z="0" unit="deg"/>
-    <position name="VstStave05_66inVSTpos" x="18.702171136392678" y="-39.192879660409254" z="0" unit="cm"/>
-    <rotation name="VstStave05_66inVSTrot" x="90" y="25.519677419354835" z="0" unit="deg"/>
-    <position name="VstStave05_67inVSTpos" x="17.098493205380144" y="-39.918599066047015" z="0" unit="cm"/>
-    <rotation name="VstStave05_67inVSTrot" x="90" y="23.197096774193536" z="0" unit="deg"/>
-    <position name="VstStave05_68inVSTpos" x="15.466722494928135" y="-40.578732318236909" z="0" unit="cm"/>
-    <rotation name="VstStave05_68inVSTrot" x="90" y="20.874516129032287" z="0" unit="deg"/>
-    <position name="VstStave05_69inVSTpos" x="13.809540000029276" y="-41.172194819778944" z="0" unit="cm"/>
-    <rotation name="VstStave05_69inVSTrot" x="90" y="18.551935483870981" z="0" unit="deg"/>
-    <position name="VstStave05_70inVSTpos" x="12.129668467171197" y="-41.698011513341413" z="0" unit="cm"/>
-    <rotation name="VstStave05_70inVSTrot" x="90" y="16.229354838709682" z="0" unit="deg"/>
-    <position name="VstStave05_71inVSTpos" x="10.429867920871509" y="-42.155318483477458" z="0" unit="cm"/>
-    <rotation name="VstStave05_71inVSTrot" x="90" y="13.906774193548383" z="0" unit="deg"/>
-    <position name="VstStave05_72inVSTpos" x="8.7129311289643585" y="-42.543364376035953" z="0" unit="cm"/>
-    <rotation name="VstStave05_72inVSTrot" x="90" y="11.584193548387134" z="0" unit="deg"/>
-    <position name="VstStave05_73inVSTpos" x="6.98167901409062" y="-42.861511632634318" z="0" unit="cm"/>
-    <rotation name="VstStave05_73inVSTrot" x="90" y="9.2616129032257835" z="0" unit="deg"/>
-    <position name="VstStave05_74inVSTpos" x="5.2389560189291364" y="-43.109237538165381" z="0" unit="cm"/>
-    <rotation name="VstStave05_74inVSTrot" x="90" y="6.9390322580645343" z="0" unit="deg"/>
-    <position name="VstStave05_75inVSTpos" x="3.4876254327849225" y="-43.286135079616805" z="0" unit="cm"/>
-    <rotation name="VstStave05_75inVSTrot" x="90" y="4.6164516129032327" z="0" unit="deg"/>
-    <position name="VstStave05_76inVSTpos" x="1.7305646872123768" y="-43.391913614792493" z="0" unit="cm"/>
-    <rotation name="VstStave05_76inVSTrot" x="90" y="2.2938709677418823" z="0" unit="deg"/>
-    <position name="VstStave05_77inVSTpos" x="-0.029339371597167912" y="-43.426399349836906" z="0" unit="cm"/>
-    <rotation name="VstStave05_77inVSTrot" x="90" y="-0.028709677419316265" z="0" unit="deg"/>
-    <position name="VstStave05_78inVSTpos" x="-1.7891952258961981" y="-43.389535624777906" z="0" unit="cm"/>
-    <rotation name="VstStave05_78inVSTrot" x="90" y="-2.3512903225806676" z="0" unit="deg"/>
-    <position name="VstStave05_79inVSTpos" x="-3.5461114371371227" y="-43.281383006618974" z="0" unit="cm"/>
-    <rotation name="VstStave05_79inVSTrot" x="90" y="-4.6738709677418653" z="0" unit="deg"/>
-    <position name="VstStave05_80inVSTpos" x="-5.297201396598175" y="-43.102119189827768" z="0" unit="cm"/>
-    <rotation name="VstStave05_80inVSTrot" x="90" y="-6.9964516129032157" z="0" unit="deg"/>
-    <position name="VstStave05_81inVSTpos" x="-7.0395880680739271" y="-42.852038704384555" z="0" unit="cm"/>
-    <rotation name="VstStave05_81inVSTrot" x="90" y="-9.3190322580645155" z="0" unit="deg"/>
-    <position name="VstStave05_82inVSTpos" x="-8.7704087148382577" y="-42.531552431870267" z="0" unit="cm"/>
-    <rotation name="VstStave05_82inVSTrot" x="90" y="-11.641612903225765" z="0" unit="deg"/>
-    <position name="VstStave05_83inVSTpos" x="-10.486819603113352" y="-42.141186930389111" z="0" unit="cm"/>
-    <rotation name="VstStave05_83inVSTrot" x="90" y="-13.964193548387117" z="0" unit="deg"/>
-    <position name="VstStave05_84inVSTpos" x="-12.186000674316604" y="-41.681583569435027" z="0" unit="cm"/>
-    <rotation name="VstStave05_84inVSTrot" x="90" y="-16.286774193548368" z="0" unit="deg"/>
-    <position name="VstStave05_85inVSTpos" x="-13.865160178409825" y="-41.153497476123206" z="0" unit="cm"/>
-    <rotation name="VstStave05_85inVSTrot" x="90" y="-18.609354838709663" z="0" unit="deg"/>
-    <position name="VstStave05_86inVSTpos" x="-15.521539260736825" y="-40.557796294518347" z="0" unit="cm"/>
-    <rotation name="VstStave05_86inVSTrot" x="90" y="-20.931935483870966" z="0" unit="deg"/>
-    <position name="VstStave05_87inVSTpos" x="-17.152416494814638" y="-39.89545876009764" z="0" unit="cm"/>
-    <rotation name="VstStave05_87inVSTrot" x="90" y="-23.254516129032268" z="0" unit="deg"/>
-    <position name="VstStave05_88inVSTpos" x="-18.755112353630022" y="-39.167573091690983" z="0" unit="cm"/>
-    <rotation name="VstStave05_88inVSTrot" x="90" y="-25.577096774193517" z="0" unit="deg"/>
-    <position name="VstStave05_89inVSTpos" x="-20.326993612095297" y="-38.375335203540281" z="0" unit="cm"/>
-    <rotation name="VstStave05_89inVSTrot" x="90" y="-27.899677419354813" z="0" unit="deg"/>
-    <position name="VstStave05_90inVSTpos" x="-21.865477673430213" y="-37.520046740415523" z="0" unit="cm"/>
-    <rotation name="VstStave05_90inVSTrot" x="90" y="-30.222258064516165" z="0" unit="deg"/>
-    <position name="VstStave05_91inVSTpos" x="-23.368036812361698" y="-36.603112939015844" z="0" unit="cm"/>
-    <rotation name="VstStave05_91inVSTrot" x="90" y="-32.544838709677364" z="0" unit="deg"/>
-    <position name="VstStave05_92inVSTpos" x="-24.83220232816992" y="-35.626040319169249" z="0" unit="cm"/>
-    <rotation name="VstStave05_92inVSTrot" x="90" y="-34.867419354838717" z="0" unit="deg"/>
-    <position name="VstStave05_93inVSTpos" x="-26.255568600756966" y="-34.590434208624579" z="0" unit="cm"/>
-    <rotation name="VstStave05_93inVSTrot" x="90" y="-37.190000000000012" z="0" unit="deg"/>
-    <position name="VstStave05_94inVSTpos" x="-27.635797043074451" y="-33.49799610550216" z="0" unit="cm"/>
-    <rotation name="VstStave05_94inVSTrot" x="90" y="-39.512580645161265" z="0" unit="deg"/>
-    <position name="VstStave05_95inVSTpos" x="-28.970619943415834" y="-32.350520882736916" z="0" unit="cm"/>
-    <rotation name="VstStave05_95inVSTrot" x="90" y="-41.835161290322617" z="0" unit="deg"/>
-    <position name="VstStave05_96inVSTpos" x="-30.257844191260769" y="-31.149893839106859" z="0" unit="cm"/>
-    <rotation name="VstStave05_96inVSTrot" x="90" y="-44.157741935483813" z="0" unit="deg"/>
-    <position name="VstStave05_97inVSTpos" x="-31.495354880550032" y="-29.898087601692083" z="0" unit="cm"/>
-    <rotation name="VstStave05_97inVSTrot" x="90" y="-46.480322580645165" z="0" unit="deg"/>
-    <position name="VstStave05_98inVSTpos" x="-32.681118784470613" y="-28.597158884853627" z="0" unit="cm"/>
-    <rotation name="VstStave05_98inVSTrot" x="90" y="-48.802903225806475" z="0" unit="deg"/>
-    <position name="VstStave05_99inVSTpos" x="-33.813187696041858" y="-27.24924511105737" z="0" unit="cm"/>
-    <rotation name="VstStave05_99inVSTrot" x="90" y="-51.125483870967713" z="0" unit="deg"/>
-    <position name="VstStave05_100inVSTpos" x="-34.889701629014681" y="-25.856560899094273" z="0" unit="cm"/>
-    <rotation name="VstStave05_100inVSTrot" x="90" y="-53.448064516129016" z="0" unit="deg"/>
-    <position name="VstStave05_101inVSTpos" x="-35.908891873823876" y="-24.421394425467735" z="0" unit="cm"/>
-    <rotation name="VstStave05_101inVSTrot" x="90" y="-55.770645161290311" z="0" unit="deg"/>
-    <position name="VstStave05_102inVSTpos" x="-36.869083903573376" y="-22.946103664925502" z="0" unit="cm"/>
-    <rotation name="VstStave05_102inVSTrot" x="90" y="-58.093225806451613" z="0" unit="deg"/>
-    <position name="VstStave05_103inVSTpos" x="-37.768700125279594" y="-21.433112516313301" z="0" unit="cm"/>
-    <rotation name="VstStave05_103inVSTrot" x="90" y="-60.415806451612866" z="0" unit="deg"/>
-    <position name="VstStave05_104inVSTpos" x="-38.606262471852482" y="-19.884906820115496" z="0" unit="cm"/>
-    <rotation name="VstStave05_104inVSTrot" x="90" y="-62.738387096774218" z="0" unit="deg"/>
-    <position name="VstStave05_105inVSTpos" x="-39.380394830555801" y="-18.304030274225795" z="0" unit="cm"/>
-    <rotation name="VstStave05_105inVSTrot" x="90" y="-65.060967741935471" z="0" unit="deg"/>
-    <position name="VstStave05_106inVSTpos" x="-40.089825303956985" y="-16.69308025465795" z="0" unit="cm"/>
-    <rotation name="VstStave05_106inVSTrot" x="90" y="-67.383548387096766" z="0" unit="deg"/>
-    <position name="VstStave05_107inVSTpos" x="-40.733388299651011" y="-15.054703548064136" z="0" unit="cm"/>
-    <rotation name="VstStave05_107inVSTrot" x="90" y="-69.706129032258119" z="0" unit="deg"/>
-    <position name="VstStave05_108inVSTpos" x="-41.310026445325811" y="-13.391592003071301" z="0" unit="cm"/>
-    <rotation name="VstStave05_108inVSTrot" x="90" y="-72.028709677419315" z="0" unit="deg"/>
-    <position name="VstStave05_109inVSTpos" x="-41.818792326022184" y="-11.706478107580818" z="0" unit="cm"/>
-    <rotation name="VstStave05_109inVSTrot" x="90" y="-74.351290322580667" z="0" unit="deg"/>
-    <position name="VstStave05_110inVSTpos" x="-42.258850040734046" y="-10.002130499298271" z="0" unit="cm"/>
-    <rotation name="VstStave05_110inVSTrot" x="90" y="-76.673870967741962" z="0" unit="deg"/>
-    <position name="VstStave05_111inVSTpos" x="-42.629476575791628" y="-8.2813494168688209" z="0" unit="cm"/>
-    <rotation name="VstStave05_111inVSTrot" x="90" y="-78.996451612903215" z="0" unit="deg"/>
-    <position name="VstStave05_112inVSTpos" x="-42.930062992771006" y="-6.546962099092533" z="0" unit="cm"/>
-    <rotation name="VstStave05_112inVSTrot" x="90" y="-81.31903225806451" z="0" unit="deg"/>
-    <position name="VstStave05_113inVSTpos" x="-43.160115428978365" y="-4.8018181397783106" z="0" unit="cm"/>
-    <rotation name="VstStave05_113inVSTrot" x="90" y="-83.641612903225763" z="0" unit="deg"/>
-    <position name="VstStave05_114inVSTpos" x="-43.319255908865095" y="-3.0487848058689733" z="0" unit="cm"/>
-    <rotation name="VstStave05_114inVSTrot" x="90" y="-85.964193548387058" z="0" unit="deg"/>
-    <position name="VstStave05_115inVSTpos" x="-43.407222965040589" y="-1.290742326529007" z="0" unit="cm"/>
-    <rotation name="VstStave05_115inVSTrot" x="90" y="-88.28677419354841" z="0" unit="deg"/>
-    <position name="VstStave05_116inVSTpos" x="-43.423872067862547" y="0.46942083906415782" z="0" unit="cm"/>
-    <rotation name="VstStave05_116inVSTrot" x="-90" y="-89.390645161290351" z="180" unit="deg"/>
-    <position name="VstStave05_117inVSTpos" x="-43.36917586289875" y="2.2288127474513386" z="0" unit="cm"/>
-    <rotation name="VstStave05_117inVSTrot" x="-90" y="-87.068064516129041" z="180" unit="deg"/>
-    <position name="VstStave05_118inVSTpos" x="-43.243224215870313" y="3.9845427223469159" z="0" unit="cm"/>
-    <rotation name="VstStave05_118inVSTrot" x="-90" y="-84.745483870967746" z="180" unit="deg"/>
-    <position name="VstStave05_119inVSTpos" x="-43.046224065002612" y="5.7337261040121517" z="0" unit="cm"/>
-    <rotation name="VstStave05_119inVSTrot" x="-90" y="-82.422903225806493" z="180" unit="deg"/>
-    <position name="VstStave05_120inVSTpos" x="-42.778499081026233" y="7.4734889887440259" z="0" unit="cm"/>
-    <rotation name="VstStave05_120inVSTrot" x="-90" y="-80.100322580645255" z="180" unit="deg"/>
-    <position name="VstStave05_121inVSTpos" x="-42.440489135386841" y="9.2009729506912432" z="0" unit="cm"/>
-    <rotation name="VstStave05_121inVSTrot" x="-90" y="-77.777741935483846" z="180" unit="deg"/>
-    <position name="VstStave05_122inVSTpos" x="-42.032749577537608" y="10.913339738240211" z="0" unit="cm"/>
-    <rotation name="VstStave05_122inVSTrot" x="-90" y="-75.45516129032255" z="180" unit="deg"/>
-    <position name="VstStave05_123inVSTpos" x="-41.555950322501424" y="12.60777593725533" z="0" unit="cm"/>
-    <rotation name="VstStave05_123inVSTrot" x="-90" y="-73.13258064516134" z="180" unit="deg"/>
-    <position name="VstStave05_124inVSTpos" x="-41.010874750202362" y="14.281497593510808" z="0" unit="cm"/>
-    <rotation name="VstStave05_124inVSTrot" x="-90" y="-70.810000000000031" z="180" unit="deg"/>
-    <position name="VstStave05_125inVSTpos" x="-40.398418418374433" y="15.931754786720321" z="0" unit="cm"/>
-    <rotation name="VstStave05_125inVSTrot" x="-90" y="-68.48741935483875" z="180" unit="deg"/>
-    <position name="VstStave05_126inVSTpos" x="-39.719587591162671" y="17.555836148648613" z="0" unit="cm"/>
-    <rotation name="VstStave05_126inVSTrot" x="-90" y="-66.16483870967744" z="180" unit="deg"/>
-    <position name="VstStave05_127inVSTpos" x="-38.975497585833722" y="19.151073317882485" z="0" unit="cm"/>
-    <rotation name="VstStave05_127inVSTrot" x="-90" y="-63.842258064516145" z="180" unit="deg"/>
-    <position name="VstStave05_128inVSTpos" x="-38.16737094031248" y="20.714845323941738" z="0" unit="cm"/>
-    <rotation name="VstStave05_128inVSTrot" x="-90" y="-61.519677419354849" z="180" unit="deg"/>
-    <position name="VstStave05_129inVSTpos" x="-37.296535404555641" y="22.244582893526413" z="0" unit="cm"/>
-    <rotation name="VstStave05_129inVSTrot" x="-90" y="-59.197096774193547" z="180" unit="deg"/>
-    <position name="VstStave05_130inVSTpos" x="-36.364421759061777" y="23.737772671826548" z="0" unit="cm"/>
-    <rotation name="VstStave05_130inVSTrot" x="-90" y="-56.874516129032251" z="180" unit="deg"/>
-    <position name="VstStave05_131inVSTpos" x="-35.372561464102908" y="25.191961351957147" z="0" unit="cm"/>
-    <rotation name="VstStave05_131inVSTrot" x="-90" y="-54.551935483870963" z="180" unit="deg"/>
-    <position name="VstStave05_132inVSTpos" x="-34.322584143539281" y="26.604759705735116" z="0" unit="cm"/>
-    <rotation name="VstStave05_132inVSTrot" x="-90" y="-52.229354838709725" z="180" unit="deg"/>
-    <position name="VstStave05_133inVSTpos" x="-33.216214907351507" y="27.973846509174965" z="0" unit="cm"/>
-    <rotation name="VstStave05_133inVSTrot" x="-90" y="-49.906774193548443" z="180" unit="deg"/>
-    <position name="VstStave05_134inVSTpos" x="-32.055271517289555" y="29.296972356253566" z="0" unit="cm"/>
-    <rotation name="VstStave05_134inVSTrot" x="-90" y="-47.584193548387063" z="180" unit="deg"/>
-    <position name="VstStave05_135inVSTpos" x="-30.841661400294992" y="30.571963354678328" z="0" unit="cm"/>
-    <rotation name="VstStave05_135inVSTrot" x="-90" y="-45.261612903225817" z="180" unit="deg"/>
-    <position name="VstStave05_136inVSTpos" x="-29.577378514603282" y="31.796724697586775" z="0" unit="cm"/>
-    <rotation name="VstStave05_136inVSTrot" x="-90" y="-42.939032258064543" z="180" unit="deg"/>
-    <position name="VstStave05_137inVSTpos" x="-28.264500073675908" y="32.969244105308441" z="0" unit="cm"/>
-    <rotation name="VstStave05_137inVSTrot" x="-90" y="-40.616451612903241" z="180" unit="deg"/>
-    <position name="VstStave05_138inVSTpos" x="-26.905183133344003" y="34.087595131535195" z="0" unit="cm"/>
-    <rotation name="VstStave05_138inVSTrot" x="-90" y="-38.293870967741938" z="180" unit="deg"/>
-    <position name="VstStave05_139inVSTpos" x="-25.501661047771204" y="35.149940328467551" z="0" unit="cm"/>
-    <rotation name="VstStave05_139inVSTrot" x="-90" y="-35.971290322580671" z="180" unit="deg"/>
-    <position name="VstStave05_140inVSTpos" x="-24.056239800058755" y="36.15453426573643" z="0" unit="cm"/>
-    <rotation name="VstStave05_140inVSTrot" x="-90" y="-33.64870967741934" z="180" unit="deg"/>
-    <position name="VstStave05_141inVSTpos" x="-22.571294213521352" y="37.099726398140703" z="0" unit="cm"/>
-    <rotation name="VstStave05_141inVSTrot" x="-90" y="-31.326129032258041" z="180" unit="deg"/>
-    <position name="VstStave05_142inVSTpos" x="-21.049264049858518" y="37.983963777488711" z="0" unit="cm"/>
-    <rotation name="VstStave05_142inVSTrot" x="-90" y="-29.003548387096778" z="180" unit="deg"/>
-    <position name="VstStave05_143inVSTpos" x="-19.492650000632608" y="38.805793604088016" z="0" unit="cm"/>
-    <rotation name="VstStave05_143inVSTrot" x="-90" y="-26.68096774193554" z="180" unit="deg"/>
-    <position name="VstStave05_144inVSTpos" x="-17.904009578639126" y="39.563865613691483" z="0" unit="cm"/>
-    <rotation name="VstStave05_144inVSTrot" x="-90" y="-24.358387096774241" z="180" unit="deg"/>
-    <position name="VstStave05_145inVSTpos" x="-16.285952915920053" y="40.256934295977828" z="0" unit="cm"/>
-    <rotation name="VstStave05_145inVSTrot" x="-90" y="-22.035806451612885" z="180" unit="deg"/>
-    <position name="VstStave05_146inVSTpos" x="-14.641138475323453" y="40.883860940921956" z="0" unit="cm"/>
-    <rotation name="VstStave05_146inVSTrot" x="-90" y="-19.713225806451643" z="180" unit="deg"/>
-    <position name="VstStave05_147inVSTpos" x="-12.97226868265645" y="41.443615509692343" z="0" unit="cm"/>
-    <rotation name="VstStave05_147inVSTrot" x="-90" y="-17.39064516129034" z="180" unit="deg"/>
-    <position name="VstStave05_148inVSTpos" x="-11.282085486606151" y="41.935278327002337" z="0" unit="cm"/>
-    <rotation name="VstStave05_148inVSTrot" x="-90" y="-15.068064516128988" z="180" unit="deg"/>
-    <position name="VstStave05_149inVSTpos" x="-9.5733658537257238" y="42.358041592134065" z="0" unit="cm"/>
-    <rotation name="VstStave05_149inVSTrot" x="-90" y="-12.745483870967739" z="180" unit="deg"/>
-    <position name="VstStave05_150inVSTpos" x="-7.8489172058852619" y="42.711210706153004" z="0" unit="cm"/>
-    <rotation name="VstStave05_150inVSTrot" x="-90" y="-10.422903225806541" z="180" unit="deg"/>
-    <position name="VstStave05_151inVSTpos" x="-6.1115728076850582" y="42.994205413132192" z="0" unit="cm"/>
-    <rotation name="VstStave05_151inVSTrot" x="-90" y="-8.1003225806451908" z="180" unit="deg"/>
-    <position name="VstStave05_152inVSTpos" x="-4.3641871114095014" y="43.206560753511127" z="0" unit="cm"/>
-    <rotation name="VstStave05_152inVSTrot" x="-90" y="-5.7777419354838395" z="180" unit="deg"/>
-    <position name="VstStave05_153inVSTpos" x="-2.6096310671693157" y="43.347927828023174" z="0" unit="cm"/>
-    <rotation name="VstStave05_153inVSTrot" x="-90" y="-3.455161290322641" z="180" unit="deg"/>
-    <position name="VstStave05_154inVSTpos" x="-0.85078740593813862" y="43.418074370936097" z="0" unit="cm"/>
-    <rotation name="VstStave05_154inVSTrot" x="-90" y="-1.1325806451612899" z="180" unit="deg"/>
+    <position name="VstChipAssembly05_0inVstStave05pos" x="0" y="-51.170000000000009" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_1inVstStave05pos" x="0" y="-48.160000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_2inVstStave05pos" x="0" y="-45.150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_3inVstStave05pos" x="0" y="-42.140000000000008" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_4inVstStave05pos" x="0" y="-39.130000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_5inVstStave05pos" x="0" y="-36.120000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_6inVstStave05pos" x="0" y="-33.110000000000007" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_7inVstStave05pos" x="0" y="-30.100000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_8inVstStave05pos" x="0" y="-27.090000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_9inVstStave05pos" x="0" y="-24.080000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_10inVstStave05pos" x="0" y="-21.070000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_11inVstStave05pos" x="0" y="-18.060000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_12inVstStave05pos" x="0" y="-15.050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_13inVstStave05pos" x="0" y="-12.040000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_14inVstStave05pos" x="0" y="-9.0300000000000011" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_15inVstStave05pos" x="0" y="-6.0200000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_16inVstStave05pos" x="0" y="-3.0100000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_17inVstStave05pos" x="0" y="0" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_18inVstStave05pos" x="0" y="3.0100000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_19inVstStave05pos" x="0" y="6.0200000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_20inVstStave05pos" x="0" y="9.0300000000000011" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_21inVstStave05pos" x="0" y="12.040000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_22inVstStave05pos" x="0" y="15.050000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_23inVstStave05pos" x="0" y="18.060000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_24inVstStave05pos" x="0" y="21.070000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_25inVstStave05pos" x="0" y="24.080000000000002" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_26inVstStave05pos" x="0" y="27.090000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_27inVstStave05pos" x="0" y="30.100000000000001" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_28inVstStave05pos" x="0" y="33.110000000000007" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_29inVstStave05pos" x="0" y="36.120000000000005" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_30inVstStave05pos" x="0" y="39.130000000000003" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_31inVstStave05pos" x="0" y="42.140000000000008" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_32inVstStave05pos" x="0" y="45.150000000000006" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_33inVstStave05pos" x="0" y="48.160000000000004" z="0" unit="cm"/>
+    <position name="VstChipAssembly05_34inVstStave05pos" x="0" y="51.170000000000009" z="0" unit="cm"/>
+    <position name="VstStave05_0inVSTpos" x="0.87264798449767189" y="41.659779683214843" z="0" unit="cm"/>
+    <rotation name="VstStave05_0inVSTrot" x="-90" y="0.69999999999999107" z="180" unit="deg"/>
+    <position name="VstStave05_1inVSTpos" x="2.6048766446187179" y="41.587418475124998" z="0" unit="cm"/>
+    <rotation name="VstStave05_1inVSTrot" x="-90" y="3.0841059602649077" z="180" unit="deg"/>
+    <position name="VstStave05_2inVSTpos" x="4.3325957845006213" y="41.443061802031174" z="0" unit="cm"/>
+    <rotation name="VstStave05_2inVSTrot" x="-90" y="5.4682119205297992" z="180" unit="deg"/>
+    <position name="VstStave05_3inVSTpos" x="6.0528144047634473" y="41.226959571866757" z="0" unit="cm"/>
+    <rotation name="VstStave05_3inVSTrot" x="-90" y="7.8523178807947165" z="180" unit="deg"/>
+    <position name="VstStave05_4inVSTpos" x="7.7625544908052939" y="40.939485897311002" z="0" unit="cm"/>
+    <rotation name="VstStave05_4inVSTrot" x="-90" y="10.236423841059608" z="180" unit="deg"/>
+    <position name="VstStave05_5inVSTpos" x="9.4588561682929182" y="40.581138448131234" z="0" unit="cm"/>
+    <rotation name="VstStave05_5inVSTrot" x="-90" y="12.6205298013245" z="180" unit="deg"/>
+    <position name="VstStave05_6inVSTpos" x="11.138782827248212" y="40.152537589624998" z="0" unit="cm"/>
+    <rotation name="VstStave05_6inVSTrot" x="-90" y="15.004635761589412" z="180" unit="deg"/>
+    <position name="VstStave05_7inVSTpos" x="12.799426205859818" y="39.654425308653721" z="0" unit="cm"/>
+    <rotation name="VstStave05_7inVSTrot" x="-90" y="17.388741721854306" z="180" unit="deg"/>
+    <position name="VstStave05_8inVSTpos" x="14.437911425218857" y="39.087663929127089" z="0" unit="cm"/>
+    <rotation name="VstStave05_8inVSTrot" x="-90" y="19.77284768211922" z="180" unit="deg"/>
+    <position name="VstStave05_9inVSTpos" x="16.051401966262709" y="38.453234619161833" z="0" unit="cm"/>
+    <rotation name="VstStave05_9inVSTrot" x="-90" y="22.156953642384114" z="180" unit="deg"/>
+    <position name="VstStave05_10inVSTpos" x="17.637104580310851" y="37.752235692499404" z="0" unit="cm"/>
+    <rotation name="VstStave05_10inVSTrot" x="-90" y="24.541059602648993" z="180" unit="deg"/>
+    <position name="VstStave05_11inVSTpos" x="19.192274124691714" y="36.985880707123052" z="0" unit="cm"/>
+    <rotation name="VstStave05_11inVSTrot" x="-90" y="26.925165562913921" z="180" unit="deg"/>
+    <position name="VstStave05_12inVSTpos" x="20.714218315089198" y="36.155496364365838" z="0" unit="cm"/>
+    <rotation name="VstStave05_12inVSTrot" x="-90" y="29.309271523178797" z="180" unit="deg"/>
+    <position name="VstStave05_13inVSTpos" x="22.200302386381651" y="35.262520212146853" z="0" unit="cm"/>
+    <rotation name="VstStave05_13inVSTrot" x="-90" y="31.693377483443733" z="180" unit="deg"/>
+    <position name="VstStave05_14inVSTpos" x="23.647953653904558" y="34.308498156311508" z="0" unit="cm"/>
+    <rotation name="VstStave05_14inVSTrot" x="-90" y="34.077483443708616" z="180" unit="deg"/>
+    <position name="VstStave05_15inVSTpos" x="25.054665967240542" y="33.295081784384408" z="0" unit="cm"/>
+    <rotation name="VstStave05_15inVSTrot" x="-90" y="36.461589403973512" z="180" unit="deg"/>
+    <position name="VstStave05_16inVSTpos" x="26.418004048826379" y="32.224025506367774" z="0" unit="cm"/>
+    <rotation name="VstStave05_16inVSTrot" x="-90" y="38.845695364238416" z="180" unit="deg"/>
+    <position name="VstStave05_17inVSTpos" x="27.735607709866013" y="31.097183517535303" z="0" unit="cm"/>
+    <rotation name="VstStave05_17inVSTrot" x="-90" y="41.22980132450332" z="180" unit="deg"/>
+    <position name="VstStave05_18inVSTpos" x="29.005195936251198" y="29.916506588479297" z="0" unit="cm"/>
+    <rotation name="VstStave05_18inVSTrot" x="-90" y="43.613907284768224" z="180" unit="deg"/>
+    <position name="VstStave05_19inVSTpos" x="30.224570837416127" y="28.684038687968304" z="0" unit="cm"/>
+    <rotation name="VstStave05_19inVSTrot" x="-90" y="45.998013245033128" z="180" unit="deg"/>
+    <position name="VstStave05_20inVSTpos" x="31.391621451290014" y="27.401913444461439" z="0" unit="cm"/>
+    <rotation name="VstStave05_20inVSTrot" x="-90" y="48.382119205298004" z="180" unit="deg"/>
+    <position name="VstStave05_21inVSTpos" x="32.504327398760381" y="26.072350452405384" z="0" unit="cm"/>
+    <rotation name="VstStave05_21inVSTrot" x="-90" y="50.766225165562894" z="180" unit="deg"/>
+    <position name="VstStave05_22inVSTpos" x="33.560762381320657" y="24.697651429708461" z="0" unit="cm"/>
+    <rotation name="VstStave05_22inVSTrot" x="-90" y="53.150331125827826" z="180" unit="deg"/>
+    <position name="VstStave05_23inVSTpos" x="34.559097515846922" y="23.280196233043892" z="0" unit="cm"/>
+    <rotation name="VstStave05_23inVSTrot" x="-90" y="55.534437086092701" z="180" unit="deg"/>
+    <position name="VstStave05_24inVSTpos" x="35.497604500730787" y="21.822438737880454" z="0" unit="cm"/>
+    <rotation name="VstStave05_24inVSTrot" x="-90" y="57.918543046357641" z="180" unit="deg"/>
+    <position name="VstStave05_25inVSTpos" x="36.374658607887071" y="20.326902590373063" z="0" unit="cm"/>
+    <rotation name="VstStave05_25inVSTrot" x="-90" y="60.302649006622509" z="180" unit="deg"/>
+    <position name="VstStave05_26inVSTpos" x="37.188741495456789" y="18.79617683846741" z="0" unit="cm"/>
+    <rotation name="VstStave05_26inVSTrot" x="-90" y="62.686754966887413" z="180" unit="deg"/>
+    <position name="VstStave05_27inVSTpos" x="37.938443836335928" y="17.232911449782137" z="0" unit="cm"/>
+    <rotation name="VstStave05_27inVSTrot" x="-90" y="65.07086092715231" z="180" unit="deg"/>
+    <position name="VstStave05_28inVSTpos" x="38.622467757979749" y="15.639812724027831" z="0" unit="cm"/>
+    <rotation name="VstStave05_28inVSTrot" x="-90" y="67.454966887417257" z="180" unit="deg"/>
+    <position name="VstStave05_29inVSTpos" x="39.239629089258642" y="14.019638607904806" z="0" unit="cm"/>
+    <rotation name="VstStave05_29inVSTrot" x="-90" y="69.839072847682118" z="180" unit="deg"/>
+    <position name="VstStave05_30inVSTpos" x="39.788859410476057" y="12.375193920590453" z="0" unit="cm"/>
+    <rotation name="VstStave05_30inVSTrot" x="-90" y="72.223178807947022" z="180" unit="deg"/>
+    <position name="VstStave05_31inVSTpos" x="40.269207902999334" y="10.709325498081762" z="0" unit="cm"/>
+    <rotation name="VstStave05_31inVSTrot" x="-90" y="74.607284768211912" z="180" unit="deg"/>
+    <position name="VstStave05_32inVSTpos" x="40.67984299530152" y="9.0249172647989386" z="0" unit="cm"/>
+    <rotation name="VstStave05_32inVSTrot" x="-90" y="76.991390728476873" z="180" unit="deg"/>
+    <position name="VstStave05_33inVSTpos" x="41.020053802564533" y="7.3248852409822112" z="0" unit="cm"/>
+    <rotation name="VstStave05_33inVSTrot" x="-90" y="79.375496688741677" z="180" unit="deg"/>
+    <position name="VstStave05_34inVSTpos" x="41.289251357351432" y="5.6121724945247857" z="0" unit="cm"/>
+    <rotation name="VstStave05_34inVSTrot" x="-90" y="81.759602649006624" z="180" unit="deg"/>
+    <position name="VstStave05_35inVSTpos" x="41.486969629217313" y="3.8897440459814727" z="0" unit="cm"/>
+    <rotation name="VstStave05_35inVSTrot" x="-90" y="84.143708609271528" z="180" unit="deg"/>
+    <position name="VstStave05_36inVSTpos" x="41.612866331493628" y="2.160581735573059" z="0" unit="cm"/>
+    <rotation name="VstStave05_36inVSTrot" x="-90" y="86.527814569536389" z="180" unit="deg"/>
+    <position name="VstStave05_37inVSTpos" x="41.666723513849369" y="0.42767906107295267" z="0" unit="cm"/>
+    <rotation name="VstStave05_37inVSTrot" x="-90" y="88.911920529801293" z="180" unit="deg"/>
+    <position name="VstStave05_38inVSTpos" x="41.648447939603109" y="-1.3059640044878291" z="0" unit="cm"/>
+    <rotation name="VstStave05_38inVSTrot" x="90" y="88.703973509933803" z="0" unit="deg"/>
+    <position name="VstStave05_39inVSTpos" x="41.558071247132851" y="-3.037346206325171" z="0" unit="cm"/>
+    <rotation name="VstStave05_39inVSTrot" x="90" y="86.319867549668857" z="0" unit="deg"/>
+    <position name="VstStave05_40inVSTpos" x="41.395749895104188" y="-4.7634702036256469" z="0" unit="cm"/>
+    <rotation name="VstStave05_40inVSTrot" x="90" y="83.935761589403995" z="0" unit="deg"/>
+    <position name="VstStave05_41inVSTpos" x="41.161764891611597" y="-6.4813477584942962" z="0" unit="cm"/>
+    <rotation name="VstStave05_41inVSTrot" x="90" y="81.551655629139091" z="0" unit="deg"/>
+    <position name="VstStave05_42inVSTpos" x="40.85652130770174" y="-8.188004909143741" z="0" unit="cm"/>
+    <rotation name="VstStave05_42inVSTrot" x="90" y="79.167549668874187" z="0" unit="deg"/>
+    <position name="VstStave05_43inVSTpos" x="40.480547576121083" y="-9.8804871183684941" z="0" unit="cm"/>
+    <rotation name="VstStave05_43inVSTrot" x="90" y="76.783443708609283" z="0" unit="deg"/>
+    <position name="VstStave05_44inVSTpos" x="40.034494576501665" y="-11.555864388392017" z="0" unit="cm"/>
+    <rotation name="VstStave05_44inVSTrot" x="90" y="74.399337748344379" z="0" unit="deg"/>
+    <position name="VstStave05_45inVSTpos" x="39.519134508568818" y="-13.211236333231383" z="0" unit="cm"/>
+    <rotation name="VstStave05_45inVSTrot" x="90" y="72.015231788079475" z="0" unit="deg"/>
+    <position name="VstStave05_46inVSTpos" x="38.935359555321547" y="-14.843737199798403" z="0" unit="cm"/>
+    <rotation name="VstStave05_46inVSTrot" x="90" y="69.631125827814571" z="0" unit="deg"/>
+    <position name="VstStave05_47inVSTpos" x="38.284180338499716" y="-16.450540829045089" z="0" unit="cm"/>
+    <rotation name="VstStave05_47inVSTrot" x="90" y="67.247019867549668" z="0" unit="deg"/>
+    <position name="VstStave05_48inVSTpos" x="37.566724169012147" y="-18.028865548564241" z="0" unit="cm"/>
+    <rotation name="VstStave05_48inVSTrot" x="90" y="64.86291390728482" z="0" unit="deg"/>
+    <position name="VstStave05_49inVSTpos" x="36.784233095354175" y="-19.575978988175756" z="0" unit="cm"/>
+    <rotation name="VstStave05_49inVSTrot" x="90" y="62.47880794701986" z="0" unit="deg"/>
+    <position name="VstStave05_50inVSTpos" x="35.938061753393463" y="-21.089202810161563" z="0" unit="cm"/>
+    <rotation name="VstStave05_50inVSTrot" x="90" y="60.094701986754956" z="0" unit="deg"/>
+    <position name="VstStave05_51inVSTpos" x="35.029675021246284" y="-22.565917345960525" z="0" unit="cm"/>
+    <rotation name="VstStave05_51inVSTrot" x="90" y="57.710596026490066" z="0" unit="deg"/>
+    <position name="VstStave05_52inVSTpos" x="34.060645483304334" y="-24.003566131296157" z="0" unit="cm"/>
+    <rotation name="VstStave05_52inVSTrot" x="90" y="55.32649006622519" z="0" unit="deg"/>
+    <position name="VstStave05_53inVSTpos" x="33.032650707802077" y="-25.399660331886157" z="0" unit="cm"/>
+    <rotation name="VstStave05_53inVSTrot" x="90" y="52.942384105960286" z="0" unit="deg"/>
+    <position name="VstStave05_54inVSTpos" x="31.947470342637768" y="-26.751783052072032" z="0" unit="cm"/>
+    <rotation name="VstStave05_54inVSTrot" x="90" y="50.55827814569534" z="0" unit="deg"/>
+    <position name="VstStave05_55inVSTpos" x="30.806983034475923" y="-28.057593518909645" z="0" unit="cm"/>
+    <rotation name="VstStave05_55inVSTrot" x="90" y="48.174172185430528" z="0" unit="deg"/>
+    <position name="VstStave05_56inVSTpos" x="29.613163176464568" y="-29.31483113447749" z="0" unit="cm"/>
+    <rotation name="VstStave05_56inVSTrot" x="90" y="45.790066225165567" z="0" unit="deg"/>
+    <position name="VstStave05_57inVSTpos" x="28.368077490197884" y="-30.521319389387088" z="0" unit="cm"/>
+    <rotation name="VstStave05_57inVSTrot" x="90" y="43.405960264900671" z="0" unit="deg"/>
+    <position name="VstStave05_58inVSTpos" x="27.073881447841234" y="-31.674969630720817" z="0" unit="cm"/>
+    <rotation name="VstStave05_58inVSTrot" x="90" y="41.021854304635788" z="0" unit="deg"/>
+    <position name="VstStave05_59inVSTpos" x="25.732815540612698" y="-32.773784677874019" z="0" unit="cm"/>
+    <rotation name="VstStave05_59inVSTrot" x="90" y="38.63774834437082" z="0" unit="deg"/>
+    <position name="VstStave05_60inVSTpos" x="24.347201400080969" y="-33.81586228004165" z="0" unit="cm"/>
+    <rotation name="VstStave05_60inVSTrot" x="90" y="36.253642384106016" z="0" unit="deg"/>
+    <position name="VstStave05_61inVSTpos" x="22.919437778994357" y="-34.799398409364123" z="0" unit="cm"/>
+    <rotation name="VstStave05_61inVSTrot" x="90" y="33.869536423841062" z="0" unit="deg"/>
+    <position name="VstStave05_62inVSTpos" x="21.451996398598993" y="-35.72269038403104" z="0" unit="cm"/>
+    <rotation name="VstStave05_62inVSTrot" x="90" y="31.485430463576151" z="0" unit="deg"/>
+    <position name="VstStave05_63inVSTpos" x="19.947417669634987" y="-36.584139815936382" z="0" unit="cm"/>
+    <rotation name="VstStave05_63inVSTrot" x="90" y="29.1013245033113" z="0" unit="deg"/>
+    <position name="VstStave05_64inVSTpos" x="18.408306294418523" y="-37.382255377782116" z="0" unit="cm"/>
+    <rotation name="VstStave05_64inVSTrot" x="90" y="26.71721854304635" z="0" unit="deg"/>
+    <position name="VstStave05_65inVSTpos" x="16.837326757623483" y="-38.115655384839762" z="0" unit="cm"/>
+    <rotation name="VstStave05_65inVSTrot" x="90" y="24.333112582781496" z="0" unit="deg"/>
+    <position name="VstStave05_66inVSTpos" x="15.237198713568631" y="-38.783070186900758" z="0" unit="cm"/>
+    <rotation name="VstStave05_66inVSTrot" x="90" y="21.949006622516539" z="0" unit="deg"/>
+    <position name="VstStave05_67inVSTpos" x="13.61069227799619" y="-39.383344366274216" z="0" unit="cm"/>
+    <rotation name="VstStave05_67inVSTrot" x="90" y="19.564900662251688" z="0" unit="deg"/>
+    <position name="VstStave05_68inVSTpos" x="11.96062323249245" y="-39.915438738027291" z="0" unit="cm"/>
+    <rotation name="VstStave05_68inVSTrot" x="90" y="17.180794701986784" z="0" unit="deg"/>
+    <position name="VstStave05_69inVSTpos" x="10.28984814985211" y="-40.378432149005405" z="0" unit="cm"/>
+    <rotation name="VstStave05_69inVSTrot" x="90" y="14.79668874172183" z="0" unit="deg"/>
+    <position name="VstStave05_70inVSTpos" x="8.6012594488258909" y="-40.771523072517553" z="0" unit="cm"/>
+    <rotation name="VstStave05_70inVSTrot" x="90" y="12.412582781456976" z="0" unit="deg"/>
+    <position name="VstStave05_71inVSTpos" x="6.8977803868120828" y="-41.094030995926381" z="0" unit="cm"/>
+    <rotation name="VstStave05_71inVSTrot" x="90" y="10.028476821192072" z="0" unit="deg"/>
+    <position name="VstStave05_72inVSTpos" x="5.1823599991605311" y="-41.345397598740647" z="0" unit="cm"/>
+    <rotation name="VstStave05_72inVSTrot" x="90" y="7.6443708609271663" z="0" unit="deg"/>
+    <position name="VstStave05_73inVSTpos" x="3.457967993850624" y="-41.525187719170553" z="0" unit="cm"/>
+    <rotation name="VstStave05_73inVSTrot" x="90" y="5.2602649006622642" z="0" unit="deg"/>
+    <position name="VstStave05_74inVSTpos" x="1.7275896103807795" y="-41.633090107472832" z="0" unit="cm"/>
+    <rotation name="VstStave05_74inVSTrot" x="90" y="2.8761589403973593" z="0" unit="deg"/>
+    <position name="VstStave05_75inVSTpos" x="-0.005779548229604645" y="-41.668917964781258" z="0" unit="cm"/>
+    <rotation name="VstStave05_75inVSTrot" x="90" y="0.49205298013250598" z="0" unit="deg"/>
+    <position name="VstStave05_76inVSTpos" x="-1.7391387013797239" y="-41.632609266489787" z="0" unit="cm"/>
+    <rotation name="VstStave05_76inVSTrot" x="90" y="-1.892052980132449" z="0" unit="deg"/>
+    <position name="VstStave05_77inVSTpos" x="-3.4694870857901194" y="-41.524226869628571" z="0" unit="cm"/>
+    <rotation name="VstStave05_77inVSTrot" x="90" y="-4.2761589403973534" z="0" unit="deg"/>
+    <position name="VstStave05_78inVSTpos" x="-5.1938291503752616" y="-41.343958404046901" z="0" unit="cm"/>
+    <rotation name="VstStave05_78inVSTrot" x="90" y="-6.6602649006622574" z="0" unit="deg"/>
+    <position name="VstStave05_79inVSTpos" x="-6.9091797420933059" y="-41.092115947591402" z="0" unit="cm"/>
+    <rotation name="VstStave05_79inVSTrot" x="90" y="-9.0443708609271116" z="0" unit="deg"/>
+    <position name="VstStave05_80inVSTpos" x="-8.6125692737944881" y="-40.769135485841971" z="0" unit="cm"/>
+    <rotation name="VstStave05_80inVSTrot" x="90" y="-11.428476821192014" z="0" unit="deg"/>
+    <position name="VstStave05_81inVSTpos" x="-10.301048865122281" y="-40.375576157340603" z="0" unit="cm"/>
+    <rotation name="VstStave05_81inVSTrot" x="90" y="-13.812582781456967" z="0" unit="deg"/>
+    <position name="VstStave05_82inVSTpos" x="-11.971695447567431" y="-39.912119285619767" z="0" unit="cm"/>
+    <rotation name="VstStave05_82inVSTrot" x="90" y="-16.196688741721776" z="0" unit="deg"/>
+    <position name="VstStave05_83inVSTpos" x="-13.621616824836684" y="-39.379567199706173" z="0" unit="cm"/>
+    <rotation name="VstStave05_83inVSTrot" x="90" y="-18.580794701986726" z="0" unit="deg"/>
+    <position name="VstStave05_84inVSTpos" x="-15.247956679776129" y="-38.77884184514177" z="0" unit="cm"/>
+    <rotation name="VstStave05_84inVSTrot" x="90" y="-20.96490066225163" z="0" unit="deg"/>
+    <position name="VstStave05_85inVSTpos" x="-16.847899519181254" y="-38.11098318792655" z="0" unit="cm"/>
+    <rotation name="VstStave05_85inVSTrot" x="90" y="-23.349006622516534" z="0" unit="deg"/>
+    <position name="VstStave05_86inVSTpos" x="-18.418675547933038" y="-37.377147414146272" z="0" unit="cm"/>
+    <rotation name="VstStave05_86inVSTrot" x="90" y="-25.733112582781487" z="0" unit="deg"/>
+    <position name="VstStave05_87inVSTpos" x="-19.957565464022551" y="-36.57860492840183" z="0" unit="cm"/>
+    <rotation name="VstStave05_87inVSTrot" x="90" y="-28.117218543046288" z="0" unit="deg"/>
+    <position name="VstStave05_88inVSTpos" x="-21.46190516616242" y="-35.716738154505357" z="0" unit="cm"/>
+    <rotation name="VstStave05_88inVSTrot" x="90" y="-30.501324503311245" z="0" unit="deg"/>
+    <position name="VstStave05_89inVSTpos" x="-22.929090365835819" y="-34.793039142250613" z="0" unit="cm"/>
+    <rotation name="VstStave05_89inVSTrot" x="90" y="-32.885430463576149" z="0" unit="deg"/>
+    <position name="VstStave05_90inVSTpos" x="-24.356581095798507" y="-33.809106984400501" z="0" unit="cm"/>
+    <rotation name="VstStave05_90inVSTrot" x="90" y="-35.269536423841011" z="0" unit="deg"/>
+    <position name="VstStave05_91inVSTpos" x="-25.741906107229074" y="-32.766645048363593" z="0" unit="cm"/>
+    <rotation name="VstStave05_91inVSTrot" x="90" y="-37.653642384105957" z="0" unit="deg"/>
+    <position name="VstStave05_92inVSTpos" x="-27.082667147914808" y="-31.667458027352051" z="0" unit="cm"/>
+    <rotation name="VstStave05_92inVSTrot" x="90" y="-40.037748344370812" z="0" unit="deg"/>
+    <position name="VstStave05_93inVSTpos" x="-28.376543114067072" y="-30.51344881612599" z="0" unit="cm"/>
+    <rotation name="VstStave05_93inVSTrot" x="90" y="-42.421854304635772" z="0" unit="deg"/>
+    <position name="VstStave05_94inVSTpos" x="-29.621294068578486" y="-29.306615216732975" z="0" unit="cm"/>
+    <rotation name="VstStave05_94inVSTrot" x="90" y="-44.805960264900641" z="0" unit="deg"/>
+    <position name="VstStave05_95inVSTpos" x="-30.814765118765884" y="-28.049046479945396" z="0" unit="cm"/>
+    <rotation name="VstStave05_95inVSTrot" x="90" y="-47.190066225165523" z="0" unit="deg"/>
+    <position name="VstStave05_96inVSTpos" x="-31.954890146885582" y="-26.742919688383374" z="0" unit="cm"/>
+    <rotation name="VstStave05_96inVSTrot" x="90" y="-49.574172185430477" z="0" unit="deg"/>
+    <position name="VstStave05_97inVSTpos" x="-33.039695386962805" y="-25.390495987584746" z="0" unit="cm"/>
+    <rotation name="VstStave05_97inVSTrot" x="90" y="-51.958278145695331" z="0" unit="deg"/>
+    <position name="VstStave05_98inVSTpos" x="-34.067302841743611" y="-23.994116671546291" z="0" unit="cm"/>
+    <rotation name="VstStave05_98inVSTrot" x="90" y="-54.342384105960264" z="0" unit="deg"/>
+    <position name="VstStave05_99inVSTpos" x="-35.035933533853026" y="-22.556199129513843" z="0" unit="cm"/>
+    <rotation name="VstStave05_99inVSTrot" x="90" y="-56.726490066225139" z="0" unit="deg"/>
+    <position name="VstStave05_100inVSTpos" x="-35.943910585532031" y="-21.07923266103694" z="0" unit="cm"/>
+    <rotation name="VstStave05_100inVSTrot" x="90" y="-59.110596026490043" z="0" unit="deg"/>
+    <position name="VstStave05_101inVSTpos" x="-36.789662121621198" y="-19.565774166533725" z="0" unit="cm"/>
+    <rotation name="VstStave05_101inVSTrot" x="90" y="-61.494701986754997" z="0" unit="deg"/>
+    <position name="VstStave05_102inVSTpos" x="-37.571723990765271" y="-18.018443720826756" z="0" unit="cm"/>
+    <rotation name="VstStave05_102inVSTrot" x="90" y="-63.878807947019801" z="0" unit="deg"/>
+    <position name="VstStave05_103inVSTpos" x="-38.288742300128582" y="-16.439920037311392" z="0" unit="cm"/>
+    <rotation name="VstStave05_103inVSTrot" x="90" y="-66.262913907284755" z="0" unit="deg"/>
+    <position name="VstStave05_104inVSTpos" x="-38.939475759232053" y="-14.832935830611127" z="0" unit="cm"/>
+    <rotation name="VstStave05_104inVSTrot" x="90" y="-68.647019867549659" z="0" unit="deg"/>
+    <position name="VstStave05_105inVSTpos" x="-39.522797828855481" y="-13.200273085745787" z="0" unit="cm"/>
+    <rotation name="VstStave05_105inVSTrot" x="90" y="-71.031125827814563" z="0" unit="deg"/>
+    <position name="VstStave05_106inVSTpos" x="-40.037698671283749" y="-11.54475824200453" z="0" unit="cm"/>
+    <rotation name="VstStave05_106inVSTrot" x="90" y="-73.41523178807951" z="0" unit="deg"/>
+    <position name="VstStave05_107inVSTpos" x="-40.483286898521627" y="-9.8692572998597665" z="0" unit="cm"/>
+    <rotation name="VstStave05_107inVSTrot" x="90" y="-75.799337748344371" z="0" unit="deg"/>
+    <position name="VstStave05_108inVSTpos" x="-40.858791115450195" y="-8.1766708593935853" z="0" unit="cm"/>
+    <rotation name="VstStave05_108inVSTrot" x="90" y="-78.183443708609275" z="0" unit="deg"/>
+    <position name="VstStave05_109inVSTpos" x="-41.163561255253555" y="-6.4699290988260723" z="0" unit="cm"/>
+    <rotation name="VstStave05_109inVSTrot" x="90" y="-80.567549668874179" z="0" unit="deg"/>
+    <position name="VstStave05_110inVSTpos" x="-41.397069704804032" y="-4.7519867018378852" z="0" unit="cm"/>
+    <rotation name="VstStave05_110inVSTrot" x="90" y="-82.951655629139026" z="0" unit="deg"/>
+    <position name="VstStave05_111inVSTpos" x="-41.558912218057408" y="-3.0258177424701507" z="0" unit="cm"/>
+    <rotation name="VstStave05_111inVSTrot" x="90" y="-85.33576158940393" z="0" unit="deg"/>
+    <position name="VstStave05_112inVSTpos" x="-41.648808615877137" y="-1.2944105364553009" z="0" unit="cm"/>
+    <rotation name="VstStave05_112inVSTrot" x="90" y="-87.719867549668891" z="0" unit="deg"/>
+    <position name="VstStave05_113inVSTpos" x="-41.666603271075957" y="0.43923753210629152" z="0" unit="cm"/>
+    <rotation name="VstStave05_113inVSTrot" x="-90" y="-89.89602649006622" z="180" unit="deg"/>
+    <position name="VstStave05_114inVSTpos" x="-41.612265377835108" y="2.1721251997694702" z="0" unit="cm"/>
+    <rotation name="VstStave05_114inVSTrot" x="-90" y="-87.511920529801358" z="180" unit="deg"/>
+    <position name="VstStave05_115inVSTpos" x="-41.485889005034927" y="3.901252519482719" z="0" unit="cm"/>
+    <rotation name="VstStave05_115inVSTrot" x="-90" y="-85.127814569536454" z="180" unit="deg"/>
+    <position name="VstStave05_116inVSTpos" x="-41.287692933404252" y="5.6236260540481107" z="0" unit="cm"/>
+    <rotation name="VstStave05_116inVSTrot" x="-90" y="-82.74370860927155" z="180" unit="deg"/>
+    <position name="VstStave05_117inVSTpos" x="-41.018020276770841" y="7.3362640583108725" z="0" unit="cm"/>
+    <rotation name="VstStave05_117inVSTrot" x="-90" y="-80.359602649006703" z="180" unit="deg"/>
+    <position name="VstStave05_118inVSTpos" x="-40.677337888068216" y="9.0362016411088373" z="0" unit="cm"/>
+    <rotation name="VstStave05_118inVSTrot" x="-90" y="-77.9754966887417" z="180" unit="deg"/>
+    <position name="VstStave05_119inVSTpos" x="-40.266235551127473" y="10.720495898043428" z="0" unit="cm"/>
+    <rotation name="VstStave05_119inVSTrot" x="-90" y="-75.591390728476796" z="180" unit="deg"/>
+    <position name="VstStave05_120inVSTpos" x="-39.785424959653056" y="12.38623100618844" z="0" unit="cm"/>
+    <rotation name="VstStave05_120inVSTrot" x="-90" y="-73.207284768211977" z="180" unit="deg"/>
+    <position name="VstStave05_121inVSTpos" x="-39.235738485150101" y="14.030523271915399" z="0" unit="cm"/>
+    <rotation name="VstStave05_121inVSTrot" x="-90" y="-70.823178807947073" z="180" unit="deg"/>
+    <position name="VstStave05_122inVSTpos" x="-38.618127735936454" y="15.65052612309707" z="0" unit="cm"/>
+    <rotation name="VstStave05_122inVSTrot" x="-90" y="-68.439072847682183" z="180" unit="deg"/>
+    <position name="VstStave05_123inVSTpos" x="-37.933661909733708" y="17.243435037047174" z="0" unit="cm"/>
+    <rotation name="VstStave05_123inVSTrot" x="-90" y="-66.05496688741718" z="180" unit="deg"/>
+    <position name="VstStave05_124inVSTpos" x="-37.183525942689513" y="18.806492395664424" z="0" unit="cm"/>
+    <rotation name="VstStave05_124inVSTrot" x="-90" y="-63.670860927152361" z="180" unit="deg"/>
+    <position name="VstStave05_125inVSTpos" x="-36.369018458035178" y="20.336992259376618" z="0" unit="cm"/>
+    <rotation name="VstStave05_125inVSTrot" x="-90" y="-61.286754966887457" z="180" unit="deg"/>
+    <position name="VstStave05_126inVSTpos" x="-35.491549517930302" y="21.832285051619063" z="0" unit="cm"/>
+    <rotation name="VstStave05_126inVSTrot" x="-90" y="-58.902649006622553" z="180" unit="deg"/>
+    <position name="VstStave05_127inVSTpos" x="-34.552638182385984" y="23.289782145738723" z="0" unit="cm"/>
+    <rotation name="VstStave05_127inVSTrot" x="-90" y="-56.518543046357657" z="180" unit="deg"/>
+    <position name="VstStave05_128inVSTpos" x="-33.553909879492643" y="24.706960346382839" z="0" unit="cm"/>
+    <rotation name="VstStave05_128inVSTrot" x="-90" y="-54.134437086092738" z="180" unit="deg"/>
+    <position name="VstStave05_129inVSTpos" x="-32.497093591505447" y="26.081366257613567" z="0" unit="cm"/>
+    <rotation name="VstStave05_129inVSTrot" x="-90" y="-51.750331125827827" z="180" unit="deg"/>
+    <position name="VstStave05_130inVSTpos" x="-31.384018861658095" y="27.410620530187511" z="0" unit="cm"/>
+    <rotation name="VstStave05_130inVSTrot" x="-90" y="-49.366225165562945" z="180" unit="deg"/>
+    <position name="VstStave05_131inVSTpos" x="-30.216612626887148" y="28.692421980646603" z="0" unit="cm"/>
+    <rotation name="VstStave05_131inVSTrot" x="-90" y="-46.982119205298041" z="180" unit="deg"/>
+    <position name="VstStave05_132inVSTpos" x="-28.996895881950323" y="29.924551575089318" z="0" unit="cm"/>
+    <rotation name="VstStave05_132inVSTrot" x="-90" y="-44.59801324503313" z="180" unit="deg"/>
+    <position name="VstStave05_133inVSTpos" x="-27.726980180712715" y="31.104876270726628" z="0" unit="cm"/>
+    <rotation name="VstStave05_133inVSTrot" x="-90" y="-42.213907284768204" z="180" unit="deg"/>
+    <position name="VstStave05_134inVSTpos" x="-26.409063980659358" y="32.231352708570711" z="0" unit="cm"/>
+    <rotation name="VstStave05_134inVSTrot" x="-90" y="-39.829801324503329" z="180" unit="deg"/>
+    <position name="VstStave05_135inVSTpos" x="-25.04542883696098" y="33.3020307508652" z="0" unit="cm"/>
+    <rotation name="VstStave05_135inVSTrot" x="-90" y="-37.445695364238425" z="180" unit="deg"/>
+    <position name="VstStave05_136inVSTpos" x="-23.638435452682682" y="34.315056857132014" z="0" unit="cm"/>
+    <rotation name="VstStave05_136inVSTrot" x="-90" y="-35.061589403973521" z="180" unit="deg"/>
+    <position name="VstStave05_137inVSTpos" x="-22.190519591973196" y="35.268677292990475" z="0" unit="cm"/>
+    <rotation name="VstStave05_137inVSTrot" x="-90" y="-32.677483443708645" z="180" unit="deg"/>
+    <position name="VstStave05_138inVSTpos" x="-20.704187863309294" y="36.16124116619401" z="0" unit="cm"/>
+    <rotation name="VstStave05_138inVSTrot" x="-90" y="-30.293377483443713" z="180" unit="deg"/>
+    <position name="VstStave05_139inVSTpos" x="-19.18201338009602" y="36.991203284627893" z="0" unit="cm"/>
+    <rotation name="VstStave05_139inVSTrot" x="-90" y="-27.90927152317887" z="180" unit="deg"/>
+    <position name="VstStave05_140inVSTpos" x="-17.626631306134119" y="37.757126831321003" z="0" unit="cm"/>
+    <rotation name="VstStave05_140inVSTrot" x="-90" y="-25.525165562913905" z="180" unit="deg"/>
+    <position name="VstStave05_141inVSTpos" x="-16.040734293667526" y="38.457685851839898" z="0" unit="cm"/>
+    <rotation name="VstStave05_141inVSTrot" x="-90" y="-23.141059602648959" z="180" unit="deg"/>
+    <position name="VstStave05_142inVSTpos" x="-14.427067821907132" y="39.091667549759755" z="0" unit="cm"/>
+    <rotation name="VstStave05_142inVSTrot" x="-90" y="-20.75695364238414" z="180" unit="deg"/>
+    <position name="VstStave05_143inVSTpos" x="-12.788425444101863" y="39.657974386237832" z="0" unit="cm"/>
+    <rotation name="VstStave05_143inVSTrot" x="-90" y="-18.372847682119296" z="180" unit="deg"/>
+    <position name="VstStave05_144inVSTpos" x="-11.127643951384533" y="40.155625980054936" z="0" unit="cm"/>
+    <rotation name="VstStave05_144inVSTrot" x="-90" y="-15.988741721854241" z="180" unit="deg"/>
+    <position name="VstStave05_145inVSTpos" x="-9.4475984617649935" y="40.583760804835521" z="0" unit="cm"/>
+    <rotation name="VstStave05_145inVSTrot" x="-90" y="-13.604635761589432" z="180" unit="deg"/>
+    <position name="VstStave05_146inVSTpos" x="-7.7511974427722139" y="40.941637680508208" z="0" unit="cm"/>
+    <rotation name="VstStave05_146inVSTrot" x="-90" y="-11.220529801324579" z="180" unit="deg"/>
+    <position name="VstStave05_147inVSTpos" x="-6.0413776763627771" y="41.228637056424667" z="0" unit="cm"/>
+    <rotation name="VstStave05_147inVSTrot" x="-90" y="-8.8364238410596272" z="180" unit="deg"/>
+    <position name="VstStave05_148inVSTpos" x="-4.3210991748112209" y="41.444262083915717" z="0" unit="cm"/>
+    <rotation name="VstStave05_148inVSTrot" x="-90" y="-6.4523178807946717" z="180" unit="deg"/>
+    <position name="VstStave05_149inVSTpos" x="-2.5933400563849607" y="41.588139476427614" z="0" unit="cm"/>
+    <rotation name="VstStave05_149inVSTrot" x="-90" y="-4.068211920529869" z="180" unit="deg"/>
+    <position name="VstStave05_150inVSTpos" x="-0.8610913896742477" y="41.660020155749763" z="0" unit="cm"/>
+    <rotation name="VstStave05_150inVSTrot" x="-90" y="-1.6841059602649142" z="180" unit="deg"/>
     <position name="VST_0incavepos" x="0" y="0" z="0" unit="cm"/>
     <position name="AluStrips_support_volume_0inFSTpos" x="0" y="0" z="0" unit="cm"/>
     <position name="FstMimosaCore00_0inFstMimosaShell00pos" x="-0.10000000000000001" y="0" z="0" unit="cm"/>
@@ -8999,7 +8980,7 @@
     <box name="VstSideWall010x1" x="0.8660254037844386" y="3.0100000000000002" z="0.025000000000000001" lunit="cm"/>
     <box name="VstFlatRoof010x1" x="0.8660254037844386" y="3.0100000000000002" z="0.005000000000000001" lunit="cm"/>
     <box name="VstRoofSideBeam010x1" x="1.0534872951693754" y="0.050000000000000003" z="0.020000000000000004" lunit="cm"/>
-    <trd name="VstStave020x1" x1="1.75" x2="0" y1="57.189999999999998" y2="57.189999999999998" z="0.50518148554092257" lunit="cm"/>
+    <trd name="VstStave020x1" x1="1.75" x2="0" y1="60.200000000000003" y2="60.200000000000003" z="0.50518148554092257" lunit="cm"/>
     <trd name="VstChipAssembly020x1" x1="1.75" x2="0" y1="3.0100000000000002" y2="3.0100000000000002" z="0.50518148554092257" lunit="cm"/>
     <box name="VstCellFlexLayer020x1" x="1.5" y="3.0100000000000002" z="0.010000000000000002" lunit="cm"/>
     <box name="VstAluStrips020x1" x="1.5" y="3.0100000000000002" z="0.002" lunit="cm"/>
@@ -9013,7 +8994,7 @@
     <box name="VstSideWall020x1" x="0.8660254037844386" y="3.0100000000000002" z="0.025000000000000001" lunit="cm"/>
     <box name="VstFlatRoof020x1" x="0.8660254037844386" y="3.0100000000000002" z="0.005000000000000001" lunit="cm"/>
     <box name="VstRoofSideBeam020x1" x="1.0534872951693754" y="0.050000000000000003" z="0.020000000000000004" lunit="cm"/>
-    <trd name="VstStave030x1" x1="1.75" x2="0" y1="57.189999999999998" y2="57.189999999999998" z="0.50518148554092257" lunit="cm"/>
+    <trd name="VstStave030x1" x1="1.75" x2="0" y1="60.200000000000003" y2="60.200000000000003" z="0.50518148554092257" lunit="cm"/>
     <trd name="VstChipAssembly030x1" x1="1.75" x2="0" y1="3.0100000000000002" y2="3.0100000000000002" z="0.50518148554092257" lunit="cm"/>
     <box name="VstCellFlexLayer030x1" x="1.5" y="3.0100000000000002" z="0.010000000000000002" lunit="cm"/>
     <box name="VstAluStrips030x1" x="1.5" y="3.0100000000000002" z="0.002" lunit="cm"/>
@@ -9027,7 +9008,7 @@
     <box name="VstSideWall030x1" x="0.8660254037844386" y="3.0100000000000002" z="0.025000000000000001" lunit="cm"/>
     <box name="VstFlatRoof030x1" x="0.8660254037844386" y="3.0100000000000002" z="0.005000000000000001" lunit="cm"/>
     <box name="VstRoofSideBeam030x1" x="1.0534872951693754" y="0.050000000000000003" z="0.020000000000000004" lunit="cm"/>
-    <trd name="VstStave040x1" x1="1.75" x2="0" y1="111.37" y2="111.37" z="0.50518148554092257" lunit="cm"/>
+    <trd name="VstStave040x1" x1="1.75" x2="0" y1="105.35000000000001" y2="105.35000000000001" z="0.50518148554092257" lunit="cm"/>
     <trd name="VstChipAssembly040x1" x1="1.75" x2="0" y1="3.0100000000000002" y2="3.0100000000000002" z="0.50518148554092257" lunit="cm"/>
     <box name="VstCellFlexLayer040x1" x="1.5" y="3.0100000000000002" z="0.010000000000000002" lunit="cm"/>
     <box name="VstAluStrips040x1" x="1.5" y="3.0100000000000002" z="0.002" lunit="cm"/>
@@ -9041,7 +9022,7 @@
     <box name="VstSideWall040x1" x="0.8660254037844386" y="3.0100000000000002" z="0.025000000000000001" lunit="cm"/>
     <box name="VstFlatRoof040x1" x="0.8660254037844386" y="3.0100000000000002" z="0.005000000000000001" lunit="cm"/>
     <box name="VstRoofSideBeam040x1" x="1.0534872951693754" y="0.050000000000000003" z="0.020000000000000004" lunit="cm"/>
-    <trd name="VstStave050x1" x1="1.75" x2="0" y1="114.38" y2="114.38" z="0.50518148554092257" lunit="cm"/>
+    <trd name="VstStave050x1" x1="1.75" x2="0" y1="105.35000000000001" y2="105.35000000000001" z="0.50518148554092257" lunit="cm"/>
     <trd name="VstChipAssembly050x1" x1="1.75" x2="0" y1="3.0100000000000002" y2="3.0100000000000002" z="0.50518148554092257" lunit="cm"/>
     <box name="VstCellFlexLayer050x1" x="1.5" y="3.0100000000000002" z="0.010000000000000002" lunit="cm"/>
     <box name="VstAluStrips050x1" x="1.5" y="3.0100000000000002" z="0.002" lunit="cm"/>
@@ -11645,6 +11626,10 @@
         <volumeref ref="VstChipAssembly02"/>
         <positionref ref="VstChipAssembly02_18inVstStave02pos"/>
       </physvol>
+      <physvol name="VstChipAssembly02_19" copynumber="19">
+        <volumeref ref="VstChipAssembly02"/>
+        <positionref ref="VstChipAssembly02_19inVstStave02pos"/>
+      </physvol>
     </volume>
     <volume name="VstCellFlexLayer03">
       <materialref ref="MapsKapton"/>
@@ -11864,6 +11849,10 @@
       <physvol name="VstChipAssembly03_18" copynumber="18">
         <volumeref ref="VstChipAssembly03"/>
         <positionref ref="VstChipAssembly03_18inVstStave03pos"/>
+      </physvol>
+      <physvol name="VstChipAssembly03_19" copynumber="19">
+        <volumeref ref="VstChipAssembly03"/>
+        <positionref ref="VstChipAssembly03_19inVstStave03pos"/>
       </physvol>
     </volume>
     <volume name="VstCellFlexLayer04">
@@ -12149,14 +12138,6 @@
         <volumeref ref="VstChipAssembly04"/>
         <positionref ref="VstChipAssembly04_34inVstStave04pos"/>
       </physvol>
-      <physvol name="VstChipAssembly04_35" copynumber="35">
-        <volumeref ref="VstChipAssembly04"/>
-        <positionref ref="VstChipAssembly04_35inVstStave04pos"/>
-      </physvol>
-      <physvol name="VstChipAssembly04_36" copynumber="36">
-        <volumeref ref="VstChipAssembly04"/>
-        <positionref ref="VstChipAssembly04_36inVstStave04pos"/>
-      </physvol>
     </volume>
     <volume name="VstCellFlexLayer05">
       <materialref ref="MapsKapton"/>
@@ -12440,18 +12421,6 @@
       <physvol name="VstChipAssembly05_34" copynumber="34">
         <volumeref ref="VstChipAssembly05"/>
         <positionref ref="VstChipAssembly05_34inVstStave05pos"/>
-      </physvol>
-      <physvol name="VstChipAssembly05_35" copynumber="35">
-        <volumeref ref="VstChipAssembly05"/>
-        <positionref ref="VstChipAssembly05_35inVstStave05pos"/>
-      </physvol>
-      <physvol name="VstChipAssembly05_36" copynumber="36">
-        <volumeref ref="VstChipAssembly05"/>
-        <positionref ref="VstChipAssembly05_36inVstStave05pos"/>
-      </physvol>
-      <physvol name="VstChipAssembly05_37" copynumber="37">
-        <volumeref ref="VstChipAssembly05"/>
-        <positionref ref="VstChipAssembly05_37inVstStave05pos"/>
       </physvol>
     </volume>
     <assembly name="VST">
@@ -14270,26 +14239,6 @@
         <positionref ref="VstStave04_150inVSTpos"/>
         <rotationref ref="VstStave04_150inVSTrot"/>
       </physvol>
-      <physvol name="VstStave04_151" copynumber="151">
-        <volumeref ref="VstStave04"/>
-        <positionref ref="VstStave04_151inVSTpos"/>
-        <rotationref ref="VstStave04_151inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave04_152" copynumber="152">
-        <volumeref ref="VstStave04"/>
-        <positionref ref="VstStave04_152inVSTpos"/>
-        <rotationref ref="VstStave04_152inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave04_153" copynumber="153">
-        <volumeref ref="VstStave04"/>
-        <positionref ref="VstStave04_153inVSTpos"/>
-        <rotationref ref="VstStave04_153inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave04_154" copynumber="154">
-        <volumeref ref="VstStave04"/>
-        <positionref ref="VstStave04_154inVSTpos"/>
-        <rotationref ref="VstStave04_154inVSTrot"/>
-      </physvol>
       <physvol name="VstStave05_0" copynumber="0">
         <volumeref ref="VstStave05"/>
         <positionref ref="VstStave05_0inVSTpos"/>
@@ -15044,26 +14993,6 @@
         <volumeref ref="VstStave05"/>
         <positionref ref="VstStave05_150inVSTpos"/>
         <rotationref ref="VstStave05_150inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave05_151" copynumber="151">
-        <volumeref ref="VstStave05"/>
-        <positionref ref="VstStave05_151inVSTpos"/>
-        <rotationref ref="VstStave05_151inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave05_152" copynumber="152">
-        <volumeref ref="VstStave05"/>
-        <positionref ref="VstStave05_152inVSTpos"/>
-        <rotationref ref="VstStave05_152inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave05_153" copynumber="153">
-        <volumeref ref="VstStave05"/>
-        <positionref ref="VstStave05_153inVSTpos"/>
-        <rotationref ref="VstStave05_153inVSTrot"/>
-      </physvol>
-      <physvol name="VstStave05_154" copynumber="154">
-        <volumeref ref="VstStave05"/>
-        <positionref ref="VstStave05_154inVSTpos"/>
-        <rotationref ref="VstStave05_154inVSTrot"/>
       </physvol>
     </assembly>
     <volume name="AluStrips_support_volume">
