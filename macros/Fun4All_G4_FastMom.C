@@ -27,6 +27,7 @@
 #include "G4_Jets.C"
 #include "G4_Bbc.C"
 #include "G4_Global.C"
+#include "G4_Pipe_EIC.C"
 
 #include <g4lblvtx/G4LBLVtxSubsystem.h>
 #include <g4lblvtx/SimpleNtuple.h>
@@ -48,6 +49,7 @@ void Fun4All_G4_FastMom(
 	// Input from the user
 	const int particle_gen = 4;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
 	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
+	const int det_ver = 2;		// version of the detector geometry
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";            // Cylindrical surface object name
@@ -155,13 +157,21 @@ void Fun4All_G4_FastMom(
 	// ======================================================================================================
 	// Loading All-Si Tracker from dgml file
 	AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
-	//allsili->set_string_param("GDMPath", string(getenv("CALIBRATIONROOT")) + "/AllSiliconTracker/FAIRGeom.gdml");
-	allsili->set_string_param("GDMPath","FAIRGeom.gdml");
+
+	if(det_ver==1){
+		allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v1.gdml");
+		allsili->AddAssemblyVolume("BEAMPIPE"); // Load beampipe from the gdml file
+	}
+	else if(det_ver==2){
+		allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v2.gdml");
+		PipeInit();				// Load beampipe from Fun4All rather than from gdml file
+        	double pipe_radius = 0;
+        	pipe_radius = Pipe(g4Reco,pipe_radius);
+	}
 
 	allsili->AddAssemblyVolume("VST");      // Barrel
 	allsili->AddAssemblyVolume("FST");      // Forward disks
 	allsili->AddAssemblyVolume("BST");      // Backward disks
-	allsili->AddAssemblyVolume("BEAMPIPE"); // Beampipe
 
 	// this is for plotting single logical volumes for debugging and geantino scanning they end up at the center, you can plot multiple
 	// but they end up on top of each other. They cannot coexist with the assembly volumes, the code will quit if you try to use both.
@@ -176,6 +186,7 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(allsili);
 
 	// ======================================================================================================
+	/*
 	PHG4CylinderSubsystem *cyl;
 	cyl = new PHG4CylinderSubsystem(projname1,0);
 	cyl->set_double_param("length", length1);
@@ -211,6 +222,7 @@ void Fun4All_G4_FastMom(
 	cyl->BlackHole();
 	cyl->set_color(0,1,1,0.3); //reddish
 	g4Reco->registerSubsystem(cyl);
+	*/
 	// ======================================================================================================
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
