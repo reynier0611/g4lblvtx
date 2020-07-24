@@ -43,14 +43,15 @@ R__LOAD_LIBRARY(libPHPythia8.so)
 void Fun4All_G4_FastMom(
 		int nEvents = -1,			// number of events
 		const char *outputFile = "out_allSi",	// output filename
-		const int det_ver = 2,			// version of detector geometry
-		const char *genpar = "pi-")		// particle species to simulate with the simple generators
+		const char *genpar = "pi-",		// particle species to simulate with the simple generators
+		const int det_ver = 2)			// version of detector geometry
 {
 	// ======================================================================================================
 	// Input from the user
 	const int particle_gen = 1;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
 	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
 	const double pixel_size = 20.;	// um
+	bool DISPLACED_VERTEX = false; // this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";            // Cylindrical surface object name
@@ -72,8 +73,6 @@ void Fun4All_G4_FastMom(
 	// If you want to fix the random seed for reproducibility
 	// recoConsts *rc = recoConsts::instance();
 	// rc->set_IntFlag("RANDOMSEED", 12345);
-	// ======================================================================================================
-	bool DISPLACED_VERTEX = false; // this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
 	// ======================================================================================================
 	// Particle Generation
 	if(particle_gen<4) cout << "Particle that will be generated: " << std::string(genpar) << endl;
@@ -128,7 +127,7 @@ void Fun4All_G4_FastMom(
 
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
-	g4Reco->SetWorldMaterial("G4_Galactic");
+	//g4Reco->SetWorldMaterial("G4_Galactic");	
 	// ======================================================================================================
 	// Magnetic field setting
 	TString B_label;
@@ -163,18 +162,13 @@ void Fun4All_G4_FastMom(
 		allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v1.gdml");
 		allsili->AddAssemblyVolume("BEAMPIPE"); // Load beampipe from the gdml file
 	}
-	else if(det_ver==2){
-		allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v2.gdml");
-		PipeInit();				// Load beampipe from Fun4All rather than from gdml file
-        	double pipe_radius = 0;
-        	pipe_radius = Pipe(g4Reco,pipe_radius);
-	}
-	else if(det_ver==3){
-                allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v3.gdml");
-                PipeInit();                             // Load beampipe from Fun4All rather than from gdml file
+	else{
+		if     (det_ver==2) allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v2.gdml");
+
+		PipeInit(); // Load beampipe from Fun4All rather than from gdml file
                 double pipe_radius = 0;
                 pipe_radius = Pipe(g4Reco,pipe_radius);
-        }
+	}
 
 	allsili->AddAssemblyVolume("VST");      // Barrel
 	allsili->AddAssemblyVolume("FST");      // Forward disks
