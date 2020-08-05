@@ -44,13 +44,13 @@ void Fun4All_G4_FastMom(
 		int nEvents = -1,			// number of events
 		const char *outputFile = "out_allSi",	// output filename
 		const char *genpar = "pi-",		// particle species to simulate with the simple generators
-		const int det_ver = 2)			// version of detector geometry
+		const int det_ver = 2,			// version of detector geometry
+		const double pixel_size = 10.)		// pixel length (um)
 {
 	// ======================================================================================================
 	// Input from the user
 	const int particle_gen = 1;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
 	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
-	const double pixel_size = 20.;	// um
 	bool DISPLACED_VERTEX = false; // this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
 	// ======================================================================================================
 	// Parameters for projections
@@ -294,6 +294,15 @@ void Fun4All_G4_FastMom(
                 kalman->enable_vertexing(true);
         	kalman->set_vertex_min_ndf(2); // Only tracks with number of degrees of freedom greater than this value are used to fit the vertex
 	}
+	/*
+	else{
+		kalman->set_use_vertex_in_fitting(false);
+                kalman->set_vertex_xy_resolution(0);
+                kalman->set_vertex_z_resolution(0);
+                //kalman->enable_vertexing(false); // this is false by default
+                kalman->set_vertex_min_ndf(2);
+	}
+	*/
 	//kalman->Verbosity(10);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
