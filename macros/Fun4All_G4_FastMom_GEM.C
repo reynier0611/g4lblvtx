@@ -28,6 +28,7 @@
 #include "G4_Bbc.C"
 #include "G4_Global.C"
 #include "G4_Pipe_EIC.C"
+#include "G4_GEM.C"
 
 #include <g4lblvtx/G4LBLVtxSubsystem.h>
 #include <g4lblvtx/SimpleNtuple.h>
@@ -40,7 +41,7 @@ R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
 R__LOAD_LIBRARY(libPHPythia8.so)
 
-void Fun4All_G4_FastMom(
+void Fun4All_G4_FastMom_GEM(
 		int nEvents = -1,			// number of events
 		const char *outputFile = "out_allSi",	// output filename
 		const char *genpar = "pi-",		// particle species to simulate with the simple generators
@@ -82,9 +83,9 @@ void Fun4All_G4_FastMom(
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);                    // Vertex generation range
-	gen->set_mom_range(.00001,30.);		// Momentum generation range in GeV/c
+	gen->set_mom_range(.00001,30.);		// Momentum generation range in GeV/c	
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
+	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4	
 	gen->set_phi_range(0.,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle Gun Setup
@@ -187,6 +188,13 @@ void Fun4All_G4_FastMom(
 	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
 	g4Reco->registerSubsystem(allsili);
 
+	EGEM_Init();
+	FGEM_Init();
+
+	EGEMSetup(g4Reco);
+	FGEMSetup(g4Reco);
+	//addPassiveMaterial(g4Reco);
+
 	// ======================================================================================================
 	if(do_projections){
 		PHG4CylinderSubsystem *cyl;
@@ -224,7 +232,7 @@ void Fun4All_G4_FastMom(
 		cyl->BlackHole();
 		cyl->set_color(0,1,1,0.3); //reddish
 		g4Reco->registerSubsystem(cyl);
-	}
+	}  
 	// ======================================================================================================
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
@@ -283,7 +291,29 @@ void Fun4All_G4_FastMom(
 				1,                                      // efficiency (fraction)
 				0                                       // hit noise
 				);
-	}
+	}	
+	//-------------------------
+	// Adding GEMs to the Kalman filter
+	// BACKWARD GEM, 70um azimuthal resolution, 1cm radial strips
+	kalman->add_phg4hits("G4HIT_EGEM",                 		// const std::string& phg4hitsNames,
+			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
+			1. / sqrt(12.),                    		// const float radres,
+			70e-4,                             		// const float phires,
+			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
+			1,                                 		// const float eff,
+			0                                  		// const float noise
+			);
+
+	// FORWARD GEM2, 70um azimuthal resolution, 1cm radial strips
+	kalman->add_phg4hits("G4HIT_FGEM",                 		// const std::string& phg4hitsNames,
+			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
+			1. / sqrt(12.),                    		// const float radres,
+			70e-4,                             		// const float phires,
+			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
+			1,                                 		// const float eff,
+			0                                  		// const float noise
+			);
+	//-------------------------
 	// Projections  
 	if(do_projections){
 		kalman->add_cylinder_state(projname1, projradius1);     // projection on cylinder (DIRC)
@@ -308,6 +338,7 @@ void Fun4All_G4_FastMom(
 	   kalman->set_vertex_min_ndf(2);
 	   }
 	   */
+
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -332,6 +363,8 @@ void Fun4All_G4_FastMom(
 	for (int i = 10; i < 16; i++){sprintf(nodename, "LBLVTX_CENTRAL_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
 	for (int i = 20; i < 25; i++){sprintf(nodename, "LBLVTX_FORWARD_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
 	for (int i = 30; i < 35; i++){sprintf(nodename, "LBLVTX_BACKWARD_%d",i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
+	hits->AddNode("EGEM");
+	hits->AddNode("FGEM");
 	se->registerSubsystem(hits);
 
 	// ======================================================================================================
