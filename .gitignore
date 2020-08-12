@@ -23,3 +23,12 @@ source/depcomp
 source/install-sh
 source/ltmain.sh
 source/missing
+
+macros/*.root
+
+cori_batch/sPHENIX_shifter.sh
+cori_batch/run_shared_pim_sPHENIX.sh
+
+macros/analysis.C
+macros/test.C
+macros/test2.C
