@@ -40147,14 +40147,14 @@
     <box name="worldbox" z="10000" x="10000" y="10000" lunit="mm"/>
     <polycone name="HadronForwardEnvelope0x1" startphi="0" deltaphi="360" aunit="deg" lunit="cm">
       <zplane z="66.810000000000002" rmin="0" rmax="3.17000000000000001"/>
-      <zplane z="121" rmin="0" rmax="5.8919999999999997"/>
+      <zplane z="400" rmin="0" rmax="19.92"/>
       <zplane z="448.42500000000001" rmin="0" rmax="22.795999999999999"/>
       <zplane z="450" rmin="0" rmax="3.5"/>
     </polycone>
     <polycone name="ElectronForwardEnvelope0x1" startphi="0" deltaphi="360" aunit="deg" lunit="cm">
       <zplane z="-463" rmin="0" rmax="13.922000000000001"/>
       <zplane z="-450" rmin="0" rmax="14.122"/>
-      <zplane z="-121.00000000000003" rmin="0" rmax="4.4075930924089388"/>
+      <zplane z="-400" rmin="0" rmax="12.68"/>
       <zplane z="-79.810000000000002" rmin="0" rmax="3.1700000000000001"/>
     </polycone>
   </solids>
