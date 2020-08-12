@@ -49,9 +49,10 @@ void Fun4All_G4_FastMom(
 {
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 1;     // 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
-	const int magnetic_field = 4;   // 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
-	bool DISPLACED_VERTEX = false; // this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
+	const int particle_gen = 1;	// 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
+	const int magnetic_field = 4;	// 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
+	bool DISPLACED_VERTEX = false;	// this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
+	bool do_projections = false;	// Project momentum vectors to surfaces defined below
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";            // Cylindrical surface object name
@@ -166,8 +167,8 @@ void Fun4All_G4_FastMom(
 		if     (det_ver==2) allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v2.gdml");
 
 		PipeInit(); // Load beampipe from Fun4All rather than from gdml file
-                double pipe_radius = 0;
-                pipe_radius = Pipe(g4Reco,pipe_radius);
+		double pipe_radius = 0;
+		pipe_radius = Pipe(g4Reco,pipe_radius);
 	}
 
 	allsili->AddAssemblyVolume("VST");      // Barrel
@@ -187,41 +188,43 @@ void Fun4All_G4_FastMom(
 	g4Reco->registerSubsystem(allsili);
 
 	// ======================================================================================================
-	PHG4CylinderSubsystem *cyl;
-	cyl = new PHG4CylinderSubsystem(projname1,0);
-	cyl->set_double_param("length", length1);
-	cyl->set_double_param("radius", projradius1); // dirc radius
-	cyl->set_double_param("thickness", 0.1); // needs some thickness
-	cyl->set_string_param("material", "G4_AIR");
-	cyl->SetActive(1);
-	cyl->SuperDetector(projname1);
-	cyl->BlackHole();
-	cyl->set_color(1,0,0,0.7); //reddish
-	g4Reco->registerSubsystem(cyl);
+	if(do_projections){
+		PHG4CylinderSubsystem *cyl;
+		cyl = new PHG4CylinderSubsystem(projname1,0);
+		cyl->set_double_param("length", length1);
+		cyl->set_double_param("radius", projradius1); // dirc radius
+		cyl->set_double_param("thickness", 0.1); // needs some thickness
+		cyl->set_string_param("material", "G4_AIR");
+		cyl->SetActive(1);
+		cyl->SuperDetector(projname1);
+		cyl->BlackHole();
+		cyl->set_color(1,0,0,0.7); //reddish
+		g4Reco->registerSubsystem(cyl);
 
-	cyl = new PHG4CylinderSubsystem(projname2,0);
-	cyl->set_double_param("length", thinness);
-	cyl->set_double_param("radius", 2); // beampipe needs to fit here
-	cyl->set_double_param("thickness", projradius2); // 
-	cyl->set_string_param("material", "G4_AIR");
-	cyl->set_double_param("place_z", projzpos2);
-	cyl->SetActive(1);
-	cyl->SuperDetector(projname2);
-	cyl->BlackHole();
-	cyl->set_color(0,1,1,0.3); //reddish
-	g4Reco->registerSubsystem(cyl);
+		cyl = new PHG4CylinderSubsystem(projname2,0);
+		cyl->set_double_param("length", thinness);
+		cyl->set_double_param("radius", 2); // beampipe needs to fit here
+		cyl->set_double_param("thickness", projradius2); // 
+		cyl->set_string_param("material", "G4_AIR");
+		cyl->set_double_param("place_z", projzpos2);
+		cyl->SetActive(1);
+		cyl->SuperDetector(projname2);
+		cyl->BlackHole();
+		cyl->set_color(0,1,1,0.3); //reddish
+		g4Reco->registerSubsystem(cyl);
 
-	cyl = new PHG4CylinderSubsystem(projname3,0);
-	cyl->set_double_param("length", thinness);
-	cyl->set_double_param("radius", 2); // beampipe needs to fit here
-	cyl->set_double_param("thickness", projradius3); // 
-	cyl->set_string_param("material", "G4_AIR");
-	cyl->set_double_param("place_z", projzpos3);
-	cyl->SetActive(1);
-	cyl->SuperDetector(projname3);
-	cyl->BlackHole();
-	cyl->set_color(0,1,1,0.3); //reddish
-	g4Reco->registerSubsystem(cyl);
+		cyl = new PHG4CylinderSubsystem(projname3,0);
+		cyl->set_double_param("length", thinness);
+		cyl->set_double_param("radius", 2); // beampipe needs to fit here
+		cyl->set_double_param("thickness", projradius3); // 
+		cyl->set_string_param("material", "G4_AIR");
+		cyl->set_double_param("place_z", projzpos3);
+		cyl->SetActive(1);
+		cyl->SuperDetector(projname3);
+		cyl->BlackHole();
+		cyl->set_color(0,1,1,0.3); //reddish
+		g4Reco->registerSubsystem(cyl);
+	}
 	// ======================================================================================================
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
@@ -282,28 +285,29 @@ void Fun4All_G4_FastMom(
 				);
 	}
 	// Projections  
-	kalman->add_cylinder_state(projname1, projradius1);     // projection on cylinder (DIRC)
-	kalman->add_zplane_state  (projname2, projzpos2  );     // projection on vertical planes
-	kalman->add_zplane_state  (projname3, projzpos3  );     // projection on vertical planes
+	if(do_projections){
+		kalman->add_cylinder_state(projname1, projradius1);     // projection on cylinder (DIRC)
+		kalman->add_zplane_state  (projname2, projzpos2  );     // projection on vertical planes
+		kalman->add_zplane_state  (projname3, projzpos3  );     // projection on vertical planes
+	}
 
 	if(DISPLACED_VERTEX){
-  		// use very loose vertex constraint (1cm in sigma) to allow reco of displaced vertex
-        	kalman->set_use_vertex_in_fitting(true);
-        	kalman->set_vertex_xy_resolution(1);
-                kalman->set_vertex_z_resolution(1);
-                kalman->enable_vertexing(true);
-        	kalman->set_vertex_min_ndf(2); // Only tracks with number of degrees of freedom greater than this value are used to fit the vertex
+		// use very loose vertex constraint (1cm in sigma) to allow reco of displaced vertex
+		kalman->set_use_vertex_in_fitting(true);
+		kalman->set_vertex_xy_resolution(1);
+		kalman->set_vertex_z_resolution(1);
+		kalman->enable_vertexing(true);
+		kalman->set_vertex_min_ndf(2); // Only tracks with number of degrees of freedom greater than this value are used to fit the vertex
 	}
 	/*
-	else{
-		kalman->set_use_vertex_in_fitting(false);
-                kalman->set_vertex_xy_resolution(0);
-                kalman->set_vertex_z_resolution(0);
-                //kalman->enable_vertexing(false); // this is false by default
-                kalman->set_vertex_min_ndf(2);
-	}
-	*/
-	//kalman->Verbosity(10);
+	   else{
+	   kalman->set_use_vertex_in_fitting(false);
+	   kalman->set_vertex_xy_resolution(0);
+	   kalman->set_vertex_z_resolution(0);
+	   kalman->enable_vertexing(false); // this is false by default
+	   kalman->set_vertex_min_ndf(2);
+	   }
+	   */
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -312,9 +316,11 @@ void Fun4All_G4_FastMom(
 	// ======================================================================================================
 	TrackFastSimEval *fast_sim_eval = new TrackFastSimEval("FastTrackingEval");
 	fast_sim_eval->set_filename(TString(outputFile)+B_label+"_FastTrackingEval.root");
-	fast_sim_eval->AddProjection(projname1);
-	fast_sim_eval->AddProjection(projname2);
-	fast_sim_eval->AddProjection(projname3);
+	if(do_projections){
+		fast_sim_eval->AddProjection(projname1);
+		fast_sim_eval->AddProjection(projname2);
+		fast_sim_eval->AddProjection(projname3);
+	}
 	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
