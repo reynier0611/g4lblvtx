@@ -28,6 +28,7 @@
 #include "G4_Bbc.C"
 #include "G4_Global.C"
 #include "G4_Pipe_EIC.C"
+#include "G4_AllSi.C"
 
 #include <g4lblvtx/G4LBLVtxSubsystem.h>
 #include <g4lblvtx/SimpleNtuple.h>
@@ -156,36 +157,7 @@ void Fun4All_G4_FastMom(
 	// Physics list (default list is "QGSP_BERT")
 	//g4Reco->SetPhysicsList("FTFP_BERT_HP"); // This list is slower and only useful for hadronic showers.
 	// ======================================================================================================
-	// Loading All-Si Tracker from dgml file
-	AllSiliconTrackerSubsystem *allsili = new AllSiliconTrackerSubsystem();
-
-	if(det_ver==1){
-		allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v1.gdml");
-		allsili->AddAssemblyVolume("BEAMPIPE"); // Load beampipe from the gdml file
-	}
-	else{
-		if     (det_ver==2) allsili->set_string_param("GDMPath","detector/genfitGeom_AllSi_v2.gdml");
-
-		PipeInit(); // Load beampipe from Fun4All rather than from gdml file
-		double pipe_radius = 0;
-		pipe_radius = Pipe(g4Reco,pipe_radius);
-	}
-
-	allsili->AddAssemblyVolume("VST");      // Barrel
-	allsili->AddAssemblyVolume("FST");      // Forward disks
-	allsili->AddAssemblyVolume("BST");      // Backward disks
-
-	// this is for plotting single logical volumes for debugging and geantino scanning they end up at the center, you can plot multiple
-	// but they end up on top of each other. They cannot coexist with the assembly volumes, the code will quit if you try to use both.
-	// allsili->AddLogicalVolume("BstContainerVolume04");
-	// allsili->AddLogicalVolume("FstContainerVolume00");
-	// allsili->AddLogicalVolume("FstChipAssembly37");
-	// allsili->AddLogicalVolume("VstStave00");
-
-	allsili->SuperDetector("LBLVTX");
-	allsili->SetActive();          // this saves hits in the MimosaCore volumes
-	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
-	g4Reco->registerSubsystem(allsili);
+	load_AllSi_geom(g4Reco, det_ver);	// Loading All-Si Tracker and beampipe geometries
 
 	// ======================================================================================================
 	if(do_projections){
@@ -248,42 +220,8 @@ void Fun4All_G4_FastMom(
 	kalman->set_sub_top_node_name("SVTX");
 	kalman->set_trackmap_out_name("SvtxTrackMap");
 
-	for (int i=10; i<16; i++){ // CENTRAL BARREL
-		sprintf(nodename,"G4HIT_LBLVTX_CENTRAL_%d", i);
-		kalman->add_phg4hits(
-				nodename,                               // const std::string& phg4hitsNames
-				PHG4TrackFastSim::Cylinder,             // const DETECTOR_TYPE phg4dettype
-				999.,                                   // radial-resolution [cm] (this number is not used in cylindrical geometry)
-				pixel_size*um_to_cm/sqrt(12.),          // azimuthal (arc-length) resolution [cm]
-				pixel_size*um_to_cm/sqrt(12.),          // longitudinal (z) resolution [cm]
-				1,                                      // efficiency (fraction)
-				0                                       // hit noise
-				);
-	}
-	for (int i=20; i<25; i++){ // FORWARD DISKS
-		sprintf(nodename,"G4HIT_LBLVTX_FORWARD_%d", i);
-		kalman->add_phg4hits(
-				nodename,                               // const std::string& phg4hitsNames
-				PHG4TrackFastSim::Vertical_Plane,       // const DETECTOR_TYPE phg4dettype
-				pixel_size*um_to_cm/sqrt(12.),          // radial-resolution [cm]
-				pixel_size*um_to_cm/sqrt(12.),          // azimuthal (arc-length) resolution [cm]
-				999.,                                   // longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
-				1,                                      // efficiency (fraction)
-				0                                       // hit noise
-				);
-	}
-	for (int i=30; i<35; i++){ // BACKWARD DISKS
-		sprintf(nodename,"G4HIT_LBLVTX_BACKWARD_%d", i);
-		kalman->add_phg4hits(
-				nodename,                               // const std::string& phg4hitsNames
-				PHG4TrackFastSim::Vertical_Plane,       // const DETECTOR_TYPE phg4dettype
-				pixel_size*um_to_cm/sqrt(12.),          // radial-resolution [cm]
-				pixel_size*um_to_cm/sqrt(12.),          // azimuthal (arc-length) resolution [cm]
-				999.,                                   // longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
-				1,                                      // efficiency (fraction)
-				0                                       // hit noise
-				);
-	}
+	add_AllSi_to_kalman( kalman , pixel_size );	// Add All-Silicon tracker to Kalman filter
+
 	// Projections  
 	if(do_projections){
 		kalman->add_cylinder_state(projname1, projradius1);     // projection on cylinder (DIRC)
@@ -328,10 +266,7 @@ void Fun4All_G4_FastMom(
 	if(do_pythia8_jets) Jet_Reco();
 
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
-	//  hits->AddNode("ABSORBER_LBLVTX",0); // hits in the passive volumes
-	for (int i = 10; i < 16; i++){sprintf(nodename, "LBLVTX_CENTRAL_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
-	for (int i = 20; i < 25; i++){sprintf(nodename, "LBLVTX_FORWARD_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
-	for (int i = 30; i < 35; i++){sprintf(nodename, "LBLVTX_BACKWARD_%d",i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
+	add_AllSi_hits(hits);	// Add All-Silicon tracker hits
 	se->registerSubsystem(hits);
 
 	// ======================================================================================================
