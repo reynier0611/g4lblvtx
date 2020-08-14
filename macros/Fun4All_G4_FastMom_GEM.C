@@ -188,10 +188,10 @@ void Fun4All_G4_FastMom_GEM(
 	allsili->SetAbsorberActive();  // this saves hits in all volumes (in the absorber node)
 	g4Reco->registerSubsystem(allsili);
 
-	EGEM_Init();
+	//EGEM_Init();
 	FGEM_Init();
 
-	EGEMSetup(g4Reco);
+	//EGEMSetup(g4Reco);
 	FGEMSetup(g4Reco);
 	//addPassiveMaterial(g4Reco);
 
@@ -295,24 +295,26 @@ void Fun4All_G4_FastMom_GEM(
 	//-------------------------
 	// Adding GEMs to the Kalman filter
 	// BACKWARD GEM, 70um azimuthal resolution, 1cm radial strips
+	/*
 	kalman->add_phg4hits("G4HIT_EGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
-			1. / sqrt(12.),                    		// const float radres,
-			70e-4,                             		// const float phires,
+			50e-4,//1. / sqrt(12.),                    		// const float radres,
+			50e-4,                             		// const float phires,
+			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
+			1,                                 		// const float eff,
+			0                                  		// const float noise
+			);
+	*/
+	// FORWARD GEM2, 70um azimuthal resolution, 1cm radial strips
+	kalman->add_phg4hits("G4HIT_FGEM",                 		// const std::string& phg4hitsNames,
+			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
+			50e-4,//1. / sqrt(12.),                    		// const float radres,
+			50e-4,                             		// const float phires,
 			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 			1,                                 		// const float eff,
 			0                                  		// const float noise
 			);
 
-	// FORWARD GEM2, 70um azimuthal resolution, 1cm radial strips
-	kalman->add_phg4hits("G4HIT_FGEM",                 		// const std::string& phg4hitsNames,
-			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
-			1. / sqrt(12.),                    		// const float radres,
-			70e-4,                             		// const float phires,
-			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
-			1,                                 		// const float eff,
-			0                                  		// const float noise
-			);
 	//-------------------------
 	// Projections  
 	if(do_projections){
@@ -338,7 +340,7 @@ void Fun4All_G4_FastMom_GEM(
 	   kalman->set_vertex_min_ndf(2);
 	   }
 	   */
-
+	//kalman->Verbosity(10);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -363,7 +365,7 @@ void Fun4All_G4_FastMom_GEM(
 	for (int i = 10; i < 16; i++){sprintf(nodename, "LBLVTX_CENTRAL_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
 	for (int i = 20; i < 25; i++){sprintf(nodename, "LBLVTX_FORWARD_%d", i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
 	for (int i = 30; i < 35; i++){sprintf(nodename, "LBLVTX_BACKWARD_%d",i);        hits->AddNode(nodename, i);} // hits in the  MimosaCore volumes
-	hits->AddNode("EGEM");
+	//hits->AddNode("EGEM");
 	hits->AddNode("FGEM");
 	se->registerSubsystem(hits);
 
