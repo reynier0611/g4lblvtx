@@ -1,5 +1,5 @@
-#ifndef MACRO_G4GEMEIC_C
-#define MACRO_G4GEMEIC_C
+#ifndef MACRO_G4GEM_C
+#define MACRO_G4GEM_C
 
 #include "GlobalVariables.C"
 
@@ -37,7 +37,7 @@ void EGEMSetup(PHG4Reco *g4Reco){
 	 * TPC length = 211 cm --> from z = -105.5 to z = +105.5
 	 */
 	float thickness = 3.;	
-	make_GEM_station("EGEM", g4Reco, -145.0 , -1.4, -3.9);
+	make_GEM_station("EGEM", g4Reco, -180.0 , -1.15 , -3.9);
 }
 // ======================================================================================================================
 void FGEMSetup(PHG4Reco *g4Reco){

@@ -159,11 +159,9 @@ void Fun4All_G4_FastMom_GEM(
 	//g4Reco->SetPhysicsList("FTFP_BERT_HP"); // This list is slower and only useful for hadronic showers.
 	// ======================================================================================================
 	load_AllSi_geom(g4Reco, det_ver);	// Loading All-Si Tracker and beampipe geometries	
-
-	//EGEM_Init();
-	FGEM_Init();
-
-	//EGEMSetup(g4Reco);
+	EGEM_Init();				// Loading backward GEM geometry
+	FGEM_Init();				// Loading forward GEM geometry
+	EGEMSetup(g4Reco);
 	FGEMSetup(g4Reco);
 	//addPassiveMaterial(g4Reco);
 
@@ -233,7 +231,6 @@ void Fun4All_G4_FastMom_GEM(
 	//-------------------------
 	// Adding GEMs to the Kalman filter
 	// BACKWARD GEM, 70um azimuthal resolution, 1cm radial strips
-	/*
 	kalman->add_phg4hits("G4HIT_EGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
 			50e-4,//1. / sqrt(12.),                    		// const float radres,
@@ -242,7 +239,6 @@ void Fun4All_G4_FastMom_GEM(
 			1,                                 		// const float eff,
 			0                                  		// const float noise
 			);
-	*/
 	// FORWARD GEM2, 70um azimuthal resolution, 1cm radial strips
 	kalman->add_phg4hits("G4HIT_FGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
@@ -300,7 +296,7 @@ void Fun4All_G4_FastMom_GEM(
 
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
 	add_AllSi_hits(hits);	// Add All-Silicon tracker hits
-	//hits->AddNode("EGEM");
+	hits->AddNode("EGEM");
 	hits->AddNode("FGEM");
 	se->registerSubsystem(hits);
 
