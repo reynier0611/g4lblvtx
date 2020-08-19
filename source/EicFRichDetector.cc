@@ -165,7 +165,7 @@ G4Material *  EicFRichDetector::element_material( std::string identifier ){
 		G4Material *air = G4Material::GetMaterial("G4_AIR");
 
 		G4double fracMass;
-		G4_mat = new G4Material("aerogel", density = 0.02 , ncomponents = 2);
+		G4_mat = new G4Material("aerogel", density = 0.02 * g / cm3 , ncomponents = 2);
 		G4_mat->AddMaterial(air        , fracMass = 96.*perCent);
 		G4_mat->AddMaterial(SiO2Aerogel, fracMass =  4.*perCent);
 	}
