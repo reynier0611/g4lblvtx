@@ -142,12 +142,12 @@ G4Material *  EicFRichDetector::element_material( std::string identifier ){
 		G4_mat = G4Material::GetMaterial("G4_MYLAR");
 	}
 	else if(identifier=="C2F6"){	
-		G4_mat = new G4Material("C2F6", density = 5.73 * g / cm3, ncomponents = 2);
+		G4_mat = new G4Material("C2F6", density = 0.0057 * g / cm3, ncomponents = 2);
 		G4_mat->AddElement(G4Element::GetElement("C"), natoms = 2);
 		G4_mat->AddElement(G4Element::GetElement("F"), natoms = 6);
 	}
 	else if(identifier=="PMMA"){
-		G4_mat = new G4Material("PMMA", density = 1.19 * g / cm3, ncomponents = 3);
+		G4_mat = new G4Material("PMMA", density = 1.18 * g / cm3, ncomponents = 3);
 		G4_mat->AddElement(G4Element::GetElement("C"), 3.6 / (3.6 + 5.7 + 1.4));
 		G4_mat->AddElement(G4Element::GetElement("H"), 5.7 / (3.6 + 5.7 + 1.4));
 		G4_mat->AddElement(G4Element::GetElement("O"), 1.4 / (3.6 + 5.7 + 1.4));
@@ -165,7 +165,7 @@ G4Material *  EicFRichDetector::element_material( std::string identifier ){
 		G4Material *air = G4Material::GetMaterial("G4_AIR");
 
 		G4double fracMass;
-		G4_mat = new G4Material("aerogel", density = 0.02 * g / cm3 , ncomponents = 2);
+		G4_mat = new G4Material("aerogel", density = 0.094 * g / cm3 , ncomponents = 2);
 		G4_mat->AddMaterial(air        , fracMass = 96.*perCent);
 		G4_mat->AddMaterial(SiO2Aerogel, fracMass =  4.*perCent);
 	}
