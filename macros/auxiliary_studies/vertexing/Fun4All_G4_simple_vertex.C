@@ -41,7 +41,7 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string("pi-"));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);                    // Vertex generation range
-	gen->set_mom_range(5.,50.);         // Momentum generation range in GeV/c
+	gen->set_mom_range(0.,8.);         // Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
 	gen->set_eta_range(0,1);
 	gen->set_phi_range(0,2*TMath::Pi());
@@ -109,7 +109,7 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 			1,				// efficiency,
 			0				// noise hits
 			);
-	kalman->Verbosity(10);
+	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
 	kalman->set_vertex_z_resolution(0);
