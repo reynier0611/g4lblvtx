@@ -30,6 +30,7 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 			bool vtx_lyr_2 = true,
 			bool vtx_lyr_3 = true,
 			double vtx_matBud = 0.05, //% X/X0
+			double pix_size = 10.,
 			TString out_name = "out_vtx_study")	// output filename
 {	
 	TString outputFile = out_name+"_FastSimEval.root";
@@ -85,6 +86,26 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 		}
 	}
 
+	//---------------------------
+	// mid-rapidity beryllium pipe
+	double be_pipe_radius = 3.1000;
+	double be_pipe_thickness = 3.1762 - be_pipe_radius;  // 760 um for sPHENIX
+	double be_pipe_length_plus = 66.8;                   // +z beam pipe extend.
+	double be_pipe_length_neg = -79.8;                   // -z beam pipe extend.
+	double be_pipe_length = be_pipe_length_plus - be_pipe_length_neg;
+	double be_pipe_center = 0.5 * (be_pipe_length_plus + be_pipe_length_neg);
+
+	cyl = new PHG4CylinderSubsystem("BE_PIPE", 1);
+	cyl->set_double_param("radius", be_pipe_radius);
+	cyl->set_int_param("lengthviarapidity", 0);
+	cyl->set_double_param("length", be_pipe_length);
+	cyl->set_double_param("place_z", be_pipe_center);
+	cyl->set_string_param("material", "G4_Be");
+	cyl->set_double_param("thickness", be_pipe_thickness);
+	cyl->SuperDetector("PIPE");
+	g4Reco->registerSubsystem(cyl);
+	//---------------------------
+
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
 	g4Reco->registerSubsystem(truth);
 
@@ -104,8 +125,8 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 			"G4HIT_SVTX",			// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Cylinder,
 			999.,				// radial-resolution [cm]
-			20./10000./sqrt(12.),		// azimuthal-resolution [cm]
-			20./10000./sqrt(12.),		// z-resolution [cm]
+			pix_size/10000./sqrt(12.),	// azimuthal-resolution [cm]
+			pix_size/10000./sqrt(12.),	// z-resolution [cm]
 			1,				// efficiency,
 			0				// noise hits
 			);
