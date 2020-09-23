@@ -30,7 +30,9 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 			bool vtx_lyr_2 = true,
 			bool vtx_lyr_3 = true,
 			double vtx_matBud = 0.05, //% X/X0
-			double pix_size = 10.,
+			double pix_size_vtx = 10.,
+			double pix_size_bar = 10.,
+			double pix_size_dis = 10.,
 			TString out_name = "out_vtx_study")	// output filename
 {	
 	TString outputFile = out_name+"_FastSimEval.root";
@@ -53,39 +55,77 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 	g4Reco->set_field(3.0);
 	// ======================================================================================================
 	// Detector setup
-	double si_r_pos[] = {3.64,4.45,5.26,21.,22.68,39.3,43.23};
-	const int nTrckLayers = sizeof(si_r_pos)/sizeof(*si_r_pos);
-	double si_z_length[] = {14.,14.,14.,18.,20.,35.,38.};
-	for(int i = 0 ; i < nTrckLayers ; i++) si_z_length[i] *= 3.;
-	double si_thick_vtx = vtx_matBud/100.*9.37;
-	double si_thick_bar = 0.55/100.*9.37;
-
 	PHG4CylinderSubsystem *cyl;
-	for (int ilayer = 0; ilayer < nTrckLayers ; ilayer++)
-	{
+	//---------------------------
+	// Vertexing
+	double si_vtx_r_pos[] = {3.64,4.45,5.26};
+	const int nVtxLayers = sizeof(si_vtx_r_pos)/sizeof(*si_vtx_r_pos);
+	double si_z_vtxlength[] = {14.,14.,14.};
+	for(int i = 0 ; i < nVtxLayers ; i++) si_z_vtxlength[i] *= 3.;
+	double si_thick_vtx = vtx_matBud/100.*9.37;
+
+	for (int ilayer = 0; ilayer < nVtxLayers ; ilayer++){
 		if(
 				(ilayer==0&&vtx_lyr_1)||
 				(ilayer==1&&vtx_lyr_2)||
-				(ilayer==2&&vtx_lyr_3)||
-				(ilayer>2)
+				(ilayer==2&&vtx_lyr_3)
 		  ){
 			cyl = new PHG4CylinderSubsystem("SVTX", ilayer);
-			cyl->set_string_param("material" , "G4_Si"         );
-			cyl->set_double_param("radius"   , si_r_pos[ilayer]);
-
-			if(ilayer<2)
-				cyl->set_double_param("thickness", si_thick_vtx);
-			else
-				cyl->set_double_param("thickness", si_thick_bar);
-
-			cyl->set_double_param("place_z"  , 0 );
-			cyl->set_double_param("length"   , si_z_length[ilayer]    );
+			cyl->set_string_param("material" , "G4_Si"               );
+			cyl->set_double_param("radius"   , si_vtx_r_pos[ilayer]  );
+			cyl->set_double_param("thickness", si_thick_vtx          );
+			cyl->set_double_param("place_z"  , 0                     );
+			cyl->set_double_param("length"   , si_z_vtxlength[ilayer]);
 			cyl->SetActive();
 			cyl->SuperDetector("SVTX");
 			g4Reco->registerSubsystem(cyl);
 		}
 	}
+	//---------------------------
+	// Barrel
+	double si_r_pos[] = {21.,22.68,39.3,43.23};
+	const int nTrckLayers = sizeof(si_r_pos)/sizeof(*si_r_pos);
+	double si_z_length[] = {18.,20.,35.,38.};
+	for(int i = 0 ; i < nTrckLayers ; i++) si_z_length[i] *= 3.;
+	double si_thick_bar = 0.55/100.*9.37;
 
+	for (int ilayer = 0; ilayer < nTrckLayers ; ilayer++){
+		cyl = new PHG4CylinderSubsystem("BARR", ilayer);
+		cyl->set_string_param("material" , "G4_Si"            );
+		cyl->set_double_param("radius"   , si_r_pos[ilayer]   );
+		cyl->set_double_param("thickness", si_thick_bar       );
+		cyl->set_double_param("place_z"  , 0                  );
+		cyl->set_double_param("length"   , si_z_length[ilayer]);
+		cyl->SetActive();
+		cyl->SuperDetector("BARR");
+		g4Reco->registerSubsystem(cyl);	
+	}
+	//---------------------------
+	// Disks
+	double si_z_pos[] = {-121.,-97.,-73.,-49.,-25.,25.,49.,73.,97.,121.};
+	double si_r_max[10] = {0};
+	double si_r_min[10] = {0};
+	double si_thick_disk = 0.3/100.*9.37;
+	for(int i = 0 ; i < 10 ; i++){
+		si_r_max[i] = TMath::Min(43.23,18.5*abs(si_z_pos[i])/si_z_pos[5]);
+
+		if(si_z_pos[i]>66.8&&si_z_pos[i]>0) si_r_min[i] = (0.05025461*si_z_pos[i]-0.180808);
+		else if(si_z_pos[i]>0) si_r_min[i] = 3.18;
+		else if(si_z_pos[i]<-79.8&&si_z_pos[i]<0) si_r_min[i] = (-0.0297039*si_z_pos[i]+0.8058281);
+		else si_r_min[i] = 3.18;
+	}
+
+	for (int ilayer = 0; ilayer < 10; ilayer++){
+		cyl = new PHG4CylinderSubsystem("FBVS", ilayer);
+		cyl->set_string_param("material" , "G4_Si"         );
+		cyl->set_double_param("radius"   , si_r_min[ilayer]);
+		cyl->set_double_param("thickness", si_r_max[ilayer]);
+		cyl->set_double_param("place_z"  , si_z_pos[ilayer]);
+		cyl->set_double_param("length"   , si_thick_disk   );
+		cyl->SetActive();
+		cyl->SuperDetector("FBST");
+		g4Reco->registerSubsystem(cyl);
+	}
 	//---------------------------
 	// mid-rapidity beryllium pipe
 	double be_pipe_radius = 3.1000;
@@ -117,19 +157,42 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 	//---------------------------
 	PHG4TrackFastSim *kalman = new PHG4TrackFastSim("PHG4TrackFastSim");
 	kalman->set_use_vertex_in_fitting(false);
-	kalman->set_sub_top_node_name("SVTX");
+	kalman->set_sub_top_node_name("BARR");
 	kalman->set_trackmap_out_name("SvtxTrackMap");
 
-	//  add Si Trtacker
+	// add Vertexing Layers
 	kalman->add_phg4hits(
 			"G4HIT_SVTX",			// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Cylinder,
 			999.,				// radial-resolution [cm]
-			pix_size/10000./sqrt(12.),	// azimuthal-resolution [cm]
-			pix_size/10000./sqrt(12.),	// z-resolution [cm]
+			pix_size_vtx/10000./sqrt(12.),	// azimuthal-resolution [cm]
+			pix_size_vtx/10000./sqrt(12.),	// z-resolution [cm]
 			1,				// efficiency,
 			0				// noise hits
 			);
+	
+	// add Barrel Layers
+	kalman->add_phg4hits(
+			"G4HIT_BARR",                   // const std::string& phg4hitsNames,
+			PHG4TrackFastSim::Cylinder,
+			999.,                           // radial-resolution [cm]
+			pix_size_bar/10000./sqrt(12.),      // azimuthal-resolution [cm]
+			pix_size_bar/10000./sqrt(12.),      // z-resolution [cm]
+			1,                              // efficiency,
+			0                               // noise hits
+			);
+	
+	//  add Disk Layers
+	kalman->add_phg4hits(
+			"G4HIT_FBST",               // const std::string& phg4hitsNames,
+			PHG4TrackFastSim::Vertical_Plane,
+			pix_size_dis/10000./sqrt(12.),       // radial-resolution [cm]
+			pix_size_dis/10000./sqrt(12.),       // azimuthal-resolution [cm]
+			999.,                       // z-resolution [cm]
+			1,                          // efficiency,
+			0                           // noise hits
+			);	
+	
 	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
