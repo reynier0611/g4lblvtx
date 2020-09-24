@@ -104,8 +104,8 @@ void AllSiliconTrackerDetector::ConstructMe(G4LogicalVolume *logicWorld)
     }
     G4RotationMatrix *rotm = new G4RotationMatrix();
     rotm->rotateX(m_Params->get_double_param("rot_x"));
-    rotm->rotateX(m_Params->get_double_param("rot_y"));
-    rotm->rotateX(m_Params->get_double_param("rot_z"));
+    rotm->rotateY(m_Params->get_double_param("rot_y"));
+    rotm->rotateZ(m_Params->get_double_param("rot_z"));
     G4ThreeVector g4vec(m_Params->get_double_param("place_x"),
                         m_Params->get_double_param("place_y"),
                         m_Params->get_double_param("place_z"));
