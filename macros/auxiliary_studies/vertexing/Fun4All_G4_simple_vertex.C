@@ -34,7 +34,7 @@ void Fun4All_G4_simple_vertex(
 			double Bfield = 3.0, //T
 			TString out_name = "out_vtx_study")	// output filename
 {	
-	TString outputFile = out_name+Form("_B_%.1fT",Bfield)+"_FastSimEval.root";
+	TString outputFile = out_name+"_FastSimEval.root";
 	double vtx_matBud = 0.05; //% X/X0
         double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
         double pix_size_bar = 10.; // um - size of pixels in barrel layers
@@ -52,7 +52,7 @@ void Fun4All_G4_simple_vertex(
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(1.,3.);
+	gen->set_eta_range(0.,3.);
 	gen->set_phi_range(0,2.*TMath::Pi());
 	se->registerSubsystem(gen);
 	// ======================================================================================================
