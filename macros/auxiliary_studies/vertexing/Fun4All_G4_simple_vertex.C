@@ -24,35 +24,41 @@ R__LOAD_LIBRARY(libg4detectors.so)
 R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
 
-	void Fun4All_G4_simple_vertex(
+void Fun4All_G4_simple_vertex(
 			int nEvents = -1,		// number of events
 			bool vtx_lyr_1 = true,
 			bool vtx_lyr_2 = true,
 			bool vtx_lyr_3 = true,
-			double vtx_matBud = 0.05, //% X/X0
-			double pix_size_vtx = 10.,
-			double pix_size_bar = 10.,
-			double pix_size_dis = 10.,
+			double pmin = 0., // GeV/c
+			double pmax = 30., // GeV/c
+			double Bfield = 3.0, //T
 			TString out_name = "out_vtx_study")	// output filename
 {	
-	TString outputFile = out_name+"_FastSimEval.root";
+	TString outputFile = out_name+Form("_B_%.1fT",Bfield)+"_FastSimEval.root";
+	double vtx_matBud = 0.05; //% X/X0
+        double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
+        double pix_size_bar = 10.; // um - size of pixels in barrel layers
+        double pix_size_dis = 10.; // um - size of pixels in disk layers
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
+	// If you want to fix the random seed for reproducibility
+	// recoConsts *rc = recoConsts::instance();
+	// rc->set_IntFlag("RANDOMSEED", 12345);
 	// ======================================================================================================
 	// Particle Generator Setup
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
-	gen->set_name(std::string("pi-"));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
-	gen->set_vtx(0,0,0);                    // Vertex generation range
-	gen->set_mom_range(0.,8.);         // Momentum generation range in GeV/c
+	gen->set_name(std::string("pi-"));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
+	gen->set_vtx(0,0,0);			// Vertex generation range
+	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(0,1);
-	gen->set_phi_range(0,2*TMath::Pi());
+	gen->set_eta_range(1.,3.);
+	gen->set_phi_range(0,2.*TMath::Pi());
 	se->registerSubsystem(gen);
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
 	g4Reco->SetWorldMaterial("G4_Galactic");	
-	g4Reco->set_field(3.0);
+	g4Reco->set_field(Bfield);
 	// ======================================================================================================
 	// Detector setup
 	PHG4CylinderSubsystem *cyl;
@@ -98,6 +104,7 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 		cyl->set_double_param("length"   , si_z_length[ilayer]);
 		cyl->SetActive();
 		cyl->SuperDetector("BARR");
+		cyl->set_color(0,0.5,1);
 		g4Reco->registerSubsystem(cyl);	
 	}
 	//---------------------------
@@ -124,6 +131,7 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 		cyl->set_double_param("length"   , si_thick_disk   );
 		cyl->SetActive();
 		cyl->SuperDetector("FBST");
+		cyl->set_color(1,0,0);
 		g4Reco->registerSubsystem(cyl);
 	}
 	//---------------------------
