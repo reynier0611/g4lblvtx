@@ -126,7 +126,7 @@ void G4LBLVtxDetector::SetActiveVolumes(G4VPhysicalVolume* physvol)
   }
   else
   {
-    for (unsigned int i = 0; i < logvol->GetNoDaughters(); ++i)
+    for (unsigned int i = 0; i < (unsigned int) logvol->GetNoDaughters(); ++i)
     {
       G4VPhysicalVolume* physvol = logvol->GetDaughter(i);
       // here we decide which volumes are active
