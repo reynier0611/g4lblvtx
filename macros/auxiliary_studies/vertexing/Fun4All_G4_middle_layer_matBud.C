@@ -1,3 +1,20 @@
+/*
+INFO: This code is almost identical to Fun4All_G4_simple_vertex.C, except that it lets you configure the
+material budget for the central layers of the barrel. The all-silicon tracker consists of 6 (or 7) barrel layers
+grouped into three broad categories:
+
+i   - 2 (or 3) layers are packed close to the beampipe. These are referred to
+      as vertexing layers, and are set by default to have a material budget = 0.05% X0.
+
+ii  - 2 layers are packed away from the beampipe in the outer radius of the tracker,
+      and are set by default to have a material budget = 0.55% X0.
+
+iii - 2 layers are placed right in between the vertexing and the outer layers.
+
+The purpose of this code is to study how the variation of the material budget of these layers affects
+momentum (and other) resolutions.
+*/
+
 #pragma once
 #include <phgenfit/Track.h>
 #include <fun4all/Fun4AllDstInputManager.h>
@@ -24,11 +41,12 @@ R__LOAD_LIBRARY(libg4detectors.so)
 R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
 
-void Fun4All_G4_simple_vertex(
+void Fun4All_G4_middle_layer_matBud(
 			int nEvents = -1,		// number of events
 			bool vtx_lyr_1 = true,
 			bool vtx_lyr_2 = true,
 			bool vtx_lyr_3 = true,
+			double mid_lay_mat_bud = 0.55, // % Material budget of middle layers
 			double pmin = 0., // GeV/c
 			double pmax = 30., // GeV/c
 			double Bfield = 3.0, //T
@@ -52,7 +70,7 @@ void Fun4All_G4_simple_vertex(
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(0.,3.);
+	gen->set_eta_range(0.,1.07);
 	gen->set_phi_range(0,2.*TMath::Pi());
 	se->registerSubsystem(gen);
 	// ======================================================================================================
@@ -93,13 +111,14 @@ void Fun4All_G4_simple_vertex(
 	const int nTrckLayers = sizeof(si_r_pos)/sizeof(*si_r_pos);
 	double si_z_length[] = {18.,20.,35.,38.};
 	for(int i = 0 ; i < nTrckLayers ; i++) si_z_length[i] *= 3.;
-	double si_thick_bar = 0.55/100.*9.37;
+	double si_thick_bar[] = {mid_lay_mat_bud,mid_lay_mat_bud,0.55,0.55};
+	for(int i = 0 ; i < nTrckLayers ; i++) si_thick_bar[i] *= 9.37/100.;
 
 	for (int ilayer = 0; ilayer < nTrckLayers ; ilayer++){
 		cyl = new PHG4CylinderSubsystem("BARR", ilayer);
 		cyl->set_string_param("material" , "G4_Si"            );
 		cyl->set_double_param("radius"   , si_r_pos[ilayer]   );
-		cyl->set_double_param("thickness", si_thick_bar       );
+		cyl->set_double_param("thickness", si_thick_bar[ilayer]);
 		cyl->set_double_param("place_z"  , 0                  );
 		cyl->set_double_param("length"   , si_z_length[ilayer]);
 		cyl->SetActive();
