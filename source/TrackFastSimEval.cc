@@ -90,29 +90,31 @@ int TrackFastSimEval::Init(PHCompositeNode *topNode)
   const string xyz[3] = {"x", "y", "z"};
   for (map<string, int>::const_iterator iter = m_ProjectionNameMap.begin(); iter != m_ProjectionNameMap.end(); ++iter)
   {
+    char bname[100];
+    char bdef[100];
     for (int i = 0; i < 3; i++)
     {
-      string bname = iter->first + "_" + xyz[i];
-      string bdef = bname + "/F";
-      _eval_tree_tracks->Branch(bname.c_str(), &ref[i][iter->second], bdef.c_str());
+      sprintf(bname, "%s_%s", iter->first.c_str(), xyz[i].c_str());
+      sprintf(bdef, "%s/F", bname);
+      _eval_tree_tracks->Branch(bname, &ref[i][iter->second], bdef);
     }
     for (int i = 0; i < 3; i++)
     {
-      string bname = iter->first + "_p" +  xyz[i];
-      string bdef = bname + "/F";
-      _eval_tree_tracks->Branch(bname.c_str(), &ref_p[i][iter->second], bdef.c_str());
+      sprintf(bname, "%s_p%s", iter->first.c_str(), xyz[i].c_str());
+      sprintf(bdef, "%s/F", bname);
+      _eval_tree_tracks->Branch(bname, &ref_p[i][iter->second], bdef);
     }
     for (int i = 0; i < 3; i++)
     {
-      string bname = iter->first + "_proj_" + xyz[i];
-      string bdef = bname + "/F";
-      _eval_tree_tracks->Branch(bname.c_str(), &proj[i][iter->second], bdef.c_str());
+      sprintf(bname, "%s_proj_%s", iter->first.c_str(), xyz[i].c_str());
+      sprintf(bdef, "%s/F", bname);
+      _eval_tree_tracks->Branch(bname, &proj[i][iter->second], bdef);
     }
     for (int i = 0; i < 3; i++)
     {
-      string bname = iter->first + "_proj_p" + xyz[i];
-      string bdef = bname + "/F";
-      _eval_tree_tracks->Branch(bname.c_str(), &proj_p[i][iter->second], bdef.c_str());
+      sprintf(bname, "%s_proj_p%s", iter->first.c_str(), xyz[i].c_str());
+      sprintf(bdef, "%s/F", bname);
+      _eval_tree_tracks->Branch(bname, &proj_p[i][iter->second], bdef);
     }
   }
   _h2d_Delta_mom_vs_truth_eta = new TH2D("_h2d_Delta_mom_vs_truth_eta",
