@@ -159,7 +159,7 @@ void Fun4All_G4_FastMom_GEM_RICH(
 	// Physics list (default list is "QGSP_BERT")
 	//g4Reco->SetPhysicsList("FTFP_BERT_HP"); // This list is slower and only useful for hadronic showers.
 	// ======================================================================================================
-	//load_AllSi_geom(g4Reco, det_ver);	// Loading All-Si Tracker and beampipe geometries	
+	load_AllSi_geom(g4Reco, det_ver);	// Loading All-Si Tracker and beampipe geometries	
 	EGEM_Init();				// Loading backward GEM geometry
 	FGEM_Init();				// Loading forward GEM geometry
 	EGEMSetup(g4Reco);
@@ -230,15 +230,15 @@ void Fun4All_G4_FastMom_GEM_RICH(
 	kalman->set_sub_top_node_name("SVTX");
 	kalman->set_trackmap_out_name("SvtxTrackMap");
 
-	add_AllSi_to_kalman( kalman , pixel_size );	// Add All-Silicon tracker to Kalman filter
+	add_AllSi_to_kalman( kalman , pixel_size , det_ver );	// Add All-Silicon tracker to Kalman filter
 
 	//-------------------------
 	// Adding GEMs to the Kalman filter
 	// BACKWARD GEM, 70um azimuthal resolution, 1cm radial strips
 	kalman->add_phg4hits("G4HIT_EGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
-			50e-4,//1. / sqrt(12.),                    		// const float radres,
-			50e-4,                             		// const float phires,
+			10e-4/ sqrt(12.),//1. / sqrt(12.),                    		// const float radres,
+			10e-4/ sqrt(12.),//70e-4,                             		// const float phires,
 			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 			1,                                 		// const float eff,
 			0                                  		// const float noise
@@ -246,8 +246,8 @@ void Fun4All_G4_FastMom_GEM_RICH(
 	// FORWARD GEM2, 70um azimuthal resolution, 1cm radial strips
 	kalman->add_phg4hits("G4HIT_FGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
-			50e-4,//1. / sqrt(12.),                    		// const float radres,
-			50e-4,                             		// const float phires,
+			10e-4/ sqrt(12.),//1. / sqrt(12.),                    		// const float radres,
+			10e-4/ sqrt(12.),//70e-4,                             		// const float phires,
 			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 			1,                                 		// const float eff,
 			0                                  		// const float noise
@@ -299,7 +299,7 @@ void Fun4All_G4_FastMom_GEM_RICH(
 	if(do_pythia8_jets) Jet_Reco();
 
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
-	add_AllSi_hits(hits);	// Add All-Silicon tracker hits
+	add_AllSi_hits(hits,det_ver);	// Add All-Silicon tracker hits
 	hits->AddNode("EGEM");
 	hits->AddNode("FGEM");
 	se->registerSubsystem(hits);
