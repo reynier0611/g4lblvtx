@@ -103,7 +103,7 @@ void Fun4All_G4_FastMom(
 	segen->set_vertex_size_function(PHG4SimpleEventGenerator::Uniform);
 	segen->set_vertex_size_parameters(0.0, 0.0);
 	segen->set_eta_range(-4.,4.);
-	segen->set_phi_range(0.,2.*TMath::Pi());
+	segen->set_phi_range(-TMath::Pi(),TMath::Pi());
 	segen->set_p_range(.00001,30.);
 	//segen->Embed(2);
 	segen->Verbosity(0);
