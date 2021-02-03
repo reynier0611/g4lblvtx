@@ -226,7 +226,7 @@ void Fun4All_G4_FastMom_GEM(
 	kalman->set_sub_top_node_name("SVTX");
 	kalman->set_trackmap_out_name("SvtxTrackMap");
 
-	add_AllSi_to_kalman( kalman , pixel_size );	// Add All-Silicon tracker to Kalman filter
+	add_AllSi_to_kalman( kalman , pixel_size , det_ver );	// Add All-Silicon tracker to Kalman filter
 
 	//-------------------------
 	// Adding GEMs to the Kalman filter
@@ -295,7 +295,7 @@ void Fun4All_G4_FastMom_GEM(
 	if(do_pythia8_jets) Jet_Reco();
 
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
-	add_AllSi_hits(hits);	// Add All-Silicon tracker hits
+	add_AllSi_hits(hits,det_ver);	// Add All-Silicon tracker hits
 	hits->AddNode("EGEM");
 	hits->AddNode("FGEM");
 	se->registerSubsystem(hits);

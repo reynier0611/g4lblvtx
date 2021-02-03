@@ -129,8 +129,8 @@ void Fun4All_G4_FastMom(
 
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
-	//g4Reco->SetWorldMaterial("G4_Galactic");	
-	// ======================================================================================================
+	//g4Reco->SetWorldMaterial("G4_Galactic");
+  	// ======================================================================================================
 	// Magnetic field setting
 	TString B_label;
 	if(magnetic_field==1){          // uniform 1.5T
@@ -220,7 +220,7 @@ void Fun4All_G4_FastMom(
 	kalman->set_sub_top_node_name("SVTX");
 	kalman->set_trackmap_out_name("SvtxTrackMap");
 
-	add_AllSi_to_kalman( kalman , pixel_size );	// Add All-Silicon tracker to Kalman filter
+	add_AllSi_to_kalman( kalman , pixel_size , det_ver );	// Add All-Silicon tracker to Kalman filter
 
 	// Projections  
 	if(do_projections){
@@ -245,7 +245,8 @@ void Fun4All_G4_FastMom(
 	   kalman->enable_vertexing(false); // this is false by default
 	   kalman->set_vertex_min_ndf(2);
 	   }
-	   */
+	*/
+	//kalman -> Verbosity(10);
 	se->registerSubsystem(kalman);
 	// -----------------------------------------------------
 	// INFO: The resolution numbers above correspond to:
@@ -266,7 +267,7 @@ void Fun4All_G4_FastMom(
 	if(do_pythia8_jets) Jet_Reco();
 
 	SimpleNtuple *hits = new SimpleNtuple("Hits");
-	add_AllSi_hits(hits);	// Add All-Silicon tracker hits
+	add_AllSi_hits(hits,det_ver);	// Add All-Silicon tracker hits
 	se->registerSubsystem(hits);
 
 	// ======================================================================================================
