@@ -230,7 +230,7 @@ void Fun4All_G4_simplified_v2(
 
 	se->registerSubsystem(kalman);
 
-	std::string outputFile = (std::string)(out_name)+"_"+std::string(B_label)+"_FastSimEval.root";
+	std::string outputFile = (std::string)(out_name)+std::string(B_label)+"_FastSimEval.root";
 
 	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
 	fast_sim_eval->set_filename(outputFile);
