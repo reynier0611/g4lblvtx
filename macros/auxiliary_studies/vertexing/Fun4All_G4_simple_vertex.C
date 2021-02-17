@@ -33,7 +33,7 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 			double pix_size = 10.,
 			TString out_name = "out_vtx_study")	// output filename
 {	
-	TString outputFile = out_name+"_FastSimEval.root";
+	std::string outputFile = std::string(out_name)+"_FastSimEval.root";
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();

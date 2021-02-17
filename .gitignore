@@ -1,5 +1,5 @@
 macros/G4History.macro
-
+macros/auxiliary_studies/simplified_geometry/G4History.macro
 materialscan/
 macros/G4LBLVtx.root
 macros/SimpleNtuple.root

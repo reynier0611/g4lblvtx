@@ -5,7 +5,6 @@ different variations of the geometry quickly. Specifically, I wrote this code to
 the material budget of different regions of the detector would have on different resolutions.
 ================================================================================================================
 */
-
 #pragma once
 #include <phgenfit/Track.h>
 #include <fun4all/Fun4AllDstInputManager.h>
@@ -26,6 +25,8 @@ the material budget of different regions of the detector would have on different
 #include <g4trackfastsim/PHG4TrackFastSim.h>
 #include <g4trackfastsim/PHG4TrackFastSimEval.h>
 #include <phool/recoConsts.h>
+
+#include <g4lblvtx/AllSi_Al_support_Subsystem.h>
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -135,11 +136,13 @@ void Fun4All_G4_simplified_v2(
 	double si_thick_disk = disk_matBud/100.*9.37;
 	for(int i = 0 ; i < 10 ; i++){
 		si_r_max[i] = TMath::Min(43.23,18.5*abs(si_z_pos[i])/si_z_pos[5]);
-
+		
 		if(si_z_pos[i]>66.8&&si_z_pos[i]>0) si_r_min[i] = (0.05025461*si_z_pos[i]-0.180808);
 		else if(si_z_pos[i]>0) si_r_min[i] = 3.18;
 		else if(si_z_pos[i]<-79.8&&si_z_pos[i]<0) si_r_min[i] = (-0.0297039*si_z_pos[i]+0.8058281);
 		else si_r_min[i] = 3.18;
+
+		si_r_max[i] -= si_r_min[i];
 	}
 
 	for (int ilayer = 0; ilayer < 10; ilayer++){
@@ -173,6 +176,12 @@ void Fun4All_G4_simplified_v2(
 	cyl->SuperDetector("PIPE");
 	g4Reco->registerSubsystem(cyl);
 	//---------------------------
+
+	// ------------
+	// Forward RICH
+	AllSi_Al_support_Subsystem *Al_supp = new AllSi_Al_support_Subsystem("Al_supp");
+	g4Reco->registerSubsystem(Al_supp);	
+	// ------------	
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
 	g4Reco->registerSubsystem(truth);

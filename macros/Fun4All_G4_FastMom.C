@@ -34,6 +34,7 @@
 #include <g4lblvtx/SimpleNtuple.h>
 #include <g4lblvtx/TrackFastSimEval.h>
 #include <myjetanalysis/MyJetAnalysis_AllSi.h>
+#include <g4lblvtx/PHG4ParticleGenerator_flat_pT.h>
 R__LOAD_LIBRARY(libmyjetanalysis.so)
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -50,7 +51,7 @@ void Fun4All_G4_FastMom(
 {
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 1;	// 1 = particle generator, 2 = particle gun, 3 = simple particle generator, 4 = pythia8 e+p collision
+	const int particle_gen = 5;	// 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
 	const int magnetic_field = 4;	// 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
 	bool DISPLACED_VERTEX = false;	// this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
 	bool do_projections = false;	// Project momentum vectors to surfaces defined below
@@ -88,6 +89,15 @@ void Fun4All_G4_FastMom(
 	gen->set_eta_range(-4,4);		// Detector coverage corresponds to |η|< 4
 	gen->set_phi_range(0.,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
+	// Particle generator flat in pT
+	PHG4ParticleGenerator_flat_pT *gen_pT = new PHG4ParticleGenerator_flat_pT();
+	gen_pT->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
+	gen_pT->set_vtx(0,0,0);                    // Vertex generation range
+	gen_pT->set_mom_range(.00001,30.);         // Momentum generation range in GeV/c
+	gen_pT->set_z_range(0.,0.);
+	gen_pT->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
+	gen_pT->set_phi_range(0.,2.*TMath::Pi());
+	// --------------------------------------------------------------------------------------
 	// Particle Gun Setup
 	PHG4ParticleGun *gun = new PHG4ParticleGun();
 	gun->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ...
@@ -107,7 +117,6 @@ void Fun4All_G4_FastMom(
 	segen->set_p_range(.00001,30.);
 	//segen->Embed(2);
 	segen->Verbosity(0);
-
 	// --------------------------------------------------------------------------------------
 	// Pythia 8 events
 	bool do_pythia8_jets = false;
@@ -126,7 +135,7 @@ void Fun4All_G4_FastMom(
 		HepMCNodeReader *hr = new HepMCNodeReader();
 		se->registerSubsystem(hr);
 	}
-
+	else if (particle_gen==5){se->registerSubsystem(gen_pT); cout << "Using particle generator flat in pT"  << endl;}
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
 	//g4Reco->SetWorldMaterial("G4_Galactic");

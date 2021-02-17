@@ -26,7 +26,8 @@ pkginclude_HEADERS = \
   EicFRichSubsystem.h \
   G4LBLVtxSubsystem.h \
   SimpleNtuple.h \
-  TrackFastSimEval.h
+  TrackFastSimEval.h \
+  PHG4ParticleGenerator_flat_pT.h
 
 libg4lblvtx_la_SOURCES = \
   AllSiliconTrackerDetector.cc \
@@ -41,7 +42,8 @@ libg4lblvtx_la_SOURCES = \
   G4LBLVtxSteppingAction.cc \
   G4LBLVtxSubsystem.cc \
   SimpleNtuple.cc \
-  TrackFastSimEval.cc
+  TrackFastSimEval.cc \
+  PHG4ParticleGenerator_flat_pT.cc
 
 # Rule for generating table CINT dictionaries.
 %_Dict.cc: %.h %LinkDef.h
