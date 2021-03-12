@@ -24,6 +24,7 @@ libg4lblvtx_la_LIBADD = \
 pkginclude_HEADERS = \
   AllSiliconTrackerSubsystem.h \
   EicFRichSubsystem.h \
+  AllSi_Al_support_Subsystem.h \
   G4LBLVtxSubsystem.h \
   SimpleNtuple.h \
   TrackFastSimEval.h \
@@ -37,6 +38,10 @@ libg4lblvtx_la_SOURCES = \
   EicFRichDetector.cc \
   EicFRichSteppingAction.cc \
   EicFRichSubsystem.cc \
+  AllSi_Al_support_Detector.cc \
+  AllSi_Al_support_SteppingAction.cc \
+  AllSi_Al_support_Subsystem.cc \
+  AllSi_Al_support_DisplayAction.cc \
   G4LBLVtxDetector.cc \
   G4LBLVtxDisplayAction.cc \
   G4LBLVtxSteppingAction.cc \
