@@ -93,7 +93,7 @@ void Fun4All_G4_FastMom(
 	PHG4ParticleGenerator_flat_pT *gen_pT = new PHG4ParticleGenerator_flat_pT();
 	gen_pT->set_name(std::string(genpar));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen_pT->set_vtx(0,0,0);                    // Vertex generation range
-	gen_pT->set_mom_range(.00001,30.);         // Momentum generation range in GeV/c
+	gen_pT->set_pT_range(.00001,30.);         // Momentum generation range in GeV/c
 	gen_pT->set_z_range(0.,0.);
 	gen_pT->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
 	gen_pT->set_phi_range(0.,2.*TMath::Pi());

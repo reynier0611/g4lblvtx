@@ -25,7 +25,7 @@ the material budget of different regions of the detector would have on different
 #include <g4trackfastsim/PHG4TrackFastSim.h>
 #include <g4trackfastsim/PHG4TrackFastSimEval.h>
 #include <phool/recoConsts.h>
-
+#include <g4lblvtx/PHG4ParticleGenerator_flat_pT.h>
 #include <g4lblvtx/AllSi_Al_support_Subsystem.h>
 
 R__LOAD_LIBRARY(libfun4all.so)
@@ -43,9 +43,12 @@ void Fun4All_G4_simplified_v2(
 			int magnetic_field = 4, 		// Magnetic field setting
 			TString out_name = "out_vtx_study")	// output filename
 {	
-        double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
-        double pix_size_bar = 10.; // um - size of pixels in barrel layers
-        double pix_size_dis = 10.; // um - size of pixels in disk layers
+	// ======================================================================================================
+	// Input from the user
+	const int particle_gen = 5;     // 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
+	double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
+	double pix_size_bar = 10.; // um - size of pixels in barrel layers
+	double pix_size_dis = 10.; // um - size of pixels in disk layers
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -61,7 +64,19 @@ void Fun4All_G4_simplified_v2(
 	gen->set_z_range(0.,0.);
 	gen->set_eta_range(0.,4.);
 	gen->set_phi_range(0,2.*TMath::Pi());
-	se->registerSubsystem(gen);
+	// --------------------------------------------------------------------------------------
+	// Particle generator flat in pT
+	PHG4ParticleGenerator_flat_pT *gen_pT = new PHG4ParticleGenerator_flat_pT();
+	gen_pT->set_name(std::string("pi-"));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
+	gen_pT->set_vtx(0,0,0);                    // Vertex generation range
+	gen_pT->set_pT_range(.00001,5.);         // Momentum generation range in GeV/c
+	gen_pT->set_z_range(0.,0.);
+	gen_pT->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
+	gen_pT->set_phi_range(0.,2.*TMath::Pi());
+	// ======================================================================================================
+	if     (particle_gen==1){se->registerSubsystem(  gen); cout << "Using particle generator"     << endl;}
+	else if(particle_gen==5){se->registerSubsystem(gen_pT); cout << "Using particle generator flat in pT"  << endl;}
+	else{ cout << "Particle generator option requested has not been implemented. Bailing out!" << endl; exit(0); }
 	// ======================================================================================================
 	PHG4Reco *g4Reco = new PHG4Reco();
 	//g4Reco->SetWorldMaterial("G4_Galactic");	
@@ -136,7 +151,7 @@ void Fun4All_G4_simplified_v2(
 	double si_thick_disk = disk_matBud/100.*9.37;
 	for(int i = 0 ; i < 10 ; i++){
 		si_r_max[i] = TMath::Min(43.23,18.5*abs(si_z_pos[i])/si_z_pos[5]);
-		
+
 		if(si_z_pos[i]>66.8&&si_z_pos[i]>0) si_r_min[i] = (0.05025461*si_z_pos[i]-0.180808);
 		else if(si_z_pos[i]>0) si_r_min[i] = 3.18;
 		else if(si_z_pos[i]<-79.8&&si_z_pos[i]<0) si_r_min[i] = (-0.0297039*si_z_pos[i]+0.8058281);
@@ -178,7 +193,7 @@ void Fun4All_G4_simplified_v2(
 	//---------------------------
 
 	// ------------
-	// Forward RICH
+	// Al Support Structure
 	AllSi_Al_support_Subsystem *Al_supp = new AllSi_Al_support_Subsystem("Al_supp");
 	g4Reco->registerSubsystem(Al_supp);	
 	// ------------	
@@ -207,7 +222,7 @@ void Fun4All_G4_simplified_v2(
 			1,					// efficiency,
 			0					// noise hits
 			);
-	
+
 	// add Barrel Layers
 	kalman->add_phg4hits(
 			"G4HIT_BARR",                   	// const std::string& phg4hitsNames,
@@ -218,7 +233,7 @@ void Fun4All_G4_simplified_v2(
 			1,                              	// efficiency,
 			0                               	// noise hits
 			);
-	
+
 	//  add Disk Layers
 	kalman->add_phg4hits(
 			"G4HIT_FBST",				// const std::string& phg4hitsNames,
@@ -229,7 +244,7 @@ void Fun4All_G4_simplified_v2(
 			1,                          		// efficiency,
 			0                           		// noise hits
 			);	
-	
+
 	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
