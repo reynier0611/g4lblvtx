@@ -11,7 +11,7 @@ export MYINSTALL=$dir/Singularity/install
 source $dir/Singularity/cvmfs/sphenix.sdcc.bnl.gov/x8664_sl7/opt/sphenix/core/bin/setup_local.sh $MYINSTALL
 
 cd $dir/Singularity/g4lblvtx/macros/auxiliary_studies/simplified_geometry/
-root -b -q "Fun4All_G4_simplified_v2.C($3,$4,$5,$6,$7,$8,$9,\"$outdir/out_AllSi/Simplified_geom/$1/out_simp_geom_vbd_$4_$5_$6_split_$2\")"
+root -b -q "Fun4All_G4_simplified_3vtx.C($3,$4,$5,$6,$7,$8,$9,\"$outdir/out_AllSi/Simplified_geom/$1/out_simp_geom_3vtx_vbd_$4_$5_$6_split_$2\")"
 
 if [ $9 == 1 ]
 then
@@ -26,4 +26,4 @@ else
         BLAB="_Beast"
 fi
 
-rm -rf $outdir/out_AllSi/Simplified_geom/$1/out_simp_geom_vbd_$4_$5_$6_split_$2$BLAB_G4LBLVtx.root
+rm -rf $outdir/out_AllSi/Simplified_geom/$1/out_simp_geom_3vtx_vbd_$4_$5_$6_split_$2$BLAB_G4LBLVtx.root
