@@ -3,6 +3,7 @@
 The purpose of this code is to have a version of the all-silicon tracker that is simplified so that we can study
 different variations of the geometry quickly. Specifically, I wrote this code to study the impact that changing
 the material budget of different regions of the detector would have on different resolutions.
+This all-silicon tracker has three vertexing layers
 ================================================================================================================
 */
 #pragma once
@@ -27,11 +28,14 @@ the material budget of different regions of the detector would have on different
 #include <phool/recoConsts.h>
 #include <g4lblvtx/PHG4ParticleGenerator_flat_pT.h>
 #include <g4lblvtx/AllSi_Al_support_Subsystem.h>
+#include "G4_BlackHole.C"
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
 R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
+
+int pid_code( std::string part_name );
 
 void Fun4All_G4_simplified_3vtx(
 			int nEvents = -1,			// number of events
@@ -43,12 +47,15 @@ void Fun4All_G4_simplified_3vtx(
 			int magnetic_field = 4, 		// Magnetic field setting
 			TString out_name = "out_vtx_study")	// output filename
 {	
+	std::string part = "pi-";
+	//std::string part = "kaon-";
 	// ======================================================================================================
 	// Input from the user
 	const int particle_gen = 5;     // 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
 	double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
+	bool use_blackhole = true;
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -58,7 +65,7 @@ void Fun4All_G4_simplified_3vtx(
 	// ======================================================================================================
 	// Particle Generator Setup
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
-	gen->set_name(std::string("pi-"));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
+	gen->set_name(part);	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
@@ -67,11 +74,12 @@ void Fun4All_G4_simplified_3vtx(
 	// --------------------------------------------------------------------------------------
 	// Particle generator flat in pT
 	PHG4ParticleGenerator_flat_pT *gen_pT = new PHG4ParticleGenerator_flat_pT();
-	gen_pT->set_name(std::string("pi-"));     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
+	gen_pT->set_name(part);     // geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen_pT->set_vtx(0,0,0);                    // Vertex generation range
-	gen_pT->set_pT_range(.00001,5.);         // Momentum generation range in GeV/c
+	gen_pT->set_pT_range(0,2.);         // Momentum generation range in GeV/c
 	gen_pT->set_z_range(0.,0.);
-	gen_pT->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
+	//gen_pT->set_eta_range(-4,4);               // Detector coverage corresponds to |η|< 4
+	gen_pT->set_eta_range(0,0);
 	gen_pT->set_phi_range(0.,2.*TMath::Pi());
 	// ======================================================================================================
 	if     (particle_gen==1){se->registerSubsystem(  gen); cout << "Using particle generator"     << endl;}
@@ -122,6 +130,7 @@ void Fun4All_G4_simplified_3vtx(
 		cyl->set_double_param("length"   , si_z_vtxlength[ilayer]);
 		cyl->SetActive();
 		cyl->SuperDetector("SVTX");
+		cyl->set_color(0,0.8,0.1);
 		g4Reco->registerSubsystem(cyl);
 	}
 	//---------------------------
@@ -172,6 +181,15 @@ void Fun4All_G4_simplified_3vtx(
 		cyl->set_color(1,0,0);
 		g4Reco->registerSubsystem(cyl);
 	}
+
+	//---------------------------
+	// Black hole to suck loopers out of their misery
+	double BH_r = si_r_pos[nTrckLayers-1]+2;
+	double BH_zmin = si_z_pos[0]-2;
+	double BH_zmax = si_z_pos[sizeof(si_z_pos)/sizeof(*si_z_pos)-1]+2;
+	if(use_blackhole)
+		wrap_with_cylindrical_blackhole(g4Reco,BH_r,BH_zmin,BH_zmax);
+
 	//---------------------------
 	// mid-rapidity beryllium pipe
 	double be_pipe_radius = 3.1000;
@@ -251,6 +269,7 @@ void Fun4All_G4_simplified_3vtx(
 	kalman->set_vertex_z_resolution(0);
 	kalman->enable_vertexing(false); // this is false by default
 	kalman->set_vertex_min_ndf(2);
+	kalman->set_primary_assumption_pid(pid_code( part ));
 
 	se->registerSubsystem(kalman);
 
@@ -277,4 +296,10 @@ void Fun4All_G4_simplified_3vtx(
 	delete se;
 
 	gSystem->Exit(0);
+}
+// ======================================================================================================
+int pid_code( std::string part_name ){
+	if(part_name=="pi-"||part_name=="PI-"||part_name=="Pi-"||part_name=="pi+"||part_name=="PI+"||part_name=="Pi+") return 211;
+	else if(part_name=="k-"||part_name=="K-"||part_name=="k+"||part_name=="K+"||part_name=="kaon+"||part_name=="Kaon+"||part_name=="KAON+"||part_name=="kaon-"||part_name=="Kaon-"||part_name=="KAON-") return 321;
+	else return -999;
 }

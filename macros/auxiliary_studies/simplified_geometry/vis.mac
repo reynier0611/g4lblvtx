@@ -33,6 +33,7 @@
 #/vis/viewer/set/viewpointThetaPhi 270 0 # Side view
 #/vis/viewer/set/viewpointThetaPhi 270 -89.9 # Top-down view
 /vis/viewer/set/viewpointThetaPhi 250 -50
+/vis/viewer/set/viewpointThetaPhi 0.5 0.5
 /vis/viewer/addCutawayPlane 0 0 0 m 1 0 0
 #/vis/viewer/addCutawayPlane 0 0 0 m 0 -1 0
 # our world is 4x4 meters, the detector is about 1m across

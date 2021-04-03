@@ -27,6 +27,7 @@ the material budget of different regions of the detector would have on different
 #include <phool/recoConsts.h>
 #include <g4lblvtx/PHG4ParticleGenerator_flat_pT.h>
 #include <g4lblvtx/AllSi_Al_support_Subsystem.h>
+#include "G4_BlackHole.C"
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -49,6 +50,7 @@ void Fun4All_G4_simplified_v2(
 	double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
+	bool use_blackhole = true;
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -122,6 +124,7 @@ void Fun4All_G4_simplified_v2(
 		cyl->set_double_param("length"   , si_z_vtxlength[ilayer]);
 		cyl->SetActive();
 		cyl->SuperDetector("SVTX");
+		cyl->set_color(0,0.8,0.1);
 		g4Reco->registerSubsystem(cyl);
 	}
 	//---------------------------
@@ -172,6 +175,14 @@ void Fun4All_G4_simplified_v2(
 		cyl->set_color(1,0,0);
 		g4Reco->registerSubsystem(cyl);
 	}
+	//---------------------------
+	// Black hole to suck loopers out of their misery
+	double BH_r = si_r_pos[nTrckLayers-1]+2;
+	double BH_zmin = si_z_pos[0]-2;
+	double BH_zmax = si_z_pos[sizeof(si_z_pos)/sizeof(*si_z_pos)-1]+2;
+	if(use_blackhole)
+		wrap_with_cylindrical_blackhole(g4Reco,BH_r,BH_zmin,BH_zmax);
+
 	//---------------------------
 	// mid-rapidity beryllium pipe
 	double be_pipe_radius = 3.1000;

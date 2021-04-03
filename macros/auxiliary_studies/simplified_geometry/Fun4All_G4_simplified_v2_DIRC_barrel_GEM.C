@@ -28,7 +28,8 @@ cylindrical GEM outside the DIRC can have on tracking.
 #include <g4lblvtx/PHG4ParticleGenerator_flat_pT.h>
 #include <g4lblvtx/AllSi_Al_support_Subsystem.h>
 #include "G4_BlackHole.C"
-#include "../../G4_DIRC.C"
+//#include "../../G4_DIRC.C"
+#include "G4_DIRC_SMALL.C"
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -182,7 +183,7 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 	}
 	//---------------------------
 	// Cylindrical GEM outside DIRC
-	double barrel_GEM_inner_radius = 92.; // GEM radius
+	double barrel_GEM_inner_radius = 60.; // GEM radius
 	double barrel_GEM_radial_thick = si_thick_bar*3.;
 	double barrel_GEM_z_length     = 121.;
 	cyl = new PHG4CylinderSubsystem("BARR_GEM",1);
