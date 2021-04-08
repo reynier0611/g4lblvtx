@@ -53,7 +53,7 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
 	bool use_blackhole = false;
-	bool use_barrel_GEM = true;
+	bool use_barrel_GEM = false;
 	bool use_DIRC = false;
 	// ======================================================================================================
 	// Make the Server
@@ -292,6 +292,13 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
                         0
 			);
 	}
+	// Mom. res.
+	//kalman->set_use_vertex_in_fitting(true);
+       	//kalman->set_vertex_xy_resolution(50e-4);
+        //kalman->set_vertex_z_resolution(50e-4);
+        //kalman->enable_vertexing(false); // this is false by default
+       	//kalman->set_vertex_min_ndf(10);
+       
 	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
