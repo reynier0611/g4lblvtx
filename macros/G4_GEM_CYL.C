@@ -6,11 +6,12 @@
 #include <g4main/PHG4Reco.h>
 #include <string>
 
+/*
+macro written by R. Cruz-Torres (reynier@lbl.gov)
+adapted from the existing plane GEMs in Fun4All
+*/
+
 R__LOAD_LIBRARY(libg4detectors.so)
-
-//int make_GEM_station(string name, PHG4Reco *g4Reco, double zpos, double etamin, double etamax, const int N_Sector = 8);
-//void AddLayers_MiniTPCDrift(PHG4SectorSubsystem *gem_cyl);
-
 // ======================================================================================================================
 int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double zpos){
 	PHG4CylinderSubsystem *cyl;
@@ -33,8 +34,9 @@ int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double z
                 cyl->set_double_param("radius"   , last_r                   );
                 cyl->set_double_param("thickness", thick_tpc[ilayer]        );
                 cyl->set_double_param("place_z"  , 0                        );
-                cyl->set_double_param("length"   , 2.*zpos                  );
-                //cyl->SetActive();
+                cyl->set_double_param("length"   , zpos                     );
+		if(mat_tpc[ilayer]=="G4_METHANE")
+                	cyl->SetActive();
                 cyl->SuperDetector(name);
                 cyl->set_color(cl1_tpc[ilayer],cl2_tpc[ilayer],cl3_tpc[ilayer]);
                 g4Reco->registerSubsystem(cyl);
@@ -65,7 +67,7 @@ int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double z
                 	cyl->set_double_param("radius"   , last_r                                      );
                 	cyl->set_double_param("thickness", thick_hbd1[ilayer]*perc_filled_hbd1[ilayer] );
                 	cyl->set_double_param("place_z"  , 0                                           );
-                	cyl->set_double_param("length"   , 2.*zpos                                     ); 
+                	cyl->set_double_param("length"   , zpos                                        ); 
                 	cyl->SuperDetector(name);
                 	cyl->set_color(cl1_hbd1[ilayer],cl2_hbd1[ilayer],cl3_hbd1[ilayer]);
                 	g4Reco->registerSubsystem(cyl);
@@ -91,7 +93,7 @@ int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double z
                 cyl->set_double_param("radius"   , last_r                                      );
                 cyl->set_double_param("thickness", thick_hbd2[ilayer]*perc_filled_hbd2[ilayer] );
                 cyl->set_double_param("place_z"  , 0                                           );
-                cyl->set_double_param("length"   , 2.*zpos                                     );
+                cyl->set_double_param("length"   , zpos                                        );
                 cyl->SuperDetector(name);
                 cyl->set_color(cl1_hbd2[ilayer],cl2_hbd2[ilayer],cl3_hbd2[ilayer]);
                 g4Reco->registerSubsystem(cyl);
