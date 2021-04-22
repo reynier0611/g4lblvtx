@@ -25,6 +25,7 @@ pkginclude_HEADERS = \
   AllSiliconTrackerSubsystem.h \
   EicFRichSubsystem.h \
   AllSi_Al_support_Subsystem.h \
+  AllSi_vtx_serv_2lyr_Subsystem.h \
   G4LBLVtxSubsystem.h \
   SimpleNtuple.h \
   TrackFastSimEval.h \
@@ -42,6 +43,10 @@ libg4lblvtx_la_SOURCES = \
   AllSi_Al_support_SteppingAction.cc \
   AllSi_Al_support_Subsystem.cc \
   AllSi_Al_support_DisplayAction.cc \
+  AllSi_vtx_serv_2lyr_Detector.cc \
+  AllSi_vtx_serv_2lyr_SteppingAction.cc \
+  AllSi_vtx_serv_2lyr_Subsystem.cc \
+  AllSi_vtx_serv_2lyr_DisplayAction.cc \
   G4LBLVtxDetector.cc \
   G4LBLVtxDisplayAction.cc \
   G4LBLVtxSteppingAction.cc \
