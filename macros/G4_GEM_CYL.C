@@ -13,7 +13,12 @@ adapted from the existing plane GEMs in Fun4All
 
 R__LOAD_LIBRARY(libg4detectors.so)
 // ======================================================================================================================
-int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double zpos){
+int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double zpos , double X_X0_perc = 0.652604){
+	if(X_X0_perc < 0.652604){
+		X_X0_perc = 0.652604;
+		std::cout << "\nX/X0 must be >= 0.652604. Defaulting to 0.652604!\n\n";
+	}
+
 	PHG4CylinderSubsystem *cyl;
         const double mm = 0.1;
         const double um = 1e-4;
@@ -86,6 +91,8 @@ int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double z
         double cl1_hbd2[] = {0.0,1.0,0.9};
         double cl2_hbd2[] = {0.0,0.1,1.0};
         double cl3_hbd2[] = {0.5,0.1,0.8};
+
+	thick_hbd2[1] = thick_hbd2[1] + 1.43*(X_X0_perc-0.652604)/100./perc_filled_hbd2[1];
 
         for (int ilayer = 0; ilayer < n_layers_hbd2; ilayer++){
                 cyl = new PHG4CylinderSubsystem(name+"_hbd", 40+ilayer);

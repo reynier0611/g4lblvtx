@@ -156,7 +156,7 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM_instead_of_silicon(
 	}
 	//---------------------------
 	// Outer layer GEM instead of silicon layer
-	make_GEM_barrel_section("outer_barrel",g4Reco,41.,110);
+	make_GEM_barrel_section("outer_barrel",g4Reco,41.,110,2.4); // Last argument is material budget of the GEM in % X/X0. Default is 0.652604
 	//---------------------------
 	// Disks
 	double si_z_pos[] = {-121.,-97.,-73.,-49.,-25.,25.,49.,73.,97.,121.};
@@ -189,7 +189,7 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM_instead_of_silicon(
 	// Cylindrical GEM outside DIRC
 	double barrel_GEM_inner_radius = 92.; // GEM radius
 	double barrel_GEM_z_length     = 242.;
-	make_GEM_barrel_section("outer_gem",g4Reco,barrel_GEM_inner_radius,barrel_GEM_z_length);
+	make_GEM_barrel_section("outer_gem",g4Reco,barrel_GEM_inner_radius,barrel_GEM_z_length,2.4); // Last argument is material budget of the GEM in % X/X0. Default is 0.652604
 
 	//---------------------------
 	// Black hole to suck loopers out of their misery

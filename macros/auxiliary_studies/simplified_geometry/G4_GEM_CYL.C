@@ -14,6 +14,11 @@ adapted from the existing plane GEMs in Fun4All
 R__LOAD_LIBRARY(libg4detectors.so)
 // ======================================================================================================================
 int make_GEM_barrel_section(string name, PHG4Reco *g4Reco, double Rpos, double zpos , double X_X0_perc = 0.652604){
+	if(X_X0_perc < 0.652604){
+		X_X0_perc = 0.652604;
+		std::cout << "\nX/X0 must be >= 0.652604. Defaulting to 0.652604!\n\n";
+	}
+
 	PHG4CylinderSubsystem *cyl;
         const double mm = 0.1;
         const double um = 1e-4;
