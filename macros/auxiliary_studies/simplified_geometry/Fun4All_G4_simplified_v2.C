@@ -50,7 +50,8 @@ void Fun4All_G4_simplified_v2(
 	double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
-	bool use_blackhole = true;
+	bool use_blackhole = false;
+	const int nDisks_per_side = 5;
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -148,12 +149,21 @@ void Fun4All_G4_simplified_v2(
 	}
 	//---------------------------
 	// Disks
-	double si_z_pos[] = {-121.,-97.,-73.,-49.,-25.,25.,49.,73.,97.,121.};
-	double si_r_max[10] = {0};
-	double si_r_min[10] = {0};
+	//double si_z_pos[] = {-121.,-97.,-73.,-49.,-25.,25.,49.,73.,97.,121.};
+	const double z_min_d = 25.; // cm (z of the first disk)
+	const double z_max_d = 121.; // cm (z of the last disk)
+	const double disk_to_disk_distance = (z_max_d-z_min_d)/((float)nDisks_per_side-1.);
+	const int nDisks = nDisks_per_side*2;
+	double si_z_pos[nDisks] = {0};
+	double si_r_max[nDisks] = {0};
+	double si_r_min[nDisks] = {0};
 	double si_thick_disk = disk_matBud/100.*9.37;
-	for(int i = 0 ; i < 10 ; i++){
-		si_r_max[i] = TMath::Min(43.23,18.5*abs(si_z_pos[i])/si_z_pos[5]);
+	
+	for(int i = 0        ; i < nDisks_per_side   ; i++) si_z_pos[i] = -z_max_d + (float)i*disk_to_disk_distance;	
+	for(int i = nDisks-1 ; i > nDisks_per_side-1 ; i--) si_z_pos[i] = z_min_d + (float)(i-nDisks_per_side)*disk_to_disk_distance;
+
+	for(int i = 0 ; i < nDisks ; i++){
+		si_r_max[i] = TMath::Min(43.23,18.5*abs(si_z_pos[i])/si_z_pos[nDisks_per_side]);
 
 		if(si_z_pos[i]>66.8&&si_z_pos[i]>0) si_r_min[i] = (0.05025461*si_z_pos[i]-0.180808);
 		else if(si_z_pos[i]>0) si_r_min[i] = 3.18;
@@ -161,9 +171,11 @@ void Fun4All_G4_simplified_v2(
 		else si_r_min[i] = 3.18;
 
 		si_r_max[i] -= si_r_min[i];
+
+		cout << "Rmin, Rmax: " << si_r_min[i] << " " << si_r_max[i] << endl;
 	}
 
-	for (int ilayer = 0; ilayer < 10; ilayer++){
+	for (int ilayer = 0; ilayer < nDisks ; ilayer++){
 		cyl = new PHG4CylinderSubsystem("FBVS", ilayer);
 		cyl->set_string_param("material" , "G4_Si"         );
 		cyl->set_double_param("radius"   , si_r_min[ilayer]);
