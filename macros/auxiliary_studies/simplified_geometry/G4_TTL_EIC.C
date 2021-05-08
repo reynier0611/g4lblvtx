@@ -158,9 +158,6 @@ int make_forward_station(string name, PHG4Reco *g4Reco,
 	return 0;
 }
 
-
-
-
 //-----------------------------------------------------------------------------------//
 int make_barrel_layer(string name, PHG4Reco *g4Reco, 
 		double radius, double halflength, double tSilicon){
@@ -198,7 +195,6 @@ int make_barrel_layer(string name, PHG4Reco *g4Reco,
 		cyl->OverlapCheck(true);
 		g4Reco->registerSubsystem(cyl);
 		currRadius = currRadius+thickness[l];
-		//     cout << currRadius << endl;
 	}
 
 	return 0;

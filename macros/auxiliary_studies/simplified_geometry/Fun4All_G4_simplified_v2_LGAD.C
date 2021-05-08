@@ -40,8 +40,7 @@ void Fun4All_G4_simplified_v2_LGAD(
 			double vtx_matBud  = 0.05,		// % X/X0 (material budget of vertexing layers)
 			double barr_matBud = 0.55,		// % X/X0 (material budget of middle layers)
 			double disk_matBud = 0.25,		// % X/X0 (material budget of disk layers)
-			double pmin = 0., 			// GeV/c
-			double pmax = 30., 			// GeV/c
+			double r_lgad = 45.,			// LGAD radius
 			int magnetic_field = 4, 		// Magnetic field setting
 			TString out_name = "out_vtx_study")	// output filename
 {	
@@ -61,12 +60,15 @@ void Fun4All_G4_simplified_v2_LGAD(
 	// rc->set_IntFlag("RANDOMSEED", 12345);
 	// ======================================================================================================
 	// Particle Generator Setup
+	double pmin = 0.;  // GeV/c
+        double pmax = 30.; // GeV/c
+
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string("pi-"));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(0.,4.);
+	gen->set_eta_range(0.,.5);
 	gen->set_phi_range(0,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle generator flat in pT
@@ -191,7 +193,10 @@ void Fun4All_G4_simplified_v2_LGAD(
 	//---------------------------
 	// Central LGAD
 	//Enable::CTTL = true;
-	CTTLSetup(g4Reco,"AllSi_study");
+	// Want to try: 6.2, 12.6, 19, 23.18, 30.09, 37 cm	
+	double lgad_z_half_l = TMath::Max(19.0,(r_lgad-4.165e-4)/7.3998e-1-1.);
+	make_barrel_layer("CTTL_0", g4Reco, r_lgad , lgad_z_half_l , 85e-4);
+	
 	//---------------------------
 	// Black hole to suck loopers out of their misery
 	double BH_r = si_r_pos[nTrckLayers-1]+2;
@@ -273,6 +278,17 @@ void Fun4All_G4_simplified_v2_LGAD(
 			0                           		// noise hits
 			);	
 
+	// LGAD
+	float pitch=500e-4;
+	kalman->add_phg4hits("G4HIT_CTTL_0",           		// const std::string& phg4hitsNames,
+        		PHG4TrackFastSim::Cylinder,
+        		999.,					// radial-resolution [cm]
+        		pitch/sqrt(12.),			// azimuthal-resolution [cm]
+        		pitch/sqrt(12.),          		// z-resolution [cm]
+        		1,                              	// efficiency,
+        		0					// noise hits
+			);
+	
 	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
