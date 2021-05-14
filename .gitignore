@@ -97,3 +97,4 @@ cori_batch/run_shared_pim_det2_20x20_GEM_RICH.sh
 
 macros/auxiliary_studies/simplified_geometry/*.root
 
+macros/auxiliary_studies/simplified_geometry/cori_batch/

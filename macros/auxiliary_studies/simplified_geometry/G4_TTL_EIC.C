@@ -183,8 +183,9 @@ int make_barrel_layer(string name, PHG4Reco *g4Reco,
 
 	double currRadius = radius;
 	//   cout << currRadius << endl;
+	cout << "LGAD setup" << endl;
 	for (int l = 0; l < nSubLayer; l++) {
-		//     cout << name <<"_"<< layerName[l] << endl;
+		cout << name <<" "<< layerName[l] << " thickness:" << thickness[l] << " cm" << endl;
 		cyl = new PHG4CylinderSubsystem(name + "_" + layerName[l],l);
 		cyl->SuperDetector(name);
 		cyl->set_double_param("radius", currRadius);

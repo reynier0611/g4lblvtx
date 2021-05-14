@@ -1,10 +1,10 @@
 /*
-================================================================================================================
-The purpose of this code is to have a version of the all-silicon tracker that is simplified so that we can study
-different variations of the geometry quickly. Specifically, I wrote this code to study the impact that adding a
-cylindrical GEM outside the DIRC can have on tracking.
-================================================================================================================
-*/
+   ================================================================================================================
+   The purpose of this code is to have a version of the all-silicon tracker that is simplified so that we can study
+   different variations of the geometry quickly. Specifically, I wrote this code to study the impact that adding a
+   cylindrical GEM outside the DIRC can have on tracking.
+   ================================================================================================================
+   */
 #pragma once
 #include <phgenfit/Track.h>
 #include <fun4all/Fun4AllDstInputManager.h>
@@ -30,6 +30,7 @@ cylindrical GEM outside the DIRC can have on tracking.
 #include "G4_BlackHole.C"
 //#include "../../G4_DIRC.C"
 #include "G4_DIRC_SMALL.C"
+#include "G4_GEM_CYL.C"
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -44,7 +45,8 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 			double pmin = 0., 			// GeV/c
 			double pmax = 30., 			// GeV/c
 			int magnetic_field = 4, 		// Magnetic field setting
-			TString out_name = "out_vtx_study")	// output filename
+			TString out_name = "out_vtx_study",	// output filename
+			int nDircSectors = 12 )			// Number of Quartz bars in the DIRC
 {	
 	// ======================================================================================================
 	// Input from the user
@@ -53,8 +55,8 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
 	bool use_blackhole = false;
-	bool use_barrel_GEM = false;
-	bool use_DIRC = false;
+	bool use_barrel_GEM = true;
+	bool use_DIRC = true;
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -68,7 +70,7 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(-1.2,1.2);
+	gen->set_eta_range(0,1.2);
 	gen->set_phi_range(0,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle generator flat in pT
@@ -183,19 +185,24 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 	}
 	//---------------------------
 	// Cylindrical GEM outside DIRC
-	double barrel_GEM_inner_radius = 60.; // GEM radius
-	double barrel_GEM_radial_thick = si_thick_bar*3.;
-	double barrel_GEM_z_length     = 121.;
-	cyl = new PHG4CylinderSubsystem("BARR_GEM",1);
-        cyl->set_string_param("material" , "G4_Si"                );
-        cyl->set_double_param("radius"   , barrel_GEM_inner_radius);
-        cyl->set_double_param("thickness", barrel_GEM_radial_thick);
-        cyl->set_double_param("place_z"  , 0                      );
-        cyl->set_double_param("length"   , 2.*barrel_GEM_z_length );
-        cyl->SetActive();
-        cyl->SuperDetector("BARR_GEM");
-        cyl->set_color(0,0.5,1);
-        g4Reco->registerSubsystem(cyl);
+	//double barrel_GEM_inner_radius = 60.; // GEM radius
+	//double barrel_GEM_radial_thick = si_thick_bar*3.;
+	//double barrel_GEM_z_length     = 121.;
+	//cyl = new PHG4CylinderSubsystem("BARR_GEM",1);
+	//cyl->set_string_param("material" , "G4_Si"                );
+	//cyl->set_double_param("radius"   , barrel_GEM_inner_radius);
+	//cyl->set_double_param("thickness", barrel_GEM_radial_thick);
+	//cyl->set_double_param("place_z"  , 0                      );
+	//cyl->set_double_param("length"   , 2.*barrel_GEM_z_length );
+	//cyl->SetActive();
+	//cyl->SuperDetector("BARR_GEM");
+	//cyl->set_color(0,0.5,1);
+	//g4Reco->registerSubsystem(cyl);
+	//---------------------------
+	// Cylindrical GEM outside DIRC
+	double barrel_GEM_inner_radius = 92.; // GEM radius
+	double barrel_GEM_z_length     = 242.;
+	make_GEM_barrel_section("outer_gem",g4Reco,barrel_GEM_inner_radius,barrel_GEM_z_length,2.4); // Last argument is material budget of the GEM in % X/X0. Default is 0.652604
 	//---------------------------
 	// Black hole to suck loopers out of their misery
 	double BH_r = si_r_pos[nTrckLayers-1]+2;
@@ -230,7 +237,7 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 	g4Reco->registerSubsystem(Al_supp);	
 	// ------------	
 	if(use_DIRC)
-		double dirc_out_skin = DIRCSetup(g4Reco);
+		double dirc_out_skin = DIRCSetup(g4Reco,nDircSectors);
 	// ------------
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
@@ -281,24 +288,37 @@ void Fun4All_G4_simplified_v2_DIRC_barrel_GEM(
 			);	
 
 	// add barrel GEM layer
+	//if(use_barrel_GEM){
+	//	kalman->add_phg4hits(
+	//			"G4HIT_BARR_GEM",                       // const std::string& phg4hitsNames,
+	//			PHG4TrackFastSim::Cylinder,
+	//			999.,                                   // radial-resolution [cm]
+	//			50e-4,          			// azimuthal-resolution [cm]
+	//			50e-4,          			// z-resolution [cm]
+	//			1,                                      // efficiency,
+	//			0
+	//			);
+	//}
+	// add barrel GEM layer
 	if(use_barrel_GEM){
-	kalman->add_phg4hits(
-			"G4HIT_BARR_GEM",                       // const std::string& phg4hitsNames,
-                        PHG4TrackFastSim::Cylinder,
-                        999.,                                   // radial-resolution [cm]
-                        50e-4,          			// azimuthal-resolution [cm]
-                        50e-4,          			// z-resolution [cm]
-                        1,                                      // efficiency,
-                        0
-			);
+		kalman->add_phg4hits(
+				"G4HIT_outer_gem",
+				PHG4TrackFastSim::Cylinder,
+				999.,                                   // radial-resolution [cm]
+				50e-4,                                  // azimuthal-resolution [cm]
+				50e-4,                                  // z-resolution [cm]
+				1,                                      // efficiency,
+				0
+				);
 	}
+
 	// Mom. res.
 	//kalman->set_use_vertex_in_fitting(true);
-       	//kalman->set_vertex_xy_resolution(50e-4);
-        //kalman->set_vertex_z_resolution(50e-4);
-        //kalman->enable_vertexing(false); // this is false by default
-       	//kalman->set_vertex_min_ndf(10);
-       
+	//kalman->set_vertex_xy_resolution(50e-4);
+	//kalman->set_vertex_z_resolution(50e-4);
+	//kalman->enable_vertexing(false); // this is false by default
+	//kalman->set_vertex_min_ndf(10);
+
 	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
