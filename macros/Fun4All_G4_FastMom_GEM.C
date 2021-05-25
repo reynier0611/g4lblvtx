@@ -230,19 +230,19 @@ void Fun4All_G4_FastMom_GEM(
 
 	//-------------------------
 	// Adding GEMs to the Kalman filter
-	// BACKWARD GEM, 70um azimuthal resolution, 1cm radial strips
+	// BACKWARD GEM, 50um resolution
 	kalman->add_phg4hits("G4HIT_EGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
-			50e-4,//1. / sqrt(12.),                    		// const float radres,
+			50e-4,		                    		// const float radres,
 			50e-4,                             		// const float phires,
 			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 			1,                                 		// const float eff,
 			0                                  		// const float noise
 			);
-	// FORWARD GEM2, 70um azimuthal resolution, 1cm radial strips
+	// FORWARD GEM2, 50um resolution
 	kalman->add_phg4hits("G4HIT_FGEM",                 		// const std::string& phg4hitsNames,
 			PHG4TrackFastSim::Vertical_Plane,  		// const DETECTOR_TYPE phg4dettype,
-			50e-4,//1. / sqrt(12.),                    		// const float radres,
+			50e-4,                    			// const float radres,
 			50e-4,                             		// const float phires,
 			999.,                              		// longitudinal (z) resolution [cm] (this number is not used in vertical plane geometry)
 			1,                                 		// const float eff,
