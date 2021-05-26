@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
-#ifndef MYDETECTORSUBSYSTEM_H
-#define MYDETECTORSUBSYSTEM_H
+#ifndef EICFRICH_SUBSYSTEM_H
+#define EICFRICH_SUBSYSTEM_H
 
 #include <g4detectors/PHG4DetectorSubsystem.h>
 
@@ -62,4 +62,4 @@ class EicFRichSubsystem : public PHG4DetectorSubsystem
   PHG4SteppingAction *m_SteppingAction;
 };
 
-#endif // MYDETECTORSUBSYSTEM_H
+#endif // EICFRICH_SUBSYSTEM_H

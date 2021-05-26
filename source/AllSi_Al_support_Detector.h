@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
-#ifndef MYDETECTORDETECTOR_H
-#define MYDETECTORDETECTOR_H
+#ifndef ALLSI_AL_SUPPORT_DETECTOR_H
+#define ALLSI_AL_SUPPORT_DETECTOR_H
 
 #include <g4main/PHG4Detector.h>
 #include <Geant4/G4Material.hh>
@@ -48,4 +48,4 @@ class AllSi_Al_support_Detector : public PHG4Detector
 		std::string m_SuperDetector;
 };
 
-#endif // MYDETECTORDETECTOR_H
+#endif // ALLSI_AL_SUPPORT_DETECTOR_H

@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
-#ifndef MYDETECTORSUBSYSTEM_H
-#define MYDETECTORSUBSYSTEM_H
+#ifndef ALLSI_AL_SUPPORT_SUBSYSTEM_H
+#define ALLSI_AL_SUPPORT_SUBSYSTEM_H
 
 #include <g4detectors/PHG4DetectorSubsystem.h>
 
@@ -62,4 +62,4 @@ class AllSi_Al_support_Subsystem : public PHG4DetectorSubsystem
   PHG4SteppingAction *m_SteppingAction;
 };
 
-#endif // MYDETECTORSUBSYSTEM_H
+#endif // ALLSI_AL_SUPPORT_SUBSYSTEM_H

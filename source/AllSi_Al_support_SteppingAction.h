@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
-#ifndef MYDETECTORSTEPPINGACTION_H
-#define MYDETECTORSTEPPINGACTION_H
+#ifndef ALLSI_AL_SUPPORT_STEPPINGACTION_H
+#define ALLSI_AL_SUPPORT_STEPPINGACTION_H
 
 #include <g4main/PHG4SteppingAction.h>
 
@@ -49,4 +49,4 @@ class AllSi_Al_support_SteppingAction : public PHG4SteppingAction
   double m_EionSum;
 };
 
-#endif // MYDETECTORSTEPPINGACTION_H
+#endif // ALLSI_AL_SUPPORT_STEPPINGACTION_H

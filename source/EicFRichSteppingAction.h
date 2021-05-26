@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
-#ifndef MYDETECTORSTEPPINGACTION_H
-#define MYDETECTORSTEPPINGACTION_H
+#ifndef EICFRICH_STEPPINGACTION_H
+#define EICFRICH_STEPPINGACTION_H
 
 #include <g4main/PHG4SteppingAction.h>
 
@@ -49,4 +49,4 @@ class EicFRichSteppingAction : public PHG4SteppingAction
   double m_EionSum;
 };
 
-#endif // MYDETECTORSTEPPINGACTION_H
+#endif // EICFRICH_STEPPINGACTION_H

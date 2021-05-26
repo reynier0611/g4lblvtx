@@ -1,7 +1,7 @@
 // Tell emacs that this is a C++ source
 //  -*- C++ -*-.
-#ifndef MYDETECTORDETECTOR_H
-#define MYDETECTORDETECTOR_H
+#ifndef EICFRICHDETECTOR_H
+#define EICFRICHDETECTOR_H
 
 #include <g4main/PHG4Detector.h>
 #include <Geant4/G4Material.hh>
@@ -48,4 +48,4 @@ class EicFRichDetector : public PHG4Detector
 		std::string m_SuperDetector;
 };
 
-#endif // MYDETECTORDETECTOR_H
+#endif // EICFRICHDETECTOR_H
