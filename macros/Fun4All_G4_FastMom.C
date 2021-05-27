@@ -51,7 +51,7 @@ void Fun4All_G4_FastMom(
 {
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 5;	// 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
+	const int particle_gen = 1;	// 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
 	const int magnetic_field = 4;	// 1 = uniform 1.5T, 2 = uniform 3.0T, 3 = sPHENIX 1.4T map, 4 = Beast 3.0T map
 	bool DISPLACED_VERTEX = false;	// this option exclude vertex in the track fitting and use RAVE to reconstruct primary and 2ndary vertexes
 	bool do_projections = false;	// Project momentum vectors to surfaces defined below
