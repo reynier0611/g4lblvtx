@@ -28,6 +28,7 @@ the material budget of different regions of the detector would have on different
 #include <g4lblvtx/PHG4ParticleGenerator_flat_pT.h>
 #include <g4lblvtx/AllSi_Al_support_Subsystem.h>
 #include "G4_BlackHole.C"
+#include "G4_Pipe_EIC.C"
 
 R__LOAD_LIBRARY(libfun4all.so)
 R__LOAD_LIBRARY(libg4detectors.so)
@@ -46,7 +47,7 @@ void Fun4All_G4_simplified_v2(
 {	
 	// ======================================================================================================
 	// Input from the user
-	const int particle_gen = 5;     // 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
+	const int particle_gen = 1;     // 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
 	double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
@@ -65,7 +66,7 @@ void Fun4All_G4_simplified_v2(
 	gen->set_vtx(0,0,0);			// Vertex generation range
 	gen->set_mom_range(pmin,pmax);		// Momentum generation range in GeV/c
 	gen->set_z_range(0.,0.);
-	gen->set_eta_range(0.,4.);
+	gen->set_eta_range(-3.5,3.5);
 	gen->set_phi_range(0,2.*TMath::Pi());
 	// --------------------------------------------------------------------------------------
 	// Particle generator flat in pT
@@ -196,23 +197,10 @@ void Fun4All_G4_simplified_v2(
 		wrap_with_cylindrical_blackhole(g4Reco,BH_r,BH_zmin,BH_zmax);
 
 	//---------------------------
-	// mid-rapidity beryllium pipe
-	double be_pipe_radius = 3.1000;
-	double be_pipe_thickness = 3.1762 - be_pipe_radius;  // 760 um for sPHENIX
-	double be_pipe_length_plus = 66.8;                   // +z beam pipe extend.
-	double be_pipe_length_neg = -79.8;                   // -z beam pipe extend.
-	double be_pipe_length = be_pipe_length_plus - be_pipe_length_neg;
-	double be_pipe_center = 0.5 * (be_pipe_length_plus + be_pipe_length_neg);
-
-	cyl = new PHG4CylinderSubsystem("BE_PIPE", 1);
-	cyl->set_double_param("radius", be_pipe_radius);
-	cyl->set_int_param("lengthviarapidity", 0);
-	cyl->set_double_param("length", be_pipe_length);
-	cyl->set_double_param("place_z", be_pipe_center);
-	cyl->set_string_param("material", "G4_Be");
-	cyl->set_double_param("thickness", be_pipe_thickness);
-	cyl->SuperDetector("PIPE");
-	g4Reco->registerSubsystem(cyl);
+	// Beam pipe
+	PipeInit(); // Load beampipe from Fun4All rather than from gdml file
+	double pipe_radius = 0;
+	pipe_radius = Pipe(g4Reco,pipe_radius);
 	//---------------------------
 
 	// ------------
