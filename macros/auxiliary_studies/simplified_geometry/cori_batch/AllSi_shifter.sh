@@ -22,8 +22,11 @@ then
 elif [ $9 == 3 ]
 then
         BLAB="_sPHENIX"
+elif [ $9 == 4 ]
+then
+	BLAB="_Beast"
 else
-        BLAB="_Beast"
+        BLAB="_Beast_210507"
 fi
 
 rm -rf $outdir/out_AllSi/Simplified_geom/$1/out_simp_geom_vbd_$4_$5_$6_split_$2$BLAB_G4LBLVtx.root

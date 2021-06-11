@@ -1,10 +1,10 @@
 /*
-================================================================================================================
-The purpose of this code is to have a version of the all-silicon tracker that is simplified so that we can study
-different variations of the geometry quickly. Specifically, I wrote this code to study the impact that changing
-the material budget of different regions of the detector would have on different resolutions.
-================================================================================================================
-*/
+   ================================================================================================================
+   The purpose of this code is to have a version of the all-silicon tracker that is simplified so that we can study
+   different variations of the geometry quickly. Specifically, I wrote this code to study the impact that changing
+   the material budget of different regions of the detector would have on different resolutions.
+   ================================================================================================================
+   */
 #pragma once
 #include <phgenfit/Track.h>
 #include <fun4all/Fun4AllDstInputManager.h>
@@ -52,6 +52,22 @@ void Fun4All_G4_simplified_v2_LGAD(
 	double pix_size_dis = 10.; // um - size of pixels in disk layers
 	bool use_blackhole = false;
 	const int nDisks_per_side = 5;
+	bool do_projections = true;
+	// ======================================================================================================
+	// Parameters for projections
+	string projname1   = "DIRC";            // Cylindrical surface object name
+	double projradius1 = 50.;               // [cm] 
+	double length1     = 400.;              // [cm] 
+	// ---
+	double thinness    = 0.1;               // black hole thickness, needs to be taken into account for the z positions
+	// ---
+	string projname2   = "FOR";             // Forward plane object name
+	double projzpos2   = 130+thinness/2.;   // [cm] 
+	double projradius2 = 50.;               // [cm] 
+	// ---
+	string projname3   = "BACK";            // Backward plane object name
+	double projzpos3   = -(130+thinness/2.);// [cm]
+	double projradius3 = 50.;               // [cm]
 	// ======================================================================================================
 	// Make the Server
 	Fun4AllServer *se = Fun4AllServer::instance();
@@ -61,7 +77,7 @@ void Fun4All_G4_simplified_v2_LGAD(
 	// ======================================================================================================
 	// Particle Generator Setup
 	double pmin = 0.;  // GeV/c
-        double pmax = 30.; // GeV/c
+	double pmax = 30.; // GeV/c
 
 	PHG4ParticleGenerator *gen = new PHG4ParticleGenerator();
 	gen->set_name(std::string("pi-"));	// geantino, pi-, pi+, mu-, mu+, e-., e+, proton, ... (currently passed as an input)
@@ -161,7 +177,7 @@ void Fun4All_G4_simplified_v2_LGAD(
 	double si_r_max[nDisks] = {0};
 	double si_r_min[nDisks] = {0};
 	double si_thick_disk = disk_matBud/100.*9.37;
-	
+
 	for(int i = 0        ; i < nDisks_per_side   ; i++) si_z_pos[i] = -z_max_d + (float)i*disk_to_disk_distance;	
 	for(int i = nDisks-1 ; i > nDisks_per_side-1 ; i--) si_z_pos[i] = z_min_d + (float)(i-nDisks_per_side)*disk_to_disk_distance;
 
@@ -196,7 +212,7 @@ void Fun4All_G4_simplified_v2_LGAD(
 	// Want to try: 6.2, 12.6, 19, 23.18, 30.09, 37 cm	
 	double lgad_z_half_l = TMath::Max(19.0,(r_lgad-4.165e-4)/7.3998e-1-1.);
 	make_barrel_layer("CTTL_0", g4Reco, r_lgad , lgad_z_half_l , 85e-4);
-	
+
 	//---------------------------
 	// Black hole to suck loopers out of their misery
 	double BH_r = si_r_pos[nTrckLayers-1]+2;
@@ -230,6 +246,46 @@ void Fun4All_G4_simplified_v2_LGAD(
 	AllSi_Al_support_Subsystem *Al_supp = new AllSi_Al_support_Subsystem("Al_supp");
 	g4Reco->registerSubsystem(Al_supp);	
 	// ------------	
+
+	// ======================================================================================================
+	if(do_projections){
+		PHG4CylinderSubsystem *cyl;
+		cyl = new PHG4CylinderSubsystem(projname1,0);
+		cyl->set_double_param("length", length1);
+		cyl->set_double_param("radius", projradius1); // dirc radius
+		cyl->set_double_param("thickness", 0.1); // needs some thickness
+		cyl->set_string_param("material", "G4_AIR");
+		cyl->SetActive(1);
+		cyl->SuperDetector(projname1);
+		cyl->BlackHole();
+		cyl->set_color(1,0,0,0.7); //reddish
+		g4Reco->registerSubsystem(cyl);
+
+		cyl = new PHG4CylinderSubsystem(projname2,0);
+		cyl->set_double_param("length", thinness);
+		cyl->set_double_param("radius", 2); // beampipe needs to fit here
+		cyl->set_double_param("thickness", projradius2); // 
+		cyl->set_string_param("material", "G4_AIR");
+		cyl->set_double_param("place_z", projzpos2);
+		cyl->SetActive(1);
+		cyl->SuperDetector(projname2);
+		cyl->BlackHole();
+		cyl->set_color(0,1,1,0.3); //reddish
+		g4Reco->registerSubsystem(cyl);
+
+		cyl = new PHG4CylinderSubsystem(projname3,0);
+		cyl->set_double_param("length", thinness);
+		cyl->set_double_param("radius", 2); // beampipe needs to fit here
+		cyl->set_double_param("thickness", projradius3); // 
+		cyl->set_string_param("material", "G4_AIR");
+		cyl->set_double_param("place_z", projzpos3);
+		cyl->SetActive(1);
+		cyl->SuperDetector(projname3);
+		cyl->BlackHole();
+		cyl->set_color(0,1,1,0.3); //reddish
+		g4Reco->registerSubsystem(cyl);
+	}
+	// ======================================================================================================
 
 	PHG4TruthSubsystem *truth = new PHG4TruthSubsystem();
 	g4Reco->registerSubsystem(truth);
@@ -281,14 +337,21 @@ void Fun4All_G4_simplified_v2_LGAD(
 	// LGAD
 	float pitch=500e-4;
 	kalman->add_phg4hits("G4HIT_CTTL_0",           		// const std::string& phg4hitsNames,
-        		PHG4TrackFastSim::Cylinder,
-        		999.,					// radial-resolution [cm]
-        		pitch/sqrt(12.),			// azimuthal-resolution [cm]
-        		pitch/sqrt(12.),          		// z-resolution [cm]
-        		1,                              	// efficiency,
-        		0					// noise hits
+			PHG4TrackFastSim::Cylinder,
+			999.,					// radial-resolution [cm]
+			pitch/sqrt(12.),			// azimuthal-resolution [cm]
+			pitch/sqrt(12.),          		// z-resolution [cm]
+			1,                              	// efficiency,
+			0					// noise hits
 			);
-	
+
+	// Projections  
+	if(do_projections){
+		kalman->add_cylinder_state(projname1, projradius1);     // projection on cylinder (DIRC)
+		kalman->add_zplane_state  (projname2, projzpos2  );     // projection on vertical planes
+		kalman->add_zplane_state  (projname3, projzpos3  );     // projection on vertical planes
+	}
+
 	//kalman->Verbosity(10);
 	kalman->set_use_vertex_in_fitting(false);
 	kalman->set_vertex_xy_resolution(0);
@@ -302,6 +365,11 @@ void Fun4All_G4_simplified_v2_LGAD(
 
 	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
 	fast_sim_eval->set_filename(outputFile);
+	if(do_projections){
+                fast_sim_eval->AddProjection(projname1);
+                fast_sim_eval->AddProjection(projname2);
+                fast_sim_eval->AddProjection(projname3);
+        }
 	se->registerSubsystem(fast_sim_eval);
 
 	// ======================================================================================================
