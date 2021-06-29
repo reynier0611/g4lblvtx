@@ -104,6 +104,16 @@ void Fun4All_G4_simplified_v2(
 		B_label = "_Beast";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/mfield.4col.dat"), PHFieldConfig::kFieldBeast);
 	}
+	else if(magnetic_field==5){
+                B_label = "_Beast_210507";
+                TString path_to_map = "/global/homes/r/reynier/Singularity/BeastMagneticField/data/EIC_Magnetic_Field_Map_2021_05_07_radial_coords_[cm]_[T].120000.lines.Bmap";
+                g4Reco->set_field_map(string(path_to_map), PHFieldConfig::kFieldBeast);
+        }
+        else if(magnetic_field==6){
+                B_label = "_Beast_210528";
+                TString path_to_map = "/global/homes/r/reynier/Singularity/BeastMagneticField/data/EIC_v.0.1.0_Magnetic_Field_Map_2021_05_28_radial_coords_[cm]_[T].401301.line.Bmap";
+                g4Reco->set_field_map(string(path_to_map), PHFieldConfig::kFieldBeast);
+        }
 	else{                           // The user did not provide a valid B field setting
 		cout << "User did not provide a valid magnetic field setting. Set 'magnetic_field'. Bailing out!" << endl;
 	}	
