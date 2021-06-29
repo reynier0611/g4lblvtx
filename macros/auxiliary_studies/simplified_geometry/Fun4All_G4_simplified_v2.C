@@ -40,17 +40,17 @@ R__LOAD_LIBRARY(libg4trackfastsim.so)
 
 void Fun4All_G4_simplified_v2(
 			int nEvents        = -1   ,	// number of events
-			double vtx_matBud  = 0.05 ,	// % X/X0 (material budget of vertexing layers)
-			double barr_matBud = 0.55 ,	// % X/X0 (material budget of middle layers)
-			double disk_matBud = 0.24 ,	// % X/X0 (material budget of disk layers)
 			bool include_RICH  = false,	// if true, RICH material will be included
 			double GEM_res     = -1.  ,	// um, if > 0 forward, backward GEMs will be included
 			int nDircSectors   = 12   ,	// Number of Quartz bars in the DIRC
 			int magnetic_field = 4    ,	// Magnetic field setting
-			TString out_name   = "out_")	// output filename
+			TString out_name   = "out")	// output filename
 {	
 	// ======================================================================================================
 	// Input from the user
+	double vtx_matBud  = 0.05; // % X/X0 (material budget of vertexing layers)
+        double barr_matBud = 0.55; // % X/X0 (material budget of middle layers)
+        double disk_matBud = 0.24; // % X/X0 (material budget of disk layers)
 	const int particle_gen = 1;// 1 = particle generator, 2 = particle gun, 3 = simple event generator, 4 = pythia8 e+p collision, 5 = particle generator flat in pT
 	double pix_size_vtx = 10.; // um - size of pixels in vertexing layers
 	double pix_size_bar = 10.; // um - size of pixels in barrel layers
@@ -123,21 +123,21 @@ void Fun4All_G4_simplified_v2(
 		g4Reco->set_field(3.0);
 	}
 	else if(magnetic_field==3){     // sPHENIX 1.4T map
-		B_label = "_sPHENIX";
+		B_label = "_BaBar";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
 		g4Reco->set_field_rescale(-1.4/1.5);
 	}
 	else if(magnetic_field==4){     // Beast 3.0T map
-		B_label = "_Beast";
+		B_label = "_BeAST";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/mfield.4col.dat"), PHFieldConfig::kFieldBeast);
 	}
 	else if(magnetic_field==5){
-		B_label = "_Beast_210507";
+		B_label = "_ATHENA_210507";
 		TString path_to_map = "/global/homes/r/reynier/Singularity/BeastMagneticField/data/EIC_Magnetic_Field_Map_2021_05_07_radial_coords_[cm]_[T].120000.lines.Bmap";
 		g4Reco->set_field_map(string(path_to_map), PHFieldConfig::kFieldBeast);
 	}
 	else if(magnetic_field==6){
-		B_label = "_Beast_210528";
+		B_label = "_ATHENA_210528";
 		TString path_to_map = "/global/homes/r/reynier/Singularity/BeastMagneticField/data/EIC_v.0.1.0_Magnetic_Field_Map_2021_05_28_radial_coords_[cm]_[T].401301.line.Bmap";
 		g4Reco->set_field_map(string(path_to_map), PHFieldConfig::kFieldBeast);
 	}
@@ -231,7 +231,7 @@ void Fun4All_G4_simplified_v2(
 	// Beam pipe
 	PipeInit(); // Load beampipe from Fun4All rather than from gdml file
 	double pipe_radius = 0;
-	pipe_radius = Pipe(g4Reco,pipe_radius);
+	pipe_radius = Pipe(g4Reco,pipe_radius,true);
 	//---------------------------
 	// Al Support Structure
 	AllSi_Al_support_Subsystem *Al_supp = new AllSi_Al_support_Subsystem("Al_supp");
