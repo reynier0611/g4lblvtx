@@ -51,7 +51,8 @@ void PipeInit()
 
 //! construct beam pipe
 double Pipe(PHG4Reco* g4Reco,
-		double radius)
+		double radius,
+		bool add_gold_coating=false)
 {
 	bool AbsorberActive = Enable::ABSORBER || Enable::PIPE_ABSORBER;
 	bool OverlapCheck = Enable::OVERLAPCHECK || Enable::PIPE_OVERLAPCHECK;
@@ -94,6 +95,21 @@ double Pipe(PHG4Reco* g4Reco,
 	cyl->OverlapCheck(OverlapCheck);
 	if (AbsorberActive) cyl->SetActive();
 	g4Reco->registerSubsystem(cyl);
+
+	if(add_gold_coating){
+		double au_thick = 20./10000.; // cm (i.e. 20 um)
+		cyl = new PHG4CylinderSubsystem("AU_BE_PIPE", 2);
+        	cyl->set_double_param("radius", G4PIPE::be_pipe_radius+G4PIPE::be_pipe_thickness);
+        	cyl->set_int_param("lengthviarapidity", 0);
+        	cyl->set_double_param("length", be_pipe_length);
+        	cyl->set_double_param("place_z", be_pipe_center);
+        	cyl->set_string_param("material", "G4_Au");
+        	cyl->set_double_param("thickness", au_thick);
+        	cyl->SuperDetector("PIPE");
+        	cyl->OverlapCheck(OverlapCheck);
+        	if (AbsorberActive) cyl->SetActive();
+        	g4Reco->registerSubsystem(cyl);
+	}
 
 	radius = G4PIPE::be_pipe_radius + G4PIPE::be_pipe_thickness;
 
