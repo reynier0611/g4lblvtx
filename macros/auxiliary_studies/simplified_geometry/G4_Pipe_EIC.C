@@ -97,7 +97,7 @@ double Pipe(PHG4Reco* g4Reco,
 	g4Reco->registerSubsystem(cyl);
 
 	if(add_gold_coating){
-		double au_thick = 20./10000.; // cm (i.e. 20 um)
+		double au_thick = 2./10000.; // cm (i.e. 2 um)
 		cyl = new PHG4CylinderSubsystem("AU_BE_PIPE", 2);
         	cyl->set_double_param("radius", G4PIPE::be_pipe_radius+G4PIPE::be_pipe_thickness);
         	cyl->set_int_param("lengthviarapidity", 0);
