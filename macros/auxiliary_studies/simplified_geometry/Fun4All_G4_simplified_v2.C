@@ -39,12 +39,13 @@ R__LOAD_LIBRARY(libg4lblvtx.so)
 R__LOAD_LIBRARY(libg4trackfastsim.so)
 
 void Fun4All_G4_simplified_v2(
-			int nEvents        = -1   ,	// number of events
-			bool include_RICH  = false,	// if true, RICH material will be included
-			double GEM_res     = -1.  ,	// um, if > 0 forward, backward GEMs will be included
-			int nDircSectors   = 12   ,	// Number of Quartz bars in the DIRC
-			int magnetic_field = 4    ,	// Magnetic field setting
-			TString out_name   = "out")	// output filename
+			int nEvents        = -1    ,	// number of events
+			bool include_RICH  = false ,	// if true, RICH material will be included
+			double GEM_res     = -1.   ,	// um, if > 0 forward, backward GEMs will be included
+			int nDircSectors   = -1    ,	// Number of Quartz bars in the DIRC
+			int magnetic_field = 5     ,	// Magnetic field setting
+			bool do_projections = false,	// Projections
+			TString out_name   = "out" )	// output filename
 {	
 	// ======================================================================================================
 	// Input from the user
@@ -61,7 +62,6 @@ void Fun4All_G4_simplified_v2(
 	double pmax = 30.; // GeV/c
 	double eta_min = -3.5;
 	double eta_max =  3.5;
-	bool do_projections = true;    // Project momentum vectors to surfaces defined below
 	// ======================================================================================================
 	// Parameters for projections
 	string projname1   = "DIRC";            // Cylindrical surface object name
@@ -123,21 +123,21 @@ void Fun4All_G4_simplified_v2(
 		g4Reco->set_field(3.0);
 	}
 	else if(magnetic_field==3){     // sPHENIX 1.4T map
-		B_label = "_BaBar";
+		B_label = "_B_BaBar";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/sPHENIX.2d.root"), PHFieldConfig::kField2D);
 		g4Reco->set_field_rescale(-1.4/1.5);
 	}
 	else if(magnetic_field==4){     // Beast 3.0T map
-		B_label = "_BeAST";
+		B_label = "_B_BeAST";
 		g4Reco->set_field_map(string(getenv("CALIBRATIONROOT")) + string("/Field/Map/mfield.4col.dat"), PHFieldConfig::kFieldBeast);
 	}
 	else if(magnetic_field==5){
-		B_label = "_ATHENA_210507";
+		B_label = "_B_ATHENA_210507";
 		TString path_to_map = "/global/homes/r/reynier/Singularity/BeastMagneticField/data/EIC_Magnetic_Field_Map_2021_05_07_radial_coords_[cm]_[T].120000.lines.Bmap";
 		g4Reco->set_field_map(string(path_to_map), PHFieldConfig::kFieldBeast);
 	}
 	else if(magnetic_field==6){
-		B_label = "_ATHENA_210528";
+		B_label = "_B_ATHENA_210528";
 		TString path_to_map = "/global/homes/r/reynier/Singularity/BeastMagneticField/data/EIC_v.0.1.0_Magnetic_Field_Map_2021_05_28_radial_coords_[cm]_[T].401301.line.Bmap";
 		g4Reco->set_field_map(string(path_to_map), PHFieldConfig::kFieldBeast);
 	}
@@ -378,7 +378,21 @@ void Fun4All_G4_simplified_v2(
 	se->registerSubsystem(kalman);
 
 	// ======================================================================================================
-	std::string outputFile = (std::string)(out_name)+std::string(B_label)+"_FastSimEval.root";
+	TString label_mat = Form("_AllSi_vbd_%.2f_%.2f_%.2f",vtx_matBud,barr_matBud,disk_matBud);
+	TString label_RICH = "";
+	TString label_GEM  = "";
+	TString label_DIRC = "";
+
+	if(include_RICH)
+		label_RICH = "_RICH";
+
+	if(GEM_res>0)
+		label_GEM = Form("_GEM_res_%.1fum",GEM_res);
+
+	if(nDircSectors>0)
+		label_DIRC = Form("_DIRC_%i_sect",nDircSectors);
+
+	std::string outputFile = (std::string)(out_name)+std::string(label_mat)+std::string(label_RICH)+std::string(label_GEM)+std::string(label_DIRC)+std::string(B_label)+"_FastSimEval.root";
 	PHG4TrackFastSimEval *fast_sim_eval = new PHG4TrackFastSimEval("FastTrackingEval");
 	fast_sim_eval->set_filename(outputFile);
 	if(do_projections){
